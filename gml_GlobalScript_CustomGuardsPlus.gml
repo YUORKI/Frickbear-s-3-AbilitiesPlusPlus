@@ -407,6 +407,7 @@ function set_guard_parameters(arg0 = global.Guard)
     var returnVal = {};
     var backup = 
     {
+        lives_amount: 3,
         animatronics: [UnknownEnum.Value_16],
         unkillable_animatronics: [],
         upgrades: [],
@@ -461,6 +462,7 @@ function set_guard_parameters(arg0 = global.Guard)
     
     global.GuardParameters = returnVal;
     
+    if (returnVal.lives_amount != backup.lives_amount)
     if (!array_compare(returnVal.animatronics, backup.animatronics))
     {
         var list = struct.animatronics;
