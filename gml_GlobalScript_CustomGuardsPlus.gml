@@ -424,6 +424,7 @@ function set_guard_parameters(arg0 = global.Guard)
         consumables_purchasable: true,
         starting_power: 100,
         starting_tokens: 0,
+        inventory_size: 5,
         minigame_token_multiplier: 1,
         blocked_token_multiplier: 1,
         minigame_power_gain: (arg0 == UnknownEnum.Value_178) ? 0.25 : 0,
@@ -433,6 +434,7 @@ function set_guard_parameters(arg0 = global.Guard)
         shop_discount: 1,
         power_rate: 1,
         temperature_rate: 1,
+        night_progress_rate: 1,
         aggro_multiplier: 1,
         starting_quota_increase: 0,
         nightly_quota_increase: 0,
@@ -462,7 +464,6 @@ function set_guard_parameters(arg0 = global.Guard)
     
     global.GuardParameters = returnVal;
     
-    if (returnVal.lives_amount != backup.lives_amount)
     if (!array_compare(returnVal.animatronics, backup.animatronics))
     {
         var list = struct.animatronics;
@@ -566,6 +567,9 @@ function set_guard_parameters(arg0 = global.Guard)
     
     if (returnVal.starting_tokens != backup.starting_tokens)
         add_description_line(string("You start each night with {0} tokens.", returnVal.starting_tokens));
+
+    if (returnVal.inventory_size != backup.inventory_size)
+        add_description_line(string("Your inventory can hold {0} items at once.", returnVal.inventory_size));
     
     if (returnVal.minigame_token_multiplier != backup.minigame_token_multiplier)
         add_description_line(string("Token earnings from minigames are multiplied by {0}x.", returnVal.minigame_token_multiplier));
@@ -593,6 +597,9 @@ function set_guard_parameters(arg0 = global.Guard)
     
     if (returnVal.temperature_rate != backup.temperature_rate)
         add_description_line(string("Your temperature rises {0}x as fast.", returnVal.temperature_rate));
+    
+    if (returnVal.night_progress_rate != backup.night_progress_rate)
+        add_description_line(string("Nights progresss {0}x as normal.", returnVal.night_progress_rate));
     
     if (returnVal.aggro_multiplier != backup.aggro_multiplier)
         add_description_line(string("Animatronics will be {0}x as aggressive.", returnVal.aggro_multiplier));

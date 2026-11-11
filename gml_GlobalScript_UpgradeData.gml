@@ -388,7 +388,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_49] = 
     {
         Name: "Supply Closet",
-        Desc: "Your inventory can hold 7 items at once.",
+        Desc: string("Your inventory can hold {0} items at once.", global.GuardParameters.inventory_size + 2),
         StepUp: [UnknownEnum.Value_50],
         StepDown: [],
         Price: 12
@@ -396,7 +396,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_50] = 
     {
         Name: "Supply Closet+",
-        Desc: "Your inventory can hold 10 items at once.",
+        Desc: string("Your inventory can hold {0} items at once.", global.GuardParameters.inventory_size + 5),
         StepUp: [],
         StepDown: [UnknownEnum.Value_49],
         Price: 18

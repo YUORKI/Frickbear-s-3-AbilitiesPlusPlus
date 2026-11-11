@@ -198,7 +198,8 @@ function beartrap_notif(arg0, arg1 = true)
 
 function inventory_space()
 {
-    return has_upgrade(UnknownEnum.Value_50) ? 10 : (has_upgrade(UnknownEnum.Value_49) ? 7 : 5);
+    item_amount = global.GuardParameters.inventory_size ?? 5;
+    return has_upgrade(UnknownEnum.Value_50) ? (item_amount + 5) : (has_upgrade(UnknownEnum.Value_49) ? (item_amount + 2) : item_amount);
 }
 
 function has_upgrade(arg0, arg1 = true)
