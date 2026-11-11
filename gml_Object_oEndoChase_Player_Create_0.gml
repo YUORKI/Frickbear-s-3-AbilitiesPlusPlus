@@ -1,0 +1,11 @@
+SpeedX = 0;
+SpeedY = 0;
+MovementDirection = 0;
+Speed = 1;
+WalkFrame = 0;
+SimulationDebt = 0;
+BaseSpeed = 1.33;
+SimulationSpeed = BaseSpeed;
+Image = 0;
+DeathFrames = 0;
+PelletBoost = 0.0075;

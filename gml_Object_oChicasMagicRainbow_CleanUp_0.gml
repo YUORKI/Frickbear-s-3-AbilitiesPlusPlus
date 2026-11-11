@@ -1,0 +1,2 @@
+instance_destroy(oChicasMagicRainbow_Shooter);
+instance_destroy(oChicasMagicRainbow_Bullets);

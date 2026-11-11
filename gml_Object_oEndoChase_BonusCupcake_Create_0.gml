@@ -1,0 +1,15 @@
+SpeedX = 0;
+SpeedY = 0;
+Direction = 90;
+Speed = 0.5;
+SpawnX = x;
+SpawnY = y;
+DrawColor = 16777215;
+Frame = 0;
+SimulationDebt = 0;
+SimulationSpeed = 1;
+Eaten = false;
+Vulnerable = false;
+GhostHouseCooldown = 180;
+Image = 0;
+Time = 900;

@@ -1,0 +1,10 @@
+Surf = -1;
+Timer = -4;
+PanPercent = 0;
+Phase = "FadeIn";
+define_music_loops();
+audio_stop_all();
+bitcrush_sound(sfxRunningWater, 0, 0, true);
+OMCSprite = 0;
+Fade = 1;
+CassidyFade = 0;

@@ -1,0 +1,12 @@
+DraggedTopping = -1;
+ToppingSize = 0;
+PizzaStretch = 1;
+PizzaStretchSpeed = 0;
+PizzaGrabbed = false;
+ToppingsOnPizza = [];
+TabletUp = false;
+TabletOffset = 96;
+TabletOffsetSpeed = 0;
+BinCount = 0;
+BinOffset = 40 - TabletOffset;
+Input = -1;

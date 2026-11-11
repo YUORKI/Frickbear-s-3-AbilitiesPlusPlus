@@ -1,0 +1,11 @@
+instance_destroy(ArmFront);
+instance_destroy(Head);
+instance_destroy(Jaw);
+instance_destroy(Torso);
+instance_destroy(ArmBack);
+sprite_delete(SPRITE_Head);
+sprite_delete(SPRITE_Jaw);
+sprite_delete(SPRITE_Torso);
+sprite_delete(SPRITE_ArmFront);
+sprite_delete(SPRITE_ArmBack);
+skin_sound_delete_array([SOUND_Blocked, SOUND_Step]);

@@ -1,0 +1,11 @@
+event_inherited();
+instance_destroy(Head);
+instance_destroy(Body);
+instance_destroy(ArmL);
+instance_destroy(ArmR);
+audio_stop_sound(SOUND_Countdown);
+skin_sound_delete_array([SOUND_Appear, SOUND_Countdown]);
+sprite_delete(SPRITE_Head);
+sprite_delete(SPRITE_Body);
+sprite_delete(SPRITE_Arm);
+sprite_delete(SPRITE_TV);

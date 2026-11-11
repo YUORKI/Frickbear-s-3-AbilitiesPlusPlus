@@ -1,0 +1,14 @@
+WallSize = 64;
+FOV = 62;
+CameraRotation = 0;
+CameraX = x;
+CameraY = y;
+CameraZ = WallSize / 2;
+CameraXTo = x;
+CameraYTo = y - 32;
+CameraZTo = 512;
+ShakeX = 0;
+ShakeY = 0;
+RotationSetting = 0;
+Rotation = RotationSetting;
+RotationSpeed = 0;
