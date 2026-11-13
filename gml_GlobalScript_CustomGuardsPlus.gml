@@ -435,7 +435,6 @@ function set_guard_parameters(arg0 = global.Guard)
         shop_discount: 1,
         power_rate: 1,
         temperature_rate: 1,
-        night_progress_rate: 1,
         aggro_multiplier: 1,
         starting_quota_increase: 0,
         nightly_quota_increase: 0,
@@ -474,7 +473,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[list[i]][0]);
         
-        add_description_line($"Start with {(array_length(names) > 0) ? and_string(names) : "no animatronics"}.");
+        add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no animatronics"));
     }
     
     if (array_length(returnVal.unkillable_animatronics) > 0)
@@ -609,9 +608,6 @@ function set_guard_parameters(arg0 = global.Guard)
     
     if (returnVal.temperature_rate != backup.temperature_rate)
         add_description_line(string("Your temperature rises {0}x as fast.", returnVal.temperature_rate));
-    
-    if (returnVal.night_progress_rate != backup.night_progress_rate)
-        add_description_line(string("Nights progresss {0}x as normal.", returnVal.night_progress_rate));
     
     if (returnVal.aggro_multiplier != backup.aggro_multiplier)
         add_description_line(string("Animatronics will be {0}x as aggressive.", returnVal.aggro_multiplier));
