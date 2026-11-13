@@ -17,7 +17,7 @@ if (Open)
 {
     BlindStretch += ((0.85 - BlindStretch) / 5);
     
-    if (guard_ability(UnknownEnum.Value_18))
+    if (strings_panic(0))
         global.Temperature -= ((oCamera.FanSpeed * 8) / 60);
 }
 else

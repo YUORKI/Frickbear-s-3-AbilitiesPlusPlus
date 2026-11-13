@@ -378,7 +378,7 @@ function and_string(arg0)
 
 function add_description_line(arg0)
 {
-    show_debug_message(string("STR: {0}", arg0));
+    show_debug_message($"STR: {arg0}");
     global.GuardParameters.description += "\n- " + arg0;
 }
 
@@ -424,6 +424,7 @@ function set_guard_parameters(arg0 = global.Guard)
         consumables_purchasable: true,
         starting_power: 100,
         starting_tokens: 0,
+        starting_hour: 3,
         inventory_size: 5,
         minigame_token_multiplier: 1,
         blocked_token_multiplier: 1,
@@ -441,6 +442,7 @@ function set_guard_parameters(arg0 = global.Guard)
         point_goal_base: (arg0 == UnknownEnum.Value_8) ? 35 : 50,
         point_goal_nightly: (arg0 == UnknownEnum.Value_8) ? 5 : 0,
         randomize_minigames: (arg0 == UnknownEnum.Value_19) ? true : false,
+        panic_meter_tied: 0,
         description: get_guard_true_description(arg0)
     };
     returnVal = json_parse(json_stringify(backup));
@@ -472,7 +474,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[list[i]][0]);
         
-        add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no animatronics"));
+        add_description_line($"Start with {(array_length(names) > 0) ? and_string(names) : "no animatronics"}.");
     }
     
     if (array_length(returnVal.unkillable_animatronics) > 0)
@@ -483,7 +485,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[list[i]][0]);
         
-        add_description_line(string("{0} cannot be removed by any means.", and_string(names)));
+        add_description_line($"{and_string(names)} cannot be removed by any means.");
     }
     
     if (array_length(returnVal.upgrades) > 0)
@@ -494,7 +496,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, get_upgrades(list[i]).Name);
         
-        add_description_line(string("Start with {0}.", and_string(names)));
+        add_description_line($"Start with {and_string(names)}.");
     }
     
     if (!array_compare(returnVal.minigames, backup.minigames))
@@ -505,7 +507,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, get_minigame_data(list[i]).Name);
         
-        add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no minigames"));
+        add_description_line($"Start with {(array_length(names) > 0) ? and_string(names) : "no minigames"}.");
     }
     
     if (!array_compare(returnVal.consumables, backup.consumables))
@@ -516,7 +518,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, get_consumables(list[i]).Name);
         
-        add_description_line(string("Start with an {0}.", and_string(names)));
+        add_description_line($"Start with an {and_string(names)}.");
     }
     
     if (returnVal.perma_challenge != backup.perma_challenge)
@@ -536,7 +538,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[shop_to_shopkeeper(list[i])][0]);
         
-        add_description_line(string("{0}'s shop{1} will always appear whenever possible.", and_string(names), (array_length(list) > 1) ? "s" : ""));
+        add_description_line($"{and_string(names)}'s shop{(array_length(list) > 1) ? "s" : ""} will always appear whenever possible.");
     }
     
     if (array_length(returnVal.disabled_shops) > 0)
@@ -547,7 +549,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[shop_to_shopkeeper(list[i])][0]);
         
-        add_description_line(string("{0}'s shop{1} will be unavailable.", and_string(names), (array_length(list) > 1) ? "s" : ""));
+        add_description_line($"{and_string(names)}'s shop{(array_length(list) > 1) ? "s" : ""} will be unavailable.");
     }
     
     if (returnVal.natural_regimen > -1)
@@ -563,52 +565,62 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line("You cannot obtain any additional consumables.");
     
     if (returnVal.starting_power != backup.starting_power)
-        add_description_line(string("You start each night with {0}% power.", returnVal.starting_power));
+        add_description_line($"You start each night with {returnVal.starting_power}% power.");
     
     if (returnVal.starting_tokens != backup.starting_tokens)
-        add_description_line(string("You start each night with {0} tokens.", returnVal.starting_tokens));
-
+        add_description_line($"You start each night with {returnVal.starting_tokens} tokens.");
+    
     if (returnVal.inventory_size != backup.inventory_size)
-        add_description_line(string("Your inventory can hold {0} items at once.", returnVal.inventory_size));
+        add_description_line($"Your inventory can hold {returnVal.inventory_size} items at once.");
     
     if (returnVal.minigame_token_multiplier != backup.minigame_token_multiplier)
-        add_description_line(string("Token earnings from minigames are multiplied by {0}x.", returnVal.minigame_token_multiplier));
+        add_description_line($"Token earnings from minigames are multiplied by {returnVal.minigame_token_multiplier}x.");
     
     if (returnVal.blocked_token_multiplier != backup.blocked_token_multiplier)
-        add_description_line(string("Token earnings from blocked animatronics are multiplied by {0}x.", returnVal.blocked_token_multiplier));
+        add_description_line($"Token earnings from blocked animatronics are multiplied by {returnVal.blocked_token_multiplier}x.");
     
     if (returnVal.minigame_power_gain != backup.minigame_power_gain)
-        add_description_line(string("You restore {0}% power for every token earned from playing minigames.", returnVal.minigame_power_gain));
+        add_description_line($"You restore {returnVal.minigame_power_gain}% power for every token earned from playing minigames.");
+    
+    if (returnVal.starting_hour != backup.starting_hour)
+    {
+        if (returnVal.starting_hour <= 1)
+            add_description_line("You start each round at 12 AM.");
+        else if (returnVal.starting_hour == 2)
+            add_description_line("You start each round at 3 AM.");
+        else if (returnVal.starting_hour >= 4)
+            add_description_line("You start each round at 4:30 AM.");
+    }
     
     if (returnVal.salvage_bonus_multiplier != backup.salvage_bonus_multiplier)
-        add_description_line(string("Animatronics' salvage values are multiplied by {0}x.", returnVal.salvage_bonus_multiplier));
+        add_description_line($"Animatronics' salvage values are multiplied by {returnVal.salvage_bonus_multiplier}x.");
     
     if (returnVal.token_bonus_multiplier != backup.token_bonus_multiplier)
-        add_description_line(string("Token bonuses are multiplied by {0}x.", returnVal.token_bonus_multiplier));
+        add_description_line($"Token bonuses are multiplied by {returnVal.token_bonus_multiplier}x.");
     
     if (returnVal.power_bonus_multiplier != backup.power_bonus_multiplier)
-        add_description_line(string("Power bonuses are multiplied by {0}x.", returnVal.power_bonus_multiplier));
+        add_description_line($"Power bonuses are multiplied by {returnVal.power_bonus_multiplier}x.");
     
     if (returnVal.shop_discount != backup.shop_discount)
-        add_description_line(string("Shop prices are multiplied by {0}x.", returnVal.shop_discount));
+        add_description_line($"Shop prices are multiplied by {returnVal.shop_discount}x.");
     
     if (returnVal.power_rate != backup.power_rate)
-        add_description_line(string("Your power drains {0}x as fast.", returnVal.power_rate));
+        add_description_line($"Your power drains {returnVal.power_rate}x as fast.");
     
     if (returnVal.temperature_rate != backup.temperature_rate)
-        add_description_line(string("Your temperature rises {0}x as fast.", returnVal.temperature_rate));
+        add_description_line($"Your temperature rises {returnVal.temperature_rate}x as fast.");
     
     if (returnVal.night_progress_rate != backup.night_progress_rate)
-        add_description_line(string("Nights progresss {0}x as normal.", returnVal.night_progress_rate));
+        add_description_line($"Nights progresss {returnVal.night_progress_rate}x as normal.");
     
     if (returnVal.aggro_multiplier != backup.aggro_multiplier)
-        add_description_line(string("Animatronics will be {0}x as aggressive.", returnVal.aggro_multiplier));
+        add_description_line($"Animatronics will be {returnVal.aggro_multiplier}x as aggressive.");
     
     if (returnVal.starting_quota_increase != 0)
-        add_description_line(string("Your initial animatronic quota is increased by {0}.", returnVal.starting_quota_increase));
+        add_description_line($"Your initial animatronic quota is increased by {returnVal.starting_quota_increase}.");
     
     if (returnVal.nightly_quota_increase != 0)
-        add_description_line(string("Your nightly animatronic quota is increased by {0}.", returnVal.nightly_quota_increase));
+        add_description_line($"Your nightly animatronic quota is increased by {returnVal.nightly_quota_increase}.");
     
     if (returnVal.randomize_minigames != backup.randomize_minigames)
         add_description_line("Your minigames are randomized.");
@@ -643,7 +655,7 @@ function get_guard_music_player(arg0, arg1)
         var Song = 
         {
             Name: Data[0],
-            File: import_sound(arg1, string("/songs/{0}", Data[1]), CanLoop ? Data[5] : -4),
+            File: import_sound(arg1, $"/songs/{Data[1]}", CanLoop ? Data[5] : -4),
             Unlocked: true,
             Loop: CanLoop,
             BPM: Data[2],

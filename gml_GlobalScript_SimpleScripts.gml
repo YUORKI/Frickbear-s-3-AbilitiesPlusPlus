@@ -749,6 +749,19 @@ function add_tokens_silently(arg0)
     }
 }
 
+function strings_panic(arg0)
+{
+    if (guard_ability(UnknownEnum.Value_18))
+    { 
+        if (global.Guard == 18 && arg0 == 0)
+            return true;
+        else if (arg0 == global.GuardParameters.panic_meter_tied)
+            return true;
+        else
+            return false;
+    }
+}
+
 function block_tokens(arg0 = 1)
 {
     if (room == Office)
@@ -1355,6 +1368,23 @@ function get_call_speaker(arg0)
         default:
             return "???";
     }
+}
+
+function set_custom_hour()
+{
+    var hour = 3
+
+    if (global.Guard > 20)
+    {
+        if (global.GuardParameters.starting_hour <= 0)
+            hour = 1;
+        else if (global.GuardParameters.starting_hour >= 4)
+            hour = 4;
+        else 
+            hour = global.GuardParameters.starting_hour;
+    }
+
+    return hour
 }
 
 function get_call_id(arg0)
