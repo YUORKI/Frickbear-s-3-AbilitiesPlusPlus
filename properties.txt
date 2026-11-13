@@ -55,6 +55,8 @@
 
 		"starting_power":            100,
 		"starting_tokens":           0,
+		"starting_hour":             2,
+		"inventory_size":            15,
 		"minigame_token_multiplier": 1,
 		"blocked_token_multiplier":  1,
 		"minigame_power_gain":       0,
@@ -74,5 +76,6 @@
 		"point_goal_base":           50,
 		"point_goal_nightly":        0,
 		"randomize_minigames":	     false,
+		"panic_meter_tied":	     0,
 	}
 }
