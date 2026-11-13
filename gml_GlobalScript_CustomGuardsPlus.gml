@@ -378,7 +378,7 @@ function and_string(arg0)
 
 function add_description_line(arg0)
 {
-    show_debug_message($"STR: {arg0}");
+    show_debug_message(string("STR: {0}", arg0));
     global.GuardParameters.description += "\n- " + arg0;
 }
 
@@ -435,7 +435,6 @@ function set_guard_parameters(arg0 = global.Guard)
         shop_discount: 1,
         power_rate: 1,
         temperature_rate: 1,
-        night_progress_rate: 1,
         aggro_multiplier: 1,
         starting_quota_increase: 0,
         nightly_quota_increase: 0,
@@ -474,7 +473,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[list[i]][0]);
         
-        add_description_line($"Start with {(array_length(names) > 0) ? and_string(names) : "no animatronics"}.");
+        add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no animatronics"));
     }
     
     if (array_length(returnVal.unkillable_animatronics) > 0)
@@ -485,7 +484,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[list[i]][0]);
         
-        add_description_line($"{and_string(names)} cannot be removed by any means.");
+        add_description_line(string("{0} cannot be removed by any means.", and_string(names)));
     }
     
     if (array_length(returnVal.upgrades) > 0)
@@ -496,7 +495,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, get_upgrades(list[i]).Name);
         
-        add_description_line($"Start with {and_string(names)}.");
+        add_description_line(string("Start with {0}.", and_string(names)));
     }
     
     if (!array_compare(returnVal.minigames, backup.minigames))
@@ -507,7 +506,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, get_minigame_data(list[i]).Name);
         
-        add_description_line($"Start with {(array_length(names) > 0) ? and_string(names) : "no minigames"}.");
+        add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no minigames"));
     }
     
     if (!array_compare(returnVal.consumables, backup.consumables))
@@ -518,7 +517,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, get_consumables(list[i]).Name);
         
-        add_description_line($"Start with an {and_string(names)}.");
+        add_description_line(string("Start with an {0}.", and_string(names)));
     }
     
     if (returnVal.perma_challenge != backup.perma_challenge)
@@ -538,7 +537,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[shop_to_shopkeeper(list[i])][0]);
         
-        add_description_line($"{and_string(names)}'s shop{(array_length(list) > 1) ? "s" : ""} will always appear whenever possible.");
+        add_description_line(string("{0}'s shop{1} will always appear whenever possible.", and_string(names), (array_length(list) > 1) ? "s" : ""));
     }
     
     if (array_length(returnVal.disabled_shops) > 0)
@@ -549,7 +548,7 @@ function set_guard_parameters(arg0 = global.Guard)
         for (var i = 0; i < array_length(list); i++)
             array_push(names, global.Descriptions[shop_to_shopkeeper(list[i])][0]);
         
-        add_description_line($"{and_string(names)}'s shop{(array_length(list) > 1) ? "s" : ""} will be unavailable.");
+        add_description_line(string("{0}'s shop{1} will be unavailable.", and_string(names), (array_length(list) > 1) ? "s" : ""));
     }
     
     if (returnVal.natural_regimen > -1)
@@ -565,22 +564,22 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line("You cannot obtain any additional consumables.");
     
     if (returnVal.starting_power != backup.starting_power)
-        add_description_line($"You start each night with {returnVal.starting_power}% power.");
+        add_description_line(string("You start each night with {0}% power.", returnVal.starting_power));
     
     if (returnVal.starting_tokens != backup.starting_tokens)
-        add_description_line($"You start each night with {returnVal.starting_tokens} tokens.");
+        add_description_line(string("You start each night with {0} tokens.", returnVal.starting_tokens));
     
     if (returnVal.inventory_size != backup.inventory_size)
-        add_description_line($"Your inventory can hold {returnVal.inventory_size} items at once.");
+        add_description_line(string("Your inventory can hold {0} items at once.", returnVal.inventory_size));
     
     if (returnVal.minigame_token_multiplier != backup.minigame_token_multiplier)
-        add_description_line($"Token earnings from minigames are multiplied by {returnVal.minigame_token_multiplier}x.");
+        add_description_line(string("Token earnings from minigames are multiplied by {0}x.", returnVal.minigame_token_multiplier));
     
     if (returnVal.blocked_token_multiplier != backup.blocked_token_multiplier)
-        add_description_line($"Token earnings from blocked animatronics are multiplied by {returnVal.blocked_token_multiplier}x.");
+        add_description_line(string("Token earnings from blocked animatronics are multiplied by {0}x.", returnVal.blocked_token_multiplier));
     
     if (returnVal.minigame_power_gain != backup.minigame_power_gain)
-        add_description_line($"You restore {returnVal.minigame_power_gain}% power for every token earned from playing minigames.");
+        add_description_line(string("You restore {0}% power for every token earned from playing minigames.", returnVal.minigame_power_gain));
     
     if (returnVal.starting_hour != backup.starting_hour)
     {
@@ -593,34 +592,31 @@ function set_guard_parameters(arg0 = global.Guard)
     }
     
     if (returnVal.salvage_bonus_multiplier != backup.salvage_bonus_multiplier)
-        add_description_line($"Animatronics' salvage values are multiplied by {returnVal.salvage_bonus_multiplier}x.");
+        add_description_line(string("Animatronics' salvage values are multiplied by {0}x.", returnVal.salvage_bonus_multiplier));
     
     if (returnVal.token_bonus_multiplier != backup.token_bonus_multiplier)
-        add_description_line($"Token bonuses are multiplied by {returnVal.token_bonus_multiplier}x.");
+        add_description_line(string("Token bonuses are multiplied by {0}x.", returnVal.token_bonus_multiplier));
     
     if (returnVal.power_bonus_multiplier != backup.power_bonus_multiplier)
-        add_description_line($"Power bonuses are multiplied by {returnVal.power_bonus_multiplier}x.");
+        add_description_line(string("Power bonuses are multiplied by {0}x.", returnVal.power_bonus_multiplier));
     
     if (returnVal.shop_discount != backup.shop_discount)
-        add_description_line($"Shop prices are multiplied by {returnVal.shop_discount}x.");
+        add_description_line(string("Shop prices are multiplied by {0}x.", returnVal.shop_discount));
     
     if (returnVal.power_rate != backup.power_rate)
-        add_description_line($"Your power drains {returnVal.power_rate}x as fast.");
+        add_description_line(string("Your power drains {0}x as fast.", returnVal.power_rate));
     
     if (returnVal.temperature_rate != backup.temperature_rate)
-        add_description_line($"Your temperature rises {returnVal.temperature_rate}x as fast.");
-    
-    if (returnVal.night_progress_rate != backup.night_progress_rate)
-        add_description_line($"Nights progresss {returnVal.night_progress_rate}x as normal.");
+        add_description_line(string("Your temperature rises {0}x as fast.", returnVal.temperature_rate));
     
     if (returnVal.aggro_multiplier != backup.aggro_multiplier)
-        add_description_line($"Animatronics will be {returnVal.aggro_multiplier}x as aggressive.");
+        add_description_line(string("Animatronics will be {0}x as aggressive.", returnVal.aggro_multiplier));
     
     if (returnVal.starting_quota_increase != 0)
-        add_description_line($"Your initial animatronic quota is increased by {returnVal.starting_quota_increase}.");
+        add_description_line(string("Your initial animatronic quota is increased by {0}.", returnVal.starting_quota_increase));
     
     if (returnVal.nightly_quota_increase != 0)
-        add_description_line($"Your nightly animatronic quota is increased by {returnVal.nightly_quota_increase}.");
+        add_description_line(string("Your nightly animatronic quota is increased by {0}.", returnVal.nightly_quota_increase));
     
     if (returnVal.randomize_minigames != backup.randomize_minigames)
         add_description_line("Your minigames are randomized.");
@@ -655,7 +651,7 @@ function get_guard_music_player(arg0, arg1)
         var Song = 
         {
             Name: Data[0],
-            File: import_sound(arg1, $"/songs/{Data[1]}", CanLoop ? Data[5] : -4),
+            File: import_sound(arg1, string("/songs/{0}", Data[1]), CanLoop ? Data[5] : -4),
             Unlocked: true,
             Loop: CanLoop,
             BPM: Data[2],
