@@ -436,6 +436,7 @@ function set_guard_parameters(arg0 = global.Guard)
         power_rate: 1,
         temperature_rate: 1,
         aggro_multiplier: 1,
+        ai_limit: 20,
         starting_quota_increase: 0,
         nightly_quota_increase: 0,
         point_goal_base: (arg0 == UnknownEnum.Value_8) ? 35 : 50,
@@ -611,6 +612,9 @@ function set_guard_parameters(arg0 = global.Guard)
     
     if (returnVal.aggro_multiplier != backup.aggro_multiplier)
         add_description_line(string("Animatronics will be {0}x as aggressive.", returnVal.aggro_multiplier));
+
+    if (returnVal.ai_limit != backup.ai_limit)
+        add_description_line(string("Animatronics have a AI limit of {0}.", clamp(returnVal.ai_limit, 1, 35)));
     
     if (returnVal.starting_quota_increase != 0)
         add_description_line(string("Your initial animatronic quota is increased by {0}.", returnVal.starting_quota_increase));

@@ -52,6 +52,7 @@ if (global.Night == "Endless")
         var StarterLevel = lerp(8, 12, global.Difficulty / 4);
         var Round10Level = StarterLevel + 5;
         var DiffFactor = lerp(StarterLevel, Round10Level, global.EndlessRound / 10);
+        var AI_limit = clamp(global.GuardParameters.ai_limit, 1, 5000) ?? 20;
         DiffFactor += max(0, 5 - global.EndlessRound);
         DiffFactor -= (global.DeathsThisRound * 2);
         DiffFactor *= ((1 + guard_ability(UnknownEnum.Value_10)) * AggroMultiplier);
@@ -67,7 +68,10 @@ if (global.Night == "Endless")
             if (array_contains(global.EndlessInventory.WhackedChars, Array[i]) && global.AILevels[Array[i]] == 0)
                 notification(string("{0} has been reactivated!", global.Descriptions[Array[i]][0]), 2);
             
-            global.AILevels[Array[i]] = clamp(DiffFactor, 1, 20);
+            if (global.Guard > 20)
+                global.AILevels[Array[i]] = clamp(DiffFactor, 1, AI_limit);
+            else
+                global.AILevels[Array[i]] = clamp(DiffFactor, 1, 20);            
         }
     }
 }

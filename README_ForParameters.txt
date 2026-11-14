@@ -48,6 +48,12 @@
 "starting_tokens":
 	The amount of tokens you start with each night. Can be negative. 
 
+"starting_hour":
+	Sets what hour you start in. 1 - 12 AM | 2 - 3 AM | 3 - 4 AM | 4 - 4:30 AM
+
+"inventory_size":
+	The amount of items you can carry during the office section.  
+
 "minigame_token_multiplier":
 	A multiplier applied to token earnings from minigames. 
 
@@ -78,6 +84,9 @@
 "aggro_multiplier":
 	A multiplier applied to the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 20.
 
+"ai_limit":
+	Changes the limit of the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 35.
+
 "starting_quota_increase":
 	The amount to increase your starting quota by. Determines the amount of animatronics you need to select on Round 1. Can be negative.
 
@@ -92,6 +101,9 @@
 
 "randomize_minigames":
 	Determines if your set of minigames is set or randomized (like Sally) each round. If set to false, all minigames will be set even if using Sally's ability.
+
+"panic_meter_tied": --- WIP currently having issues with the mask
+	Determines where or how you can decrease the panic meter. 0 - Windows | 1 - Mask 
 
 ---- IDs (NOTE: This category contains the names of EVERY animatronic and guard in the name. Don't read any further if you wanna avoid spoilers!) ----
 
