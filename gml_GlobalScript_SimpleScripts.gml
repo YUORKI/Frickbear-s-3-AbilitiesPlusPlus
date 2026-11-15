@@ -1376,12 +1376,7 @@ function set_custom_hour()
 
     if (global.Guard > 20)
     {
-        if (global.GuardParameters.starting_hour <= 0)
-            hour = 1;
-        else if (global.GuardParameters.starting_hour >= 4)
-            hour = 4;
-        else 
-            hour = global.GuardParameters.starting_hour;
+        hour = clamp(global.GuardParameters.starting_hour, 1 , 4)
     }
 
     return hour

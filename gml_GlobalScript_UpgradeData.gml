@@ -1209,7 +1209,7 @@ function get_available_cartridge_ids()
     
     for (var i = 0; i < 16; i++)
     {
-        if (array_contains(global.EndlessInventory.Cartridges, i) || i == UnknownEnum.Value_7 || i == EleanorHold)
+        if (array_contains(global.EndlessInventory.Cartridges, i) || i == UnknownEnum.Value_7 || i == EleanorHold || array_contains(global.GuardParameters.blacklist_minigames, i))
             continue;
         
         array_push(ReturnInventory, i);
@@ -1311,11 +1311,7 @@ function get_regimen(arg0)
     switch (arg0)
     {
         case UnknownEnum.Value_0:
-            return 
-            {
-                Name: "Door Regimen",
-                Desc: "Door animatronics are more likely to appear."
-            };
+            
         
         case UnknownEnum.Value_1:
             return 

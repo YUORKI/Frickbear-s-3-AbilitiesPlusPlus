@@ -40,6 +40,7 @@
 		"unkillable_animatronics":   [ ],
 		"upgrades":                  [ ],
 		"minigames":                 [ 1 , 2 , 8 ],
+		"blacklist_minigames":	     [ ],
 		"consumables":               [ ],
 		"perma_challenge":           -1,
 		"extra_money":               0,

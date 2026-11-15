@@ -412,6 +412,7 @@ function set_guard_parameters(arg0 = global.Guard)
         unkillable_animatronics: [],
         upgrades: [],
         minigames: [UnknownEnum.Value_1, UnknownEnum.Value_2, UnknownEnum.Value_8],
+        blacklist_minigames: [],
         consumables: [],
         perma_challenge: -1,
         extra_money: 0,
@@ -508,6 +509,17 @@ function set_guard_parameters(arg0 = global.Guard)
             array_push(names, get_minigame_data(list[i]).Name);
         
         add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no minigames"));
+    }
+
+    if (!array_compare(returnVal.blacklist_minigames, backup.blacklist_minigames))
+    {
+        var list = struct.blacklist_minigames;
+        names = [];
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, get_minigame_data(list[i]).Name);
+        
+        add_description_line(string("You can't buy from Rockstar Bonnie's shop: {0}.", and_string(names)));
     }
     
     if (!array_compare(returnVal.consumables, backup.consumables))

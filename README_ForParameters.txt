@@ -12,6 +12,9 @@
 "minigames":
 	The minigames you start out with. Leaving this array blank will leave you with no minigames to start out with. Default is [ 1 , 2 , 8 ] for Air Adventure, Chomping With Chica and Mangle Tangle Mania respectively.
 
+"blacklist_minigames":
+	The minigames you want to disable from appearing in the shop.
+
 "consumables":
 	The consumables you start out with. These will remain in your inventory even if you switch to another guard.
 
