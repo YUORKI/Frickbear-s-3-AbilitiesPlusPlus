@@ -560,6 +560,9 @@ function get_available_upgrade_ids()
         if (i == UnknownEnum.Value_60 && !(global.Night == "Endless"))
             continue;
         
+        if (array_contains(global.GuardParameters.blacklist_upgrades, i))
+            continue;
+
         if (i == UnknownEnum.Value_56 && !global.GuardParameters.cartridges_purchasable)
             continue;
         
@@ -1209,7 +1212,7 @@ function get_available_cartridge_ids()
     
     for (var i = 0; i < 16; i++)
     {
-        if (array_contains(global.EndlessInventory.Cartridges, i) || i == UnknownEnum.Value_7 || i == EleanorHold || array_contains(global.GuardParameters.blacklist_minigames, i))
+        if (array_contains(global.EndlessInventory.Cartridges, i) || i == UnknownEnum.Value_7 || i == EleanorHold || array_contains(global.GuardParameters.blacklist_cartridges, i))
             continue;
         
         array_push(ReturnInventory, i);

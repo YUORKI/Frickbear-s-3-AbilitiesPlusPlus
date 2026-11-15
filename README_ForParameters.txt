@@ -1,5 +1,8 @@
 ---------------------------------------- PARAMETERS ----------------------------------------
 
+"lives_amount": - W.I.P Lives aren't getting changed yet
+	The consumables you start out with. These will remain in your inventory even if you switch to another guard.
+
 "animatronics":
 	Your starting roster of animatronics. Defaults to [ 16 ] (the Marionette). Every extra animatronic added will lower the round 1 quota by 1, so be sure to modify "starting_quota_increase" if you want to force the player to take on more animatronics.
 
@@ -11,9 +14,6 @@
 
 "minigames":
 	The minigames you start out with. Leaving this array blank will leave you with no minigames to start out with. Default is [ 1 , 2 , 8 ] for Air Adventure, Chomping With Chica and Mangle Tangle Mania respectively.
-
-"blacklist_minigames":
-	The minigames you want to disable from appearing in the shop.
 
 "consumables":
 	The consumables you start out with. These will remain in your inventory even if you switch to another guard.
@@ -39,11 +39,20 @@
 "upgrades_purchasable":
 	If set to false, upgrades will no longer be acquirable, and Rockstar Freddy's shop will be disabled.
 
+"blacklist_upgrades":
+	The upgrades you want to disable from appearing in the shop.
+
 "cartridges_purchasable":
 	If set to false, minigame cartridges will no longer be acquirable, and Rockstar Bonnie and Carnie's shops will be disabled. Also prevents the Flashcart upgrade from appearing.
 
+"blacklist_cartridges":
+	The cartridges you want to disable from appearing in the shop.
+
 "consumables_purchasable":
 	If set to false, consumables will no longer be acquirable, and Rockstar Chica's shop will be disabled.
+
+"blacklist_consumables":
+	The consumables you want to disable from appearing in the shop.
 
 "starting_power":
 	The amount of power you start with each night.
@@ -87,7 +96,7 @@
 "aggro_multiplier":
 	A multiplier applied to the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 20.
 
-"ai_limit":
+"ai_limit": - W.I.P doesn't seem to be actually affecting the ai
 	Changes the limit of the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 35.
 
 "starting_quota_increase":

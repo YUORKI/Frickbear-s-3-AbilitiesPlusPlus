@@ -420,8 +420,9 @@ function set_guard_parameters(arg0 = global.Guard)
         disabled_shops: [],
         natural_regimen: -1,
         upgrades_purchasable: true,
+        blacklist_upgrades: [],
         cartridges_purchasable: true,
-        blacklist_minigames: [],
+        blacklist_cartridges: [],
         consumables_purchasable: true,
         blacklist_consumables: [],
         starting_power: 100,
@@ -560,12 +561,23 @@ function set_guard_parameters(arg0 = global.Guard)
     if (!returnVal.upgrades_purchasable)
         add_description_line("You cannot obtain any additional upgrades.");
     
+    if (!array_compare(returnVal.blacklist_upgrades, backup.blacklist_upgrades))
+    {
+        var list = struct.blacklist_upgrades;
+        names = [];
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, get_upgrades(list[i]).Name);
+        
+        add_description_line(string("You can't buy from Rockstar Freddy's shop: {0}.", and_string(names)));
+    }
+    
     if (!returnVal.cartridges_purchasable)
         add_description_line("You cannot obtain any additional minigame cartridges.");
 
-    if (!array_compare(returnVal.blacklist_minigames, backup.blacklist_minigames))
+    if (!array_compare(returnVal.blacklist_cartridges, backup.blacklist_cartridges))
     {
-        var list = struct.blacklist_minigames;
+        var list = struct.blacklist_cartridges;
         names = [];
         
         for (var i = 0; i < array_length(list); i++)
