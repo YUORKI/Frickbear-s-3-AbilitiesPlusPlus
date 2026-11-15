@@ -40,7 +40,7 @@
 	If set to false, upgrades will no longer be acquirable, and Rockstar Freddy's shop will be disabled.
 
 "blacklist_upgrades":
-	The upgrades you want to disable from appearing in the shop.
+	The upgrades you want to disable from appearing in the shop and El Chip's trading.
 
 "cartridges_purchasable":
 	If set to false, minigame cartridges will no longer be acquirable, and Rockstar Bonnie and Carnie's shops will be disabled. Also prevents the Flashcart upgrade from appearing.
@@ -232,6 +232,14 @@ GUARD ABILITIES:
 18. Strings
 19. Sally
 20. Old Man Consequences
+21. Using the monitor no longer drains power, but every other tool drains power twice as fast.
+22. Deathcoins can no longer be purchased from the shop, but Beartraps will remove any animatronic they block for the rest of a round.
+23. Items from Mendo's shop are in unlimited supply, but get exponentially more expensive for each one purchased.
+24. Earnings from salvages are halved, but shops are at a 40% discount.
+25. Earnings from salvages are doubled, but shops are 80% more expensive.
+26. All animatronics' salvage values are equalized.
+27. Your ability is randomized each round.
+28. You may freely pick between any bonus ability at the start of your run.
 
 UPGRADES:
 

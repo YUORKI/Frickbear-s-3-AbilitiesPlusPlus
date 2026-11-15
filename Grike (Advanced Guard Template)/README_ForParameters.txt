@@ -1,5 +1,8 @@
 ---------------------------------------- PARAMETERS ----------------------------------------
 
+"lives_amount": - W.I.P Lives aren't getting changed yet
+	The consumables you start out with. These will remain in your inventory even if you switch to another guard.
+
 "animatronics":
 	Your starting roster of animatronics. Defaults to [ 16 ] (the Marionette). Every extra animatronic added will lower the round 1 quota by 1, so be sure to modify "starting_quota_increase" if you want to force the player to take on more animatronics.
 
@@ -36,17 +39,32 @@
 "upgrades_purchasable":
 	If set to false, upgrades will no longer be acquirable, and Rockstar Freddy's shop will be disabled.
 
+"blacklist_upgrades":
+	The upgrades you want to disable from appearing in the shop.
+
 "cartridges_purchasable":
 	If set to false, minigame cartridges will no longer be acquirable, and Rockstar Bonnie and Carnie's shops will be disabled. Also prevents the Flashcart upgrade from appearing.
 
+"blacklist_cartridges":
+	The cartridges you want to disable from appearing in the shop.
+
 "consumables_purchasable":
 	If set to false, consumables will no longer be acquirable, and Rockstar Chica's shop will be disabled.
+
+"blacklist_consumables":
+	The consumables you want to disable from appearing in the shop.
 
 "starting_power":
 	The amount of power you start with each night.
 
 "starting_tokens":
 	The amount of tokens you start with each night. Can be negative. 
+
+"starting_hour":
+	Sets what hour you start in. 1 - 12 AM | 2 - 3 AM | 3 - 4 AM | 4 - 4:30 AM
+
+"inventory_size":
+	The amount of items you can carry during the office section.  
 
 "minigame_token_multiplier":
 	A multiplier applied to token earnings from minigames. 
@@ -78,6 +96,9 @@
 "aggro_multiplier":
 	A multiplier applied to the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 20.
 
+"ai_limit": - W.I.P doesn't seem to be actually affecting the ai
+	Changes the limit of the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 35.
+
 "starting_quota_increase":
 	The amount to increase your starting quota by. Determines the amount of animatronics you need to select on Round 1. Can be negative.
 
@@ -92,6 +113,9 @@
 
 "randomize_minigames":
 	Determines if your set of minigames is set or randomized (like Sally) each round. If set to false, all minigames will be set even if using Sally's ability.
+
+"panic_meter_tied": --- WIP currently having issues with the mask
+	Determines where or how you can decrease the panic meter. 0 - Windows | 1 - Mask 
 
 ---- IDs (NOTE: This category contains the names of EVERY animatronic and guard in the name. Don't read any further if you wanna avoid spoilers!) ----
 

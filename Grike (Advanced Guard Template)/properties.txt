@@ -36,6 +36,7 @@
 	"ability": 1,
 	"fld_parameters":
 	{
+		"lives_amount": 	     3,
 		"animatronics":              [ 16 ],
 		"unkillable_animatronics":   [ ],
 		"upgrades":                  [ ],
@@ -50,11 +51,16 @@
 		"natural_regimen":           -1,
 
 		"upgrades_purchasable":      true,
+		"blacklist_upgrades":	     [ ],
 		"cartridges_purchasable":    true,
+		"blacklist_cartridges":	     [ ],
 		"consumables_purchasable":   true,
+		"blacklist_consumables":     [ ],
 
 		"starting_power":            100,
 		"starting_tokens":           0,
+		"starting_hour":             3,
+		"inventory_size":            5,
 		"minigame_token_multiplier": 1,
 		"blocked_token_multiplier":  1,
 		"minigame_power_gain":       0,
@@ -68,11 +74,13 @@
 		"power_rate":                1,
 		"temperature_rate":          1,
 		"aggro_multiplier":          1,
+		"ai_limit":		     20,
 		"starting_quota_increase":   0,
 		"nightly_quota_increase":    0,
 
 		"point_goal_base":           50,
 		"point_goal_nightly":        0,
 		"randomize_minigames":	     false,
+		"panic_meter_tied":	     0,
 	}
 }
