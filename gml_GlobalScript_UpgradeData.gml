@@ -147,7 +147,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_17] = 
     {
         Name: "Late Start",
-        Desc: string("Start the night at {0}:{1} AM. Replaces Head Start.", get_starting_AM(), speedup_seconds(30, true)),
+        Desc: string("Start the night at {0}:{1} AM. Replaces Head Start.", (global.GuardParameters.starting_hour == 4) ? 4 : get_starting_AM(), (global.GuardParameters.starting_hour == 4) ? 42 : speedup_seconds(30, true)),
         StepUp: [],
         StepDown: [UnknownEnum.Value_15],
         Price: 32

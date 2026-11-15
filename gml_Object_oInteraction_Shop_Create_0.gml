@@ -134,6 +134,9 @@ function generate_inventory(arg0)
             {
                 var Include = true;
                 var Upgrade = UpgradeList[i];
+
+                if (array_contains(global.GuardParameters.blacklist_consumables, i))
+                    Include = false;
                 
                 if (i == UnknownEnum.Value_9)
                     Include = false;

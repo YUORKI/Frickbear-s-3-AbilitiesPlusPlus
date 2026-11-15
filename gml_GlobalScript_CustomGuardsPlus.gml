@@ -412,7 +412,6 @@ function set_guard_parameters(arg0 = global.Guard)
         unkillable_animatronics: [],
         upgrades: [],
         minigames: [UnknownEnum.Value_1, UnknownEnum.Value_2, UnknownEnum.Value_8],
-        blacklist_minigames: [],
         consumables: [],
         perma_challenge: -1,
         extra_money: 0,
@@ -422,7 +421,9 @@ function set_guard_parameters(arg0 = global.Guard)
         natural_regimen: -1,
         upgrades_purchasable: true,
         cartridges_purchasable: true,
+        blacklist_minigames: [],
         consumables_purchasable: true,
+        blacklist_consumables: [],
         starting_power: 100,
         starting_tokens: 0,
         starting_hour: 3,
@@ -510,17 +511,6 @@ function set_guard_parameters(arg0 = global.Guard)
         
         add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no minigames"));
     }
-
-    if (!array_compare(returnVal.blacklist_minigames, backup.blacklist_minigames))
-    {
-        var list = struct.blacklist_minigames;
-        names = [];
-        
-        for (var i = 0; i < array_length(list); i++)
-            array_push(names, get_minigame_data(list[i]).Name);
-        
-        add_description_line(string("You can't buy from Rockstar Bonnie's shop: {0}.", and_string(names)));
-    }
     
     if (!array_compare(returnVal.consumables, backup.consumables))
     {
@@ -572,9 +562,31 @@ function set_guard_parameters(arg0 = global.Guard)
     
     if (!returnVal.cartridges_purchasable)
         add_description_line("You cannot obtain any additional minigame cartridges.");
+
+    if (!array_compare(returnVal.blacklist_minigames, backup.blacklist_minigames))
+    {
+        var list = struct.blacklist_minigames;
+        names = [];
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, get_minigame_data(list[i]).Name);
+        
+        add_description_line(string("You can't buy from Rockstar Bonnie's shop: {0}.", and_string(names)));
+    }
     
     if (!returnVal.consumables_purchasable)
         add_description_line("You cannot obtain any additional consumables.");
+
+    if (!array_compare(returnVal.blacklist_consumables, backup.blacklist_consumables))
+    {
+        var list = struct.blacklist_consumables;
+        names = [];
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, get_consumables(list[i]).Name);
+        
+        add_description_line(string("You can't buy from Rockstar Chica's shop: {0}.", and_string(names)));
+    }
     
     if (returnVal.starting_power != backup.starting_power)
         add_description_line(string("You start each night with {0}% power.", returnVal.starting_power));

@@ -52,12 +52,14 @@
 
 		"upgrades_purchasable":      true,
 		"cartridges_purchasable":    true,
+		"blacklist_minigames":	     [ ],
 		"consumables_purchasable":   true,
+		"blacklist_consumables":     [ ],
 
 		"starting_power":            100,
 		"starting_tokens":           0,
 		"starting_hour":             2,
-		"inventory_size":            15,
+		"inventory_size":            5,
 		"minigame_token_multiplier": 1,
 		"blocked_token_multiplier":  1,
 		"minigame_power_gain":       0,
