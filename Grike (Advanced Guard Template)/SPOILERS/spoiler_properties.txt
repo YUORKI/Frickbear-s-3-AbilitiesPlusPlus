@@ -1,0 +1,9 @@
+{
+	"new_cassidy_dialogue": "true",
+	
+	"molten_freddy": [["What're you supposed to be!?", "Grike"]],
+	"circus_baby": [["_skip"], ["What? Wait, I didn't say anything about-", "Grike"]],
+	"animdude": [["...Uh, hey?", "Grike"], ["Nice green.", "Animdude"], ["...Thanks?", "Grike"]],
+	"popgoes": [["If I did, would that make you myPOPGOES?", "Grike"]],
+	"rodney": [["...Big name? I've never heard of you.", "Grike"]]
+}

@@ -1,0 +1,8 @@
+{"DIALOGUE":
+	[
+		["Dude.", "Grike"],
+		["I'm like. SO green.", "Grike"],
+		["I can see that, yes.", "Old Man"],
+		["Like I seriously don't think you appreciate how green I am.", "Grike"],
+	]
+} 

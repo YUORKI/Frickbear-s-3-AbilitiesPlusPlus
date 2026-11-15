@@ -1,0 +1,11 @@
+{
+	"Mike":
+	[
+		["...Why are you green?", "Mike"],
+	],
+	"Luigi (Basic Guard Template)":
+	[
+		["Super Mario Brothers...?", "Grike"],
+	],
+
+} 

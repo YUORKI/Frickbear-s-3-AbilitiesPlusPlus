@@ -1,0 +1,8 @@
+[ 
+	[ "Well, if it isn't Grike!" , 0 ] ,
+	[ "Green Mike. Mike but green." , 2.5 ] ,
+	[ "Grike Green. Green Grike?" , 5.9 ] ,
+	[ "Mike mean. Grike if he was Mike." , 9.6 ],
+	[ "Mine Greek. Mean Grike." , 13.4 ],
+	[ "What a treat!" , 16.8 ],
+]

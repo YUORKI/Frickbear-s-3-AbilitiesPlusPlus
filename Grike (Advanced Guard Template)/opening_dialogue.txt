@@ -1,0 +1,5 @@
+{
+	"DIALOGUE":["I am very green, but I'm mean.",
+		"You're green with it!"],
+	"FIRST_PERSON":"true"
+} 

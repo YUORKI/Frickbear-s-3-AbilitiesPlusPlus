@@ -1,0 +1,12 @@
+{
+	"GENERIC":
+	[
+		["Oh, sweet! Man, you're gonna make all the other guys here green with envy.", "Grike"],
+		["Thanks, though. Why don't we get the Grike out of here?", "Grike"],
+	],
+	"Mike":
+	[
+		["Well well well, if it isn't my arch-nemesis!", "Grike"],
+	],
+
+} 

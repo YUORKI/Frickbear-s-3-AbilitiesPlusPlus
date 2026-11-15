@@ -1,0 +1,6 @@
+{
+	"FULL_NAME": "Grike McLime",
+	"DEV_NOTES": "Created by SpookyRick.\n\nThis guard exists purely as a template for Custom Guards 2.0.",
+	"DESCRIPTION": "DEBUT: Green Five Nights at Freddy's (TBD)\n\nYou're green with it!",
+	"VACredit": "Green-Zone"
+}

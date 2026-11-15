@@ -1,0 +1,32 @@
+{"DIALOGUE":
+	[
+		["...Listen, kid.", "Grike"],
+		["I don't know anything about what it must be like to be stuck here for so long.", "Grike"],
+		["I don't know what's on the other side... (And I sure as hell don't know how to handle children...)", "Grike"],
+		["...But whatever you end up facing there, it can't be any worse than spending an eternity here, right?", "Grike"],
+		["I've only been here a week and I already hate this place. I can't imagine how you've felt being trapped here.", "Grike"],
+		["...And, hey, it's not like you have to go it alone, right? Your friends'll go with you.", "Grike"],
+		["...But, after all that I did...", "Cassidy"],
+		["...Would they even st-still want to be my friends anymore?", "Cassidy"],
+		["I...", "Grike"],
+		["...", "Grike"],
+		["...Look. I can't say for sure.", "Grike"],
+		["But you still care about them, right? Don't you think they deserve better than to be stuck in a place like this?", "Grike"],
+		["Maybe they'll be mad. Maybe they'll need some time away.", "Grike"],
+		["If they do...you'll just have to work on yourself for them. You'll find it in yourself to become a better person, for their sake.", "Grike"],
+		["Trust me, kid. As long as you have someone out there to keep fighting for...that's all you need.", "Grike"],
+		["You gotta do what's best for them.", "Grike"],
+		["I...", "Cassidy"],
+		["...", "Cassidy"],
+		["...You're right.", "Cassidy"],
+		["It...it isn't right to keep them all down here.", "Cassidy"],
+		["...It isn't right to keep myself down here.", "Cassidy"],
+		["Whatever's there for us after everything's over...they're still my friends. At least, I still believe that...", "Cassidy"],
+		["...Still, I...I don't like saying goodbye.", "Cassidy"],
+		["I'll...I'll see you again someday, won't I?", "Cassidy"],
+		["Heh...well, hopefully not too soon.", "Grike"],
+		["...But you take care of yourself until then, alright?", "Grike"],
+		["...Haha, yeah...", "Cassidy"],
+		["It's...", "Cassidy"]
+	]
+}
