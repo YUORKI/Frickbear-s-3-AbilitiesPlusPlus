@@ -113,16 +113,8 @@ function get_guard_true_description(arg0, arg1 = true)
             return "Your power drains much faster, but can be refilled by wearing the mask.";
         
         case UnknownEnum.Value_18:
-            if (global.GuardParameters.panic_meter_tied == 1)
-            {
-                return "The temperature meter is replaced by a panic meter. Your panic increases when dealing with animatronics, and can be decreased by using your mask."
-            }
-            else
-            {
-                return "The temperature meter is replaced by a panic meter. Your panic increases when dealing with animatronics, and can be decreased by looking out the back window.";
-            }
-                
-        
+            return "The temperature meter is replaced by a panic meter. Your panic increases when dealing with animatronics, and can be decreased by looking out the back window.";
+
         case UnknownEnum.Value_16:
             return "Your power won't drain so long as you have 1 bar of usage or less. Otherwise, your power will drain significantly faster than usual.";
         

@@ -81,6 +81,5 @@
 		"point_goal_base":           50,
 		"point_goal_nightly":        0,
 		"randomize_minigames":	     false,
-		"panic_meter_tied":	     0,
 	}
 }

@@ -749,19 +749,6 @@ function add_tokens_silently(arg0)
     }
 }
 
-function strings_panic(arg0)
-{
-    if (guard_ability(UnknownEnum.Value_18))
-    { 
-        if (global.Guard == 18 && arg0 == 0)
-            return true;
-        else if (arg0 == global.GuardParameters.panic_meter_tied)
-            return true;
-        else
-            return false;
-    }
-}
-
 function block_tokens(arg0 = 1)
 {
     if (room == Office)

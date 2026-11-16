@@ -445,7 +445,6 @@ function set_guard_parameters(arg0 = global.Guard)
         point_goal_base: (arg0 == UnknownEnum.Value_8) ? 35 : 50,
         point_goal_nightly: (arg0 == UnknownEnum.Value_8) ? 5 : 0,
         randomize_minigames: (arg0 == UnknownEnum.Value_19) ? true : false,
-        panic_meter_tied: 0,
         description: get_guard_true_description(arg0)
     };
     returnVal = json_parse(json_stringify(backup));

@@ -99,8 +99,6 @@ if (Freeze == 0)
     if (!global.Fan)
         audio_stop_sound(sfxFan);
 
-    
-    
     if (input_check_pressed(UnknownEnum.Value_7) && !(global.CamUp || HandheldUp))
     {
         if (global.Tools.Mask == 0)
@@ -117,9 +115,6 @@ if (Freeze == 0)
                 audio_play_sound(sfxMaskOn, 10, false);
                 audio_bus_main.effects[0] = Muffler;
             }
-
-            if (strings_panic(1) && global.MaskDown)
-                global.Temperature -= ((FanSpeed * 8) / 60);
         }
         else
         {
