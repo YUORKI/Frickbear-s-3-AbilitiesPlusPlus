@@ -115,7 +115,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_13] = 
     {
         Name: "Superfan",
-        Desc: guard_ability(UnknownEnum.Value_18) ? "Looking out the window cools you down faster." : "The fan cools down the office faster.",
+        Desc: (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29)) ? "Looking out the window cools you down faster." : "The fan cools down the office faster.",
         StepUp: [UnknownEnum.Value_14],
         StepDown: [],
         Price: 16
@@ -123,7 +123,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_14] = 
     {
         Name: "Superfan+",
-        Desc: guard_ability(UnknownEnum.Value_18) ? "Looking out the window cools you down significantly faster." : "The fan cools down the office significantly faster.",
+        Desc: (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29)) ? "Looking out the window cools you down significantly faster." : "The fan cools down the office significantly faster.",
         StepUp: [],
         StepDown: [UnknownEnum.Value_13],
         Price: 20

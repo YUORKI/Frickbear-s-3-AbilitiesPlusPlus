@@ -758,7 +758,7 @@ function block_tokens(arg0 = 1)
         if (guard_ability(UnknownEnum.Value_7))
             exit;
         
-        if (guard_ability(UnknownEnum.Value_18))
+        if (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29))
             global.Temperature += 4;
         
         if (has_upgrade(UnknownEnum.Value_35))

@@ -80,7 +80,7 @@ if (Freeze == 0)
         global.Cam = global.SavedCam;
     }
     
-    if (input_check_pressed(UnknownEnum.Value_11) && BossMode != UnknownEnum.Value_1 && !guard_ability(UnknownEnum.Value_18))
+    if (input_check_pressed(UnknownEnum.Value_11) && BossMode != UnknownEnum.Value_1 && !(guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29)))
     {
         if (global.Tools.Fan == 0)
         {
@@ -98,6 +98,11 @@ if (Freeze == 0)
     
     if (!global.Fan)
         audio_stop_sound(sfxFan);
+
+    
+
+    if (guard_ability(UnknownEnum.Value_29) && global.MaskDown)
+        global.Temperature -= ((oCamera.FanSpeed * 4) / 60);
 
     if (input_check_pressed(UnknownEnum.Value_7) && !(global.CamUp || HandheldUp))
     {
@@ -213,7 +218,7 @@ if (global.Fan)
 }
 else if (BossMode != UnknownEnum.Value_1)
 {
-    if (guard_ability(UnknownEnum.Value_18))
+    if (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29))
         global.Temperature += ((TemperatureRate * 0.4) / 60);
     else
         global.Temperature += (TemperatureRate / 60);
@@ -436,6 +441,7 @@ enum UnknownEnum
     Value_18,
     Value_19,
     Value_21 = 21,
+    Value_29 = 29,
     Value_62 = 62,
     Value_73 = 73,
     Value_119 = 119,
