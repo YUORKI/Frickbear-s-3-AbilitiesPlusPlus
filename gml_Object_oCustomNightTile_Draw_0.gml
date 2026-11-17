@@ -8,7 +8,7 @@ var Unlocked = global.UnlockedAnimatronics[TileID];
 depth = oCustomNightMenu.depth + 1;
 image_index = 0;
 var SPCharacters = [UnknownEnum.Value_6, UnknownEnum.Value_14, UnknownEnum.Value_17, UnknownEnum.Value_19, UnknownEnum.Value_31, UnknownEnum.Value_37, UnknownEnum.Value_39, UnknownEnum.Value_42, UnknownEnum.Value_41, UnknownEnum.Value_40];
-var DiffLimit = 5000;
+var DiffLimit = 20;
 
 if (global.Cheats[UnknownEnum.Value_1] && array_contains(SPCharacters, TileID))
     DiffLimit++;
@@ -20,7 +20,7 @@ if (Unlocked)
         if (global.AILevels[TileID] > 0)
             global.AILevels[TileID] = 0;
         else
-            global.AILevels[TileID] = 99;
+            global.AILevels[TileID] = 20;
         
         audio_play_sound(sfxBump, 1, false);
     }
