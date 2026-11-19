@@ -40,7 +40,7 @@
 	If set to false, upgrades will no longer be acquirable, and Rockstar Freddy's shop will be disabled.
 
 "blacklist_upgrades":
-	The upgrades you want to disable from appearing in the shop.
+	The upgrades you want to disable from appearing in the shop and El Chip's trading.
 
 "cartridges_purchasable":
 	If set to false, minigame cartridges will no longer be acquirable, and Rockstar Bonnie and Carnie's shops will be disabled. Also prevents the Flashcart upgrade from appearing.
@@ -96,7 +96,7 @@
 "aggro_multiplier":
 	A multiplier applied to the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 20.
 
-"ai_limit": - W.I.P doesn't seem to be actually affecting the ai
+"ai_limit": 
 	Changes the limit of the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 35.
 
 "starting_quota_increase":
@@ -106,16 +106,13 @@
 	The amount to increase your nightly quota by. Determines the amount of animatronics you need to select each round past Round 1. Can be negative.
 
 "point_goal_base":
-	Only used for abilities 8 (The Boss) and 19 (Sally); Determines your base point quota. Can be negative.
+	Only used for abilities 8 (The Boss), 19 (Sally) and 30; Determines your base point quota. Can be negative.
 
 "point_goal_nightly":
-	Only used for abilities 8 (The Boss) and 19 (Sally); Determines how much your point quota increases each round. Can be negative.
+	Only used for abilities 8 (The Boss), 19 (Sally) and 30; Determines how much your point quota increases each round. Can be negative.
 
 "randomize_minigames":
 	Determines if your set of minigames is set or randomized (like Sally) each round. If set to false, all minigames will be set even if using Sally's ability.
-
-"panic_meter_tied": --- WIP currently having issues with the mask
-	Determines where or how you can decrease the panic meter. 0 - Windows | 1 - Mask 
 
 ---- IDs (NOTE: This category contains the names of EVERY animatronic and guard in the name. Don't read any further if you wanna avoid spoilers!) ----
 
@@ -232,6 +229,17 @@ GUARD ABILITIES:
 18. Strings
 19. Sally
 20. Old Man Consequences
+21. Using the monitor no longer drains power, but every other tool drains power twice as fast.
+22. Deathcoins can no longer be purchased from the shop, but Beartraps will remove any animatronic they block for the rest of a round.
+23. Items from Mendo's shop are in unlimited supply, but get exponentially more expensive for each one purchased.
+24. Earnings from salvages are halved, but shops are at a 40% discount.
+25. Earnings from salvages are doubled, but shops are 80% more expensive.
+26. All animatronics' salvage values are equalized.
+27. Your ability is randomized each round.
+28. You may freely pick between any bonus ability at the start of your run.
+29. The temperature meter is replaced by a panic meter. Your panic increases when dealing with animatronics, and can be decreased by using your mask.
+30. (WIP) The night will not end until you've fend off animatronics a certain amount of times (Base 4). The amount needed increases each round (Base 2).
+
 
 UPGRADES:
 

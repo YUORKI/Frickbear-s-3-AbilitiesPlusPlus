@@ -93,7 +93,7 @@ if (sprite_exists(MaskSprite))
 
 if (!Freeze || instance_exists(oJumpscarePhantoms))
 {
-    if ((guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8)) && !instance_exists(oFredbear))
+    if ((guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_30)) && !instance_exists(oFredbear))
     {
         var ProgressToMake = 360 / global.NightSpeedup;
         var ProgressMade = global.Timer - oCamera.StartTime;
@@ -205,6 +205,8 @@ enum UnknownEnum
     Value_3 = 3,
     Value_8 = 8,
     Value_16 = 16,
+    Value_18 = 18,
     Value_19 = 19,
-    Value_22 = 22
+    Value_22 = 22,
+    Value_30 = 30
 }

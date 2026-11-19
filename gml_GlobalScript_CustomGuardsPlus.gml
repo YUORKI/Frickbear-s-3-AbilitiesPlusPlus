@@ -431,7 +431,7 @@ function set_guard_parameters(arg0 = global.Guard)
         inventory_size: 5,
         minigame_token_multiplier: 1,
         blocked_token_multiplier: 1,
-        minigame_power_gain: (arg0 == UnknownEnum.Value_178) ? 0.25 : 0,
+        minigame_power_gain: (arg0 == UnknownEnum.Value_8) ? 0.25 : 0,
         power_bonus_multiplier: 1,
         token_bonus_multiplier: 1,
         salvage_bonus_multiplier: 1,
@@ -442,8 +442,8 @@ function set_guard_parameters(arg0 = global.Guard)
         ai_limit: 20,
         starting_quota_increase: 0,
         nightly_quota_increase: 0,
-        point_goal_base: (arg0 == UnknownEnum.Value_8) ? 35 : 50,
-        point_goal_nightly: (arg0 == UnknownEnum.Value_8) ? 5 : 0,
+        point_goal_base: set_point_goal_base(arg0),
+        point_goal_nightly: set_point_goal_nightly(arg0),
         randomize_minigames: (arg0 == UnknownEnum.Value_19) ? true : false,
         description: get_guard_true_description(arg0)
     };
@@ -719,6 +719,7 @@ enum UnknownEnum
     Value_8,
     Value_16 = 16,
     Value_19 = 19,
+    Value_30 = 30,
     Value_41 = 41,
     Value_178 = 178
 }

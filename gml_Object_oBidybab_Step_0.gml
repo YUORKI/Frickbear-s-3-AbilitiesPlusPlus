@@ -13,7 +13,7 @@ if (global.Cam == Camera)
         with (oBaby)
             BidybabsLeft--;
         
-        block_tokens();
+        block_tokens(,1);
         instance_destroy(self);
     }
 }

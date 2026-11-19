@@ -185,7 +185,7 @@ with (oCamButtonShopItem)
         instance_destroy();
 }
 
-if ((guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8)) && !instance_exists(oFredbear))
+if ((guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_30)) && !instance_exists(oFredbear))
 {
     delete_shop_item("Rewind Clock");
     delete_shop_item("Distortion Clock");
@@ -366,6 +366,7 @@ enum UnknownEnum
     Value_27 = 27,
     Value_28,
     Value_29,
+    Value_30,
     Value_48 = 48,
     Value_56 = 56
 }

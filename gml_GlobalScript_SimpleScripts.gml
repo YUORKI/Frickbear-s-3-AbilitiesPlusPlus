@@ -33,6 +33,32 @@ function round_step(arg0, arg1)
     return round(arg0 / arg1) * arg1;
 }
 
+function set_point_goal_base(arg0)
+{
+    if (arg0 == UnknownEnum.Value_8) 
+        return 35 
+    else if(arg0 == UnknownEnum.Value_30)  
+        return 4
+    else
+        return 50
+}
+
+function set_point_goal_nightly(arg0)
+{
+    if (arg0 == UnknownEnum.Value_8) 
+        return 5 
+    else if(arg0 == UnknownEnum.Value_30)  
+        return 2
+    else
+        return 0
+}
+
+function BlockedAnimatronic()
+{
+    if (guard_ability(UnknownEnum.Value_30))
+        oCamera.BlockedAnimatronicsAmount += 1;
+}
+
 function guard_name(arg0 = global.Guard)
 {
     return global.GuardNames[clamp(arg0, 0, array_length(global.GuardNames) - 1)];
@@ -749,7 +775,7 @@ function add_tokens_silently(arg0)
     }
 }
 
-function block_tokens(arg0 = 1)
+function block_tokens(arg0 = 1, arg1 = 0)
 {
     if (room == Office)
     {
@@ -757,6 +783,9 @@ function block_tokens(arg0 = 1)
         
         if (guard_ability(UnknownEnum.Value_7))
             exit;
+        
+        if (guard_ability(UnknownEnum.Value_30) && arg1 == 0)
+            oCamera.BlockedAnimatronicsAmount += arg0;
         
         if (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29))
             global.Temperature += 4;

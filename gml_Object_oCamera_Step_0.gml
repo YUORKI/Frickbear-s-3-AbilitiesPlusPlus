@@ -262,6 +262,16 @@ if (BossMode != UnknownEnum.Value_2 && BossMode != UnknownEnum.Value_1)
             audio_play_sound(sfxTick, 1, false);
         }
     }
+    else if (!FredbearMode && guard_ability(UnknownEnum.Value_30))
+    {
+        var TimerShift = sign(floor(BlockedAnimatronicsAmount) - global.Progress);
+        
+        if (abs(TimerShift) >= 1)
+        {
+            global.Progress += TimerShift;
+            audio_play_sound(sfxTick, 1, false);
+        }
+    }
     
     if (guard_ability(UnknownEnum.Value_17) && !FredbearMode)
     {
@@ -294,7 +304,7 @@ if (BossMode != UnknownEnum.Value_2 && BossMode != UnknownEnum.Value_1)
         
         global.Timer += 0.016666666666666666;
         
-        if (!(guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_19)) || FredbearMode)
+        if (!(guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_30)) || FredbearMode)
             global.Progress = global.Timer;
     }
 }
@@ -442,6 +452,7 @@ enum UnknownEnum
     Value_19,
     Value_21 = 21,
     Value_29 = 29,
+    Value_30,
     Value_62 = 62,
     Value_73 = 73,
     Value_119 = 119,

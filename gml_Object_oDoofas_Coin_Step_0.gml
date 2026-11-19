@@ -4,7 +4,7 @@ if (place_meeting(x, y, oDoofas))
 {
     instance_destroy();
     audio_play_sound(sfxDoofas_Collect, 2, false);
-    block_tokens();
+    block_tokens(,1);
 }
 
 image_xscale = Size;
