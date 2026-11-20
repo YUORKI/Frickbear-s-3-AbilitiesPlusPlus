@@ -56,6 +56,7 @@
 		"blacklist_cartridges":	     [ ],
 		"consumables_purchasable":   true,
 		"blacklist_consumables":     [ ],
+		"blacklist_endo":	     [ ],
 
 		"starting_power":            100,
 		"starting_tokens":           0,
@@ -73,6 +74,7 @@
 		
 		"power_rate":                1,
 		"temperature_rate":          1,
+        	"time_rate": 		     1,
 		"aggro_multiplier":          1,
 		"ai_limit":		     20,
 		"starting_quota_increase":   0,
@@ -81,5 +83,7 @@
 		"point_goal_base":           50,
 		"point_goal_nightly":        0,
 		"randomize_minigames":	     false,
+
+		"show_parameters": 	     true,
 	}
 }

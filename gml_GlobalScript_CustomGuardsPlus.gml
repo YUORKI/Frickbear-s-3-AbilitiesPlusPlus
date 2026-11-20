@@ -425,6 +425,7 @@ function set_guard_parameters(arg0 = global.Guard)
         blacklist_cartridges: [],
         consumables_purchasable: true,
         blacklist_consumables: [],
+        blacklist_endo: [],
         starting_power: 100,
         starting_tokens: 0,
         starting_hour: 3,
@@ -438,6 +439,7 @@ function set_guard_parameters(arg0 = global.Guard)
         shop_discount: 1,
         power_rate: 1,
         temperature_rate: 1,
+        time_rate: 1,
         aggro_multiplier: 1,
         ai_limit: 20,
         starting_quota_increase: 0,
@@ -445,6 +447,7 @@ function set_guard_parameters(arg0 = global.Guard)
         point_goal_base: set_point_goal_base(arg0),
         point_goal_nightly: set_point_goal_nightly(arg0),
         randomize_minigames: (arg0 == UnknownEnum.Value_19) ? true : false,
+        show_parameters: true,
         description: get_guard_true_description(arg0)
     };
     returnVal = json_parse(json_stringify(backup));
@@ -468,7 +471,10 @@ function set_guard_parameters(arg0 = global.Guard)
     
     global.GuardParameters = returnVal;
     
-    if (!array_compare(returnVal.animatronics, backup.animatronics))
+    if (returnVal.lives_amount != backup.lives_amount && returnVal.show_parameters)
+        add_description_line(string("You have {0} Lives.", returnVal.lives_amount));
+    
+    if (!array_compare(returnVal.animatronics, backup.animatronics) && returnVal.show_parameters)
     {
         var list = struct.animatronics;
         names = [];
@@ -479,7 +485,7 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no animatronics"));
     }
     
-    if (array_length(returnVal.unkillable_animatronics) > 0)
+    if (array_length(returnVal.unkillable_animatronics) > 0 && returnVal.show_parameters)
     {
         var list = struct.unkillable_animatronics;
         names = [];
@@ -490,7 +496,7 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("{0} cannot be removed by any means.", and_string(names)));
     }
     
-    if (array_length(returnVal.upgrades) > 0)
+    if (array_length(returnVal.upgrades) > 0 && returnVal.show_parameters)
     {
         var list = struct.upgrades;
         names = [];
@@ -501,7 +507,7 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("Start with {0}.", and_string(names)));
     }
     
-    if (!array_compare(returnVal.minigames, backup.minigames))
+    if (!array_compare(returnVal.minigames, backup.minigames) && returnVal.show_parameters)
     {
         var list = struct.minigames;
         names = [];
@@ -512,7 +518,7 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("Start with {0}.", (array_length(names) > 0) ? and_string(names) : "no minigames"));
     }
     
-    if (!array_compare(returnVal.consumables, backup.consumables))
+    if (!array_compare(returnVal.consumables, backup.consumables) && returnVal.show_parameters)
     {
         var list = struct.consumables;
         names = [];
@@ -523,16 +529,16 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("Start with an {0}.", and_string(names)));
     }
     
-    if (returnVal.perma_challenge != backup.perma_challenge)
+    if (returnVal.perma_challenge != backup.perma_challenge && returnVal.show_parameters)
         add_description_line(get_eleanor_challenges(returnVal.perma_challenge, 10).Desc);
     
-    if (returnVal.extra_money != backup.extra_money)
+    if (returnVal.extra_money != backup.extra_money && returnVal.show_parameters)
         add_description_line("Start with an extra $" + string_format(returnVal.extra_money, 1, 2) + ".");
     
-    if (array_length(returnVal.boosted_animatronics) > 0)
+    if (array_length(returnVal.boosted_animatronics) > 0 && returnVal.show_parameters)
         add_description_line("Certain animatronics appear more frequently.");
     
-    if (array_length(returnVal.boosted_shops) > 0)
+    if (array_length(returnVal.boosted_shops) > 0 && returnVal.show_parameters)
     {
         var list = struct.boosted_shops;
         names = [];
@@ -543,7 +549,7 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("{0}'s shop{1} will always appear whenever possible.", and_string(names), (array_length(list) > 1) ? "s" : ""));
     }
     
-    if (array_length(returnVal.disabled_shops) > 0)
+    if (array_length(returnVal.disabled_shops) > 0 && returnVal.show_parameters)
     {
         var list = struct.disabled_shops;
         names = [];
@@ -554,13 +560,13 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("{0}'s shop{1} will be unavailable.", and_string(names), (array_length(list) > 1) ? "s" : ""));
     }
     
-    if (returnVal.natural_regimen > -1)
+    if (returnVal.natural_regimen > -1 && returnVal.show_parameters)
         add_description_line(get_regimen(returnVal.natural_regimen).Desc);
     
-    if (!returnVal.upgrades_purchasable)
+    if (!returnVal.upgrades_purchasable && returnVal.show_parameters)
         add_description_line("You cannot obtain any additional upgrades.");
     
-    if (!array_compare(returnVal.blacklist_upgrades, backup.blacklist_upgrades))
+    if (!array_compare(returnVal.blacklist_upgrades, backup.blacklist_upgrades) && returnVal.show_parameters)
     {
         var list = struct.blacklist_upgrades;
         names = [];
@@ -571,10 +577,10 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("You can't buy from Rockstar Freddy's shop: {0}.", and_string(names)));
     }
     
-    if (!returnVal.cartridges_purchasable)
+    if (!returnVal.cartridges_purchasable && returnVal.show_parameters)
         add_description_line("You cannot obtain any additional minigame cartridges.");
 
-    if (!array_compare(returnVal.blacklist_cartridges, backup.blacklist_cartridges))
+    if (!array_compare(returnVal.blacklist_cartridges, backup.blacklist_cartridges) && returnVal.show_parameters)
     {
         var list = struct.blacklist_cartridges;
         names = [];
@@ -585,10 +591,10 @@ function set_guard_parameters(arg0 = global.Guard)
         add_description_line(string("You can't buy from Rockstar Bonnie's shop: {0}.", and_string(names)));
     }
     
-    if (!returnVal.consumables_purchasable)
+    if (!returnVal.consumables_purchasable && returnVal.show_parameters)
         add_description_line("You cannot obtain any additional consumables.");
 
-    if (!array_compare(returnVal.blacklist_consumables, backup.blacklist_consumables))
+    if (!array_compare(returnVal.blacklist_consumables, backup.blacklist_consumables) && returnVal.show_parameters)
     {
         var list = struct.blacklist_consumables;
         names = [];
@@ -598,26 +604,38 @@ function set_guard_parameters(arg0 = global.Guard)
         
         add_description_line(string("You can't buy from Rockstar Chica's shop: {0}.", and_string(names)));
     }
+
+    if (!array_compare(returnVal.blacklist_endo, backup.blacklist_endo) && returnVal.show_parameters)
+    {
+        var list = struct.blacklist_endo;
+        names = [];
+        items_on_endo_desc = ["Battery Pack", "Distortion Clock", "Deathcoin", "Snowcone", "Golden Cupcake", "Beartrap", "Laser Doors", "King's Prize", "Mimic Ball", "AR Mask", "Rewind Clock"]
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, items_on_endo_desc[list[i]]);
+        
+        add_description_line(string("You can't buy from Mendo's shop: {0}.", and_string(names)));
+    }
     
-    if (returnVal.starting_power != backup.starting_power)
+    if (returnVal.starting_power != backup.starting_power && returnVal.show_parameters)
         add_description_line(string("You start each night with {0}% power.", returnVal.starting_power));
     
-    if (returnVal.starting_tokens != backup.starting_tokens)
+    if (returnVal.starting_tokens != backup.starting_tokens && returnVal.show_parameters)
         add_description_line(string("You start each night with {0} tokens.", returnVal.starting_tokens));
     
-    if (returnVal.inventory_size != backup.inventory_size)
+    if (returnVal.inventory_size != backup.inventory_size && returnVal.show_parameters)
         add_description_line(string("Your inventory can hold {0} items at once.", returnVal.inventory_size));
     
-    if (returnVal.minigame_token_multiplier != backup.minigame_token_multiplier)
+    if (returnVal.minigame_token_multiplier != backup.minigame_token_multiplier && returnVal.show_parameters)
         add_description_line(string("Token earnings from minigames are multiplied by {0}x.", returnVal.minigame_token_multiplier));
     
-    if (returnVal.blocked_token_multiplier != backup.blocked_token_multiplier)
+    if (returnVal.blocked_token_multiplier != backup.blocked_token_multiplier && returnVal.show_parameters)
         add_description_line(string("Token earnings from blocked animatronics are multiplied by {0}x.", returnVal.blocked_token_multiplier));
     
-    if (returnVal.minigame_power_gain != backup.minigame_power_gain)
+    if (returnVal.minigame_power_gain != backup.minigame_power_gain && returnVal.show_parameters)
         add_description_line(string("You restore {0}% power for every token earned from playing minigames.", returnVal.minigame_power_gain));
     
-    if (returnVal.starting_hour != backup.starting_hour)
+    if (returnVal.starting_hour != backup.starting_hour && returnVal.show_parameters)
     {
         if (returnVal.starting_hour <= 1)
             add_description_line("You start each round at 12 AM.");
@@ -627,46 +645,49 @@ function set_guard_parameters(arg0 = global.Guard)
             add_description_line("You start each round at 4:30 AM.");
     }
     
-    if (returnVal.salvage_bonus_multiplier != backup.salvage_bonus_multiplier)
+    if (returnVal.salvage_bonus_multiplier != backup.salvage_bonus_multiplier && returnVal.show_parameters)
         add_description_line(string("Animatronics' salvage values are multiplied by {0}x.", returnVal.salvage_bonus_multiplier));
     
-    if (returnVal.token_bonus_multiplier != backup.token_bonus_multiplier)
+    if (returnVal.token_bonus_multiplier != backup.token_bonus_multiplier && returnVal.show_parameters)
         add_description_line(string("Token bonuses are multiplied by {0}x.", returnVal.token_bonus_multiplier));
     
-    if (returnVal.power_bonus_multiplier != backup.power_bonus_multiplier)
+    if (returnVal.power_bonus_multiplier != backup.power_bonus_multiplier && returnVal.show_parameters)
         add_description_line(string("Power bonuses are multiplied by {0}x.", returnVal.power_bonus_multiplier));
     
-    if (returnVal.shop_discount != backup.shop_discount)
+    if (returnVal.shop_discount != backup.shop_discount && returnVal.show_parameters)
         add_description_line(string("Shop prices are multiplied by {0}x.", returnVal.shop_discount));
     
-    if (returnVal.power_rate != backup.power_rate)
+    if (returnVal.power_rate != backup.power_rate && returnVal.show_parameters)
         add_description_line(string("Your power drains {0}x as fast.", returnVal.power_rate));
     
-    if (returnVal.temperature_rate != backup.temperature_rate)
+    if (returnVal.temperature_rate != backup.temperature_rate && returnVal.show_parameters)
         add_description_line(string("Your temperature rises {0}x as fast.", returnVal.temperature_rate));
+
+    if (returnVal.time_rate != backup.time_rate && returnVal.show_parameters)
+        add_description_line(string("Time progresses at {0}x speed.", returnVal.time_rate));
     
-    if (returnVal.aggro_multiplier != backup.aggro_multiplier)
+    if (returnVal.aggro_multiplier != backup.aggro_multiplier && returnVal.show_parameters)
         add_description_line(string("Animatronics will be {0}x as aggressive.", returnVal.aggro_multiplier));
 
-    if (returnVal.ai_limit != backup.ai_limit)
+    if (returnVal.ai_limit != backup.ai_limit && returnVal.show_parameters)
         add_description_line(string("Animatronics have a AI limit of {0}.", clamp(returnVal.ai_limit, 1, 35)));
     
-    if (returnVal.starting_quota_increase != 0)
+    if (returnVal.starting_quota_increase != 0 && returnVal.show_parameters)
         add_description_line(string("Your initial animatronic quota is increased by {0}.", returnVal.starting_quota_increase));
     
-    if (returnVal.nightly_quota_increase != 0)
+    if (returnVal.nightly_quota_increase != 0 && returnVal.show_parameters)
         add_description_line(string("Your nightly animatronic quota is increased by {0}.", returnVal.nightly_quota_increase));
     
-    if (returnVal.randomize_minigames != backup.randomize_minigames)
+    if (returnVal.randomize_minigames != backup.randomize_minigames && returnVal.show_parameters)
         add_description_line("Your minigames are randomized.");
     
-    if (!global.GuardParameters.upgrades_purchasable)
+    if (!global.GuardParameters.upgrades_purchasable && returnVal.show_parameters)
         array_push(global.GuardParameters.disabled_shops, UnknownEnum.Value_0);
     
-    if (!global.GuardParameters.cartridges_purchasable)
+    if (!global.GuardParameters.cartridges_purchasable && returnVal.show_parameters)
         array_push(global.GuardParameters.disabled_shops, UnknownEnum.Value_1, UnknownEnum.Value_7);
     
-    if (!global.GuardParameters.consumables_purchasable)
+    if (!global.GuardParameters.consumables_purchasable && returnVal.show_parameters)
         array_push(global.GuardParameters.disabled_shops, UnknownEnum.Value_2);
 }
 

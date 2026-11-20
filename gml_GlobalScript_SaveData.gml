@@ -190,7 +190,7 @@ function initialize_endless_data()
 {
     global.EndlessRound = 1;
     global.StartRoom = EndlessShopSelection;
-    global.Lives = [0, 0, 0];
+    global.Lives = array_create(global.GuardParameters.lives_amount, 0);
     global.EndlessInventory = 
     {
         Cartridges: array_create(20, false),

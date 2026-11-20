@@ -302,8 +302,11 @@ if (BossMode != UnknownEnum.Value_2 && BossMode != UnknownEnum.Value_1)
         if (((floor((global.Timer * 60) / 5) * 5) % 60) == 0 && !audio_is_playing(sfxClockTicking))
             simple_sound(sfxClockTicking, 500, 0, false, 0.5, 1, random_range(0.9, 1.1));
         
-        global.Timer += 0.016666666666666666;
-        
+        if (global.GuardParameters.time_rate > 0)
+            global.Timer += 0.016666666666666666 * global.GuardParameters.time_rate;
+        else
+            global.Timer += 0.016666666666666666;
+
         if (!(guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_30)) || FredbearMode)
             global.Progress = global.Timer;
     }

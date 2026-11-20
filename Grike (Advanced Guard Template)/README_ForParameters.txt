@@ -1,7 +1,7 @@
 ---------------------------------------- PARAMETERS ----------------------------------------
 
 "lives_amount": - W.I.P Lives aren't getting changed yet
-	The consumables you start out with. These will remain in your inventory even if you switch to another guard.
+	The amoun of lives you want your guard to have.
 
 "animatronics":
 	Your starting roster of animatronics. Defaults to [ 16 ] (the Marionette). Every extra animatronic added will lower the round 1 quota by 1, so be sure to modify "starting_quota_increase" if you want to force the player to take on more animatronics.
@@ -54,6 +54,9 @@
 "blacklist_consumables":
 	The consumables you want to disable from appearing in the shop.
 
+"blacklist_endo":
+	The items you want to disable from Mendo's shop.
+
 "starting_power":
 	The amount of power you start with each night.
 
@@ -93,6 +96,9 @@
 "temperature_rate":
 	The rate at which your temperature increases during nights.
 
+"time_rate":
+	The rate at which time passes during nights.
+
 "aggro_multiplier":
 	A multiplier applied to the AI levels of animatronics. Cannot set active characters' AI levels any lower than 1 or any higher than 20.
 
@@ -113,6 +119,9 @@
 
 "randomize_minigames":
 	Determines if your set of minigames is set or randomized (like Sally) each round. If set to false, all minigames will be set even if using Sally's ability.
+
+"show_parameters": 	     
+	Shows all the changed parameters on the select menu. Disable it if you want to have a cleaner description, so you can add a custom one for the ability your guard has.
 
 ---- IDs (NOTE: This category contains the names of EVERY animatronic and guard in the name. Don't read any further if you wanna avoid spoilers!) ----
 
@@ -359,6 +368,20 @@ CONSUMABLES:
  9. Ultra Deathcoin
 10. Ultra Mimic Ball
 11. Ultra Bomb
+
+MENDO'S SHOP:
+
+ 0. Battery Pack
+ 1. Distortion Clock
+ 2. Deathcoin
+ 3. Snowcone
+ 4. Golden Cupcake
+ 5. Beartrap
+ 6. Laser Doors
+ 7. King's Prize
+ 8. Mimic Ball
+ 9. AR Mask
+10. Rewind Clock
 
 CHALLENGES:
 

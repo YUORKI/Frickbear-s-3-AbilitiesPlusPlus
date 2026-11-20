@@ -1299,7 +1299,7 @@ function game_text(arg0)
                 {
                     audio_play_sound(sfxBitBoost, 10, false);
                     global.RunEarnings -= get_heal_price(1.5);
-                    global.Lives = array_create(3, global.Guard);
+                    global.Lives = array_create(global.GuardParameters.lives_amount, global.Guard);
                     bitcrush_sound(choose_from_array(get_misc_voicelines(UnknownEnum.Value_142, "Buy")), 0, 0, false, 1.5, 6);
                     
                     with (oShopkeepSprite)
