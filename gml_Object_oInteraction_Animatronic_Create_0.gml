@@ -41,6 +41,7 @@ function get_animatronic_height(arg0)
         case UnknownEnum.Value_17:
         case UnknownEnum.Value_72:
         case UnknownEnum.Value_81:
+        case UnknownEnum.Value_90:
         default:
             return 48;
         
@@ -57,6 +58,7 @@ function get_animatronic_height(arg0)
         case UnknownEnum.Value_12:
         case UnknownEnum.Value_13:
         case UnknownEnum.Value_3:
+        case UnknownEnum.Value_89:
         case UnknownEnum.Value_2:
         case UnknownEnum.Value_61:
         case UnknownEnum.Value_74:
@@ -87,6 +89,7 @@ function get_animatronic_height(arg0)
         case UnknownEnum.Value_62:
         case UnknownEnum.Value_76:
         case UnknownEnum.Value_75:
+        case UnknownEnum.Value_88:
             return 80;
         
         case UnknownEnum.Value_26:
@@ -99,6 +102,7 @@ function get_animatronic_height(arg0)
             return 88;
         
         case UnknownEnum.Value_82:
+        case UnknownEnum.Value_87:
             return 96;
         
         case UnknownEnum.Value_19:
@@ -177,11 +181,11 @@ function get_animatronic_height(arg0)
             return 80;
             break;
         
-        case 91:
+        case 94:
             return 72;
             break;
         
-        case 90:
+        case 93:
             return 24;
             break;
     }
@@ -189,11 +193,11 @@ function get_animatronic_height(arg0)
 
 if (AnimatronicID == 49)
 {
-    AnimatronicID = 90;
+    AnimatronicID = 93;
 }
 else if (AnimatronicID == 48)
 {
-    AnimatronicID = 91;
+    AnimatronicID = 94;
 }
 else if (AnimatronicID == UnknownEnum.Value_14)
 {
@@ -298,5 +302,9 @@ enum UnknownEnum
     Value_83,
     Value_84,
     Value_85,
-    Value_86
+    Value_86,
+    Value_87,
+    Value_88,
+    Value_89,
+    Value_90
 }

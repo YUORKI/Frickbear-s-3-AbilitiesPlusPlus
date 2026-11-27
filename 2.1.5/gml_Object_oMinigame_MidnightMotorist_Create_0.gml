@@ -1,0 +1,18 @@
+event_inherited();
+DistTravelled = 0;
+CarSpawner_TopLane = 0;
+CarSpawner_BottomLane = 0;
+Speed = 0;
+CarX = 80;
+CarY = 56;
+CarAngle = 0;
+CarAngleOffset = 0;
+CarAngleOffsetSpeed = 0;
+CarSlowdownFrames = 0;
+SpeedTarget = 2;
+LapsPassed = 0;
+LapsCombo = 0;
+Score = 0;
+Paused = true;
+MotorSound = -1;
+SpeedingCombo = 0;

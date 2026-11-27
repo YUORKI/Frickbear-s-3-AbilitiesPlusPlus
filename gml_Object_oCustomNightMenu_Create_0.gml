@@ -3,9 +3,9 @@ global.Challenge = undefined;
 global.ChallengeTitle = "None";
 global.Cheats[UnknownEnum.Value_0] = true;
 audio_stop_all();
-var SorterArray = get_sorter_array(countup_array(86));
+var SorterArray = get_sorter_array(countup_array(90));
 
-for (var i = 0; i <= 86; i += 1)
+for (var i = 0; i <= 90; i += 1)
 {
     var XValue = i % 10;
     var YValue = floor(i / 10);
@@ -48,9 +48,15 @@ function switch_menus()
     ChallengesOpen = !ChallengesOpen;
     
     if (ChallengesOpen)
+    {
         instance_create_depth(0, 0, depth, oCustomNight_ChallengeMenu);
+        apply_skins(UnknownEnum.Value_1);
+    }
     else
+    {
         instance_destroy(oCustomNight_ChallengeMenu);
+        apply_skins(UnknownEnum.Value_0);
+    }
 }
 
 with (instance_create_depth(544, 296, depth - 1, oCustomNightSetButton))
@@ -88,10 +94,11 @@ WindowY = 256;
 play_music(musCustomNight);
 draw_set_halign(fa_left);
 skin_replace_descriptions();
-reset_challenge_alterations();
+apply_skins(UnknownEnum.Value_0);
 
 enum UnknownEnum
 {
     Value_0,
+    Value_1,
     Value_127 = 127
 }

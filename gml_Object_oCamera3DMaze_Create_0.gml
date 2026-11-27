@@ -52,6 +52,7 @@ switch (room)
         break;
     
     case MinigameMaze_5:
+    default:
         global.Music = musMinigameE;
         break;
 }
@@ -89,7 +90,7 @@ function randomize_animatronics()
     var FullPool = global.ShuffleMode || global.Settings[3][UnknownEnum.Value_5];
     
     if (FullPool)
-        PossibleAnimatronics = countup_array(86, UnknownEnum.Value_40);
+        PossibleAnimatronics = countup_array(90, UnknownEnum.Value_40);
     
     var Shufflers = global.ShuffleData.Animatronics;
     

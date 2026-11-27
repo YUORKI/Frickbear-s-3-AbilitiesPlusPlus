@@ -4,7 +4,7 @@ TornadoMode = true;
 Exiting = false;
 YOffset = 512;
 YOffsetSpeed = 0;
-audio_play_sound(sfxOrvilleAppears, 30, false);
+audio_play_sound(oOrville.SOUND_Appear, 30, false);
 Body = instance_create_layer(0, 0, "InFrontOf_Wall", oOfficeSprite);
 Head = instance_create_layer(0, 0, "InFrontOf_Wall", oOfficeSprite);
 LHand = instance_create_layer(0, 0, "InFrontOf_Wall", oOfficeSprite);

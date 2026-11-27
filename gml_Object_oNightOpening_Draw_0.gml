@@ -42,7 +42,7 @@ if (Frame > 300 || input_check_pressed(UnknownEnum.Value_0))
 }
 
 for (var i = 0; i < array_length(NewAnimatronics); i++)
-    draw_sprite_ext(get_tile(NewAnimatronics[i]), 0, 640 - (48 * (i + 1)), AnimatronicOffsets[i], 1, 1, 0, c_white, 1 - FadeoutAlpha);
+    draw_sprite_ext(global.IconTiles[NewAnimatronics[i]], 0, 640 - (48 * (i + 1)), AnimatronicOffsets[i], 1, 1, 0, c_white, 1 - FadeoutAlpha);
 
 for (var i = 0; i < min(array_length(NewAnimatronics), floor(Frame / 5)); i++)
     AnimatronicOffsets[array_length(NewAnimatronics) - (i + 1)] *= 0.8;

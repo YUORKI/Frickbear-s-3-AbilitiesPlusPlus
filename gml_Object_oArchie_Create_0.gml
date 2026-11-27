@@ -1,3 +1,14 @@
+ID = UnknownEnum.Value_81;
+SPRITE_Border = skin_sprite(sArchie_Border, ID, "sprite_01.png");
+SPRITE_Machine = skin_sprite(sArchie_Machine, ID, ["sprite_02.png", "sprite_03.png"]);
+SPRITE_Grid = skin_sprite(sControlPanel_GridTiles, ID, "sprite_04.png");
+SOUND_Select = skin_sound(sfxControlPanel_Select, ID, "sq_select");
+SOUND_Open = skin_sound(sfxControlPanel_Open, ID, "sq_open");
+SOUND_Close = skin_sound(sfxControlPanel_Close, ID, "sq_close");
+SOUND_Selected = skin_sound(sfxControlPanel_TaskDone, ID, "sq_submit");
+SOUND_Impact = skin_sound(sfxSparkleImpact, ID, "sq_solved");
+SOUND_Cheering = skin_sound(sfxChildrenCheering, ID, "sq_win");
+SOUND_Fail = skin_sound(sfxBitExplosion, ID, "sq_fail");
 SorterArray = [UnknownEnum.Value_0];
 ExclusionList = [];
 DataBoxHeight = 48;
@@ -145,7 +156,7 @@ function draw_selection_menu(arg0, arg1, arg2)
                 GuessingMode = false;
                 mouse_clear(mb_left);
                 GuessAnimationFrame = 0;
-                audio_play_sound(sfxControlPanel_TaskDone, 5, false);
+                audio_play_sound(SOUND_Selected, 5, false);
             }
         }
         
@@ -210,8 +221,8 @@ function make_guess(arg0)
     if (arg0 == Answer)
     {
         WonGame = true;
-        audio_play_sound(sfxSparkleImpact, 15, false);
-        audio_play_sound(sfxChildrenCheering, 12, false);
+        audio_play_sound(SOUND_Impact, 15, false);
+        audio_play_sound(SOUND_Cheering, 12, false);
         block_tokens(5);
         GamesLeft--;
         
@@ -230,7 +241,7 @@ function make_guess(arg0)
     }
     else if (GuessesAllowed == 0)
     {
-        audio_play_sound(sfxBitExplosion, 15, false);
+        audio_play_sound(SOUND_Fail, 15, false);
         FailFrames = 0;
     }
 }
@@ -247,7 +258,7 @@ function array_to_string(arg0)
 
 Dataset = [];
 
-for (var i = 0; i <= ((global.AILevels[UnknownEnum.Value_81] == 21) ? UnknownEnum.Value_200 : 86); i++)
+for (var i = 0; i <= ((global.AILevels[UnknownEnum.Value_81] == 21) ? UnknownEnum.Value_200 : 90); i++)
 {
     var Data = get_animatronic_data(i);
     array_push(Dataset, 
@@ -267,7 +278,7 @@ GamesLeft = ceil(3 / global.NightSpeedup);
 function initialize()
 {
     var AI = global.AILevels[UnknownEnum.Value_81];
-    var PoolSize = min(ceil(lerp(20, 87, AI / 20) / 5) * 5, 87);
+    var PoolSize = min(ceil(lerp(20, 91, AI / 20) / 5) * 5, 91);
     
     if (AI == 21)
         PoolSize = UnknownEnum.Value_201;
@@ -275,12 +286,15 @@ function initialize()
     if (!instance_exists(oArchie_Machine))
     {
         with (instance_create_layer(1147, 1208, "OnWall", oArchie_Machine))
+        {
             image_xscale = -1;
+            sprite_index = other.SPRITE_Machine;
+        }
     }
     
     SorterArray = [];
     
-    for (var a = 0; a <= ((AI == 21) ? 200 : 86); a++)
+    for (var a = 0; a <= ((AI == 21) ? 200 : 90); a++)
     {
         if (global.UnlockedAnimatronics[a])
             array_push(SorterArray, a);

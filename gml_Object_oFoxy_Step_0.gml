@@ -44,11 +44,13 @@ else
                 BlockSound = choose_from_array(SOUND_Blocked);
             
             if (!CheeseConditions)
+            {
                 reverb_sound(BlockSound, -300, 0, false, 1);
+                block_tokens();
+            }
             
             simple_sound(sfxBlock, -300, 0, false, 1);
             clear_doorway(ID, -1);
-            block_tokens();
             
             if (!instance_exists(oLaserDoor))
                 drain_power(PowerDrain);

@@ -77,6 +77,7 @@ if (mouse_in_zone(BoxX, BoxY, 16, 16))
 
 BoxY += 24;
 var curTile = 0;
+var curOffice = 0;
 var nonModTiles = 1;
 var curField = 0;
 var EntryText = "";
@@ -92,8 +93,6 @@ for (var i = -1; i < CharsWithSkins; i++)
     
     if (i == -1)
     {
-        curTile = 0;
-        
         if (array_length(OfficeNames) == 0)
             continue;
         
@@ -128,8 +127,8 @@ for (var i = -1; i < CharsWithSkins; i++)
             }
             else
             {
-                draw_sprite_ext(OfficeTileSprite, curTile, TileX, TileY, 1, 1, 0, c_white, Selected ? 1 : 0.25);
-                curTile++;
+                draw_sprite_ext(OfficeTileSprite, curOffice, TileX, TileY, 1, 1, 0, c_white, Selected ? 1 : 0.25);
+                curOffice++;
             }
             
             if (clicked(TileX, TileY, 48, 48))
@@ -143,8 +142,6 @@ for (var i = -1; i < CharsWithSkins; i++)
     }
     else
     {
-        curTile = 0;
-        
         if (TilesPerEntry[i] == 0 && !ShowAll)
             continue;
         

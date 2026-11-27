@@ -1,6 +1,7 @@
 event_inherited();
 Frame = 0;
 OriginX = 0;
+OriginY = -1;
 JumpX = 640;
 JumpY = 720;
 JumpAngle = 0;

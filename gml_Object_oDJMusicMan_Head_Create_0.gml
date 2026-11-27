@@ -1,0 +1,12 @@
+y = -80;
+event_inherited();
+HeadPos = 0;
+HeadPosSpeed = 0;
+AngleOffsetDirection = 0;
+TurnDir = 0;
+Turn = 0;
+Success = 0;
+AngleOffset = 180;
+AngleOffsetSpeed = 0;
+AngleOffsetTarget = 180;
+Leaving = false;

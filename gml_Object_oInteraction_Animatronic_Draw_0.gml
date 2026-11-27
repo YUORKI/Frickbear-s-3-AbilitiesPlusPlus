@@ -1,6 +1,6 @@
 if (!ImageApplied)
 {
-    if (global.Skins[AnimatronicID] > -1)
+    if (global.SkinsFunctional[AnimatronicID] > -1)
     {
         CustomSprite = skin_sprite(sMaze_Animatronics_Backup, AnimatronicID, "salvage.png");
         Height = DepthOffset + skin_get_attribute(AnimatronicID, "SalvageLocation_Height", get_animatronic_height(AnimatronicID));

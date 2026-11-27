@@ -39,6 +39,41 @@ function update_template_data()
                     DevNotes: "Mod made by SpookyRick.\n\nDevnotes go here!",
                     VACredit: "Green-Zone"
                 };
+                
+                if (ID == UnknownEnum.Value_16)
+                    SaveStuff.ButtonText = "Reset Green Music";
+                
+                if (ID == UnknownEnum.Value_31)
+                    SaveStuff.UseCustomSounds = false;
+                
+                if (ID == UnknownEnum.Value_42)
+                {
+                    SaveStuff.ItemName = "Green Wood";
+                    SaveStuff.ItemDesc = "Buy this to keep Green Chipper happy!";
+                }
+                
+                if (ID == UnknownEnum.Value_63)
+                {
+                    SaveStuff.ShortTasks = ["Task A", "Task B", "Task C"];
+                    SaveStuff.MediumTasks = ["Task A", "Task B", "Task C"];
+                    SaveStuff.LongTasks = ["Task A", "Task B", "Task C"];
+                }
+                
+                if (ID == UnknownEnum.Value_73)
+                {
+                    SaveStuff.SuitNames = ["GREEN ELEPHANT", "MYCELIUM MAN", "SWING BEE", "SHARPAY", "JESTER", "HEDGEHOG HUDGIE", "CARTER CATERPILLAR", "GREEN TIME CHICA"];
+                    SaveStuff.MessageMove = "The Green Mimic has moved to a new suit!";
+                    SaveStuff.MessageDefeat = "The Green Mimic has been subdued!";
+                    SaveStuff.UIColor = [255, 255, 65];
+                }
+                
+                if (ID == UnknownEnum.Value_89)
+                {
+                    SaveStuff.GameName = "Green.EXE";
+                    SaveStuff.ItemDesc = "I AM GREEN.";
+                    SaveStuff.GlitchText = ["!?$%?!", "I AM GOD", "RUN AWAY", "DIE", "****", "&3A@!?"];
+                }
+                
                 var _string = json_stringify(SaveStuff, true);
                 var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);
                 buffer_write(_buffer, buffer_string, _string);
@@ -50,7 +85,7 @@ function update_template_data()
 }
 
 update_template_data();
-CharsWithSkins = 87;
+CharsWithSkins = 91;
 ModNames = [];
 TilesPerEntry = array_create(CharsWithSkins, 0);
 ModTileSprite = -1;
@@ -147,3 +182,13 @@ ScrollBarDragged = false;
 ShowAll = false;
 TransitionPercent = 1;
 play_music(mus_ModMenu, 0.5);
+
+enum UnknownEnum
+{
+    Value_16 = 16,
+    Value_31 = 31,
+    Value_42 = 42,
+    Value_63 = 63,
+    Value_73 = 73,
+    Value_89 = 89
+}

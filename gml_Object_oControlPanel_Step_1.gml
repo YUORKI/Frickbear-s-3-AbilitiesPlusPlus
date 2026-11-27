@@ -5,7 +5,7 @@ var Accessible = character_active(UnknownEnum.Value_63);
 if (RelativeMouseX > -70 && RelativeMouseX < 52 && RelativeMouseY > -60 && RelativeMouseY < 45 && mouse_check_button_pressed(mb_left) && !global.PanelUp && !global.CamUp && Accessible)
 {
     mouse_clear(mb_left);
-    audio_play_sound(sfxControlPanel_Open, 5, false);
+    audio_play_sound(oScraptrap.SOUND_Open, 5, false);
     TabletUp = true;
     global.PanelUp = true;
 }

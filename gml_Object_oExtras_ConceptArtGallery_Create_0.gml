@@ -488,6 +488,14 @@ array_push(ConceptArt,
 });
 array_push(ConceptArt, 
 {
+    Image: CA_FreddyFazbear,
+    Name: "Misc - Freddy Fazbear",
+    Description: "If Freddy Fazbear was in the game he'd probably look like this.\n\nDrawn by SpookyRick.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_0),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
     Image: CA_FoxyRun,
     Name: "Misc - Scrapped Foxy Run",
     Description: "Foxy WAS supposed to have a running animation at one point, although we quickly realized this would be a lot of work for something players would basically never get to see.\n\nAnimated by Wyat_t.",
@@ -664,6 +672,22 @@ array_push(ConceptArt,
 });
 array_push(ConceptArt, 
 {
+    Image: CA_Ralph,
+    Name: "Misc - Ratto's Ralph",
+    Description: "The original sketch for Ralph that would eventually become the basis for his final design! The phone guts were entirely Ratto's idea.\n\nDrawn by Ratto.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_88),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_Endoplush,
+    Name: "Misc - Endoplush Pitch",
+    Description: "Goon and Ellis lobbied VERY hard to have Endoplush included - and they eventually got their way! This was the original idea for his mechanic before the new one was thought up.\n\nDrawn by TheGrandestGoon.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_90),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
     Image: CA_TrashGang,
     Name: "Scrapped - Trash Gang Sketches",
     Description: "All the members of Trash & the Gang were going to be seperate enemies at one point, before all of them (except Mr. Hugs) were combined into one.\n\nDrawn by SpookyRick.",
@@ -688,14 +712,6 @@ array_push(ConceptArt,
 });
 array_push(ConceptArt, 
 {
-    Image: CA_DJMusicMan,
-    Name: "Scrapped - DJ Music Man",
-    Description: "DJ Music Man wasn't really scrapped as much as he just kept being considered whenever some extra animatronics were considered for the roster but always wound up passed up in favor of someone else. Out of any animatronic NOT on the roster, I feel like he's the one I would've wanted to include the most!\n\nDrawn by SpookyRick.",
-    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0([UnknownEnum.Value_75, UnknownEnum.Value_31]),
-    UpdateArt: true
-});
-array_push(ConceptArt, 
-{
     Image: CA_Burntrap,
     Name: "Scrapped - Burntrap",
     Description: "He was definitely considered for the shortest amount of time out of all the scrapped characters present here, but I did have the idea of Burntrap basically just being an empty shell that was puppeted around by the Blob.\n\nDrawn by SpookyRick.",
@@ -708,14 +724,6 @@ array_push(ConceptArt,
     Name: "Scrapped - Endowolf",
     Description: "Endowolf was considered for the game's roster at a few points as well, but was eventually scrapped in favor of other characters I personally thought were a bit cooler. His original mechanic eventually became Hudson's gimmick.\n\nDrawn by SpookyRick.",
     Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0([UnknownEnum.Value_36, UnknownEnum.Value_175]) && global.UnlockedTrophies[UnknownEnum.Value_47],
-    UpdateArt: true
-});
-array_push(ConceptArt, 
-{
-    Image: CA_Endoplush,
-    Name: "Scrapped - Endoplush",
-    Description: "While he was never SERIOUSLY considered, given he was only discussed when the roster was already as full as we could manage... Goon and Ellis DID lobby to have Endoplush included.\n\nDrawn by TheGrandestGoon.",
-    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_21),
     UpdateArt: true
 });
 array_push(ConceptArt, 
@@ -764,6 +772,38 @@ array_push(ConceptArt,
     Name: "Misc - Elizabeth",
     Description: "Elizabeth was added VERY late into development, long after the other 20 guards had long been settled on and finished. She was mainly included to address the fact that she's really the only member of the Afton family who didn't get to do anything cool in the base game.\n\nDrawn by EllisBros.",
     Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_173),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_NuVanny,
+    Name: "Misc - Newer Vanny",
+    Description: "Vanny's design in this game has honestly always bugged me a little ever since it was originally included. If I had designed her at the end of 4LD development she probably would've looked a lot more like this.\n\nDrawn by SpookyRick.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0([UnknownEnum.Value_158, UnknownEnum.Value_164]),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_NuVannabelle,
+    Name: "Misc - Newer Vannabelle",
+    Description: "A newer Vannabelle to match the newer Vanny. A lot less changed about this one! We were actually considering updating all her sprites to look more like this at one point (or at least adding the option as a toggle) but ultimately decided against it.\n\nDrawn by SpookyRick.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0([UnknownEnum.Value_158, UnknownEnum.Value_164]),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_NuVannabelleBunny,
+    Name: "Misc - Bunnibelle",
+    Description: "This is what Vannabelle would look like if she was a bunny rabbit.\n\nDrawn by SpookyRick.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0([UnknownEnum.Value_158, UnknownEnum.Value_164]),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_NuMichael,
+    Name: "Misc - Newer Michael",
+    Description: "I ALSO kinda wanted to update Michael's design if Vanny's sprites got updated to match, though I didn't get nearly as far with his.\n\nDrawn by SpookyRick.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0([UnknownEnum.Value_158, UnknownEnum.Value_164, UnknownEnum.Value_163]),
     UpdateArt: true
 });
 array_push(ConceptArt, 
@@ -904,9 +944,25 @@ array_push(ConceptArt,
 });
 array_push(ConceptArt, 
 {
+    Image: CA_IgnitedChica,
+    Name: "Extra - Ignited Chica",
+    Description: "Drawn by Ratto.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_85),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
     Image: CA_Percys,
     Name: "Extra - Various Percies",
     Description: "Miscellaneous Playtime With Percy characters doodled around the same time I was figuring Sally's design out.\n\nDrawn by SpookyRick.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_178),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_PAL,
+    Name: "Misc - PAL",
+    Description: "If this game had a 92nd animatronic slot it probably would've went to him.\n\nDrawn by SpookyRick.",
     Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_178),
     UpdateArt: true
 });
@@ -1076,6 +1132,30 @@ array_push(ConceptArt,
     Name: "Goofs - Firework Freddy",
     Description: "Think about it.\n\nDrawn by RainingKetchup.",
     Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_66),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_ChildhoodNightmares,
+    Name: "Goofs - Your Childhood Nightmares",
+    Description: "This was almost too scary to put in the game.\n\nDrawn by EllisBros.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_89),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_FoxyEXE,
+    Name: "Misc - I Miss the Pirate",
+    Description: "Drawn by Zachary Attackary.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_89),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
+    Image: CA_FoxyEXEMinds,
+    Name: "Goofs - Minds",
+    Description: "Did you know there's a significant overlap in the cast of Sinister Minds and the cast of this game's Immortal & the Restless?\n\nDrawn by Ratto.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0([UnknownEnum.Value_89, UnknownEnum.Value_83]),
     UpdateArt: true
 });
 array_push(ConceptArt, 
@@ -1288,6 +1368,14 @@ array_push(ConceptArt,
 });
 array_push(ConceptArt, 
 {
+    Image: CA_Update2_2Promo,
+    Name: "4LD - Ver. 2.2 Promo",
+    Description: "This was drawn to promote the skin modding update! Also features the first instance of Human Lolbit in color. (I dunno why but I always imagined their actual name would be something like Casey.)\n\nDrawn by SpookyRick.",
+    Unlocked: gml_Script_has@gml_Object_oExtras_ConceptArtGallery_Create_0(UnknownEnum.Value_25),
+    UpdateArt: true
+});
+array_push(ConceptArt, 
+{
     Image: CA_JeremyTrain,
     Name: "Collab - Jeremy GIMMIKO Train Sprite",
     Description: "Jeremy's train passenger sprite from GIMMIKO.\n\nDrawn by Zizou.",
@@ -1416,6 +1504,7 @@ texturegroup_load("ConceptArt");
 
 enum UnknownEnum
 {
+    Value_0,
     Value_3 = 3,
     Value_4,
     Value_5,
@@ -1448,10 +1537,13 @@ enum UnknownEnum
     Value_66 = 66,
     Value_69 = 69,
     Value_73 = 73,
-    Value_75 = 75,
     Value_80 = 80,
     Value_82 = 82,
     Value_83,
+    Value_85 = 85,
+    Value_88 = 88,
+    Value_89,
+    Value_90,
     Value_120 = 120,
     Value_121,
     Value_126 = 126,

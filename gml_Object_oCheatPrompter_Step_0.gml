@@ -32,7 +32,7 @@ if (keyboard_check_pressed(vk_enter))
                 case "animatronics":
                     output("All 47 animatronics have been unlocked!", 65280);
                     
-                    for (var i = 0; i <= 86; i++)
+                    for (var i = 0; i <= 90; i++)
                         global.UnlockedAnimatronics[i] = true;
                     
                     break;

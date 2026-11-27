@@ -15,13 +15,13 @@ _ef_gain.gain = 0;
 global.AudioBusSPECIAL3.effects[0] = _ef_reverb;
 global.AudioBusSPECIAL3.effects[1] = _ef_gain;
 DoorClosedTime = 0;
-SPRITE_Head = sJackOBonnie_Head;
-SPRITE_Arm = sJackOBonnie_Arm;
-SPRITE_LowerEar = sJackOBonnie_LowerEar;
-SPRITE_UpperEar = sJackOBonnie_UpperEar;
-SOUND_Approach = sfxJackOBonnieRun;
-SOUND_Blocked = sfxFireImpact;
-SOUND_Scare = sfxWindowScare;
+SPRITE_Head = skin_sprite(sJackOBonnie_Head, ID, ["sprite_01.png"]);
+SPRITE_Arm = skin_sprite(sJackOBonnie_Arm, ID, ["sprite_02.png"]);
+SPRITE_LowerEar = skin_sprite(sJackOBonnie_LowerEar, ID, ["sprite_03.png", "sprite_04.png"]);
+SPRITE_UpperEar = skin_sprite(sJackOBonnie_UpperEar, ID, ["sprite_05.png", "sprite_06.png"]);
+SOUND_Approach = skin_sound(sfxJackOBonnieRun, ID, "sq_approach");
+SOUND_Blocked = skin_sound(sfxFireImpact, ID, "sq_blocked");
+SOUND_Scare = skin_sound(sfxWindowScare, ID, "sq_scare");
 
 enum UnknownEnum
 {

@@ -15,15 +15,21 @@ if (instance_exists(oFredbearAttack_Claw))
     }
 }
 
-if (instance_exists(oBigTop) && oBigTop.Active && DoorNum == sign_to_binary(oBigTop.Side))
+if ((instance_exists(oBigTop) && oBigTop.Active && DoorNum == sign_to_binary(oBigTop.Side)) || (instance_exists(oDJMusicMan) && oDJMusicMan.Prying))
 {
-    if (oBigTop.Prying)
+    if (instance_exists(oBigTop) && oBigTop.Prying)
     {
         global.Doors[DoorNum] = false;
         y = (BaseY - sprite_height) + oBigTop.YOffset;
         exit;
     }
-    else if (oBigTop.HandAnimStage == "Attacking")
+    else if (instance_exists(oDJMusicMan) && oDJMusicMan.Prying)
+    {
+        global.Doors[DoorNum] = false;
+        y = (BaseY - sprite_height) + oDJMusicMan.YOffset;
+        exit;
+    }
+    else if (instance_exists(oBigTop) && oBigTop.HandAnimStage == "Attacking")
     {
         y += ((BaseY - y) / 5);
         exit;

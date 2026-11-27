@@ -286,6 +286,15 @@ MusicList = [
     OrgGame: "There Is No Pause Button!!"
 }, 
 {
+    Name: "Foxy.EXE's Theme",
+    File: sfxFoxyEXECountdown,
+    Unlocked: global.UnlockedAnimatronics[UnknownEnum.Value_89],
+    Loop: true,
+    BPM: 300,
+    OrgName: "Drowning (Composed by RedTv53)",
+    OrgGame: "Five Nights at Frickbear's 3"
+}, 
+{
     Name: "Nightmare: Opening",
     File: mus_BossNightmare_Cutscene,
     Unlocked: global.UnlockedAnimatronics[UnknownEnum.Value_121],
@@ -690,6 +699,7 @@ enum UnknownEnum
     Value_41 = 41,
     Value_42,
     Value_47 = 47,
+    Value_89 = 89,
     Value_120 = 120,
     Value_121,
     Value_126 = 126,

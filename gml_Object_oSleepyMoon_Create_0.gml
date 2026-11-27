@@ -1,3 +1,10 @@
+ID = UnknownEnum.Value_78;
+SPRITE_Icon = skin_sprite(sSleepyMoon_Slider, ID, "sprite_01.png");
+SPRITE_Meter = skin_sprite(sSleepyMoon_Meter, ID, "sprite_02.png");
+SPRITE_Glitch = skin_sprite(sSleepyMoon_Screen, ID, get_sprite_filenames(3, 4));
+SOUND_Fail = skin_sound(sfxBitExplosionAlt, ID, "sq_appear");
+SOUND_Glitch = skin_sound(sfxMinigameStartup, ID, "sq_glitch");
+SOUND_Laugh = skin_sound(sfxMoonLaugh, ID, "sq_laugh");
 MoonMeter = array_create(20, 0);
 DisabledMinigames = array_create(20, false);
 CurMinigame = -1;

@@ -36,13 +36,13 @@ if (Active)
             y = TargetY;
             infect_camera();
             SizeSpeed = 0.2;
-            audio_play_sound(sfxMXES_Fall, 10, false, 0.5);
+            audio_play_sound(SOUND_Fall, 10, false, 0.5);
         }
     }
 }
 
-image_xscale = Size * binary_to_sign(floor(AnimFrame / 10) % 2);
-image_yscale = Size * binary_to_sign(floor((AnimFrame + 5) / 10) % 2);
+image_xscale = Size;
+image_yscale = Size;
 AnimFrame = (AnimFrame + 1) % 20;
 Size += SizeSpeed;
 SizeSpeed = lerp(SizeSpeed, (TargSize - Size) * 0.2, 0.25);

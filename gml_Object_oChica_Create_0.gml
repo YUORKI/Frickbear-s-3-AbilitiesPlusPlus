@@ -19,6 +19,7 @@ with (Eyes)
 
 SPRITE_Cameras = skin_sprite(sCameras_Chica, ID, ["sprite_01.png", "sprite_02.png", "sprite_03.png"]);
 SPRITE_Eyes = skin_sprite(sHallwayEyes, ID, ["sprite_04.png"]);
+SPRITE_CamRadar = skin_sprite(sCamRadarIcon_Chica, ID, "camradar.png");
 SOUND_Steps = skin_sound(sfxSteps, ID, "sq_move");
 SOUND_Growl = skin_sound(sfxGrowl, ID, "sq_growl");
 

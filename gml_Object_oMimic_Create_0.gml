@@ -1,3 +1,17 @@
+ID = UnknownEnum.Value_73;
+SPRITE_Jumpscare = skin_sprite(sMimicFaces, ID, get_sprite_filenames(12, 19));
+SPRITE_CamRadar = skin_sprite(sCamRadarIcon_Mimic, ID, ["camradar_1.png", "camradar_2.png", "camradar_3.png", "camradar_4.png", "camradar_5.png", "camradar_6.png", "camradar_7.png", "camradar_8.png"]);
+SPRITE_DataDiver = skin_sprite(sDataDiver, ID, "sprite_01.png");
+SPRITE_Faces = skin_sprite(sDataDiver_Faces, ID, get_sprite_filenames(3, 11));
+SPRITE_Border = skin_sprite(sDataDiver_Border, ID, "sprite_02.png");
+SOUND_Move = skin_sound(sfxMimicMove, ID, "sq_move");
+SOUND_Static = skin_sound(sfxMimicGarble, ID, "sq_static");
+SOUND_Open = skin_sound(sfxControlPanel_Open, ID, "sq_open");
+SOUND_Close = skin_sound(sfxControlPanel_Close, ID, "sq_close");
+SOUND_Select = skin_sound(sfxControlPanel_Select, ID, "sq_select");
+SOUND_Flag = skin_sound(sfxBitPlace, ID, "sq_flag");
+SOUND_TaskDone = skin_sound(sfxControlPanel_TaskDone, ID, "sq_hover");
+SOUND_Impact = skin_sound(sfxMetalImpact, ID, "sq_destroy");
 TotalSuits = 4;
 Lives = max(round(3 / global.NightSpeedup), 1);
 Active = true;
@@ -99,8 +113,8 @@ function jumpscare_at_6AM()
 MovementTimer = 30;
 HeadOffset = 1;
 HeadOffsetSpeed = 0;
-audio_play_sound(sfxMimicGarble, 50, true);
-audio_sound_gain(sfxMimicGarble, 0, 0);
+audio_play_sound(SOUND_Static, 50, true);
+audio_sound_gain(SOUND_Static, 0, 0);
 Activated = false;
 
 enum UnknownEnum

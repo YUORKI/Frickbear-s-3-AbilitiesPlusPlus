@@ -7,7 +7,7 @@ var KillList = generate_kill_list();
 var Killables = [];
 var Summonables = [];
 
-for (var i = 0; i <= 86; i++)
+for (var i = 0; i <= 90; i++)
 {
     if (array_contains(KillList, i))
         array_push(Killables, i);

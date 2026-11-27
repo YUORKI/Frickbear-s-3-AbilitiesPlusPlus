@@ -1,5 +1,12 @@
 Head = instance_create_layer(0, 0, "Behind_Wall", oOfficeSprite);
 Body = instance_create_layer(0, 0, "Behind_Wall", oOfficeSprite);
+
+with (Body)
+    sprite_index = oCaptainCobalt.SPRITE_Body;
+
+with (Head)
+    sprite_index = oCaptainCobalt.SPRITE_Head;
+
 HeightOffset = 128;
 OffsetSpeed = 10;
 Flashed = false;

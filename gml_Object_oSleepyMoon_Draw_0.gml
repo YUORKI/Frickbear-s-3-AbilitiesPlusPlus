@@ -6,10 +6,10 @@ if (CurMinigame > -1 && global.MonitorSystem == "Games" && global.AILevels[Unkno
 {
     MoonMeter[CurMinigame] = clamp(MoonMeter[CurMinigame], 0, 100);
     shader_set(TransparencyShader);
-    draw_sprite(sSleepyMoon_Meter, 0, x, y);
+    draw_sprite(SPRITE_Meter, 0, x, y);
     var MeterX = x + 4 + round(lerp(-1, 199, VisualMoonPosition / 100));
     draw_rectangle_color(x + 4, y + 4, MeterX, y + 4 + 5, c_black, c_black, c_black, c_black, false);
-    draw_sprite(sSleepyMoon_Slider, 0, MeterX, y + 7);
+    draw_sprite(SPRITE_Icon, 0, MeterX, y + 7);
     shader_reset();
     VisualMoonPosition += ((MoonMeter[CurMinigame] - VisualMoonPosition) / 5);
     
@@ -19,8 +19,8 @@ if (CurMinigame > -1 && global.MonitorSystem == "Games" && global.AILevels[Unkno
         
         if (!DisabledMinigames[CurMinigame])
         {
-            audio_play_sound(sfxBitExplosionAlt, 30, false);
-            audio_play_sound(sfxMinigameStartup, 30, false, 1, 0, 2);
+            audio_play_sound(SOUND_Fail, 30, false);
+            audio_play_sound(SOUND_Glitch, 30, false, 1, 0, 2);
             
             with (oCameraUI)
                 DisabledMinigames[other.CurMinigame] = true;
@@ -40,7 +40,7 @@ if (CurMinigame > -1 && global.MonitorSystem == "Games" && global.AILevels[Unkno
             for (var yPos = 0; yPos < 144; yPos += SegmentHeight)
             {
                 var SegmentHeight = irandom_range(8, 32);
-                draw_sprite_part(sSleepyMoon_Screen, 0, 0, yPos, 160, yPos + SegmentHeight, irandom_range(-64, 64), yPos);
+                draw_sprite_part(SPRITE_Glitch, 0, 0, yPos, 160, yPos + SegmentHeight, irandom_range(-64, 64), yPos);
             }
             
             surface_reset_target();
@@ -49,13 +49,13 @@ if (CurMinigame > -1 && global.MonitorSystem == "Games" && global.AILevels[Unkno
             
             if (KersplodeFrame == 0)
             {
-                audio_stop_sound(sfxMinigameStartup);
-                audio_play_sound(sfxMoonLaugh, 30, false, 1, 0, 0.8);
+                audio_stop_sound(SOUND_Glitch);
+                audio_play_sound(SOUND_Laugh, 30, false, 1, 0, 0.8);
             }
         }
         else
         {
-            draw_sprite_ext(sSleepyMoon_Screen, floor(AnimFrame), oCameraUI.x + 314, oCameraUI.y + 38, 2, 2, 0, c_white, 1);
+            draw_sprite_ext(SPRITE_Glitch, floor(AnimFrame), oCameraUI.x + 314, oCameraUI.y + 38, 2, 2, 0, c_white, 1);
         }
     }
 }

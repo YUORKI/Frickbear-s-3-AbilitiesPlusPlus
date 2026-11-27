@@ -15,27 +15,27 @@ if (PizzaGrabbed)
 
 var LookedAt = abs(o3DMouse.x - 1344) < 128 && !global.CamUp && !global.TurnedAround;
 var AngleShift = irandom_range(-2, 2) * PizzaGrabbed;
-draw_sprite_ext(sGlamrockChica_Pizza, 0, PizzaX, PizzaY, 1 / PizzaStretch, PizzaStretch, AngleShift, c_white, 1);
+draw_sprite_ext(SPRITE_PizzaBase, 0, PizzaX, PizzaY, 1 / PizzaStretch, PizzaStretch, AngleShift, c_white, 1);
 
 for (var i = 0; i < 7; i++)
 {
     if (array_contains(ToppingsOnPizza, i))
-        draw_sprite_ext(sGlamrockChica_Pizza, i + 1, PizzaX, PizzaY, 1 / PizzaStretch, PizzaStretch, AngleShift, c_white, 1);
+        draw_sprite_ext(SPRITE_PizzaBase, i + 1, PizzaX, PizzaY, 1 / PizzaStretch, PizzaStretch, AngleShift, c_white, 1);
 }
 
-draw_sprite(sGlamrockChica_ToppingBinHolder, 0, 275 + (((TopBins - 1) / 2) * -90), BinOffset);
-draw_sprite(sGlamrockChica_ToppingBinHolder, 0, 365 + (((TopBins - 1) / 2) * 90), BinOffset);
-draw_sprite(sGlamrockChica_ToppingBinHolder, 0, 275 + (((BottomBins - 1) / 2) * -90), BinOffset + 42);
-draw_sprite(sGlamrockChica_ToppingBinHolder, 0, 365 + (((BottomBins - 1) / 2) * 90), BinOffset + 42);
+draw_sprite(SPRITE_ToppingBinHolder, 0, 275 + (((TopBins - 1) / 2) * -90), BinOffset);
+draw_sprite(SPRITE_ToppingBinHolder, 0, 365 + (((TopBins - 1) / 2) * 90), BinOffset);
+draw_sprite(SPRITE_ToppingBinHolder, 0, 275 + (((BottomBins - 1) / 2) * -90), BinOffset + 42);
+draw_sprite(SPRITE_ToppingBinHolder, 0, 365 + (((BottomBins - 1) / 2) * 90), BinOffset + 42);
 
 for (var i = 0; i < BinCount; i++)
 {
-    draw_sprite(sGlamrockChica_ToppingBins, i, BinX, BinY);
+    draw_sprite(SPRITE_ToppingBins, i, BinX, BinY);
     
     if (Input == i)
     {
         DraggedTopping = i;
-        audio_play_sound(sfxPluck, 10, false);
+        audio_play_sound(SOUND_PizzaPluck, 10, false);
     }
     
     if (i == (TopBins - 1))
@@ -53,7 +53,7 @@ if (mouse_in_zone(233, 360 - BinOffset - 36, 174, 87))
 {
     if (DraggedTopping >= 0)
     {
-        audio_play_sound(sfxPizzaSplat, 10, false, 1, 0, random_range(1, 1.25));
+        audio_play_sound(SOUND_PizzaSplat, 10, false, 1, 0, random_range(1, 1.25));
         array_push(ToppingsOnPizza, DraggedTopping);
         PizzaStretchSpeed = -0.2;
         DraggedTopping = -1;
@@ -70,7 +70,7 @@ if (mouse_in_zone(233, 360 - BinOffset - 36, 174, 87))
 if (DraggedTopping >= 0)
 {
     ToppingSize += ((1 - ToppingSize) / 4);
-    draw_sprite_ext(sGlamrockChica_Toppings, DraggedTopping, global.MouseX, global.MouseY, ToppingSize, ToppingSize, 0, c_white, 1);
+    draw_sprite_ext(SPRITE_Toppings, DraggedTopping, global.MouseX, global.MouseY, ToppingSize, ToppingSize, 0, c_white, 1);
 }
 else
 {

@@ -7,8 +7,8 @@ if (!Active)
         initialize();
         KillTimer = lerp(12, 6, AI / 20);
         Active = true;
-        simple_sound(sfxSalvage_WireDrop, 0, -400, false, 1.5);
-        simple_sound(sfxMetalSlam, 0, -400, false, 1);
+        simple_sound(SOUND_Drop, 0, -400, false, 1.5);
+        simple_sound(SOUND_Slam, 0, -400, false, 1);
         reverb_sound(choose_from_array(SOUND_Appear), 0, -400);
         Frame = 0.25;
         Body = instance_create_layer(-999, -999, "InFrontOf_Wall", oOfficeSprite);
@@ -19,22 +19,22 @@ if (!Active)
         ArmR = instance_create_layer(-999, -999, "InFrontOf_Wall", oOfficeSprite);
         HandR = instance_create_layer(-999, -999, "InFrontOf_Wall", oOfficeSprite);
         PigtailR = instance_create_layer(-999, -999, "InFrontOf_Wall", oOfficeSprite);
-        var HandSprite = fully_turned_around() ? sNOTHING : sJackie_Hand;
-        Body.sprite_index = sJackie_Body;
+        var HandSprite = fully_turned_around() ? sNOTHING : SPRITE_Hand;
+        Body.sprite_index = SPRITE_Body;
         Body.DrawDepth = 53;
-        Head.sprite_index = sJackie_Head;
+        Head.sprite_index = SPRITE_Head;
         Head.DrawDepth = 55;
         HandL.sprite_index = HandSprite;
         HandL.DrawDepth = 52;
         HandR.sprite_index = HandSprite;
         HandR.DrawDepth = 52;
-        ArmR.sprite_index = sJackie_Arm;
-        ArmR.DrawDepth = 51;
-        ArmL.sprite_index = sJackie_Arm;
+        ArmL.sprite_index = SPRITE_Arm;
         ArmL.DrawDepth = 51;
-        PigtailL.sprite_index = sJackie_Hair;
+        ArmR.sprite_index = SPRITE_Arm;
+        ArmR.DrawDepth = 51;
+        PigtailL.sprite_index = SPRITE_Hair;
         PigtailL.DrawDepth = 54;
-        PigtailR.sprite_index = sJackie_Hair;
+        PigtailR.sprite_index = SPRITE_Hair;
         PigtailR.DrawDepth = 54;
     }
 }
@@ -49,7 +49,7 @@ else
     HandSpeed = lerp(HandSpeed, ((Defeated ? -196 : 480) - HandPosition) * 0.4, 0.2);
     
     if (Frame == 1)
-        reverb_sound(sfxJackie_Popup, 0, -400);
+        reverb_sound(SOUND_Popup, 0, -400);
     
     if (Frame > 1)
     {
@@ -84,26 +84,32 @@ else
         ArmL.y = ArmTopY + 448;
         ArmL.image_xscale = -1;
         ArmL.image_yscale = (HandPosition - ArmTopY) / sprite_get_height(sJackie_Arm);
+        ArmL.image_index = 0;
         ArmR.x = CrankOffset + HeadX + 58;
         ArmR.y = ArmTopY + 448;
         ArmR.image_xscale = 1;
         ArmR.image_yscale = (HandPosition - ArmTopY) / sprite_get_height(sJackie_Arm);
+        ArmR.image_index = 1;
         HandL.x = (CrankOffset + HeadX) - 58;
         HandL.y = HandPosition + 448;
         HandL.image_xscale = 1;
+        HandL.image_index = 0;
         HandR.x = CrankOffset + HeadX + 58;
         HandR.y = HandPosition + 448;
         HandR.image_xscale = -1;
+        HandR.image_index = 1;
         Body.x = HeadX;
         Body.y = (BounceY - 123) + 448;
         PigtailL.x = HeadX - 36;
         PigtailL.y = HeadY + 51 + 448;
         PigtailL.image_xscale = -1;
         PigtailL.image_angle = dsin((Frame * 240) - 15) * 5;
+        PigtailL.image_index = 0;
         PigtailR.x = HeadX + 36;
         PigtailR.y = HeadY + 51 + 448;
         PigtailR.image_xscale = 1;
         PigtailR.image_angle = dsin((Frame * 240) - 15) * -5;
+        PigtailR.image_index = 1;
         Head.image_index = Expression;
         Head.x = HeadX;
         Head.y = HeadY + 448;
@@ -130,9 +136,9 @@ else
         HeadTargetY = -196;
         HandSpeed = -16;
         HeadSpeed = -8;
-        simple_sound(sfxMetalImpact, 0, -400, false, 0.8);
-        reverb_sound(sfxJackie_Released, 0, -400);
-        reverb_sound(voc_Jackie_Launch, 0, -400);
+        simple_sound(SOUND_Impact, 0, -400, false, 0.8);
+        reverb_sound(SOUND_Release, 0, -400);
+        reverb_sound(SOUND_Launch, 0, -400);
         block_tokens();
     }
     

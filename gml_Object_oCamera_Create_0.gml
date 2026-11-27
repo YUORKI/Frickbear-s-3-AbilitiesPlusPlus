@@ -91,7 +91,7 @@ if (BossMode != UnknownEnum.Value_3)
 
 var MusicList = [musNight1, musNight2, musNight3, musNight4, musNight5, musNight6];
 var CustomMusicList = [musNightCustom1, musNightCustom2, musNightCustom3, musNightCustom4, musNightCustom5];
-var MusicGain = 1;
+MusicGain = 1;
 SongID = -1;
 
 if (global.Night == "Custom" && !boss_fight_night())
@@ -152,8 +152,8 @@ else
     SongID = sfxNOTHING;
 }
 
-if (SongID != sfxNOTHING)
-    global.Music = play_music(SongID, MusicGain);
+if (FredbearMode)
+    SongID = sfxNOTHING;
 
 global.DoorGen = 0;
 global.Power = global.GuardParameters.starting_power;
@@ -390,8 +390,8 @@ function spawn_starter_items()
     alarm[0] = 30;
 }
 
-if ((guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_30)) && !FredbearMode)
-{ 
+if ((guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_19)) && !FredbearMode)
+{
     if (global.Night == "Endless")
         global.ProgressToMake = round(((global.GuardParameters.point_goal_base + (global.GuardParameters.point_goal_nightly * (global.EndlessRound - 1))) * 3) / global.NightSpeedup);
     else
@@ -630,7 +630,6 @@ BossTimer = global.SavedBossTime;
 audio_sound_gain(sfxClockTicking, 1, 0);
 Scared = (global.Night == "Endless" && lives_left() == 1) && (!global.NuzlockeMode || global.DeathsThisRound > 0);
 MinigameCompletionPoints = 0;
-BlockedAnimatronicsAmount = 0;
 global.TurnedAround = false;
 
 if (SongID != mus_BossSalvage)
@@ -708,7 +707,6 @@ enum UnknownEnum
     Value_24,
     Value_25,
     Value_26,
-    Value_30 = 30,
     Value_32 = 32,
     Value_33,
     Value_36 = 36,

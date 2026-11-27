@@ -8,7 +8,7 @@ if (!Initialized && global.AILevels[UnknownEnum.Value_81] > 0)
 
 if (!global.PanelUp && TabletUp)
 {
-    audio_play_sound(sfxControlPanel_Close, 5, false);
+    audio_play_sound(SOUND_Close, 5, false);
     TabletUp = false;
 }
 
@@ -17,7 +17,7 @@ if (!surface_exists(TabletSurf))
 
 surface_set_target(TabletSurf);
 draw_clear_alpha(c_black, 1);
-draw_sprite_tiled(sControlPanel_GridTiles, 0, Frame, Frame);
+draw_sprite_tiled(SPRITE_Grid, 0, Frame, Frame);
 var HeaderTitles = ["Character", "Gender", "Main Color", SPMode ? "Role" : "Mechanics", SPMode ? "Initial" : "Value", "Debut"];
 HeaderTitles = ["Character", "Gender", "Main Color", SPMode ? "Role" : "Mechanics", SPMode ? "Initial" : "Value", "Debut"];
 surface_reset_target();
@@ -82,7 +82,7 @@ else
         if (HoveringOverGuessMaker && mouse_check_button_pressed(mb_left))
         {
             GuessingMode = true;
-            audio_play_sound(sfxControlPanel_Select, 5, false);
+            audio_play_sound(SOUND_Select, 5, false);
             mouse_clear(mb_left);
         }
     }
@@ -120,7 +120,7 @@ if (FailFrames < 0)
 }
 
 set_target_to_ui();
-draw_sprite(sArchie_Border, 0, TabletX, TabletY);
+draw_sprite(SPRITE_Border, 0, TabletX, TabletY);
 draw_surface(TabletSurf, TabletX, TabletY);
 surface_reset_target();
 

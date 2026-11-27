@@ -10,7 +10,6 @@ with (Body)
     x = BodyX;
     y = BodyY;
     image_angle = BodyA * -1;
-    sprite_index = sCaptainCobalt_PuppetBodies;
     image_index = other.HeadSprite;
     DrawDepth = 100;
 }
@@ -20,7 +19,6 @@ with (Head)
     x = HeadX;
     y = HeadY;
     image_angle = HeadA * -1;
-    sprite_index = sCaptainCobalt_PuppetHeads;
     image_index = other.HeadSprite;
     DrawDepth = 101;
 }
@@ -37,37 +35,41 @@ if (Sound == undefined)
     else if (x > 1600)
         Direction = 0;
     
-    Sound = simple_sound(sfxFreddleScreech, lengthdir_x(512, Direction), lengthdir_y(512, Direction), true, 0.75);
-    simple_sound(sfxCartoonPop, lengthdir_x(512, Direction), lengthdir_y(512, Direction), false, 0.25);
+    Sound = simple_sound(oCaptainCobalt.SOUND_Screech, lengthdir_x(512, Direction), lengthdir_y(512, Direction), true, 0.75);
+    simple_sound(oCaptainCobalt.SOUND_Popup, lengthdir_x(512, Direction), lengthdir_y(512, Direction), false, 0.25);
+    var Lines = [sfxNOTHING];
     
     switch (HeadSprite)
     {
         case 0:
             Name = "Foxy";
+            Lines = oCaptainCobalt.SOUND_Appear1;
             break;
         
         case 1:
             Name = "Roxy";
+            Lines = oCaptainCobalt.SOUND_Appear2;
             break;
         
         case 2:
             Name = "Kit";
+            Lines = oCaptainCobalt.SOUND_Appear3;
             break;
         
         case 3:
             Name = "Bawson";
+            Lines = oCaptainCobalt.SOUND_Appear4;
             break;
         
         case 4:
             Name = "Renard";
+            Lines = oCaptainCobalt.SOUND_Appear5;
             break;
         
         default:
             Name = "Secret";
             break;
     }
-    
-    var Lines = get_misc_voicelines(UnknownEnum.Value_76, Name + "_Appear");
     
     if (Vocalize)
         reverb_sound(choose_from_array(Lines), (90 - Direction) * 5, (Direction == 90) ? 450 : 0, false, 0.85);
@@ -141,12 +143,35 @@ if (((global.Flashlight && point_distance(o3DMouse.x, o3DMouse.y, HeadX, HeadY) 
         else if (x > 1600)
             Direction = 0;
         
-        var Lines = get_misc_voicelines(UnknownEnum.Value_76, Name + "_Scare");
+        var Lines = [sfxNOTHING];
+        
+        switch (HeadSprite)
+        {
+            case 0:
+                Lines = oCaptainCobalt.SOUND_Scare1;
+                break;
+            
+            case 1:
+                Lines = oCaptainCobalt.SOUND_Scare2;
+                break;
+            
+            case 2:
+                Lines = oCaptainCobalt.SOUND_Scare3;
+                break;
+            
+            case 3:
+                Lines = oCaptainCobalt.SOUND_Scare4;
+                break;
+            
+            case 4:
+                Lines = oCaptainCobalt.SOUND_Scare5;
+                break;
+        }
         
         if (TimeToKill > 0)
         {
             reverb_sound(choose_from_array(Lines), (90 - Direction) * 5, (Direction == 90) ? 450 : 0, false, 0.75);
-            simple_sound(sfxFreddleScare, lengthdir_x(512, Direction), lengthdir_y(512, Direction), false, 1);
+            simple_sound(oCaptainCobalt.SOUND_Scare, lengthdir_x(512, Direction), lengthdir_y(512, Direction), false, 1);
         }
         
         with (oCaptainCobalt)

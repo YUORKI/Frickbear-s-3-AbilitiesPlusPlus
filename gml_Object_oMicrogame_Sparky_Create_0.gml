@@ -31,6 +31,7 @@ LastCam = global.Cam;
 reverb_sound(sfxSparkyCue, 0, -400, false, 2, 1, 0.2);
 global.MicrogameWin = false;
 ID = UnknownEnum.Value_43;
+global.AILevels[UnknownEnum.Value_43] = 0;
 
 enum UnknownEnum
 {

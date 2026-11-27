@@ -1,6 +1,6 @@
 event_inherited();
 MaxWidth = 8;
-SorterArray = get_sorter_array(countup_array(86));
+SorterArray = get_sorter_array(countup_array(90));
 array_push(SorterArray, UnknownEnum.Value_118);
 array_push(SorterArray, UnknownEnum.Value_120);
 Killables = [];

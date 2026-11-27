@@ -16,6 +16,21 @@ ToppingBins = 4;
 RequestedToppings = [];
 Hungry = false;
 Randomizer = 1;
+SPRITE_Body = skin_sprite(sGlamrockChica_Body, ID, get_sprite_filenames(3, 4));
+SPRITE_Head = skin_sprite(sGlamrockChica_Head, ID, get_sprite_filenames(1, 2));
+SPRITE_PizzaBase = skin_sprite(sGlamrockChica_Pizza, ID, get_sprite_filenames(5, 12));
+SPRITE_SpeechBubble = skin_sprite(sGlamrockChica_SpeechBubble, ID, ["sprite_13.png"]);
+SPRITE_ToppingBinHolder = skin_sprite(sGlamrockChica_ToppingBinHolder, ID, ["sprite_28.png"]);
+SPRITE_ToppingBins = skin_sprite(sGlamrockChica_ToppingBins, ID, get_sprite_filenames(21, 27));
+SPRITE_Toppings = skin_sprite(sGlamrockChica_Toppings, ID, get_sprite_filenames(14, 20));
+SOUND_Ambience = skin_sound(sfxRoxyAmbience, ID, "sq_ambience");
+SOUND_Creak = skin_sound(sfxEndoCreak, ID, "sq_creak");
+SOUND_Look = skin_sound(sfxWhipCrack, ID, "sq_whip");
+SOUND_Complete = skin_sound(sfxRoxyComplete, ID, "sq_complete");
+SOUND_PizzaPluck = skin_sound(sfxPluck, ID, "sq_pluck");
+SOUND_PizzaSplat = skin_sound(sfxPizzaSplat, ID, "sq_splat");
+SOUND_Appear = skin_sound_generate_array(get_misc_voicelines(ID, "Appear"), ID, "sq_appear");
+SOUND_Fed = skin_sound_generate_array(get_misc_voicelines(ID, "Fed"), ID, "sq_complete");
 
 function reset_timer(arg0)
 {
@@ -43,9 +58,8 @@ function eat_pizza(arg0)
         }
     }
     
-    audio_stop_sound(sfxRoxyCharge);
-    audio_stop_sound(sfxRoxyAmbience);
-    audio_play_sound(sfxRoxyComplete, 10, false);
+    audio_stop_sound(SOUND_Ambience);
+    audio_play_sound(SOUND_Complete, 10, false);
     block_tokens();
     Satisfied = true;
     AngleSpeed = 2;
@@ -62,8 +76,6 @@ reset_timer(global.AILevels[ID]);
 SpeechBubbleSurf = -1;
 SpeechBubbleOffset = 0;
 SpeechBubbleOffsetSpeed = 0;
-SOUND_Appear = get_misc_voicelines(ID, "Appear");
-SOUND_Fed = get_misc_voicelines(ID, "Fed");
 
 enum UnknownEnum
 {

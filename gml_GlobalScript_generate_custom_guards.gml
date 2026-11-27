@@ -164,10 +164,10 @@ function check_skins(arg0)
 
 function skin_sprite(arg0, arg1, arg2, arg3 = 1)
 {
-    if (arg1 < 0 || arg1 >= array_length(global.Skins))
+    if (arg1 < 0 || arg1 >= array_length(global.SkinsFunctional))
         return sprite_duplicate(arg0);
     
-    var SkinID = global.Skins[arg1];
+    var SkinID = global.SkinsFunctional[arg1];
     
     if (SkinID < 0)
         return sprite_duplicate(arg0);
@@ -179,10 +179,10 @@ function skin_sprite(arg0, arg1, arg2, arg3 = 1)
 
 function skin_sprite_unlimited(arg0, arg1, arg2, arg3 = 1)
 {
-    if (arg1 < 0 || arg1 >= array_length(global.Skins))
+    if (arg1 < 0 || arg1 >= array_length(global.SkinsFunctional))
         return sprite_duplicate(arg0);
     
-    var SkinID = global.Skins[arg1];
+    var SkinID = global.SkinsFunctional[arg1];
     
     if (SkinID < 0)
         return sprite_duplicate(arg0);
@@ -201,10 +201,10 @@ function skin_hybrid_sprite(arg0, arg1 = "icon.png", arg2 = 0, arg3 = 0)
     var ThisIcon = -1;
     surface_set_target(DrawSurf);
     
-    for (var AnimatronicID = 0; AnimatronicID <= 86; AnimatronicID++)
+    for (var AnimatronicID = 0; AnimatronicID <= 90; AnimatronicID++)
     {
         draw_clear_alpha(c_black, 0);
-        var SkinID = global.Skins[AnimatronicID];
+        var SkinID = global.SkinsFunctional[AnimatronicID];
         
         if (SkinID < 0)
         {
@@ -263,7 +263,7 @@ function get_sprite_filenames(arg0, arg1, arg2 = "sprite")
 
 function skin_get_attribute_set(arg0, arg1 = "data.txt")
 {
-    var SkinID = global.Skins[arg0];
+    var SkinID = global.SkinsFunctional[arg0];
     
     if (SkinID < 0)
         return -1;
@@ -331,7 +331,7 @@ function skin_get_attribute(arg0, arg1, arg2, arg3 = "data.txt")
 function skin_salvage_dialogue(arg0, arg1 = "DIALOGUE")
 {
     var fileBase = "dialogue.txt";
-    var SkinID = global.Skins[arg0];
+    var SkinID = global.SkinsFunctional[arg0];
     
     if (SkinID < 0)
         return -1;
@@ -366,9 +366,9 @@ function skin_replace_descriptions(arg0 = "data.txt")
 {
     reset_descriptions();
     
-    for (var i = 0; i <= 86; i++)
+    for (var i = 0; i <= 90; i++)
     {
-        if (global.Skins[i] < 0)
+        if (global.SkinsFunctional[i] < 0)
             continue;
         
         global.Descriptions[i] = [skin_get_attribute(i, "Name", "NO NAME FOUND"), skin_get_attribute(i, "Mechanic", "NO MECHANIC FOUND")];
@@ -403,7 +403,7 @@ function skin_sound_subtitles(arg0)
 function skin_sound(arg0, arg1, arg2)
 {
     var AnimatronicID = 0;
-    var SkinID = global.Skins[arg1];
+    var SkinID = global.SkinsFunctional[arg1];
     
     if (SkinID < 0)
         return arg0;
@@ -426,7 +426,7 @@ function skin_sound(arg0, arg1, arg2)
 
 function skin_sound_array(arg0, arg1)
 {
-    var SkinID = global.Skins[arg0];
+    var SkinID = global.SkinsFunctional[arg0];
     
     if (SkinID < 0)
         return [sfxNOTHING];
@@ -464,7 +464,7 @@ function choose_from_array(arg0)
 
 function skin_sound_generate_array(arg0, arg1, arg2)
 {
-    var SkinID = global.Skins[arg1];
+    var SkinID = global.SkinsFunctional[arg1];
     
     if (SkinID < 0)
         return arg0;
@@ -548,14 +548,8 @@ function generate_voicelines()
 {
     if (variable_global_exists("DeathcoinLines") && variable_global_exists("SelectionLines"))
     {
-        for (var i = 0; i < array_length(global.DeathcoinLines); i++)
-        {
-            if (audio_get_type(global.SelectionLines[i]))
-                audio_destroy_stream(global.SelectionLines[i]);
-            
-            if (audio_get_type(global.DeathcoinLines[i]))
-                audio_destroy_stream(global.DeathcoinLines[i]);
-        }
+        skin_sound_delete_array(global.SelectionLines);
+        skin_sound_delete_array(global.DeathcoinLines);
     }
     
     global.SelectionLines = [];
@@ -602,6 +596,48 @@ function draw_normal_deathscreen(arg0)
     shader_set_uniform_f(shader_get_uniform(shDeathscreen, "u_tint"), 0.9098, 0.0784, 0.0784);
     draw_sprite(sprite, image, 320, 180);
     shader_reset();
+}
+
+function apply_skins_random()
+{
+    if (global.RandomizeSkins)
+        apply_skins(UnknownEnum.Value_2, global.Seed);
+    else
+        apply_skins(UnknownEnum.Value_0, global.Seed);
+}
+
+function apply_skins(arg0 = 0, arg1 = 0)
+{
+    global.SkinsFunctional = array_create(202, -1);
+    
+    for (var i = 0; i <= 90; i++)
+        check_skins(i);
+    
+    switch (arg0)
+    {
+        case UnknownEnum.Value_0:
+            array_copy(global.SkinsFunctional, 0, global.Skins, 0, array_length(global.Skins));
+            break;
+        
+        case UnknownEnum.Value_1:
+            break;
+        
+        case UnknownEnum.Value_2:
+            var SavedSeed = random_get_seed();
+            random_set_seed(arg1);
+            
+            for (var i = 0; i <= 90; i++)
+            {
+                var SkinFolders = get_folders("skins", int_to_suffix(i + 1) + "_*");
+                global.SkinsFunctional[i] = irandom(array_length(SkinFolders)) - 1;
+            }
+            
+            random_set_seed(SavedSeed);
+    }
+    
+    skin_replace_descriptions();
+    generate_face_tiles();
+    generate_voicelines();
 }
 
 function no_brackets(arg0)
@@ -772,6 +808,9 @@ function import_portraits()
 
 enum UnknownEnum
 {
+    Value_0,
+    Value_1,
+    Value_2,
     Value_127 = 127,
     Value_201 = 201
 }

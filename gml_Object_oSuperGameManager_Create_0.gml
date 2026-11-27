@@ -3,7 +3,6 @@ Timer = 0;
 GlobalTimer = 0;
 global.DevMode = false;
 global.FourLayersDownMode = false;
-global.Upgrades = [UnknownEnum.Value_65];
 room_goto(WarningScreen);
 global.TrophyQueue = [];
 CommandMode = false;
@@ -36,6 +35,5 @@ UpsideDownTest = false;
 
 enum UnknownEnum
 {
-    Value_4 = 4,
-    Value_65 = 65
+    Value_4 = 4
 }

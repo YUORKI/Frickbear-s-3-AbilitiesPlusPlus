@@ -24,7 +24,7 @@ if (Dragged)
             Side = 1;
         
         SquishSpeed = -0.1;
-        audio_play_sound(sfxPizzaSplat, 5, false);
+        audio_play_sound(SOUND_Place, 5, false);
     }
 }
 
@@ -35,13 +35,13 @@ if (place_meeting(x, y, o3DMouse) && mouse_check_button_pressed(mb_left))
     DragX = SpritePos[0];
     DragY = SpritePos[1];
     SquishSpeed = 0.15;
-    audio_play_sound(sfxPluck, 5, false);
+    audio_play_sound(SOUND_Pluck, 5, false);
 }
 
 if (Dragged)
     sprite_index = sNOTHING;
 else
-    sprite_index = sWetFloorBot;
+    sprite_index = SPRITE_WetFloorSign;
 
 Squish += SquishSpeed;
 SquishSpeed = lerp(SquishSpeed, (1 - Squish) * 0.2, 0.35);

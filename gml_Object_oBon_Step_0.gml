@@ -16,8 +16,8 @@ if (AggroGainTimer <= 0)
     if (Aggro >= 1)
     {
         AggroGainTimer = (random_range(0.75, 1.25) * SecondsToActivation) / 5;
-        reverb_sound(sfxBonClatter, -400, -400, true);
-        reverb_sound(sfxBonJauntyTune, -400, -400, true);
+        reverb_sound(SOUND_Clatter, -400, -400, true);
+        reverb_sound(SOUND_Music, -400, -400, true);
     }
 }
 else if (AI > 0)
@@ -25,7 +25,10 @@ else if (AI > 0)
     AggroGainTimer -= 0.016666666666666666;
     
     if (!instance_exists(oBonZapper))
-        instance_create_layer(1344, 1272, "OnWall", oBonZapper);
+    {
+        with (instance_create_layer(1344, 1272, "OnWall", oBonZapper))
+            sprite_index = other.SPRITE_Zapper;
+    }
 }
 
 if (ShockTimer > 0)

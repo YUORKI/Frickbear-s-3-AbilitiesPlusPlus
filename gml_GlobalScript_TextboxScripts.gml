@@ -288,7 +288,7 @@ function talk_to_animatronic(arg0, arg1 = true, arg2 = false)
 {
     AnimatronicSpokenTo = arg0;
     
-    if (global.Skins[arg0] > -1)
+    if (global.SkinsFunctional[arg0] > -1)
         arg1 = skin_get_attribute(arg0, "SalvageLocation_SayVoiceLine", true);
     
     var Shuffle = global.ShuffleData.Animatronics;
@@ -676,11 +676,16 @@ function game_text(arg0)
             break;
         
         case "Salvage_No":
+            var ID = oSalvageSheet.ID;
+            
             Function[TextPageNumber] = function()
             {
                 with (oSalvageSheet)
                     Delete = true;
             };
+            
+            if (skin_salvage_dialogue(ID, "REJECT"))
+                break;
             
             add_page("Probably best to peruse your other options first.", "");
             break;
@@ -1299,7 +1304,7 @@ function game_text(arg0)
                 {
                     audio_play_sound(sfxBitBoost, 10, false);
                     global.RunEarnings -= get_heal_price(1.5);
-                    global.Lives = array_create(global.GuardParameters.lives_amount, global.Guard);
+                    global.Lives = array_create(3, global.Guard);
                     bitcrush_sound(choose_from_array(get_misc_voicelines(UnknownEnum.Value_142, "Buy")), 0, 0, false, 1.5, 6);
                     
                     with (oShopkeepSprite)
@@ -3268,6 +3273,50 @@ function game_text(arg0)
                     add_page(string("...But we WILL give you ${0} if you take it off our hands.", string_format(get_animatronic_data(UnknownEnum.Value_82).SalvageValue / 100, 1, 2)), "BSI Memo");
                     break;
                 
+                case UnknownEnum.Value_87:
+                    add_page("Hmmm... Hmmm...! Hmmm...", Name);
+                    add_page("...Yep, I got it. Just one look at you is all I need.", Name);
+                    add_page("Little dude, YOU...", Name);
+                    add_page("...Are a total SQUARE!", Name);
+                    add_page("I mean, c'mon, man! The way you carry yourself, that outfit, it's got no STYLE!", Name);
+                    add_page("Listen up! You wanna be cool? You wanna be the LIFE of the PARTY!? Well, you'd better take a page outta MY book!", Name);
+                    add_page("Yeah, just a DJ'ing lesson or two and I'll bet I can make you the coolest cat in town!", Name);
+                    add_page("We'll start with lesson 1: How to get your personal DJ out of the building!", Name);
+                    break;
+                
+                case UnknownEnum.Value_89:
+                    add_page("Y'ARRR!! THOSE LANDLUBBERS! I'LL CLAW THE BEAR'S HEART OUT! I'LL SET HIS FIRST MATES ABLAZE!!", "Foxy?");
+                    text_effect(0, 8, "Shake");
+                    add_page("I was hunting down that bear's buried treasure...and found this old, soggy treasure map on the floor of the dining hall!", "Foxy?");
+                    add_page("But here I am, and what have I got to show for it? SOME DAMNED BOX OF COUPONS?!", "Foxy?");
+                    add_page("This map...It's a trick!! Those fleshbags knew they could get me out of the picture with a distraction!", "Foxy?");
+                    add_page("The map, she's gotten bloodied and unreadable...and the way back's shrouded in red mist. If I want to return home, I'll need a navigator!", "Foxy?");
+                    add_page("...And you gotta play along. Why don't we raise the anchor?", "Foxy?");
+                    add_page("Saying no would be an act of mutiny, ye know.", "Foxy?");
+                    break;
+                
+                case UnknownEnum.Value_88:
+                    add_page("There's...an office phone lodged inside the torso of this animatronic.", "");
+                    add_page("A light on it is still glowing...", "");
+                    add_page("...Against your better judgement, you reach in and press the button.", "");
+                    add_page("You have: 1 new message.", "Answering Machine");
+                    add_page("Hello hello?", "???");
+                    add_page("Hey! Hey, wow, day four! I knew you could do it.", "???");
+                    add_page("Uh, hey, listen, I may not be around to send you a message tomorrow. It's...it's been a bad night here for me.", "???");
+                    add_page("Um, I-I'm kinda glad that I recorded those messages for you, uh...when I did.", "???");
+                    add_page("...Uh, hey. Do me a favor. Maybe sometime, uh, you could check inside those suits in the back room?", "???");
+                    add_page("I-I always wondered what was in all those empty heads back there.", "???");
+                    add_page("...Oh no.", "???");
+                    add_page("...The message ends there.", "");
+                    break;
+                
+                case UnknownEnum.Value_90:
+                    add_page("WOW! It's a good thing I'm a robot, or else I'd throw out my neck looking up at you!", Name);
+                    add_page("But PERFECT timing, big guy! I could use a stepstool!", Name);
+                    add_page("Let me hitch a ride on yer shoulders, man! Let me into the crow's nest! I wanna see the WORLD!", Name);
+                    add_page("Seriously! Have a heart! How am I gonna make mayhem from down here!? The view sucks!", Name);
+                    add_page("Come on! Let's go! Do it or I'm gonna tear up your pantlegs!", Name);
+                
                 default:
                     break;
             }
@@ -3642,7 +3691,7 @@ function game_text(arg0)
                         {
                             with (oInteraction_Animatronic)
                             {
-                                if (AnimatronicID == 90)
+                                if (AnimatronicID == 93)
                                 {
                                     oCamera3DMaze.LockOnTarget = self;
                                     oCamera3DMaze.LockX = x;
@@ -7066,15 +7115,15 @@ function game_text(arg0)
             {
                 var Backup = bar_dialogue_array(global.Guard, Recipient);
                 
-                if (Recipient >= 21)
-                {
-                    var file = "dialogue/bar/receive.txt";
-                    read_custom_dialogue_backup(file, global.GuardNames[global.Guard], "GENERIC", Backup, {}, Recipient);
-                }
-                else if (global.Guard >= 21)
+                if (global.Guard >= 21)
                 {
                     var file = "dialogue/bar/give.txt";
                     read_custom_dialogue(file, global.GuardNames[Recipient], Backup, {});
+                }
+                else if (Recipient >= 21)
+                {
+                    var file = "dialogue/bar/receive.txt";
+                    read_custom_dialogue_backup(file, global.GuardNames[global.Guard], "GENERIC", Backup, {}, Recipient);
                 }
                 else
                 {
@@ -7224,6 +7273,10 @@ enum UnknownEnum
     Value_84,
     Value_85,
     Value_86,
+    Value_87,
+    Value_88,
+    Value_89,
+    Value_90,
     Value_128 = 128,
     Value_130 = 130,
     Value_131,

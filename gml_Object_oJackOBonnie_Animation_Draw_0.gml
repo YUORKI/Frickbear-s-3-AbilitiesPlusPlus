@@ -23,6 +23,7 @@ with (UpperEarL)
     y = UpperEarL_Y;
     image_angle = UpperEar_R * -1;
     image_xscale = other.Side;
+    image_index = other.Side == -1;
 }
 
 with (UpperEarR)
@@ -31,6 +32,7 @@ with (UpperEarR)
     y = UpperEarR_Y;
     image_angle = UpperEar_R * -1;
     image_xscale = other.Side;
+    image_index = other.Side == 1;
 }
 
 with (LowerEarL)
@@ -39,6 +41,7 @@ with (LowerEarL)
     y = LowerEarL_Y;
     image_angle = LowerEar_R * -1;
     image_xscale = other.Side;
+    image_index = other.Side == -1;
 }
 
 with (LowerEarR)
@@ -47,6 +50,7 @@ with (LowerEarR)
     y = LowerEarR_Y;
     image_angle = LowerEar_R * -1;
     image_xscale = other.Side;
+    image_index = other.Side == 1;
 }
 
 with (Arm)

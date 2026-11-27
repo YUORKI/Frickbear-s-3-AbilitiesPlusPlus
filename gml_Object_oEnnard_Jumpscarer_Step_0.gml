@@ -1,7 +1,10 @@
 if (Frame >= 5 && Height < 360)
 {
     with (instance_create_depth(320 - (320 * Side), Height, oCamera.depth - 1, oSalvage_Tangler))
+    {
+        sprite_index = skin_sprite(sBossSalvage_WrapWire, UnknownEnum.Value_53, "sprite_09.png");
         image_angle = (random_range(2, -10) * other.Side) + (90 - (other.Side * 90));
+    }
     
     audio_play_sound(sfxSalvage_WireDrop, 2, false, 1, Side / 2, random_range(0.9, 1.1));
     Side *= -1;

@@ -104,7 +104,7 @@ function voiceline_database(arg0)
                 Selection: voc_WitheredBonnie_WhosThere,
                 DeathQuips: [voc_WitheredBonnie_BrokenNow, voc_WitheredBonnie_CantTell, voc_WitheredBonnie_DidntReallyThink, voc_WitheredBonnie_InWithTheOld, voc_WitheredBonnie_LondonBridge, voc_WitheredBonnie_LookIntoMyEye, voc_WitheredBonnie_StrangeIsntIt, voc_WitheredBonnie_ToreMeApart],
                 Deathcoin: voc_WitheredBonnie_Deathcoin,
-                ShuffleCalls: [voc_PhoneCall_WitheredBonnie]
+                ShuffleCalls: [voc_PhoneCall_WitheredBonnie, voc_PhoneCall_FNAFHighSchool]
             };
         
         case UnknownEnum.Value_12:
@@ -430,7 +430,8 @@ function voiceline_database(arg0)
             return 
             {
                 Selection: voc_Frostbear_BreakTheIce,
-                Deathcoin: voc_Frostbear_Deathcoin
+                Deathcoin: voc_Frostbear_Deathcoin,
+                ShuffleCalls: [voc_PhoneCall_Frostbear]
             };
         
         case UnknownEnum.Value_58:
@@ -482,7 +483,9 @@ function voiceline_database(arg0)
             return 
             {
                 Selection: voc_Monty_HeyLittleGuy,
-                Misc: [voc_Monty_GruntExposed3, voc_Monty_Grunt1, voc_Monty_Grunt2, voc_Monty_Grunt3, voc_Monty_Grunt4, voc_Monty_Grunt5, voc_Monty_GruntExposed1, voc_Monty_GruntExposed2, voc_Monty_Pain],
+                Misc_Grunt: [voc_Monty_Grunt1, voc_Monty_Grunt2, voc_Monty_Grunt3, voc_Monty_Grunt4, voc_Monty_Grunt5],
+                Misc_GruntExposed: [voc_Monty_GruntExposed1, voc_Monty_GruntExposed2, voc_Monty_GruntExposed3],
+                Misc_Hurt: [voc_Monty_Pain],
                 DeathQuips: [voc_Monty_FORE, voc_Monty_GuyOutsideGatorGolf, voc_Monty_JustInTheWay, voc_Monty_PoseForTheFans, voc_Monty_StepOnUp, voc_Monty_TheseSunglasses, voc_Monty_WrestlesThisGator],
                 Deathcoin: voc_Monty_Deathcoin
             };
@@ -512,7 +515,8 @@ function voiceline_database(arg0)
                 Misc_CompletedGood: [voc_Blank_ItsArt, voc_Blank_Fantastic, voc_Blank_Magnifique, voc_Blank_SpeaksToMySoul],
                 Misc_CompletedBad: [voc_Blank_WouldntCallItArt],
                 DeathQuips: [voc_Blank_ArtBlock, voc_Blank_BulletproofGlass, voc_Blank_DisgraceToArtCommunity, voc_Blank_DrawingBlanks, voc_Blank_DrawingBoard, voc_Blank_DrawnToAClose, voc_Blank_FirstStep, voc_Blank_HappyAccident, voc_Blank_ICouldvePaintedThat, voc_Blank_SlaughteredNightguard],
-                Deathcoin: voc_Blank_Deathcoin
+                Deathcoin: voc_Blank_Deathcoin,
+                ShuffleCalls: [voc_PhoneCall_Blank]
             };
         
         case UnknownEnum.Value_79:
@@ -649,7 +653,8 @@ function voiceline_database(arg0)
             return 
             {
                 Selection: voc_Electrobab_Selection,
-                Deathcoin: voc_Electrobab_Deathcoin
+                Deathcoin: voc_Electrobab_Deathcoin,
+                ShuffleCalls: [voc_PhoneCall_Electrobab]
             };
         
         case UnknownEnum.Value_69:
@@ -773,6 +778,45 @@ function voiceline_database(arg0)
                 Misc_Episodes: [voc_VladClara_Episode_Granny, voc_VladClara_Episode_Chupacabra, voc_VladClara_Episode_VanHelsing, voc_VladClara_Episode_GarlicBread, voc_VladClara_Episode_HalloweenDecorations, voc_VladClara_Episode_Divorce, voc_VladClara_Episode_Orlok],
                 Misc_Ads: [voc_VladClara_Ad_FizzTime, voc_VladClara_Ad_GlossyFloss, voc_VladClara_Ad_LallysLollies, voc_VladClara_Ad_MartysPlungers, voc_VladClara_Ad_WackyWartPaste],
                 Deathcoin: voc_VladClara_Deathcoin
+            };
+        
+        case UnknownEnum.Value_89:
+            return 
+            {
+                Selection: voc_FoxyEXE_Selection,
+                Misc: voc_FoxyEXE_Laugh,
+                DeathQuips: [voc_FoxyEXE_Death1, voc_FoxyEXE_Death2, voc_FoxyEXE_Death3, voc_FoxyEXE_Death4, voc_FoxyEXE_Death5, voc_FoxyEXE_Death6, voc_FoxyEXE_Death7, voc_FoxyEXE_Death8, voc_FoxyEXE_Death9, voc_FoxyEXE_Death10],
+                Deathcoin: voc_FoxyEXE_Deathcoin
+            };
+        
+        case UnknownEnum.Value_87:
+            return 
+            {
+                Selection: voc_DJMusicMan_Selection,
+                Misc_Appear: [voc_DJMusicMan_Appear1, voc_DJMusicMan_Appear2, voc_DJMusicMan_Appear3, voc_DJMusicMan_Appear4],
+                Misc_Left: [voc_DJMusicMan_Left1, voc_DJMusicMan_Left2, voc_DJMusicMan_Left3],
+                Misc_Right: [voc_DJMusicMan_Right1, voc_DJMusicMan_Right2, voc_DJMusicMan_Right3],
+                Misc_YourTurn: [voc_DJMusicMan_YourTurn1, voc_DJMusicMan_YourTurn2, voc_DJMusicMan_YourTurn3],
+                Misc_Win: [voc_DJMusicMan_Win1, voc_DJMusicMan_Win2, voc_DJMusicMan_Win3, voc_DJMusicMan_Win4, voc_DJMusicMan_Win5, voc_DJMusicMan_Win6],
+                DeathQuips: [voc_DJMusicMan_Death1, voc_DJMusicMan_Death2, voc_DJMusicMan_Death3, voc_DJMusicMan_Death4, voc_DJMusicMan_Death5, voc_DJMusicMan_Death6, voc_DJMusicMan_Death7, voc_DJMusicMan_Death8],
+                Deathcoin: voc_DJMusicMan_Deathcoin
+            };
+        
+        case UnknownEnum.Value_90:
+            return 
+            {
+                Selection: voc_Endoplush_Selection,
+                Misc_Zapped: [voc_Endoplush_Zapped1, voc_Endoplush_Zapped2, voc_Endoplush_Zapped3, voc_Endoplush_Zapped4, voc_Endoplush_Zapped5],
+                Deathcoin: voc_Endoplush_Deathcoin
+            };
+        
+        case UnknownEnum.Value_88:
+            return 
+            {
+                Selection: voc_Ralph_Selection,
+                DeathQuips: [voc_Ralph_Death1, voc_Ralph_Death2, voc_Ralph_Death3, voc_Ralph_Death4, voc_Ralph_Death5, voc_Ralph_Death6, voc_Ralph_Death7],
+                Deathcoin: voc_Ralph_Deathcoin,
+                ShuffleCalls: [voc_PhoneCall_Ralph]
             };
         
         case UnknownEnum.Value_131:
@@ -928,7 +972,7 @@ function voiceline_database(arg0)
             return 
             {
                 Misc: [vocPhoneGuy1, vocPhoneGuy2, vocPhoneGuy3, vocPhoneGuy4, vocPhoneGuy5],
-                ShuffleCalls: [voc_PhoneCallTutorial, voc_PhoneCall_BossClothes, voc_PhoneCall_BossDisguise, voc_PhoneCall_BossHen, voc_PhoneCall_BossPFF, voc_PhoneCall_BossPizza, voc_PhoneCall_BossPoopgoes, voc_PhoneCall_BossPresident, voc_PhoneCall_BossSalvaging, voc_PhoneCall_BossWL4, voc_PhoneCall_PhonyBoss, voc_PhoneCall_Freddy, voc_PhoneCall_Foxy, voc_PhoneCall_WitheredBonnie, voc_PhoneCall_ToyFreddy, voc_PhoneCall_FrickRoll, voc_PhoneCall_ToyChica, voc_PhoneCall_Mangle, voc_PhoneCall_MarionettePopgoes, voc_PhoneCall_BB, voc_PhoneCall_NightmareFredbearNEW, voc_PhoneCall_NightmareBB, voc_PhoneCall_NightmareMangle, voc_PhoneCall_Ballora, voc_PhoneCall_YenndoPopgoes, voc_PhoneCall_Helpy, voc_PhoneCall_MrHippo, voc_PhoneCall_Orville, voc_PhoneCall_Lefty, voc_PhoneCall_MrHugs, voc_PhoneCall_MusicMan, voc_PhoneCall_LolzHax, voc_PhoneCall_BigTop, voc_PhoneCall_VIP, voc_PhoneCall_Animdude, voc_PhoneCall_Rodney, voc_PhoneCall_Fritz, voc_PhoneCall_Henry, voc_PhoneCall_William, voc_PhoneCall_FredsweeperFrank, voc_PhoneCall_Edwin, voc_PhoneCall_HotChickHeaven, voc_PhoneCall_PhoneGeek, voc_PhoneCall_PhoneGal, voc_PhoneCall_PhoneGoon, voc_PhoneCall_Frickbears1PhoneGuy, voc_PhoneCall_Mario, voc_PhoneCall_Mendo, voc_PhoneCall_Bidy, voc_PhoneCall_Rougal, voc_PhoneCall_JerrodSorelli, voc_PhoneCall_Kritter, voc_PhoneCall_JimmyT, voc_PhoneCall_WithLyrics, voc_PhoneCall_Monokuma, voc_PhoneCall_CardSkimming, voc_PhoneCall_Ness, voc_PhoneCall_Lester, voc_PhoneCall_CountCannoli, voc_PhoneCall_CharlieCat, voc_PhoneCall_Boozoo, voc_PhoneCall_39]
+                ShuffleCalls: [voc_PhoneCallTutorial, voc_PhoneCall_BossClothes, voc_PhoneCall_BossDisguise, voc_PhoneCall_BossHen, voc_PhoneCall_BossPFF, voc_PhoneCall_BossPizza, voc_PhoneCall_BossPoopgoes, voc_PhoneCall_BossPresident, voc_PhoneCall_BossSalvaging, voc_PhoneCall_BossWL4, voc_PhoneCall_PhonyBoss, voc_PhoneCall_Freddy, voc_PhoneCall_Foxy, voc_PhoneCall_WitheredBonnie, voc_PhoneCall_ToyFreddy, voc_PhoneCall_FrickRoll, voc_PhoneCall_ToyChica, voc_PhoneCall_Mangle, voc_PhoneCall_MarionettePopgoes, voc_PhoneCall_BB, voc_PhoneCall_NightmareFredbearNEW, voc_PhoneCall_NightmareBB, voc_PhoneCall_NightmareMangle, voc_PhoneCall_Ballora, voc_PhoneCall_YenndoPopgoes, voc_PhoneCall_Helpy, voc_PhoneCall_MrHippo, voc_PhoneCall_Orville, voc_PhoneCall_Lefty, voc_PhoneCall_MrHugs, voc_PhoneCall_MusicMan, voc_PhoneCall_LolzHax, voc_PhoneCall_BigTop, voc_PhoneCall_VIP, voc_PhoneCall_Animdude, voc_PhoneCall_Rodney, voc_PhoneCall_Fritz, voc_PhoneCall_Henry, voc_PhoneCall_William, voc_PhoneCall_FredsweeperFrank, voc_PhoneCall_Edwin, voc_PhoneCall_HotChickHeaven, voc_PhoneCall_PhoneGeek, voc_PhoneCall_PhoneGal, voc_PhoneCall_PhoneGoon, voc_PhoneCall_Frickbears1PhoneGuy, voc_PhoneCall_Mario, voc_PhoneCall_Mendo, voc_PhoneCall_Bidy, voc_PhoneCall_Rougal, voc_PhoneCall_JerrodSorelli, voc_PhoneCall_Kritter, voc_PhoneCall_JimmyT, voc_PhoneCall_WithLyrics, voc_PhoneCall_Monokuma, voc_PhoneCall_CardSkimming, voc_PhoneCall_Ness, voc_PhoneCall_Lester, voc_PhoneCall_CountCannoli, voc_PhoneCall_CharlieCat, voc_PhoneCall_Boozoo, voc_PhoneCall_39, voc_PhoneCall_Blank, voc_PhoneCall_Frostbear, voc_PhoneCall_FNAFHighSchool, voc_PhoneCall_Electrobab, voc_PhoneCall_Ralph, voc_PhoneCall_GazooDeathcoin]
             };
         
         case UnknownEnum.Value_130:
@@ -1293,6 +1337,10 @@ enum UnknownEnum
     Value_84,
     Value_85,
     Value_86,
+    Value_87,
+    Value_88,
+    Value_89,
+    Value_90,
     Value_118 = 118,
     Value_119,
     Value_120,

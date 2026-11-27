@@ -18,7 +18,7 @@ for (var i = 0; i < array_length(AnimatronicsToSummon); i++)
     with (instance_create_depth((XValue * 96) + 144, (YValue * 160) + 80, 0, oInteraction_Animatronic))
     {
         AnimatronicID = AnimatronicsToSummon[i];
-        Text = (AnimatronicsToSummon[i] == 95) ? "Microgame_Found" : ((AnimatronicsToSummon[i] <= 99) ? string("Microgame_Fail_{0}", AnimatronicsToSummon[i]) : "Microgame_Fail");
+        Text = (AnimatronicsToSummon[i] == 95) ? "Microgame_Found" : ((AnimatronicsToSummon[i] <= 99 && AnimatronicsToSummon[i] > 95) ? string("Microgame_Fail_{0}", AnimatronicsToSummon[i] - 96) : "Microgame_Fail");
         Height = get_animatronic_height(AnimatronicsToSummon[i]);
     }
 }

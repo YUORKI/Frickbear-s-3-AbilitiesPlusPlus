@@ -29,7 +29,7 @@ if (!InHallway)
         Timer = 0;
         InHallway = true;
         fuzz_up(UnknownEnum.Value_2);
-        reverb_sound(sfxReagentAppear, Side * 10, -400, false, 0.8, 1, 0.1);
+        reverb_sound(SOUND_Appear, Side * 10, -400, false, 0.8, 1, 0.1);
         audio_sound_gain(BubblingSound, 0.5, 1000);
     }
 }
@@ -41,7 +41,7 @@ else
     {
         block_tokens();
         fuzz_up(UnknownEnum.Value_4 + sign_to_binary(Side));
-        reverb_sound(sfxReagentLeave, Side * 10, -400, false, 0.8, 1, 0.1);
+        reverb_sound(SOUND_Leave, Side * 10, -400, false, 0.8, 1, 0.1);
         VanishTimer = 2.5;
         Randomizer = random_range(0.8, 1.2);
         InHallway = false;

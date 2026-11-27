@@ -53,8 +53,8 @@ if (TimeToApproach <= 0 && !instance_exists(oLaserDoor))
                     {
                         ReverseWalk = true;
                         TimeToApproach = 2;
-                        audio_play_sound(sfxMetalImpact, 10, false);
-                        audio_play_sound(sfxScoop, 10, false);
+                        audio_play_sound(SOUND_Slam, 10, false);
+                        audio_play_sound(SOUND_SlamAlt, 10, false);
                         StepPosition = 0.99;
                         global.Power -= 5;
                         clear_doorway(ID, Side);
@@ -62,7 +62,7 @@ if (TimeToApproach <= 0 && !instance_exists(oLaserDoor))
                     }
                     else
                     {
-                        simple_sound(sfxServo, 500 * Side, 0, false, 0.5, 15, 0.8);
+                        simple_sound(SOUND_Lean, 500 * Side, 0, false, 0.5, 15, 0.8);
                         Voiceclip = reverb_sound(PossibleLines[LinesSaid++], 500 * Side, 0, false, 2, 0.5, 0.33);
                         LeaningIn = true;
                         
@@ -71,7 +71,7 @@ if (TimeToApproach <= 0 && !instance_exists(oLaserDoor))
                     }
                 }
                 
-                reverb_sound(FootstepSound ? sfxGlamrockFreddy_Footstep1 : sfxGlamrockFreddy_Footstep2, lerp(100 * Side, 500 * Side, StepPosition), lerp(-500, 0, StepPosition), false, lerp(0.25, 1.5, StepPosition), 0.5, lerp(0.5, 0.25, StepPosition));
+                reverb_sound(FootstepSound ? SOUND_Footstep : SOUND_FootstepAlt, lerp(100 * Side, 500 * Side, StepPosition), lerp(-500, 0, StepPosition), false, lerp(0.25, 1.5, StepPosition), 0.5, lerp(0.5, 0.25, StepPosition));
                 StepSoundTimer = 1;
                 FootstepSound = !FootstepSound;
             }
@@ -97,7 +97,7 @@ if (LeaningIn && !FunctionallyHit)
         LeaningIn = false;
         set_time_to_attack();
         Voiceclip = -1;
-        simple_sound(sfxServo, 500 * Side, 0, false, 0.75, 15, 0.9);
+        simple_sound(SOUND_Lean, 500 * Side, 0, false, 0.75, 15, 0.9);
         clear_doorway(ID, Side);
         
         with (oDoor)
@@ -152,7 +152,7 @@ if (!Hit)
 with (UpperArm)
 {
     DrawDepth = 80;
-    sprite_index = sGlamrockFreddy_ArmUpper;
+    sprite_index = other.SPRITE_UpperArm;
     image_index = 0;
     x = UpperArmX;
     y = UpperArmY;
@@ -164,7 +164,7 @@ with (UpperArm)
 with (Body)
 {
     DrawDepth = 81;
-    sprite_index = sGlamrockFreddy_Body;
+    sprite_index = other.SPRITE_Torso;
     image_index = other.Hit;
     x = BodyX;
     y = BodyY;
@@ -176,7 +176,7 @@ with (Body)
 with (Head)
 {
     DrawDepth = 82;
-    sprite_index = sGlamrockFreddy_Head;
+    sprite_index = other.SPRITE_Head;
     image_index = other.Hit;
     x = HeadX;
     y = HeadY;
@@ -188,7 +188,7 @@ with (Head)
 with (LowerArm)
 {
     DrawDepth = 83;
-    sprite_index = sGlamrockFreddy_ArmLower;
+    sprite_index = other.SPRITE_LowerArm;
     image_index = 0;
     x = LowerArmX;
     y = LowerArmY;
@@ -200,7 +200,7 @@ with (LowerArm)
 with (Gregory)
 {
     DrawDepth = 85;
-    sprite_index = other.Hit ? sGlamrockFreddy_Gregory : sNOTHING;
+    sprite_index = other.Hit ? other.SPRITE_Gregory : sNOTHING;
     image_index = 0;
     x = other.GregX;
     y = other.GregY;

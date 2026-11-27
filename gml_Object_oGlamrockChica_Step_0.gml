@@ -44,8 +44,8 @@ if (Active)
         else if (Frame == LookFrame)
         {
             AngleSpeed = -8;
-            audio_play_sound(sfxWhipCrack, 15, false);
-            audio_play_sound(sfxRoxyAmbience, 15, true);
+            audio_play_sound(SOUND_Look, 15, false);
+            audio_play_sound(SOUND_Ambience, 15, true);
             reverb_sound(choose_from_array(SOUND_Appear), 0, 400);
             RequestedToppings = [];
             
@@ -112,20 +112,20 @@ if (!Active && AI > 0)
     
     if (WaitTime >= TimeToAppear && window_available())
     {
-        audio_play_sound(sfxEndoCreak, 15, false);
+        audio_play_sound(SOUND_Creak, 15, false);
         Body = instance_create_layer(0, 0, "Behind_Wall", oOfficeSprite);
         Head = instance_create_layer(0, 0, "Behind_Wall", oOfficeSprite);
         
         with (Body)
         {
             DrawDepth = 3;
-            sprite_index = sGlamrockChica_Body;
+            sprite_index = other.SPRITE_Body;
         }
         
         with (Head)
         {
             DrawDepth = 2;
-            sprite_index = sGlamrockChica_Head;
+            sprite_index = other.SPRITE_Head;
         }
         
         Frame = 0;

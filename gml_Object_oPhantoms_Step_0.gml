@@ -1,4 +1,3 @@
-var ID = UnknownEnum.Value_19;
 var AI = global.AILevels[ID];
 depth = 8;
 AmountOfPhantoms = floor(((AI * 6) / 24) + 1);

@@ -31,6 +31,132 @@ function get_jumpscares_per_char(arg0)
     }
 }
 
+function play_jumpscare_scream(arg0, arg1)
+{
+    var JumpSound = (global.Settings[2][4] != 3) ? get_animatronic_scream(arg0, arg1) : choose(sfxJumpscare_Funny_AmongUs, sfxJumpscare_Funny_BigMouth, sfxJumpscare_Funny_Burp, sfxJumpscare_Funny_CarHorn, sfxJumpscare_Funny_Foghorn, sfxJumpscare_Funny_Goofy, sfxJumpscare_Funny_OurTable, sfxJumpscare_Funny_Spongebob, sfxJumpscare_Funny_Tom, sfxJumpscare_Funny_Yodel, sfxJumpscare_Funny_Pingas, sfxJumpscare_Funny_Wega, sfxJumpscare_Funny_Bitch, sfxJumpscare_Funny_Buzzer);
+    var Volume = 1;
+    
+    if (global.Settings[2][4] == 1)
+        Volume = 0;
+    else if (global.Settings[2][4] == 2)
+        Volume = 0.25;
+    
+    audio_group_set_gain(voc_Springtrap_Pathetic, (Volume * global.Settings[2][0] * global.Settings[2][1]) / 100, 0);
+    return audio_play_sound(JumpSound, 99, false);
+}
+
+function get_animatronic_scream(arg0, arg1, arg2 = true)
+{
+    if (global.Skins[arg0] > -1 && arg2)
+    {
+        var AlternateQuip = array_contains([UnknownEnum.Value_27, UnknownEnum.Value_70], global.Jumpscare) && global.JumpscareType > 0;
+        
+        if (variable_global_exists("SkinJumpscareScream"))
+            skin_sound_delete_array(global.SkinJumpscareScream);
+        
+        if (get_jumpscares_per_char(arg0) == 1)
+            global.SkinJumpscareScream = [skin_sound(get_animatronic_scream(arg0, arg1, false), global.Jumpscare, "jumpscare")];
+        else
+            global.SkinJumpscareScream = skin_sound_generate_array([get_animatronic_scream(arg0, arg1, false)], global.Jumpscare, "jumpscare");
+        
+        return global.SkinJumpscareScream[min(array_length(global.SkinJumpscareScream) - 1, arg1)];
+    }
+    
+    switch (arg0)
+    {
+        case UnknownEnum.Value_126:
+            return sfxFredbearGrowl2;
+        
+        default:
+            return sfxJumpscareNormal;
+        
+        case UnknownEnum.Value_6:
+        case UnknownEnum.Value_7:
+        case UnknownEnum.Value_8:
+        case UnknownEnum.Value_9:
+        case UnknownEnum.Value_14:
+        case UnknownEnum.Value_21:
+        case UnknownEnum.Value_118:
+        case UnknownEnum.Value_74:
+        case UnknownEnum.Value_59:
+        case UnknownEnum.Value_69:
+        case UnknownEnum.Value_66:
+            return sfxJumpscareHigh;
+        
+        case UnknownEnum.Value_10:
+        case UnknownEnum.Value_13:
+        case UnknownEnum.Value_38:
+        case UnknownEnum.Value_4:
+        case UnknownEnum.Value_119:
+        case UnknownEnum.Value_64:
+        case UnknownEnum.Value_68:
+        case UnknownEnum.Value_60:
+        case UnknownEnum.Value_20:
+        case UnknownEnum.Value_63:
+        case UnknownEnum.Value_76:
+        case UnknownEnum.Value_82:
+            return sfxJumpscareLow;
+        
+        case UnknownEnum.Value_22:
+        case UnknownEnum.Value_121:
+        case UnknownEnum.Value_24:
+        case UnknownEnum.Value_36:
+        case UnknownEnum.Value_75:
+        case UnknownEnum.Value_87:
+            return sfxJumpscareLowest;
+        
+        case UnknownEnum.Value_41:
+        case UnknownEnum.Value_50:
+        case UnknownEnum.Value_154:
+        case UnknownEnum.Value_5:
+        case UnknownEnum.Value_58:
+        case UnknownEnum.Value_71:
+            return sfxJumpscareRetro;
+        
+        case UnknownEnum.Value_33:
+        case UnknownEnum.Value_122:
+        case UnknownEnum.Value_123:
+        case UnknownEnum.Value_124:
+        case UnknownEnum.Value_125:
+        case UnknownEnum.Value_47:
+        case UnknownEnum.Value_48:
+            return sfxJumpscareDemonic;
+        
+        case UnknownEnum.Value_120:
+        case UnknownEnum.Value_34:
+        case UnknownEnum.Value_53:
+        case UnknownEnum.Value_54:
+        case UnknownEnum.Value_49:
+        case UnknownEnum.Value_18:
+        case UnknownEnum.Value_84:
+            return sfxJumpscareSalvage;
+        
+        case UnknownEnum.Value_127:
+            return sfxJumpscarePhony;
+        
+        case UnknownEnum.Value_62:
+            return sfxJumpscareOrville;
+        
+        case UnknownEnum.Value_89:
+            return sfxJumpscareEXE;
+        
+        case UnknownEnum.Value_73:
+            if (arg1 == 0)
+                return sfxJumpscareOrville;
+            else
+                return sfxJumpscareSalvage;
+        
+        case UnknownEnum.Value_27:
+            if (arg1 == 0)
+            {
+                return sfxJumpscareNormal;
+                break;
+            }
+            
+            return sfxJumpscareHigh;
+    }
+}
+
 function get_jumpscare_templates(arg0, arg1 = -1, arg2 = [])
 {
     if (arg1 == -1)
@@ -42,6 +168,16 @@ function get_jumpscare_templates(arg0, arg1 = -1, arg2 = [])
     {
         switch (arg0)
         {
+            case UnknownEnum.Value_89:
+                array_push(returnArr, 
+                {
+                    JumpID: i,
+                    JumpSprite: arg1,
+                    JumpSide: 0,
+                    JumpSideVertical: 666
+                });
+                break;
+            
             case UnknownEnum.Value_8:
                 array_push(returnArr, 
                 {
@@ -136,6 +272,7 @@ function get_jumpscare_templates(arg0, arg1 = -1, arg2 = [])
             
             case UnknownEnum.Value_2:
             case UnknownEnum.Value_28:
+            case UnknownEnum.Value_88:
                 array_push(returnArr, 
                 {
                     JumpID: i,
@@ -174,6 +311,14 @@ function get_jumpscare_templates(arg0, arg1 = -1, arg2 = [])
     }
     
     return returnArr;
+}
+
+function get_animatronic_jumpscare_origin(arg0, arg1, arg2 = true)
+{
+    if (global.SkinsFunctional[arg0] > -1 && arg2)
+        return array_get(skin_get_attribute(arg0, "JumpscarePositions", get_animatronic_jumpscare_origin(arg0, arg1, false)), arg1);
+    
+    return array_get(get_jumpscare_templates(arg0), arg1).JumpSideVertical;
 }
 
 function get_voicelines(arg0)
@@ -959,7 +1104,7 @@ function generate_extras_descriptions(arg0, arg1)
     
     with (ExtrasDatabase[Character])
     {
-        Desc = ["An original creation of Fritz Smith (no, not that one, a different one), Popgoes is the mascot of the Popgoes Pizzeria, filling a niche as the UK's premier option in animatronic entertainment. His establishment touts itself as the most cutting-edge in the industry, being way ahead of the curve in both mobile phone and 3D printing technology. In fact, Popgoes himself makes good use of his restaurant's 3D printers, often using them to recreate a figure Fritz seems to have a traumatic past with. When asked why, Popgoes said he does this because he thinks Fritz' reaction to it is funny.", "Kane Carter saw and signed off on Popgoes' dialogue in the salvage locations, by the way. He approved the line 'If I don't get back to the Dead Forest, this is gonna be my Popgoes Finale!'"];
+        Desc = ["An original creation of Fritz (no, not that one, a different one), Popgoes is the mascot of the Popgoes Pizzeria, filling a niche as the UK's premier option in animatronic entertainment. His establishment touts itself as the most cutting-edge in the industry, being way ahead of the curve in both mobile phone and 3D printing technology. In fact, Popgoes himself makes good use of his restaurant's 3D printers, often using them to recreate a figure Fritz seems to have a traumatic past with. When asked why, Popgoes said he does this because he thinks Fritz' reaction to it is funny.", "Kane Carter saw and signed off on Popgoes' dialogue in the salvage locations, by the way. He approved the line 'If I don't get back to the Dead Forest, this is gonna be my Popgoes Finale!'"];
         Image = FB_Popgoes;
     }
     
@@ -1207,7 +1352,7 @@ function generate_extras_descriptions(arg0, arg1)
     
     with (ExtrasDatabase[Character])
     {
-        Desc = ["This old geezer was the headliner attraction of the Big Top Carnival, one of Murray Co.'s favorite avenues to show off their latest midway games and innovations in animatronic technology. He functioned not only as a one-man animatronic show, but a ticket booth, billboard for the company, and even a ride as well! (That is, a ride for any customers who tried to sneak in without a ticket - rumor has it Big Top would grab these customers, spin them around at top speed, and hurl them off the fairgrounds if they refused to pay.) Big Top may have been horribly impractical from a logistical perspective, and was only ever really good as a display piece...but boy, what a display piece he was!", "Big Top's the biggest animatronic in the game, and has the biggest portrait in the game to match, being a whole two pixels below the spritesheet limit! ...I didn't do this intentionally, I really just lucked out. If it was two pixels larger I probably would've needed to redo a significant chunk of it. DJ Music Man was actually briefly considered for the roster at one point, but I figured Big Top was essentially just a cooler, more unique version of him, so he got in instead."];
+        Desc = ["This old geezer was the headliner attraction of the Big Top Carnival, one of Murray Co.'s favorite avenues to show off their latest midway games and innovations in animatronic technology. He functioned not only as a one-man animatronic show, but a ticket booth, billboard for the company, and even a ride as well! (That is, a ride for any customers who tried to sneak in without a ticket - rumor has it Big Top would grab these customers, spin them around at top speed, and hurl them off the fairgrounds if they refused to pay.) Big Top may have been horribly impractical from a logistical perspective, and was only ever really good as a display piece...but boy, what a display piece he was!", "Big Top's one of the biggest animatronics in the game, and has the biggest portrait in the game to match, being a whole two pixels below the spritesheet limit! ...I didn't do this intentionally, I really just lucked out. If it was two pixels larger I probably would've needed to redo a significant chunk of it. DJ Music Man was actually briefly considered for the base 4LD roster at one point, but I figured Big Top was just a little bit more unique and a little bit cooler, so he got in first."];
         Image = FB_BigTop;
     }
     
@@ -1297,6 +1442,38 @@ function generate_extras_descriptions(arg0, arg1)
     {
         Desc = ["Many naturally assume the stories of a time-travelling ball pit tucked away somewhere in a former Freddy's location are yet another senseless rumor spread to capitalize on the brand's infamy, or at best just another of the many paranormal happenings at the restaurant - and rightfully so! However, both groups would be wrong. In truth, William Afton did actually discover time travel, and this ball pit was one of his many experiments. He wouldn't have abandoned it if not for the fact that his meddling with the fabric of space-time produced the creature you see before you: an anomalous, animalistic twist of his own Spring-Bonnie persona.", "This guy was another very late addition to the roster! He was originally scrapped after losing a community poll to Morse, although he wound up being reincorporated once the last few animatronic slots needed to be filled out after seeing how much demand there was for him. (He also serves as a representative for the Into the Pit game, which is an entry that isn't really acknowledged in any other way throughout the game.) He probably would've made the cut sooner if not for the sheer number of Aftons in this game already - even moreso had I included Dark Springtrap, who was genuinely a contender for the roster at one point earlier in development."];
         Image = FB_SpringBonnie;
+    }
+    
+    Character = UnknownEnum.Value_87;
+    
+    with (ExtrasDatabase[Character])
+    {
+        Desc = ["The west arcade is the most happening spot in the whole Pizzaplex - but like any hip club, it's valiantly defended by its very own bouncer. DJ Music Man only lets the HIPPEST cats onto his dance floor - any squares can beat it, and more than likely will once they see his huge, multi-story body shambling their way. He offers DJ'ing lessons to Pizzaplex VIPs, though none of his students have ever managed to live up to his incredibly high (and incredibly esoteric) standards. Plenty of party-goers have complained about the DJ's incredibly limited setlist, and how he only ever wants to play his own boss theme during birthday parties...but upper management is too afraid of the big guy to do anything about it.", "DJ Music Man was the character who I considered the biggest omission from the initial 4LD roster once the update had been released. Now that he's actually here, I'm honestly not sure who that title belongs to now. I DID sorta feel like Security Breach was a little underrepresented in the roster proportional to how major of a release it was - though even then, I do believe we have all the most important bases covered now! ...Except for Burntrap and the Blob I guess, but I kinda don't really care about either of those two. (Burntrap and Tiger Rock were actually considered as the two other newcomers to come alongside DJ Music Man, but both were scrapped in favor of some slightly more unique and niche picks.)"];
+        Image = FB_DJMusicMan;
+    }
+    
+    Character = UnknownEnum.Value_88;
+    
+    with (ExtrasDatabase[Character])
+    {
+        Desc = ["Ralph was once the very model of an exemplary Fazbear employee; One who was fully devoted to the brand, and would happily take on the work of any worker who stopped showing up - and most importantly never ask why they stopped showing up to begin with! (You don't get a menu special named after you for questioning upper management, after all.) While it's expected for Fazbear Employees who have been at it as long as Ralph has to develop a certain numbness towards many of the company's misgivings, his went a step beyond... His view of the company wasn't rose-tinted as much as it was rose-covered. And as a show of thanks for his devotion, for all the times he defended the company, and all the times he lulled new hires into a false sense of security only for them to turn up dead shortly after, he finally gets to be a part of his favorite band - and favorite brand - forever. (He's a bit miffed he wound up in a Chica suit, though. He would've much preferred Foxy.)", "This one character is simultaneously based on the FNaF1 phone guy and protagonist of The Week Before, Ralph (I mean duh), the mysterious withered classic Chica seen at the end of the Survival Logbook (often referred to as Logbook Chica), and the night guard stuffed in the Freddy suit seen on the FNaF1 game over screen (usually referred to as \"Corpse Freddy\" or \"Stuffed Freddy\"). We WERE actually gonna just have it be a Freddy suit at first, especially since the mechanic is directly based on FNaF1 Freddy - in fact, before the phone guy angle this character WAS just straight up gonna be FNaF1 Freddy (either a Scott-accurate Freddy design drawn in the Frickbear's art style or the much more funny idea of it being a series of pre-rendered sprites using an accurate FNaF1 Freddy model), but we opted for Chica because the roster had enough bears as is and the idea of devoting a character slot to Logbook Chica of all characters was too funny to pass up. (It also acted as a cute callback to that one fan theory from the FNaF1 days!)"];
+        Image = FB_Ralph;
+    }
+    
+    Character = UnknownEnum.Value_89;
+    
+    with (ExtrasDatabase[Character])
+    {
+        Desc = ["The Boss hadn't thought much when his janitor brought a bloodied Pirate Plunder arcade board to his restaurant's doorstep. It was only after having it installed that he learned this board was home to Foxy.EXE - an eldritch being from the far reaches of space who happened to take a particular liking to the Fazbear brand's beloved pirate mascot. Any employee foolish enough to click on the blood-red Foxy icon in their game tab may soon find themselves dragged into Foxy.EXE's twisted game, forced to run from him in a vessel of their favorite Fazbear character for the rest of eternity. He's also got himself a fairly successful music career!", "The idea of Foxy.EXE as a potential newcomer to the roster was originally brought up entirely as a joke. Then we kept discussing it. Then we wound up with a fully implemented character. I'm not even much of an EXE fan myself, but quite a few of the people I work with are, so we had a lot of fun with this guy. (That being said, I DO really like Sinister Minds, but I may be biased because RedTv's involved with it and he's my friend :D) This character's inclusion is ABSOLUTELY not going to help how much this game is derogatorily compared to FNF but whatever. It was too good of a bit to pass up."];
+        Image = FB_FoxyEXE;
+    }
+    
+    Character = UnknownEnum.Value_90;
+    
+    with (ExtrasDatabase[Character])
+    {
+        Desc = ["Endoplush was SUPPOSED to be one of a whole fleet of little worker drones designed to help Mendo with some of the physical tasks he couldn't accomplish alone. It was SUPPOSED to mirror Mendo's helpful personality and aid employees in getting menial tasks done, as the first step into Fazbear's eventual obsession with automation. It was SUPPOSED to later be used as the template for a whole line of animatronic plush toys Fazbear Entertainment would later produce and sell to households across the nation. Unfortunately for them, Endoplush's signal was intercepted one day by a hacker well familiar with Mendo's systems...and with just a new line of code here and there, it soon became an untamable menace that even Fazbear's best engineers had no hope of reeling back in. ...Oh, and these haywire endos DID actually make it into those mass-produced plush toys, as the higher-ups quickly learned once outraged parents began flooding their restaurants. They could've SWORN Endoplush's language filter had more safeguards than that.", "You may be wondering why Endoplush was included. After all, without him, the roster would've been at a perfectly clean 90 characters. Well, the reason is simple, really: We needed to meet our character quota!"];
+        Image = FB_Endoplush;
     }
     
     Character = UnknownEnum.Value_131;
@@ -1591,7 +1768,7 @@ function generate_extras_descriptions(arg0, arg1)
     
     with (ExtrasDatabase[Character])
     {
-        Desc = ["An essential fixture of any self-respecting office! Watch the fingers.\n\nYou unlocked this by filling in every gallery entry. Congratulations!", "This entry wasn't originally intended to be in the game, but Zach made a fan icon so we'd have something to represent overheat deaths in the stats menu and from there I thought it'd be funny to throw it in the character gallery as a bonus for getting all the other gallery entries. Plus, it doubles as a quirky little FNAF World reference!\n\nNow, there may or may not be two other secret gallery entries that can be unlocked by 100%ing other parts of the game... If you're up to the challenge, try finding them!"];
+        Desc = ["An essential fixture of any self-respecting office! Watch the fingers.\n\nYou unlocked this by filling in every gallery entry. Congratulations!", "This entry wasn't originally intended to be in the game, but Zach made a fan icon so we'd have something to represent overheat deaths in the stats menu and from there I thought it'd be funny to throw it in the character gallery as a bonus for getting all the other gallery entries. Plus, it doubles as a quirky little FNAF World reference!\n\nNow, there may or may not be one more secret gallery entry that can be unlocked by 100%ing the whole game... If you're up to the challenge, try finding it!"];
         Image = FB_Fan;
     }
     
@@ -1607,7 +1784,7 @@ function generate_extras_descriptions(arg0, arg1)
     
     with (ExtrasDatabase[Character])
     {
-        Desc = ["A shrewd businessman and brilliant roboticist, William Afton is one of the two minds that originally founded the Freddy's brand. Many remarked a While his contributions to the company are unquantifiable, current management tends to sweep him under the rug - both due to the many accounts of his generally unpleasant demeanor, and the bad PR that came with his sudden disappearance in the mid-90's. Despite how employees describe him, he actually seemed to get along great with the kids!", "This is technically like the fifth variant of William that gets its own extras menu page."];
+        Desc = ["A shrewd businessman and brilliant roboticist, William Afton is one of the two minds that originally founded the Freddy's brand. While his contributions to the company are unquantifiable, current management tends to sweep him under the rug - both due to the many accounts of his generally unpleasant demeanor, and the bad PR that came with his sudden disappearance in the mid-90's. Despite how employees describe him, he actually seemed to get along great with the kids!", "This is technically like the fifth variant of William that gets its own extras menu page."];
         Image = FB_William;
     }
     
@@ -1787,6 +1964,10 @@ enum UnknownEnum
     Value_84,
     Value_85,
     Value_86,
+    Value_87,
+    Value_88,
+    Value_89,
+    Value_90,
     Value_118 = 118,
     Value_119,
     Value_120,

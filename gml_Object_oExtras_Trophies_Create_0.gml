@@ -252,7 +252,7 @@ Trophies[UnknownEnum.Value_39] =
 };
 Trophies[UnknownEnum.Value_33] = 
 {
-    Desc: string("Unlock all {0} animatronics.", 87),
+    Desc: string("Unlock all {0} animatronics.", 91),
     Display: true,
     Gamemode: 2,
     Type: UnknownEnum.Value_5
@@ -386,7 +386,7 @@ Trophies[UnknownEnum.Value_57] =
 Trophies[UnknownEnum.Value_58] = 
 {
     Desc: "Perform a T-spin in Trash Stacker.",
-    Display: false,
+    Display: global.UnlockedMinigames[UnknownEnum.Value_14],
     Gamemode: 2,
     Type: UnknownEnum.Value_2
 };

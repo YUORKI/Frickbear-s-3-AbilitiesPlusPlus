@@ -137,6 +137,7 @@ if (PlayOpening == true)
     switch (room)
     {
         case MinigameMaze_1:
+        default:
             LockX = x;
             LockY = y + 128;
             break;
@@ -162,44 +163,47 @@ if (PlayOpening == true)
             break;
     }
     
-    if (global.Night == 1)
+    if (room != MinigameMaze_TEST)
     {
-        with (instance_create_depth(0, 0, 0, oTextBox))
-            game_text("PsychicFriendFredbear_Intro");
-    }
-    else
-    {
-        switch (room)
+        if (global.Night == 1)
         {
-            case MinigameMaze_1:
-                with (instance_create_depth(0, 0, 0, oTextBox))
-                    game_text("PsychicFriendFredbear_1");
+            with (instance_create_depth(0, 0, 0, oTextBox))
+                game_text("PsychicFriendFredbear_Intro");
+        }
+        else
+        {
+            switch (room)
+            {
+                case MinigameMaze_1:
+                    with (instance_create_depth(0, 0, 0, oTextBox))
+                        game_text("PsychicFriendFredbear_1");
+                    
+                    break;
                 
-                break;
-            
-            case MinigameMaze_2:
-                with (instance_create_depth(0, 0, 0, oTextBox))
-                    game_text("PsychicFriendFredbear_2");
+                case MinigameMaze_2:
+                    with (instance_create_depth(0, 0, 0, oTextBox))
+                        game_text("PsychicFriendFredbear_2");
+                    
+                    break;
                 
-                break;
-            
-            case MinigameMaze_3:
-                with (instance_create_depth(0, 0, 0, oTextBox))
-                    game_text("PsychicFriendFredbear_3");
+                case MinigameMaze_3:
+                    with (instance_create_depth(0, 0, 0, oTextBox))
+                        game_text("PsychicFriendFredbear_3");
+                    
+                    break;
                 
-                break;
-            
-            case MinigameMaze_4:
-                with (instance_create_depth(0, 0, 0, oTextBox))
-                    game_text("PsychicFriendFredbear_4");
+                case MinigameMaze_4:
+                    with (instance_create_depth(0, 0, 0, oTextBox))
+                        game_text("PsychicFriendFredbear_4");
+                    
+                    break;
                 
-                break;
-            
-            case MinigameMaze_5:
-                with (instance_create_depth(0, 0, 0, oTextBox))
-                    game_text("PsychicFriendFredbear_5");
-                
-                break;
+                case MinigameMaze_5:
+                    with (instance_create_depth(0, 0, 0, oTextBox))
+                        game_text("PsychicFriendFredbear_5");
+                    
+                    break;
+            }
         }
     }
     

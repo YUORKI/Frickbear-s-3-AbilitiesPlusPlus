@@ -1,0 +1,2 @@
+instance_destroy(oCaptainCobalt_Puppet);
+instance_destroy(oCaptainCobalt_Puppet_Facehugger);

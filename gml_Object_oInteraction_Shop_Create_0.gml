@@ -134,9 +134,6 @@ function generate_inventory(arg0)
             {
                 var Include = true;
                 var Upgrade = UpgradeList[i];
-
-                if (array_contains(global.GuardParameters.blacklist_consumables, i))
-                    Include = false;
                 
                 if (i == UnknownEnum.Value_9)
                     Include = false;
@@ -563,8 +560,8 @@ function generate_inventory(arg0)
             
             function find_trade_reward(arg0, arg1, arg2)
             {
-                var LowerBound = calc_price(arg1[arg0].InternalValue) + 8;
-                var UpperBound = calc_price(arg1[arg0].InternalValue) + 30;
+                var LowerBound = (calc_price(arg1[arg0].InternalValue) * 1.2) + 10;
+                var UpperBound = (calc_price(arg1[arg0].InternalValue) * 1.25) + 30;
                 
                 for (var r = 0; r < array_length(RewardPool); r++)
                 {

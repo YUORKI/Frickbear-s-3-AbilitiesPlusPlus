@@ -80,7 +80,7 @@ var BodyA = dsin(Frame) + (WhackAngle / 4);
 
 with (Body)
 {
-    sprite_index = sSpringBonnie_Body;
+    sprite_index = other.SPRITE_Body;
     image_index = other.Mode == 2;
     x = BodyX;
     y = BodyY;
@@ -93,7 +93,7 @@ with (Body)
 var HeadX = BodyX + rot_x(51 * HSquish, -228 * Squish, BodyA);
 var HeadY = BodyY + rot_y(51 * HSquish, -228 * Squish, BodyA);
 var HeadA = round(random_range(-0.6, 0.6)) + WhackAngle;
-var HeadSprite = (Mode == HitMode) ? sSpringBonnie_Head_FacingAway : ((Mode == RisingMode) ? sSpringBonnie_Head_Normal : sSpringBonnie_Head_Attacking);
+var HeadSprite = (Mode == HitMode) ? SPRITE_HeadAway : ((Mode == RisingMode) ? SPRITE_Head : SPRITE_HeadAttacking);
 
 with (Head)
 {
@@ -123,9 +123,9 @@ with (Head)
         }
         
         mouse_clear(mb_left);
-        audio_play_sound(sfxSpringBonnieHurt, 4, false, 0.7, 0, random_range(0.6, 1.4));
-        audio_play_sound(choose(sfxPunch1, sfxPunch2, sfxPunch3), 8, false);
-        audio_play_sound(sfxPluck, 4, false);
+        audio_play_sound(other.SOUND_Hurt, 4, false, 0.7, 0, random_range(0.6, 1.4));
+        audio_play_sound(choose_from_array(other.SOUND_Clicked), 8, false);
+        audio_play_sound(other.SOUND_Pluck, 4, false);
     }
 }
 
@@ -135,7 +135,7 @@ var ArmA = round(random_range(-0.6, 0.6)) + (WhackAngle * -1);
 
 with (Arm)
 {
-    sprite_index = sSpringBonnie_Arm;
+    sprite_index = other.SPRITE_Arm;
     image_index = other.Mode;
     x = ArmX;
     y = ArmY;

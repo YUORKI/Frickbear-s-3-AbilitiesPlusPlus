@@ -10,7 +10,7 @@ if (!Active)
         
         if (Side != 0)
         {
-            simple_sound(sfxEndoCreak, 500 * Side, 0, false, 2, 10, 0.75);
+            simple_sound(SOUND_Creak, 500 * Side, 0, false, 2, 10, 0.75);
             Active = true;
             Hand = instance_create_layer(0, 0, "Behind_Wall", oOfficeSprite);
             HandAnimStage = "Lower";
@@ -34,7 +34,7 @@ else if (Hand != -1)
         {
             Frame = 0;
             HandAnimStage = "Upward";
-            reverb_sound(sfxMetalSlam, 500 * Side, 0, false, 3, 0.5, 0.5);
+            reverb_sound(SOUND_Slam, 500 * Side, 0, false, 3, 0.5, 0.5);
             Eyes = instance_create_layer(-256, -256, "Behind_Wall", oOfficeSprite);
             EyePosition = 0;
         }
@@ -56,7 +56,7 @@ else if (Hand != -1)
             HandAnimStage = "Settle";
             YStretch = 0.9;
             YOffset = 0;
-            reverb_sound(sfxBigTopMusicBox, 500 * Side, 0, false, 1, 1, 0.5);
+            reverb_sound(SOUND_MusicBox, 500 * Side, 0, false, 1, 1, 0.5);
             alarm[0] = 10;
         }
     }
@@ -106,7 +106,7 @@ else if (Hand != -1)
                 Frame = 0;
                 Randomizer = random_range(0.8, 1.2);
                 Prying = false;
-                audio_stop_sound(sfxBigTopMusicBox);
+                audio_stop_sound(SOUND_MusicBox);
                 block_tokens();
             }
             
@@ -136,7 +136,7 @@ else if (Hand != -1)
     {
         Hand.x = 1344 + (512 * Side) + (round(random_range(-0.6, 0.6)) * (HandAnimStage == "Attacking" && YOffset > 0));
         Hand.y = 586 + YOffset;
-        Hand.sprite_index = sBigTop_Hand;
+        Hand.sprite_index = SPRITE_Hand;
         Hand.image_xscale = Size / YStretch;
         Hand.image_yscale = Size * YStretch;
     }
@@ -146,7 +146,7 @@ else if (Hand != -1)
         Eyes.x = 1088 + ((Side == -1) ? (-512 + lerp(32, 192, EyePosition)) : (1024 - lerp(32, 192, EyePosition)));
         Eyes.y = 448 + lerp(150, 228, EyePosition) + EyeYOffset;
         Eyes.image_angle = lerp(0, -70, EyePosition) * Side;
-        Eyes.sprite_index = sBigTop_Eyes;
+        Eyes.sprite_index = SPRITE_Eyes;
         EyeYOffset += (((YOffset / 6) - EyeYOffset) / 10);
         EyePosition += EyeSpeed;
         EyeSpeed = lerp(EyeSpeed, (Prying - EyePosition) / 15, 0.1);

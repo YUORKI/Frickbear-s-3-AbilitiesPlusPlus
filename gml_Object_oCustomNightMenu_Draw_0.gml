@@ -8,7 +8,7 @@ if (!ChallengesOpen)
     draw_sprite_stretched(sWindowBase, 0, 496, 232, 144, 64);
     global.Challenge = undefined;
     global.ChallengeTitle = "None";
-    var ScrollBar = scroll_bar(TilesOffset, TilesDrag, 0, 0, 480, 360, 64 * ceil(8.7), 64);
+    var ScrollBar = scroll_bar(TilesOffset, TilesDrag, 0, 0, 480, 360, 64 * ceil(9.1), 64);
     TilesOffset = ScrollBar[0];
     TilesDrag = ScrollBar[1];
 }

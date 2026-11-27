@@ -100,7 +100,7 @@ function completion_checks()
         
         var Unlocked = global.UnlockedAnimatronics[i];
         
-        if (i <= 86)
+        if (i <= 90)
         {
             _AnimatronicsTotal++;
             

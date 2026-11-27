@@ -1,5 +1,6 @@
 var WindowX = 120;
 var WindowY = (360 + TabletOffset) - 330;
+var Die = false;
 
 if (!instance_exists(oMimic))
 {
@@ -7,7 +8,7 @@ if (!instance_exists(oMimic))
     {
         TabletUp = false;
         global.PanelUp = false;
-        audio_play_sound(sfxControlPanel_Close, 3, false, 0.5);
+        audio_play_sound(oMimic.SOUND_Close, 3, false, 0.5);
     }
     
     exit;
@@ -19,7 +20,7 @@ if (!surface_exists(MimicSurf))
 surface_set_target(MimicSurf);
 draw_clear_alpha(c_black, 1);
 draw_set_halign(fa_left);
-draw_set_color(#69C341);
+draw_set_color(Color);
 draw_set_font(global.FontW97White);
 draw_sprite_stretched(sDataDiver_Box, 0, -2, 56, 404, 22);
 draw_text(5, 57, "Select a suit, then press the confirmation button. Right-click to flag a suit as safe.");
@@ -50,18 +51,18 @@ for (var i = 0; i < SuitNum; i++)
         if (HoveredSuit != i && !Flagged)
         {
             HoveredSuit = i;
-            audio_play_sound(sfxControlPanel_TaskDone, 2, false, 0.2);
+            audio_play_sound(oMimic.SOUND_TaskDone, 2, false, 0.2);
         }
         
         if (mouse_check_button_pressed(mb_left) && !Flagged)
         {
             Choice = (Choice == i) ? -1 : i;
-            audio_play_sound(sfxControlPanel_Select, 2, false);
+            audio_play_sound(oMimic.SOUND_Select, 2, false);
         }
         
         if (mouse_check_button_pressed(mb_right))
         {
-            audio_play_sound(sfxBitPlace, 2, false);
+            audio_play_sound(oMimic.SOUND_Flag, 2, false);
             Flags[i] = !Flagged;
             
             if (Choice == i)
@@ -74,10 +75,10 @@ for (var i = 0; i < SuitNum; i++)
     if (Choice == i)
         Alpha = 1;
     
-    draw_sprite_ext(sDataDiver_Faces, i, ButtonX, ButtonY, 1, 1, 0, c_white, Alpha);
+    draw_sprite_ext(oMimic.SPRITE_Faces, i, ButtonX, ButtonY, 1, 1, 0, Color, Alpha);
     
     if (Flags[i])
-        draw_sprite_ext(sDataDiver_Faces, 8, ButtonX, ButtonY, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(oMimic.SPRITE_Faces, 8, ButtonX, ButtonY, 1, 1, 0, Color, 1);
 }
 
 if (ResetHover)
@@ -107,19 +108,19 @@ if (ConfirmButtonHover && mouse_check_button_pressed(mb_left) && Choice != -1)
         with (oMimic)
         {
             Lives--;
-            audio_play_sound(sfxMetalImpact, 20, false);
+            audio_play_sound(oMimic.SOUND_Impact, 20, false);
             
             if (Lives > 0)
             {
-                notification("The Mimic has moved to a new suit!");
+                notification(other.MessageMove);
                 change_possessed_suit();
             }
             else
             {
-                notification("The Mimic has been subdued!", 2);
+                notification(other.MessageDefeat, 2);
                 instance_destroy(oMimicSuit);
                 Active = false;
-                audio_stop_sound(sfxMimicGarble);
+                audio_stop_sound(oMimic.SOUND_Static);
             }
         }
         
@@ -128,7 +129,7 @@ if (ConfirmButtonHover && mouse_check_button_pressed(mb_left) && Choice != -1)
     }
     else
     {
-        jumpscare(UnknownEnum.Value_73, 0, oMimic.PossessedSuit);
+        Die = true;
     }
     
     mouse_clear(mb_left);
@@ -140,8 +141,8 @@ surface_reset_target();
 set_target_to_ui();
 draw_rectangle_color(WindowX, WindowY, WindowX + 400, WindowY + 300, c_black, c_black, c_black, c_black, false);
 draw_surface(MimicSurf, WindowX, WindowY);
-draw_sprite(sDataDiver_Border, 0, 320, 360 + TabletOffset);
-draw_sprite_ext(sDataDiver_Border, 0, 320, 360 + TabletOffset, 1, -1, 0, c_white, 1);
+draw_sprite(oMimic.SPRITE_Border, 0, 320, 360 + TabletOffset);
+draw_sprite_ext(oMimic.SPRITE_Border, 0, 320, 360 + TabletOffset, 1, -1, 0, c_white, 1);
 surface_reset_target();
 TabletOffsetSpeed = lerp(TabletOffsetSpeed, ((TabletUp ? 0 : 400) - TabletOffset) * 0.25, TabletUp ? 0.35 : 1);
 TabletOffset += TabletOffsetSpeed;
@@ -151,14 +152,17 @@ if (TabletUp && mouse_check_button_pressed(mb_left) && !clicked(WindowX, WindowY
     TabletUp = false;
     global.PanelUp = false;
     mouse_clear(mb_left);
-    audio_play_sound(sfxControlPanel_Close, 3, false, 0.5);
+    audio_play_sound(oMimic.SOUND_Close, 3, false, 0.5);
 }
 
 if (!global.PanelUp && TabletUp)
 {
     TabletUp = false;
-    audio_play_sound(sfxControlPanel_Close, 3, false, 0.5);
+    audio_play_sound(oMimic.SOUND_Close, 3, false, 0.5);
 }
+
+if (Die)
+    jumpscare(UnknownEnum.Value_73, 0, oMimic.PossessedSuit);
 
 enum UnknownEnum
 {

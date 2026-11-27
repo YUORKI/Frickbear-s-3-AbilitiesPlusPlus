@@ -44,9 +44,9 @@ if (Active)
             AngleSpeed = -8;
             Head.DrawDepth -= 2;
             reverb_sound(choose_from_array(SOUND_Appear), 0, 400);
-            audio_play_sound(sfxWhipCrack, 15, false);
-            audio_play_sound(sfxRoxyAmbience, 15, true);
-            audio_play_sound(sfxRoxyCharge, 10, true);
+            audio_play_sound(SOUND_Look, 15, false);
+            audio_play_sound(SOUND_Ambience, 15, true);
+            audio_play_sound(SOUND_Charge, 10, true);
         }
         else
         {
@@ -69,15 +69,15 @@ if (Active)
             if (Rage >= MaxRage)
                 jumpscare(ID);
             
-            audio_sound_gain(sfxRoxyCharge, LookedAt, 0);
-            audio_sound_pitch(sfxRoxyCharge, lerp(1, 2, Satisfaction / SatisfactionQuota));
+            audio_sound_gain(SOUND_Charge, LookedAt, 0);
+            audio_sound_pitch(SOUND_Charge, lerp(1, 2, Satisfaction / SatisfactionQuota));
         }
         
         if (Satisfaction >= 5)
         {
-            audio_stop_sound(sfxRoxyCharge);
-            audio_stop_sound(sfxRoxyAmbience);
-            audio_play_sound(sfxRoxyComplete, 10, false);
+            audio_stop_sound(SOUND_Charge);
+            audio_stop_sound(SOUND_Ambience);
+            audio_play_sound(SOUND_Complete, 10, false);
             reverb_sound(choose_from_array(SOUND_Satisfied), 0, 400);
             block_tokens();
             Satisfied = true;
@@ -124,20 +124,20 @@ if (!Active && AI > 0)
     
     if (WaitTime <= 0 && window_available())
     {
-        audio_play_sound(sfxEndoCreak, 15, false);
+        audio_play_sound(SOUND_Creak, 15, false);
         Body = instance_create_layer(0, 0, "Behind_Wall", oOfficeSprite);
         Head = instance_create_layer(0, 0, "Behind_Wall", oOfficeSprite);
         
         with (Body)
         {
             DrawDepth = 2;
-            sprite_index = sRoxy_Body;
+            sprite_index = other.SPRITE_Body;
         }
         
         with (Head)
         {
             DrawDepth = 3;
-            sprite_index = sRoxy_Head;
+            sprite_index = other.SPRITE_Head;
         }
         
         Frame = 0;

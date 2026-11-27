@@ -1,3 +1,10 @@
+ID = UnknownEnum.Value_71;
+SPRITE_Head = skin_sprite(sMXES_Head, ID, ["sprite_01.png", "sprite_02.png"]);
+SPRITE_Body = skin_sprite(sMXES_Body, ID, "sprite_03.png");
+SPRITE_Glitch = skin_sprite(sMXES_Glitch, ID, get_sprite_filenames(4, 7));
+SOUND_Zapped = skin_sound(sfxMXES_Zap, ID, "sq_zap");
+SOUND_Rise = skin_sound(sfxMXES_Rise, ID, "sq_rise");
+SOUND_Fall = skin_sound(sfxMXES_Fall, ID, "sq_fall");
 TargetX = 0;
 TargetY = 0;
 Speed = 1;
@@ -58,7 +65,7 @@ function infect_camera()
         MXESInfected = CamNumber == other.DestinationNum;
     
     InfectedCamera = DestinationNum;
-    audio_play_sound(sfxMXES_Zap, 10, false, 0.5);
+    audio_play_sound(SOUND_Zapped, 10, false, 0.5);
     fuzz_up(InfectedCamera);
 }
 
@@ -83,7 +90,7 @@ function set_destination()
         }
     }
     
-    audio_play_sound(sfxMXES_Rise, 10, false, 0.5);
+    audio_play_sound(SOUND_Rise, 10, false, 0.5);
     FullSize = false;
     
     if (DestinationNum == undefined)

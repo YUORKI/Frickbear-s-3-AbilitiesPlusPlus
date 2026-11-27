@@ -18,7 +18,7 @@ function generate_summon_list()
     var AmountToSummon = array_length(global.AILevels);
     var FullRoster = global.FourLayersDownMode || (global.ShuffleMode && numbered_night());
     
-    for (var i = 0; i <= (FullRoster ? 86 : UnknownEnum.Value_46); i++)
+    for (var i = 0; i <= (FullRoster ? 90 : UnknownEnum.Value_46); i++)
     {
         if (!character_active(i) && instance_exists(get_animatronic_object(i)))
             array_push(Summonables, i);
@@ -52,7 +52,7 @@ CurrentVoiceClip = sfxNOTHING;
 ChallengeTimer = 0;
 ChallengeArray = [];
 
-for (var i = 0; i <= (global.FourLayersDownMode ? 86 : UnknownEnum.Value_46); i++)
+for (var i = 0; i <= (global.FourLayersDownMode ? 90 : UnknownEnum.Value_46); i++)
 {
     if (global.AILevels[i] == 0)
         array_push(ChallengeArray, i);

@@ -95,6 +95,8 @@ else
 if (global.Night == "Endless" && lives_left() == 0)
     Options[0] = "See Results";
 
+QuipList = [];
+
 enum UnknownEnum
 {
     Value_5 = 5,

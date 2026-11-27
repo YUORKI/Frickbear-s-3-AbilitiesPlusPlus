@@ -16,7 +16,7 @@ if (!Paused && ((input_check_pressed(UnknownEnum.Value_1) && !Cooldown) || !wind
     if (in_salvage_location())
         Palette = oCamera3DMaze.Palettes[oCamera3DMaze.CurrentPalette];
     
-    if ((instance_exists(oMinigame_FreddyFazsweep) || instance_exists(oMinigame_GoldenFazsweep) || instance_exists(oMinigame_DoofPix) || instance_exists(oMinigame_TrashStacker)) && global.MonitorSystem == "Games" && global.CamUp)
+    if ((instance_exists(oMinigame_FreddyFazsweep) || instance_exists(oMinigame_GoldenFazsweep) || instance_exists(oMinigame_DoofPix) || instance_exists(oMinigame_TrashStacker)) && room == Office && global.MonitorSystem == "Games" && global.CamUp)
         DarkenAlpha = 1;
     
     instance_deactivate_all(true);

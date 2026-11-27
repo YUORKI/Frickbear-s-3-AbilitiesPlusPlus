@@ -1,2 +1,15 @@
 instance_destroy(oCaptainCobalt_Puppet);
 instance_destroy(oCaptainCobalt_Puppet_Facehugger);
+sprite_delete(SPRITE_Head);
+sprite_delete(SPRITE_Body);
+skin_sound_delete_array([SOUND_Popup, SOUND_Screech, SOUND_Scare]);
+skin_sound_delete_array(SOUND_Appear1);
+skin_sound_delete_array(SOUND_Appear2);
+skin_sound_delete_array(SOUND_Appear3);
+skin_sound_delete_array(SOUND_Appear4);
+skin_sound_delete_array(SOUND_Appear5);
+skin_sound_delete_array(SOUND_Scare1);
+skin_sound_delete_array(SOUND_Scare2);
+skin_sound_delete_array(SOUND_Scare3);
+skin_sound_delete_array(SOUND_Scare4);
+skin_sound_delete_array(SOUND_Scare5);

@@ -24,7 +24,7 @@ if (global.CamUp)
             var YOffset = lengthdir_y(-150 * HeadOffset, Angle);
             
             if (i < 4)
-                draw_sprite_ext(sJumpscare_Mimic, (MimicIcons[i] * 3) + 2, 200 + XOffset, 150 + YOffset, 0.75, 0.75, (Angle - 90) + round(random_range(-0.6, 0.6)), c_white, 1);
+                draw_sprite_ext(SPRITE_Jumpscare, MimicIcons[i], 200 + XOffset, 150 + YOffset, 0.75, 0.75, (Angle - 90) + round(random_range(-0.6, 0.6)), c_white, 1);
         }
     });
 }

@@ -11,12 +11,12 @@ if (Active)
     
     if (oHappyFrog.TabletUp)
     {
-        audio_stop_sound(sfxHappyFrog_Rumble);
+        audio_stop_sound(oHappyFrog.SOUND_Rumble);
     }
     else
     {
         if ((Frame % 120) == 1)
-            audio_play_sound(sfxHappyFrog_Rumble, 2, false);
+            audio_play_sound(oHappyFrog.SOUND_Rumble, 2, false);
         
         if ((Frame % 120) < 60)
             image_angle = random_range(-4, 4);
@@ -26,7 +26,7 @@ if (Active)
     
     if (abs(x - o3DMouse.x) < 40 && abs(y - o3DMouse.y) < 20 && mouse_check_button_pressed(mb_left) && turnaround_accessible())
     {
-        audio_play_sound(sfxMonitor, 10, false);
+        audio_play_sound(oHappyFrog.SOUND_Flip, 10, false);
         
         with (oHappyFrog)
             TabletUp = true;

@@ -21,6 +21,7 @@ List_InFrontOfWall = [];
 Sorted = false;
 SortTimer = 60;
 var folders = get_folders("offices");
+global.SkinOffice = min(global.SkinOffice, array_length(folders) - 1);
 var ChosenSkin = global.SkinOffice;
 
 if (global.RandomizeOffice)
@@ -111,6 +112,7 @@ with (oTitle_HangingDecor_Office)
 
 NightMusic = -1;
 HonkSound = sfxNoseHonk;
+global.Music = undefined;
 var file = "";
 
 if (ChosenSkin != -1)
@@ -183,5 +185,8 @@ if (ChosenSkin != -1)
     
     HonkSound = skin_sound_from_directory(sfxNoseHonk, Dir, "honk.ogg");
 }
+
+if (is_undefined(global.Music) && room != Fredbear_Office)
+    global.Music = play_music(oCamera.SongID, oCamera.MusicGain);
 
 DeletionArray = [SPRITE_WallLeft, SPRITE_WallFront, SPRITE_WallRight, SPRITE_WallBack, SPRITE_BG, SPRITE_DoorLeft, SPRITE_DoorRight, SPRITE_Clock, SPRITE_Fan, SPRITE_Blinds, SPRITE_TVOff, SPRITE_TVOn, SPRITE_Animations, SPRITE_HangingDecor, SPRITE_Cameras];

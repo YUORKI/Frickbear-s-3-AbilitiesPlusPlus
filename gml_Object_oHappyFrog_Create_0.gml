@@ -1,4 +1,17 @@
 ID = UnknownEnum.Value_59;
+SPRITE_HappyFrog = skin_sprite(sHappyFrog, ID, get_sprite_filenames(1, 7));
+SPRITE_Background = skin_sprite(sHappyFrog_BG, ID, "sprite_08.png");
+SPRITE_Border = skin_sprite(sHappyFrog_Border, ID, "sprite_09.png");
+SPRITE_Buttons = skin_sprite(sHappyFrog_Buttons, ID, get_sprite_filenames(11, 21));
+SPRITE_Tiles = skin_sprite(sHappyFrog_TileBG, ID, "sprite_10.png");
+SPRITE_Tablet = skin_sprite(sHappyFrogTablet, ID, get_sprite_filenames(23, 24));
+SOUND_Music = skin_sound(sfxHappyFrogJingle, ID, "sq_jingle");
+SOUND_Rumble = skin_sound(sfxHappyFrog_Rumble, ID, "sq_rumble");
+SOUND_Flip = skin_sound(sfxMonitor, ID, "sq_open");
+SOUND_Correct = skin_sound(sfxSparkleImpact, ID, "sq_solved");
+SOUND_Error = skin_sound(sfxError, ID, "sq_error");
+SOUND_Select = skin_sound(sfxClick, ID, "sq_click");
+SOUND_Solved = skin_sound_generate_array(get_misc_voicelines(ID, "Solved"), ID, "sq_solved");
 ButtonOffset = array_create(11, 0);
 ButtonValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Enter"];
 AnswerString = "";
@@ -210,7 +223,7 @@ function reset_timer(arg0)
             if (ProblemsLeft == 0)
             {
                 global.Timer = 358;
-                audio_stop_sound(sfxHappyFrogJingle);
+                audio_stop_sound(SOUND_Music);
                 exit;
             }
             
@@ -225,7 +238,6 @@ function reset_timer(arg0)
 }
 
 reset_timer(global.AILevels[ID]);
-SOUND_Solved = get_misc_voicelines(ID, "Solved");
 
 enum UnknownEnum
 {

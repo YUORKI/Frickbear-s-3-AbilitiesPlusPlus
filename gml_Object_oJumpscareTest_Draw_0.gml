@@ -3,6 +3,7 @@ var FrameVal = 1 - (floor(Frame) % 3);
 var Offset = (round(((FrameVal * 2) / Vibration) * 80) / 10) + (sqrt(Frame) * OriginX * 2);
 var Head = (JumpscareID * 3) + 1;
 var Body = JumpscareID * 3;
+var _SideVertical = SideVertical;
 var _JumpX = JumpX;
 var _JumpY = JumpY;
 var _SizeBody = SizeBody;
@@ -17,6 +18,10 @@ with (oExtras_AnimatronicGallery)
     if (other.sprite_index == sJumpscare_Fredbear3D || other.sprite_index == sJumpscare_PhonyBoss)
     {
         draw_sprite_ext(other.sprite_index, min(floor(other.Frame / 2), 45), 0, 0, 1, 1, 0, -1, _Alpha);
+    }
+    else if (_SideVertical == 666)
+    {
+        draw_sprite_ext(other.sprite_index, 0, 320, 180, 1, 1, 0, -1, _Alpha);
     }
     else
     {

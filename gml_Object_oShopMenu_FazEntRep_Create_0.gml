@@ -5,7 +5,7 @@ function calculate_value(arg0)
 
 var PossibleChars = [];
 
-for (var i = 0; i <= 86; i++)
+for (var i = 0; i <= 90; i++)
 {
     if (!array_contains(global.AllTimeSalvages, i))
         array_push(PossibleChars, i);
@@ -151,16 +151,16 @@ function draw_everything()
             }
         }
         
-        draw_outline(((SelectedColumn + (SelectedRow * BoxesPerRow)) == i) ? 1316072 : 5662772, get_tile(SorterArray[i]), 2, TileX, TileY + ViewOffset);
+        draw_outline(((SelectedColumn + (SelectedRow * BoxesPerRow)) == i) ? 1316072 : 5662772, global.IconTiles[SorterArray[i]], 2, TileX, TileY + ViewOffset);
         
         if (!global.UnlockedAnimatronics[ID])
         {
             shader_set(shFlash);
-            draw_sprite_ext(get_tile(SorterArray[i]), 2, TileX, TileY + ViewOffset, 1, 1, 0, #002F33, 1);
+            draw_sprite_ext(global.IconTiles[SorterArray[i]], 2, TileX, TileY + ViewOffset, 1, 1, 0, #002F33, 1);
         }
         else
         {
-            draw_sprite(get_tile(SorterArray[i]), 2, TileX, TileY + ViewOffset);
+            draw_sprite(global.IconTiles[SorterArray[i]], 2, TileX, TileY + ViewOffset);
         }
         
         shader_reset();

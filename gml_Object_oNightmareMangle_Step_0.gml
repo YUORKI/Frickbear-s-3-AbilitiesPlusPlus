@@ -1,4 +1,3 @@
-var ID = UnknownEnum.Value_49;
 var AI = global.AILevels[ID];
 
 if (AI <= 0)
@@ -65,8 +64,3 @@ else
 
 audio_sound_gain(SOUND_Ambience, (EnnardProgress - 0.75) * 2, 0);
 show_debug_message(global.Tools.AudioLure);
-
-enum UnknownEnum
-{
-    Value_49 = 49
-}

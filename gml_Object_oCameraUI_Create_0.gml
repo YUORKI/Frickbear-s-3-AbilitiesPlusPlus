@@ -185,7 +185,7 @@ with (oCamButtonShopItem)
         instance_destroy();
 }
 
-if ((guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_30)) && !instance_exists(oFredbear))
+if ((guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8)) && !instance_exists(oFredbear))
 {
     delete_shop_item("Rewind Clock");
     delete_shop_item("Distortion Clock");
@@ -193,39 +193,6 @@ if ((guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8) |
 
 if (guard_ability(UnknownEnum.Value_22))
     delete_shop_item("Deathcoin");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 0))
-    delete_shop_item("Battery Pack");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 1))
-    delete_shop_item("Distortion Clock");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 2))
-    delete_shop_item("Deathcoin");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 3))
-    delete_shop_item("Snowcone");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 4))
-    delete_shop_item("Golden Cupcake");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 5))
-    delete_shop_item("Beartrap");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 6))
-    delete_shop_item("Laser Doors");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 7))
-    delete_shop_item("King's Prize");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 8))
-    delete_shop_item("Mimic Ball");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 9))
-    delete_shop_item("AR Mask");
-
-if (array_contains(global.GuardParameters.blacklist_endo, 10))
-    delete_shop_item("Rewind Clock");
 
 if (eleanor_challenge_active(UnknownEnum.Value_0))
     delete_shop_item_all();
@@ -399,7 +366,6 @@ enum UnknownEnum
     Value_27 = 27,
     Value_28,
     Value_29,
-    Value_30,
     Value_48 = 48,
     Value_56 = 56
 }

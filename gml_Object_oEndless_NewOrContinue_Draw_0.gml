@@ -52,6 +52,8 @@ if (clicked(ButtonX, ButtonY, ButtonWidth, ButtonHeight))
         with (oBlackBars)
             BlackOut = true;
     }
+    
+    apply_skins_random();
 }
 
 Offset += ((OffsetTarget - Offset) / 5);

@@ -21,7 +21,7 @@ if (character_active(UnknownEnum.Value_16))
 if (character_active(UnknownEnum.Value_56))
 {
     if (CamNumber == oElectrobab.TargetCam && global.Cam != CamNumber && oElectrobab.ShowWarning)
-        draw_sprite(sElectrobabWarning, 1, x + sprite_width, y + sprite_height);
+        draw_sprite(oElectrobab.SPRITE_Warning, 1, x + sprite_width, y + sprite_height);
 }
 
 if (instance_exists(oSalvage))
@@ -37,134 +37,138 @@ if (instance_exists(oFredbearAttack_PowerOut) && oFredbearAttack_PowerOut.PhonyM
 }
 
 CharsOnCam = [];
+CharsOnCamSubtypes = [];
 
 if (RadarMode > 0)
 {
-    if (instance_exists(oFreddy) && global.AILevels[UnknownEnum.Value_0] > 0)
+    if (character_active(UnknownEnum.Value_0))
     {
         if (oFreddy.Stage == "ShowStage")
-            radar_draw(UnknownEnum.Value_1, UnknownEnum.Value_1);
+            radar_draw(oFreddy.SPRITE_CamRadar, UnknownEnum.Value_1);
         
         if (oFreddy.Stage == "DiningArea")
-            radar_draw(UnknownEnum.Value_1, UnknownEnum.Value_2);
+            radar_draw(oFreddy.SPRITE_CamRadar, UnknownEnum.Value_2);
         
         if ((oFreddy.Stage == "Hallway" || oFreddy.Stage == "Doorway" || oFreddy.Stage == "Blocked") && oFreddy.Side == -1)
-            radar_draw(UnknownEnum.Value_1, UnknownEnum.Value_4);
+            radar_draw(oFreddy.SPRITE_CamRadar, UnknownEnum.Value_4);
         
         if ((oFreddy.Stage == "Hallway" || oFreddy.Stage == "Doorway" || oFreddy.Stage == "Blocked") && oFreddy.Side == 1)
-            radar_draw(UnknownEnum.Value_1, UnknownEnum.Value_5);
+            radar_draw(oFreddy.SPRITE_CamRadar, UnknownEnum.Value_5);
     }
     
-    if (instance_exists(oBonnie) && global.AILevels[UnknownEnum.Value_1] > 0)
+    if (character_active(UnknownEnum.Value_1))
     {
         if (oBonnie.Stage == "ShowStage")
-            radar_draw(UnknownEnum.Value_2, UnknownEnum.Value_1);
+            radar_draw(oBonnie.SPRITE_CamRadar, UnknownEnum.Value_1);
         
         if (oBonnie.Stage == "DiningArea")
-            radar_draw(UnknownEnum.Value_2, UnknownEnum.Value_2);
+            radar_draw(oBonnie.SPRITE_CamRadar, UnknownEnum.Value_2);
         
         if (oBonnie.Stage == "Hallway")
-            radar_draw(UnknownEnum.Value_2, UnknownEnum.Value_4);
+            radar_draw(oBonnie.SPRITE_CamRadar, UnknownEnum.Value_4);
     }
     
-    if (instance_exists(oChica) && global.AILevels[UnknownEnum.Value_2] > 0)
+    if (character_active(UnknownEnum.Value_2))
     {
         if (oChica.Stage == "ShowStage")
-            radar_draw(UnknownEnum.Value_3, UnknownEnum.Value_1);
+            radar_draw(oChica.SPRITE_CamRadar, UnknownEnum.Value_1);
         
         if (oChica.Stage == "DiningArea")
-            radar_draw(UnknownEnum.Value_3, UnknownEnum.Value_2);
+            radar_draw(oChica.SPRITE_CamRadar, UnknownEnum.Value_2);
         
         if (oChica.Stage == "Hallway")
-            radar_draw(UnknownEnum.Value_3, UnknownEnum.Value_5);
+            radar_draw(oChica.SPRITE_CamRadar, UnknownEnum.Value_5);
     }
     
-    if (instance_exists(oFoxy) && global.AILevels[UnknownEnum.Value_3] > 0)
+    if (character_active(UnknownEnum.Value_3))
     {
         if (oFoxy.Mode == "Wait")
-            radar_draw(UnknownEnum.Value_4, UnknownEnum.Value_3);
+            radar_draw(oFoxy.SPRITE_CamRadar, UnknownEnum.Value_3);
     }
     
-    if (instance_exists(oMangle) && global.AILevels[UnknownEnum.Value_9] > 0)
-        radar_draw(UnknownEnum.Value_5, oMangle.CurrentCam);
+    if (character_active(UnknownEnum.Value_9))
+        radar_draw(oMangle.SPRITE_CamRadar, oMangle.CurrentCam);
     
-    if (instance_exists(oPhantoms) && global.AILevels[UnknownEnum.Value_19] > 0)
+    if (character_active(UnknownEnum.Value_19))
     {
         for (var p = 1; p < array_length(oPhantoms.CurrentCams); p++)
         {
             if (oPhantoms.CurrentCams[p] != 0 && oPhantoms.CurrentCams[p] <= oPhantoms.AmountOfPhantoms)
-                radar_draw((UnknownEnum.Value_8 + oPhantoms.CurrentCams[p]) - 1, p);
+                radar_draw(oPhantoms.SPRITE_CamRadar, p, oPhantoms.CurrentCams[p] - 1);
         }
     }
     
-    if (instance_exists(oSpringtrap) && global.AILevels[UnknownEnum.Value_20] > 0)
+    if (character_active(UnknownEnum.Value_20))
     {
         if (oSpringtrap.Stage == 0)
-            radar_draw(UnknownEnum.Value_14, UnknownEnum.Value_8);
+            radar_draw(oSpringtrap.SPRITE_CamRadar, UnknownEnum.Value_8);
         
         if (oSpringtrap.Stage == 1)
-            radar_draw(UnknownEnum.Value_14, UnknownEnum.Value_1);
+            radar_draw(oSpringtrap.SPRITE_CamRadar, UnknownEnum.Value_1);
         
         if (oSpringtrap.Stage == 2)
-            radar_draw(UnknownEnum.Value_14, UnknownEnum.Value_2);
+            radar_draw(oSpringtrap.SPRITE_CamRadar, UnknownEnum.Value_2);
         
         if (oSpringtrap.Stage == 3 || oSpringtrap.Stage == 4)
-            radar_draw(UnknownEnum.Value_14, UnknownEnum.Value_4);
+            radar_draw(oSpringtrap.SPRITE_CamRadar, UnknownEnum.Value_4);
     }
     
-    if (instance_exists(oNightmareBB) && global.AILevels[UnknownEnum.Value_23] > 0)
+    if (character_active(UnknownEnum.Value_23))
     {
         if (oNightmareBB.HitsLeft > 0)
-            radar_draw(UnknownEnum.Value_15, oNightmareBB.Camera);
+            radar_draw(oNightmareBB.SPRITE_CamRadar, oNightmareBB.Camera);
     }
     
-    if (instance_exists(oBaby) && global.AILevels[UnknownEnum.Value_26] > 0)
+    if (character_active(UnknownEnum.Value_26))
     {
         if (oBaby.BidybabsLeft > 0)
-            radar_draw(UnknownEnum.Value_16, UnknownEnum.Value_7);
+            radar_draw(oBaby.SPRITE_CamRadar, UnknownEnum.Value_7, 0);
         
         for (var p = 0; p < instance_number(oBidybab); p++)
-            radar_draw(UnknownEnum.Value_17, instance_find(oBidybab, p).Camera);
+            radar_draw(oBaby.SPRITE_CamRadar, instance_find(oBidybab, p).Camera, 1);
     }
     
-    if (instance_exists(oFuntimeFreddy) && global.AILevels[UnknownEnum.Value_27] > 0)
+    if (character_active(UnknownEnum.Value_27))
     {
         if (oFuntimeFreddy.Mode != "Waiting")
         {
-            radar_draw(UnknownEnum.Value_18, UnknownEnum.Value_4 + sign_to_binary(oFuntimeFreddy.Side));
-            radar_draw(UnknownEnum.Value_19, UnknownEnum.Value_4 + sign_to_binary(oFuntimeFreddy.ActualSide));
+            radar_draw(oFuntimeFreddy.SPRITE_CamRadar, UnknownEnum.Value_4 + sign_to_binary(oFuntimeFreddy.Side), 0);
+            radar_draw(oFuntimeFreddy.SPRITE_CamRadar, UnknownEnum.Value_4 + sign_to_binary(oFuntimeFreddy.ActualSide), 1);
         }
     }
     
-    if (instance_exists(oBallora) && global.AILevels[UnknownEnum.Value_29] > 0)
+    if (character_active(UnknownEnum.Value_29))
     {
         for (var p = 0; p < array_length(oBallora.SliceLocations); p++)
         {
             if (oBallora.SliceLocations[p])
-                radar_draw(UnknownEnum.Value_20, p);
+                radar_draw(oBallora.SPRITE_CamRadar, p);
         }
     }
     
-    if (instance_exists(oScrapBaby) && global.AILevels[UnknownEnum.Value_35] > 0)
+    if (character_active(UnknownEnum.Value_35))
     {
         if (oScrapBaby.Active)
-            radar_draw(UnknownEnum.Value_21, UnknownEnum.Value_8);
+            radar_draw(oScrapBaby.SPRITE_CamRadar, UnknownEnum.Value_8);
     }
     
     if (character_active(UnknownEnum.Value_43))
     {
         if (oSparky.Active)
-            radar_draw(UnknownEnum.Value_22, oSparky.CurrentCam);
+            radar_draw(oSparky.SPRITE_CamRadar, oSparky.CurrentCam);
     }
     
     if (character_active(UnknownEnum.Value_45))
-        radar_draw(UnknownEnum.Value_23, oPopgoes.CurrentCam);
+        radar_draw(oPopgoes.SPRITE_CamRadar, oPopgoes.CurrentCam);
     
     if (character_active(UnknownEnum.Value_84))
-        radar_draw(UnknownEnum.Value_24, oReagent.InHallway ? (UnknownEnum.Value_4 + sign_to_binary(oReagent.Side)) : UnknownEnum.Value_2);
+        radar_draw(oReagent.SPRITE_CamRadar, oReagent.InHallway ? (UnknownEnum.Value_4 + sign_to_binary(oReagent.Side)) : UnknownEnum.Value_2);
+    
+    if (character_active(UnknownEnum.Value_88))
+        radar_draw(oRalph.SPRITE_CamRadar, oRalph.CurrentCam);
     
     if (instance_exists(oSalvage))
-        radar_draw(UnknownEnum.Value_25, oSalvage.CurrentCam);
+        radar_draw(sCamRadarIcon_Salvage, oSalvage.CurrentCam);
 }
 
 var MimicIcons = [];
@@ -189,7 +193,7 @@ while (a >= 0)
     if (array_length(CharsOnCam) > 4)
         Sep = 4;
     
-    draw_sprite(sCamRadarIcons, CharsOnCam[a], x + 3 + (Sep * a), y + 3);
+    draw_sprite(CharsOnCam[a], CharsOnCamSubtypes[a], x + 3 + (Sep * a), y + 3);
     a--;
 }
 
@@ -202,7 +206,7 @@ while (a >= 0)
     if (array_length(MimicIcons) > 4)
         Sep = 4;
     
-    draw_sprite(sCamRadarIcons_Mimic, MimicIcons[a], x + 3 + (Sep * a), y + 3 + 8);
+    draw_sprite(oMimic.SPRITE_CamRadar, MimicIcons[a], x + 3 + (Sep * a), y + 3 + 8);
     a--;
 }
 
@@ -220,19 +224,11 @@ enum UnknownEnum
     Value_7,
     Value_8,
     Value_9,
-    Value_14 = 14,
-    Value_15,
-    Value_16,
-    Value_17,
-    Value_18,
-    Value_19,
+    Value_16 = 16,
+    Value_19 = 19,
     Value_20,
-    Value_21,
-    Value_22,
-    Value_23,
-    Value_24,
-    Value_25,
-    Value_26,
+    Value_23 = 23,
+    Value_26 = 26,
     Value_27,
     Value_29 = 29,
     Value_35 = 35,
@@ -240,5 +236,6 @@ enum UnknownEnum
     Value_45 = 45,
     Value_56 = 56,
     Value_73 = 73,
-    Value_84 = 84
+    Value_84 = 84,
+    Value_88 = 88
 }

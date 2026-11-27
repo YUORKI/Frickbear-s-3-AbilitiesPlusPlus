@@ -7,7 +7,7 @@ y += lengthdir_y(Speed, Direction);
 
 if (point_distance(x, y, global.MouseX, global.MouseY) < (16 * Size) && CanCollide)
 {
-    audio_play_sound(sfxBitPunish, 10, false);
+    audio_play_sound(oChicasMagicRainbow.SOUND_Fail, 10, false);
     
     with (oChicasMagicRainbow_Bullets)
         CanCollide = false;

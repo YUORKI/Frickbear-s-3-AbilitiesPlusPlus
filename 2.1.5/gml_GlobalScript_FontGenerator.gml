@@ -1,0 +1,12 @@
+TextOrder = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ÁÉÍÓÚÑáéíóúñ¿¡♫";
+global.FontW97Black = font_add_sprite_ext(sFont, TextOrder, true, 1);
+global.FontW97White = font_add_sprite_ext(sFontColor, TextOrder, true, 1);
+TextOrder = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ¡¿áéíóú™∎ϾⅠⅡⅢⅣ♫";
+global.FontHanddrawn = font_add_sprite_ext(sFontHanddrawn, TextOrder, true, 1);
+global.FontHanddrawn_Antijitter = font_add_sprite_ext(sFontHanddrawn, TextOrder, false, -14);
+TextOrder = "ABCDEFGHIJKLMNOPQRSTUVWXYZ():;[]abcdefghijklmnopqrstuvwxyz'?!.,-0123456789/'\":~ ÁÉÍÓÚÑáéíóúñ¿¡";
+global.FontGameboy = font_add_sprite_ext(sFontGameboy, TextOrder, false, 1);
+TextOrder = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ¡¿áéíóú™";
+global.FontSalvageSheet = font_add_sprite_ext(sSalvageSheet_Font, TextOrder, true, 0);
+draw_set_font(global.FontW97Black);
+draw_set_halign(fa_left);

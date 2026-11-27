@@ -6,3 +6,7 @@ Angle = 0;
 AngleSpeed = 0;
 Side = random_sign();
 BlinkTimer = 60;
+SPRITE_WetFloorSign = oReagent.SPRITE_WetFloorSign;
+SPRITE_WetFloorSignAlt = oReagent.SPRITE_WetFloorSignAlt;
+SOUND_Pluck = oReagent.SOUND_Pluck;
+SOUND_Place = oReagent.SOUND_Place;

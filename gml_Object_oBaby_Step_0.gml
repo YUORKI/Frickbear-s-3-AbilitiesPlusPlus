@@ -1,4 +1,3 @@
-var ID = UnknownEnum.Value_26;
 var AI = global.AILevels[ID];
 
 if (Initialize && AI > 0)
@@ -28,8 +27,3 @@ if (Initialize && AI > 0)
 }
 
 depth = 80;
-
-enum UnknownEnum
-{
-    Value_26 = 26
-}

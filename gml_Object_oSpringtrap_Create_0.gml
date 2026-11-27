@@ -47,6 +47,7 @@ function play_move_sound()
 }
 
 SPRITE_Cameras = skin_sprite(sCameras_Springtrap, ID, ["sprite_01.png", "sprite_02.png", "sprite_03.png", "sprite_04.png", "sprite_05.png"]);
+SPRITE_CamRadar = skin_sprite(sCamRadarIcon_Springtrap, ID, "camradar.png");
 depth = 99;
 
 enum UnknownEnum

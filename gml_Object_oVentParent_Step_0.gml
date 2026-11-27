@@ -164,7 +164,7 @@ else if (Mode == "Office")
         VentSound(1);
         var EntryLine = SOUND_Enter[irandom(array_length(SOUND_Enter) - 1)];
         
-        if (ID == UnknownEnum.Value_12 && global.Skins[UnknownEnum.Value_12] < 0 && irandom(1000) == 1 && !array_contains(global.UnlockFlags, "BigButtFlag"))
+        if (ID == UnknownEnum.Value_12 && global.SkinsFunctional[UnknownEnum.Value_12] < 0 && irandom(1000) == 1 && !array_contains(global.UnlockFlags, "BigButtFlag"))
         {
             EntryLine = voc_WitheredChica_BigButt;
             array_push(global.UnlockFlags, "BigButtFlag");

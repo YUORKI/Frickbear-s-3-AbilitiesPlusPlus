@@ -62,8 +62,8 @@ else
                 
                 if (CommandInput == 1)
                 {
-                    audio_play_sound(sfxBitCrunch, 5, false);
-                    audio_play_sound(sfxBitPlace, 5, false);
+                    audio_play_sound(SOUND_Attack, 5, false);
+                    audio_play_sound(SOUND_Select, 5, false);
                     HurtFrames = 22;
                     ActionCooldown = 60;
                     EnemyHP -= 0.5;
@@ -71,15 +71,15 @@ else
                     if (EnemyHP <= 0)
                     {
                         HurtFrames = 90;
-                        audio_play_sound(sfxBitExplosionAlt, 10, false);
-                        audio_play_sound(sfxBitCollect, 10, false);
+                        audio_play_sound(SOUND_Explode, 10, false);
+                        audio_play_sound(SOUND_Collect, 10, false);
                         block_tokens();
                     }
                 }
                 
                 if (CommandInput == 2)
                 {
-                    audio_play_sound(sfxBitBoost, 5, false);
+                    audio_play_sound(SOUND_Heal, 5, false);
                     FreddyHP = 1;
                     EnemyAttackTimer += 30;
                     ActionCooldown = PlayerCooldown;
@@ -100,14 +100,14 @@ else
                 EnemyAttackTimer = EnemyAttackRate;
                 BattleWindowShake = 25;
                 FreddyHP -= 0.25;
-                audio_play_sound(sfxBitPunish, 5, false);
-                audio_play_sound(sfxBitCrunch, 5, false);
+                audio_play_sound(SOUND_Fail, 5, false);
+                audio_play_sound(SOUND_Attack, 5, false);
             }
             
             if (FreddyHP <= 0)
             {
                 DeathFrames = 120;
-                audio_play_sound(sfxBitExplosion, 50, false);
+                audio_play_sound(SOUND_ExplodeAlt, 50, false);
             }
             
             if (HurtFrames > 0)
@@ -129,7 +129,7 @@ else
         
         if (TicksTilFight <= 0)
         {
-            EnemyType = (EnemyType + irandom_range(1, 2)) % 3;
+            EnemyType = (EnemyType + irandom_range(1, 2)) % floor(sprite_get_number(SPRITE_Enemies) / 2);
             BattleMode = true;
             ActionCooldown = 0;
             EnemyAttackTimer = max(EnemyAttackTimer, 30);

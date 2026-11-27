@@ -9,3 +9,8 @@ if (instance_exists(oCameraUI))
             oCameraUI.DisabledMinigames[i] = false;
     }
 }
+
+sprite_delete(SPRITE_Icon);
+sprite_delete(SPRITE_Meter);
+sprite_delete(SPRITE_Glitch);
+skin_sound_delete_array([SOUND_Fail, SOUND_Glitch, SOUND_Laugh]);

@@ -10,7 +10,7 @@ var EntryAmount = ModMode ? array_length(UnlockedArray) : array_length(oExtras_A
 var ID = ModMode ? CurrentChar : oExtras_AnimatronicSelect.SorterArray[CurrentChar];
 var Data = ExtrasDatabase[ID];
 var ExtraChar = ID > 202;
-var ScaryMode = ID == UnknownEnum.Value_126 && !DescriptionMode;
+var ScaryMode = (ID == UnknownEnum.Value_126 && !DescriptionMode) && !ModMode;
 
 if (ScaryMode)
     audio_sound_gain(musExtras, 0, 0);

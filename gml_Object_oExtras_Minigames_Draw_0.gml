@@ -54,7 +54,7 @@ for (var i = 0; i < 16; i++)
         TextColor = 12632256;
     }
     
-    draw_sprite(sCamRadarIcons, global.UnlockedMinigames[i] ? get_minigame_icon(i) : 0, 1, YPos);
+    draw_sprite(global.UnlockedMinigames[i] ? get_minigame_icon(i) : sCamRadarIcon, 0, 1, YPos);
     draw_text_color(21, YPos - 1, Text, TextColor, TextColor, TextColor, TextColor, 1);
     draw_set_font(global.FontW97Black);
 }

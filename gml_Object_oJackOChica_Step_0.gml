@@ -29,7 +29,7 @@ var HeadX = TorsoX + rot_x(46, -94 + Cur_HeadB, TorsoA);
 var HeadY = TorsoY + rot_y(46, -94 + Cur_HeadB, TorsoA);
 var HeadA = (dsin((Frame * 6) - 45) * 8) + (Cur_HeadB / 4);
 
-if (Frame == (300 - (AI * 2)) || Frame == (420 + (AI * 2)))
+if (Frame == round(300 - (AI * 2)) || Frame == round(420 + (AI * 2)))
 {
     if (HeadTurned)
     {
@@ -109,6 +109,7 @@ with (Head)
     image_angle = -1 * HeadA;
     image_index = 0;
     DrawDepth = 7;
+    image_index = other.HeadTurned;
 }
 
 with (Arm)

@@ -1,4 +1,3 @@
-var ID = UnknownEnum.Value_51;
 var AI = global.AILevels[ID];
 var TimeToWait = lerp(58, 28, AI / 20) * Randomizer;
 var TargetReelSpeed = lerp(1, 2.5, AI / 20);
@@ -22,8 +21,8 @@ if (Active)
         if (FishingLineY > 350 && !Splashed)
         {
             Splashed = true;
-            reverb_sound(sfxDeedee_Splash, 0, -400);
-            audio_stop_sound(sfxDeedee_Reel);
+            reverb_sound(SOUND_Splash, 0, -400);
+            audio_stop_sound(SOUND_Reel);
         }
         
         FishingLineSpeed = lerp(FishingLineSpeed, (350 - FishingLineY) * 0.1, 0.2);
@@ -31,7 +30,7 @@ if (Active)
     else
     {
         if (AttackFrame == 0)
-            audio_play_sound(sfxDeedee_Reel, 10, true, 0.25, 0, 0.5);
+            audio_play_sound(SOUND_Reel, 10, true, 0.25, 0, 0.5);
         
         FishingLineY -= ReelSpeed;
         
@@ -40,7 +39,10 @@ if (Active)
             FishingLineY += 64;
             
             if (StealFlipFlop)
-                instance_create_layer(1344, 744, "Behind_Wall", oToken);
+            {
+                with (instance_create_layer(1344, 744, "Behind_Wall", oToken))
+                    sprite_index = other.SPRITE_Tokens;
+            }
             
             StealFlipFlop = !StealFlipFlop;
         }
@@ -55,18 +57,19 @@ if (Active)
             if (y < 560)
             {
                 other.TokensDrained++;
-                audio_play_sound(sfxBitPunish, 8, false, 1, 0, 0.8);
-                instance_destroy();
                 
                 with (other)
                 {
                     if ((global.Tokens - 1) < oCamera.MinTokens)
+                    {
                         jumpscare(ID);
-                    
-                    exit;
+                        exit;
+                    }
                 }
                 
                 global.Tokens--;
+                audio_play_sound(other.SOUND_Drain, 8, false, 1, 0, 0.8);
+                instance_destroy();
             }
         }
     }
@@ -124,7 +127,7 @@ if (global.MonitorSystem == "Shop" && Active)
         }
         else
         {
-            audio_play_sound(choose(sfxPunch1, sfxPunch2, sfxPunch3), 15, false);
+            audio_play_sound(choose_from_array(SOUND_Clicked), 15, false);
             audio_play_sound(choose_from_array(SOUND_Hurt), 10, false);
             Shake = 10;
             HP--;
@@ -141,9 +144,9 @@ if (global.MonitorSystem == "Shop" && Active)
                 Shake = 10;
                 Active = false;
                 block_tokens();
-                audio_stop_sound(sfxDeedee_Reel);
-                audio_play_sound(sfxCartoonHitSlip, 15, false);
-                audio_play_sound(sfxMarioKick, 15, false);
+                audio_stop_sound(SOUND_Reel);
+                audio_play_sound(SOUND_Slip, 15, false);
+                audio_play_sound(SOUND_Kick, 15, false);
                 instance_destroy(oToken);
                 instance_destroy(OBJ_FishingLine);
                 OBJ_FishingLine = undefined;
@@ -156,8 +159,3 @@ if (global.MonitorSystem == "Shop" && Active)
 
 if (AI > 0)
     WaitTime += 0.016666666666666666;
-
-enum UnknownEnum
-{
-    Value_51 = 51
-}

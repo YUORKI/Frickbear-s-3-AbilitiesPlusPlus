@@ -154,7 +154,7 @@ switch (RewardSize)
         {
             var PossibleAnimatronics = [];
             
-            for (var i = 0; i < 86; i++)
+            for (var i = 0; i < 90; i++)
             {
                 if (array_contains(global.AllTimeSalvages, i))
                     continue;

@@ -26,7 +26,7 @@ if (PopsicleTimer <= 0 && AI > 0 && global.Power > 0)
             PopsicleTimer = round(lerp(360, 240, AI / 20));
         
         PopsiclesToSummon--;
-        audio_play_sound(sfxDoofas_Pop, 2, false, 1, 0, random_range(0.8, 1.2));
+        audio_play_sound(SOUND_Appear, 2, false, 1, 0, random_range(0.8, 1.2));
     }
     
     if (PopsiclesToSummon == 0)

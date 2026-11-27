@@ -1,0 +1,16 @@
+PhonyMode = oFredbear.PhonyMode;
+DrawDepth = 0;
+YOffset = 0;
+YSpeed = 0;
+Active = true;
+Size = 1;
+KillFrames = 0;
+Side = oFredbear.ClawSide;
+Difficulty = oFredbear.Difficulty;
+TimeUntilKill = lerp(10, 7, Difficulty);
+MashPower = PhonyMode ? 1.25 : 1;
+DoorSound = -1;
+Frame = 0;
+Face = instance_create_layer(0, 0, "Behind_Wall", oOfficeSprite);
+PhonyMode = oFredbear.PhonyMode;
+ForcedSide = 0;

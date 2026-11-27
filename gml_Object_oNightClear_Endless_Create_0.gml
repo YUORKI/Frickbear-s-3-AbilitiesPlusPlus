@@ -33,7 +33,7 @@ if (global.EndlessRound > 10)
     if (count_up_stickers(global.EndlessStickers) >= 40)
         unlock_guard(UnknownEnum.Value_5);
     
-    if (count_up_stickers(global.EndlessStickers) >= 87)
+    if (count_up_stickers(global.EndlessStickers) >= 91)
         unlock_guard(UnknownEnum.Value_10);
     
     global.DeathsThisRound = 0;

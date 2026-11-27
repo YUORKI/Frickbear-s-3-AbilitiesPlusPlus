@@ -14,7 +14,10 @@ function turn_off_tv()
     SubtitlePosition = 0;
 }
 
-SPRITE_Animations = sVladClaraTV;
+SPRITE_Animations = skin_sprite_unlimited(sVladClaraTV, ID, "sprite_screen");
+SOUND_Episodes = skin_sound_generate_array(get_misc_voicelines(ID, "Episodes"), ID, "voc_episode");
+SOUND_Ads = skin_sound_generate_array(get_misc_voicelines(ID, "Ads"), ID, "voc_ad");
+SOUND_Activate = skin_sound(sfxTV_SwitchOn, ID, "sq_switchon");
 IsAd = !(irandom(3) == 0);
 SavedEpisodePosition = random_range(0, 90);
 
@@ -36,7 +39,7 @@ function select_episode(arg0 = false)
         SavedEpisodePosition = 0;
     }
     
-    TonightsEpisode = choose_from_array(get_misc_voicelines(ID, IsAd ? "Ads" : "Episodes"));
+    TonightsEpisode = choose_from_array(IsAd ? SOUND_Ads : SOUND_Episodes);
     var Subtitles = subtitle(TonightsEpisode);
     SubtitleList = Subtitles[0];
     SubtitleTimingList = Subtitles[1];

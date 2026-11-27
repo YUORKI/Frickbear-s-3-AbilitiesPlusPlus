@@ -1,12 +1,12 @@
 event_inherited();
 MaxWidth = 8;
-SorterArray = get_sorter_array(countup_array(86));
+SorterArray = get_sorter_array(countup_array(90));
 
 function generate_selection_list()
 {
     Killables = [];
     
-    for (var i = 0; i < 86; i++)
+    for (var i = 0; i < 90; i++)
     {
         if (!array_contains(global.AllTimeSalvages, i) && global.UnlockedAnimatronics[i])
             array_push(Killables, i);

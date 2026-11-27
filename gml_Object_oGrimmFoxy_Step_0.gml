@@ -34,7 +34,7 @@ if (Flashed && !DuckingDown)
     
     if (!HurtSoundPlayed)
     {
-        audio_play_sound(sfxFireImpact, 10, false, Size);
+        audio_play_sound(SOUND_Impact, 10, false, Size);
         HurtSoundPlayed = true;
     }
 }
@@ -87,7 +87,7 @@ var RArmY = BodyY + rot_y(36 * XScale, -71 * YScale, BodyA);
 
 with (LArm)
 {
-    sprite_index = AngryAnimation ? sNOTHING : sGrimmFoxy_Arm;
+    sprite_index = AngryAnimation ? sNOTHING : other.SPRITE_Arm;
     image_index = 0;
     x = LArmX;
     y = LArmY;

@@ -158,24 +158,24 @@ if (!surface_exists(Surf))
 
 surface_set_target(Surf);
 draw_clear_alpha(c_black, 0);
-draw_sprite_ext(sBon_UpperArm, 1, UpperArmRX, UpperArmRY, 1, 1, UpperArmRA, c_white, 1);
-draw_sprite(sBon_Leg, 1, BodyX + 28, BodyY);
-draw_sprite_ext(sBon_Body, 0, BodyX, BodyY, 1, 1, BodyA, c_white, 1);
-draw_sprite(sBon_Leg, 0, BodyX - 52, BodyY);
-draw_sprite_ext(sBon_UpperArm, 0, UpperArmLX, UpperArmLY, 1, 1, UpperArmLA, c_white, 1);
-draw_sprite(sBon_Tie, 0, BodyX + rot_x(14, -198, BodyA), BodyY + rot_y(14, -198, BodyA));
-draw_sprite_ext(sBon_Ear, 1, HeadX + rot_x(54, -80, HeadA), HeadY + rot_y(54, -80, HeadA), -1, 1, 0, c_white, 1);
-draw_sprite_ext(sBon_Jaw, 0, HeadX, HeadY + rot_y(0, JawOffset, HeadA), 1, 1, HeadA, c_white, 1);
-draw_sprite_ext(sBon_Head, 0, HeadX, HeadY, 1, 1, HeadA, c_white, 1);
-draw_sprite_ext(sBon_Ear, 0, HeadX + rot_x(-54, -72, HeadA), HeadY + rot_y(-54, -72, HeadA), 1, 1, 0, c_white, 1);
+draw_sprite_ext(SPRITE_UpperArm, 1, UpperArmRX, UpperArmRY, 1, 1, UpperArmRA, c_white, 1);
+draw_sprite(SPRITE_Leg, 1, BodyX + 28, BodyY);
+draw_sprite_ext(SPRITE_Body, 0, BodyX, BodyY, 1, 1, BodyA, c_white, 1);
+draw_sprite(SPRITE_Leg, 0, BodyX - 52, BodyY);
+draw_sprite_ext(SPRITE_UpperArm, 0, UpperArmLX, UpperArmLY, 1, 1, UpperArmLA, c_white, 1);
+draw_sprite(SPRITE_Tie, 0, BodyX + rot_x(14, -198, BodyA), BodyY + rot_y(14, -198, BodyA));
+draw_sprite_ext(SPRITE_Ear, 1, HeadX + rot_x(54, -80, HeadA), HeadY + rot_y(54, -80, HeadA), -1, 1, 0, c_white, 1);
+draw_sprite_ext(SPRITE_Jaw, 0, HeadX, HeadY + rot_y(0, JawOffset, HeadA), 1, 1, HeadA, c_white, 1);
+draw_sprite_ext(SPRITE_Head, 0, HeadX, HeadY, 1, 1, HeadA, c_white, 1);
+draw_sprite_ext(SPRITE_Ear, 0, HeadX + rot_x(-54, -72, HeadA), HeadY + rot_y(-54, -72, HeadA), 1, 1, 0, c_white, 1);
 
 if (CandyBowlMode)
-    draw_sprite_ext(sCandyBowl, 0, CandyBowlX, CandyBowlY, 1, 1, LowerArmLA, c_white, 1);
+    draw_sprite_ext(oDreadbear.SPRITE_Bowl, 0, CandyBowlX, CandyBowlY, 1, 1, LowerArmLA, c_white, 1);
 
-draw_sprite_ext(sBon_Hand, 0, HandLX, HandLY, 1, 1, HandLA, c_white, 1);
-draw_sprite_ext(sBon_LowerArm, 0, LowerArmLX, LowerArmLY, 1, 1, LowerArmLA, c_white, 1);
-draw_sprite_ext(sBon_Hand, 0, HandRX, HandRY, -1, 1, HandRA, c_white, 1);
-draw_sprite_ext(sBon_LowerArm, 0, LowerArmRX, LowerArmRY, -1, 1, LowerArmRA, c_white, 1);
+draw_sprite_ext(SPRITE_Hand, 0, HandLX, HandLY, 1, 1, HandLA, c_white, 1);
+draw_sprite_ext(SPRITE_LowerArm, 0, LowerArmLX, LowerArmLY, 1, 1, LowerArmLA, c_white, 1);
+draw_sprite_ext(SPRITE_Hand, 1, HandRX, HandRY, -1, 1, HandRA, c_white, 1);
+draw_sprite_ext(SPRITE_LowerArm, 1, LowerArmRX, LowerArmRY, -1, 1, LowerArmRA, c_white, 1);
 surface_reset_target();
 var ScaleSize = 0.45;
 var Angle = 120;

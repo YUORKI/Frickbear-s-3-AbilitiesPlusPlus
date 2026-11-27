@@ -1,10 +1,10 @@
-var ID = UnknownEnum.Value_63;
 var AI = global.AILevels[ID];
 
 if ((TimeToKill + global.Timer) >= 360 && AI > 0 && array_length(Tasks) > 0)
     jumpscare(ID, 0);
 
-enum UnknownEnum
+if (!instance_exists(oControlPanel))
 {
-    Value_63 = 63
+    with (instance_create_layer(1488, 1234, "OnWall", oControlPanel))
+        image_xscale = -1;
 }

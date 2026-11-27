@@ -1,15 +1,30 @@
 CamNumber = 0;
 BaseY = y;
 CharsOnCam = [];
+CharsOnCamSubtypes = [];
 
-function radar_draw(arg0, arg1, arg2 = false)
+function radar_draw(arg0, arg1, arg2 = 0)
 {
-    if (CamNumber == arg1 && !array_contains(CharsOnCam, arg0))
+    if (CamNumber != arg1)
+        exit;
+    
+    var Add = true;
+    
+    for (var i = 0; i < array_length(CharsOnCam); i++)
     {
-        if (RadarMode == 2)
-            array_push(CharsOnCam, arg0);
-        else
-            CharsOnCam = [UnknownEnum.Value_0];
+        if (CharsOnCam[i] == arg0 && CharsOnCamSubtypes[i] == arg2)
+            exit;
+    }
+    
+    if (RadarMode == 2)
+    {
+        array_push(CharsOnCam, arg0);
+        array_push(CharsOnCamSubtypes, arg2);
+    }
+    else
+    {
+        CharsOnCam = [sCamRadarIcon];
+        CharsOnCamSubtypes = [0];
     }
 }
 
@@ -22,7 +37,6 @@ MXESInfected = false;
 
 enum UnknownEnum
 {
-    Value_0,
     Value_11 = 11,
     Value_12
 }

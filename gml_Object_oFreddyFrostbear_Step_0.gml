@@ -1,4 +1,3 @@
-var ID = UnknownEnum.Value_65;
 var AI = global.AILevels[ID];
 var Speed = lerp(1.5, 2, AI / 20);
 var StormDuration = round(lerp(180, 360, AI / 20));
@@ -8,8 +7,8 @@ if (WaitTime <= 0 && AI > 0)
     Frame = -30;
     set_wait_time(AI);
     Direction += 90;
-    audio_play_sound(sfxFrostbearWind, 50, false, 0.5);
-    audio_sound_gain(sfxFrostbearWind, 1, 1000);
+    audio_play_sound(SOUND_Wind, 50, false, 0.5);
+    audio_sound_gain(SOUND_Wind, 1, 1000);
 }
 else if (Frame >= StormDuration)
 {
@@ -18,7 +17,7 @@ else if (Frame >= StormDuration)
 
 if (Frame >= -30)
 {
-    audio_sound_pitch(sfxFrostbearWind, lerp(1, PushSpeed / Speed, 0.5));
+    audio_sound_pitch(SOUND_Wind, lerp(1, PushSpeed / Speed, 0.5));
     
     if (Frame < StormDuration && Frame > 0)
     {
@@ -70,9 +69,10 @@ if (Frame >= -30)
         
         with (instance_create_depth(SpawnX, SpawnY, 0, oFreddyFrostbear_Snowflake))
         {
+            sprite_index = other.SPRITE_Snowflake;
             Direction = other.Direction;
             OwnSpeed = SnowflakeSpeed * random_range(1, 2);
-            Image = irandom(3);
+            Image = irandom(sprite_get_number(other.SPRITE_Snowflake));
         }
         
         SnowflakeFrame += 0.2;
@@ -82,15 +82,10 @@ if (Frame >= -30)
         SnowflakeFrame -= (Speed / 60);
     
     if (Frame == StormDuration)
-        audio_sound_gain(sfxFrostbearWind, 0, 2000);
+        audio_sound_gain(SOUND_Wind, 0, 2000);
     
-    if (Frame > StormDuration && audio_sound_get_gain(sfxFrostbearWind) == 0)
-        audio_stop_sound(sfxFrostbearWind);
+    if (Frame > StormDuration && audio_sound_get_gain(SOUND_Wind) == 0)
+        audio_stop_sound(SOUND_Wind);
 }
 
 Frame++;
-
-enum UnknownEnum
-{
-    Value_65 = 65
-}

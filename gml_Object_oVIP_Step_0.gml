@@ -16,7 +16,7 @@ if ((global.Timer % Interval) == (Interval - 1.5) && NightTimer > 0)
     PositionSpeed = 0;
     YOffset = 0;
     YOffsetSpeed = 0;
-    reverb_sound(choose(voc_VIP_Hmm1, voc_VIP_Hmm2, voc_VIP_Hmm3), 500, 0, false, 3, 1, 0);
+    reverb_sound(choose_from_array(SOUND_Hmm), 500, 0, false, 3, 1, 0);
 }
 
 image_index = Frame > 90;
@@ -37,9 +37,13 @@ if (Frame == 90)
     
     if (global.Tokens >= RealQuota)
     {
-        audio_play_sound(sfxSparkleImpact, 10, false);
-        reverb_sound(SuccessQuotes[Successes], 500, 0, false, 2, 1, 0);
-        Successes = (Successes + 1) % array_length(SuccessQuotes);
+        audio_play_sound(SOUND_Sparkle, 10, false);
+        
+        if (array_length(SuccessQuotes) > 0)
+        {
+            reverb_sound(SuccessQuotes[Successes], 500, 0, false, 2, 1, 0);
+            Successes = (Successes + 1) % array_length(SuccessQuotes);
+        }
     }
     else
     {
@@ -58,7 +62,7 @@ if (VisualTokenQuota < RealQuota && Frame >= 150)
     VisualTokenQuota += 0.25;
     
     if ((VisualTokenQuota % 1) == 0)
-        audio_play_sound(sfxTick, 3, false);
+        audio_play_sound(SOUND_Tick, 3, false);
 }
 
 Frame++;

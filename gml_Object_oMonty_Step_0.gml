@@ -1,4 +1,3 @@
-var ID = UnknownEnum.Value_68;
 var AI = global.AILevels[ID];
 
 if (Active)
@@ -29,7 +28,7 @@ if (Active)
             ChangePose = false;
             OffsetTarget = 0;
             YOffsetSpeed = -4;
-            audio_play_sound(sfxWhipCrack, 5, false, 0.5, 0, random_range(0.8, 1.2));
+            audio_play_sound(SOUND_Pose, 5, false, 0.5, 0, random_range(0.8, 1.2));
             
             if (PosesUntilVulnerable == 0)
             {
@@ -42,12 +41,11 @@ if (Active)
             }
             
             Pose = (Pose + 1) % 4;
-            var Grunts = [voc_Monty_Grunt2, voc_Monty_Grunt3, voc_Monty_Grunt4, voc_Monty_Grunt5];
             
             if (PosesUntilVulnerable == 0)
-                reverb_sound(choose(voc_Monty_GruntExposed1, voc_Monty_GruntExposed2, voc_Monty_GruntExposed3), 0, 200, false, 1.2, 1, 0.05);
+                reverb_sound(choose_from_array(SOUND_Exposed), 0, 200, false, 1.2, 1, 0.05);
             else
-                reverb_sound(Grunts[Pose], 0, 200, false, 1.2, 1, 0.05);
+                reverb_sound(SOUND_Grunt[Pose % array_length(SOUND_Grunt)], 0, 200, false, 1.2, 1, 0.05);
             
             VulnerablePosesMissed -= 0.2;
         }
@@ -89,8 +87,8 @@ if (Active)
         ShakeDegree = 5;
         AngleSpeed = -8;
         block_tokens();
-        audio_play_sound(sfxMontyStun, 20, false);
-        reverb_sound(voc_Monty_Pain, 0, 200);
+        audio_play_sound(SOUND_Zapped, 20, false);
+        reverb_sound(choose_from_array(SOUND_Hurt), 0, 200);
         clear_window(ID);
     }
 }
@@ -143,10 +141,10 @@ if (WaitTime <= 0 && !Active && window_available())
     Active = true;
     Flashed = false;
     Poser = instance_create_layer(-999, -999, "Behind_Wall", oOfficeSprite);
-    Poser.sprite_index = sMonty;
-    audio_play_sound(sfxMontyWoosh, 20, false);
-    audio_play_sound(sfxMontyWhistle, 20, false);
-    reverb_sound(voc_Monty_GruntExposed3, 0, 200, false, 1.2, 1, 0.05);
+    Poser.sprite_index = SPRITE_Body;
+    audio_play_sound(SOUND_Whoosh, 20, false);
+    audio_play_sound(SOUND_Whistle, 20, false);
+    reverb_sound(choose_from_array(SOUND_Exposed), 0, 200, false, 1.2, 1, 0.05);
     global.WindowOccupant = ID;
 }
 

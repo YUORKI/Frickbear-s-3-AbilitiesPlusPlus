@@ -1,2 +1,11 @@
 clean_up_buffers();
 instance_destroy(oBlank_PaperStack);
+sprite_delete(SPRITE_Templates);
+sprite_delete(SPRITE_TraceLines);
+sprite_delete(SPRITE_Paper);
+sprite_delete(SPRITE_PaperStack);
+sprite_delete(SPRITE_Meter);
+sprite_delete(SPRITE_MeterPointer);
+skin_sound_delete_array([SOUND_SubmitBest, SOUND_SubmitGood, SOUND_SubmitBad, SOUND_Draw, SOUND_Paper]);
+skin_sound_delete_array(SOUND_Satisfied);
+skin_sound_delete_array(SOUND_Dissatisfied);

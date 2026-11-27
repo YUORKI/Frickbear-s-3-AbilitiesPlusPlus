@@ -31,7 +31,7 @@ if (Attacking)
     
     if (place_meeting(x, y, o3DMouse) && mouse_check_button_pressed(mb_left) && HPLeft > 0 && WindowPosition > 0.05 && !global.CamUp)
     {
-        audio_play_sound(choose(sfxPunch1, sfxPunch2, sfxPunch3), 8, false);
+        audio_play_sound(choose_from_array(oMrHugs.SOUND_Hit), 8, false);
         AngleSpeed += ((10 * random_sign()) / HPLeft);
         HPLeft--;
         
@@ -40,9 +40,9 @@ if (Attacking)
             image_angle = 360 * Direction;
             sprite_set_offset(sprite_index, 64, 96);
             YSpeed = -7;
-            audio_play_sound(sfxCartoonHitSlip, 10, false);
+            audio_play_sound(oMrHugs.SOUND_Slip, 10, false);
             block_tokens();
-            audio_stop_sound(sfxMrHugsApproach);
+            audio_stop_sound(oMrHugs.SOUND_Approach);
         }
     }
     

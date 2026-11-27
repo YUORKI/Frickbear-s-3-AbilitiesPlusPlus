@@ -1,5 +1,6 @@
 ID = UnknownEnum.Value_45;
 SPRITE_Popgoes = skin_sprite(sPopgoes, ID, get_sprite_filenames(1, 13));
+SPRITE_CamRadar = skin_sprite(sCamRadarIcon_Popgoes, ID, "camradar.png");
 SOUND_Move = skin_sound(sfxPopgoesMove, ID, "sq_move");
 CurrentCam = 1;
 TargetCam = 1;

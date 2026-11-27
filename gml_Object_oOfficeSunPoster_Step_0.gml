@@ -4,6 +4,6 @@ if (PosterMode == -1)
 }
 else
 {
-    sprite_index = sSunPoster;
+    sprite_index = oSunMoon.SPRITE_Poster;
     image_index = PosterMode;
 }

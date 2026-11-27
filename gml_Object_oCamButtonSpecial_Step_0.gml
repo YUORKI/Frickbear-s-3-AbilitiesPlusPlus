@@ -74,7 +74,7 @@ if (Text == "Repair Wiring")
         if (image_index == 0 && Clicked)
         {
             oElectrobab.PanelOpen = true;
-            audio_play_sound(sfxControlPanel_Open, 5, false);
+            audio_play_sound(oElectrobab.SOUND_Open, 5, false);
         }
     }
 }

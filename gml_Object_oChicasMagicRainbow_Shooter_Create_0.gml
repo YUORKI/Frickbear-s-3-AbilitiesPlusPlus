@@ -42,8 +42,8 @@ ShotMade = false;
 
 function spit_sound()
 {
-    audio_stop_sound(sfxMagicRainbow_Spit);
-    audio_play_sound(sfxMagicRainbow_Spit, 1, false);
+    audio_stop_sound(oChicasMagicRainbow.SOUND_Shoot);
+    audio_play_sound(oChicasMagicRainbow.SOUND_Shoot, 1, false);
 }
 
 function bullet_pattern(arg0)

@@ -12,7 +12,7 @@ if (MovementTimer <= 0)
 {
     if (AI > 0 && Active)
     {
-        reverb_sound(sfxMimicMove, 0, 500, false, 0.5, 1, 0.5);
+        reverb_sound(SOUND_Move, 0, 500, false, 0.5, 1, 0.5);
         fuzz_up();
     }
     

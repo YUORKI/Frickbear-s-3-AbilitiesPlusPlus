@@ -130,7 +130,7 @@ if (Victory || global.EndlessRound > 10)
     
     var BestSticker = 4;
     
-    for (var i = 0; i <= 86; i++)
+    for (var i = 0; i <= 90; i++)
     {
         if (global.EndlessStickers[i] < BestSticker)
             BestSticker = global.EndlessStickers[i];
@@ -189,7 +189,7 @@ if (Victory || global.EndlessRound > 10)
     if (count_up_stickers(global.EndlessStickers) >= 40)
         unlock_guard(UnknownEnum.Value_5);
     
-    if (count_up_stickers(global.EndlessStickers) >= 87)
+    if (count_up_stickers(global.EndlessStickers) >= 91)
         unlock_guard(UnknownEnum.Value_10);
     
     if (MaskChars >= 5)

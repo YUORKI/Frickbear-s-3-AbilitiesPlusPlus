@@ -33,32 +33,6 @@ function round_step(arg0, arg1)
     return round(arg0 / arg1) * arg1;
 }
 
-function set_point_goal_base(arg0)
-{
-    if (arg0 == UnknownEnum.Value_8) 
-        return 35 
-    else if(arg0 == UnknownEnum.Value_30)  
-        return 4
-    else
-        return 50
-}
-
-function set_point_goal_nightly(arg0)
-{
-    if (arg0 == UnknownEnum.Value_8) 
-        return 5 
-    else if(arg0 == UnknownEnum.Value_30)  
-        return 2
-    else
-        return 0
-}
-
-function BlockedAnimatronic()
-{
-    if (guard_ability(UnknownEnum.Value_30))
-        oCamera.BlockedAnimatronicsAmount += 1;
-}
-
 function guard_name(arg0 = global.Guard)
 {
     return global.GuardNames[clamp(arg0, 0, array_length(global.GuardNames) - 1)];
@@ -224,8 +198,7 @@ function beartrap_notif(arg0, arg1 = true)
 
 function inventory_space()
 {
-    item_amount = global.GuardParameters.inventory_size ?? 5;
-    return has_upgrade(UnknownEnum.Value_50) ? (item_amount + 5) : (has_upgrade(UnknownEnum.Value_49) ? (item_amount + 2) : item_amount);
+    return has_upgrade(UnknownEnum.Value_50) ? 10 : (has_upgrade(UnknownEnum.Value_49) ? 7 : 5);
 }
 
 function has_upgrade(arg0, arg1 = true)
@@ -645,10 +618,10 @@ function camera_viewed(arg0, arg1 = -1)
             return global.CamUp && global.Cam == arg0;
         
         case 1:
-            return !global.CamUp && global.TVCam[0] == arg0 && true;
+            return !global.CamUp && global.TVCam[0] == arg0 && (has_upgrade(UnknownEnum.Value_52) || has_upgrade(UnknownEnum.Value_53) || guard_ability(UnknownEnum.Value_9));
         
         case 2:
-            return !global.CamUp && global.TVCam[1] == arg0 && true;
+            return !global.CamUp && global.TVCam[1] == arg0 && (has_upgrade(UnknownEnum.Value_52) || guard_ability(UnknownEnum.Value_9));
     }
 }
 
@@ -775,7 +748,7 @@ function add_tokens_silently(arg0)
     }
 }
 
-function block_tokens(arg0 = 1, arg1 = 0)
+function block_tokens(arg0 = 1)
 {
     if (room == Office)
     {
@@ -784,10 +757,7 @@ function block_tokens(arg0 = 1, arg1 = 0)
         if (guard_ability(UnknownEnum.Value_7))
             exit;
         
-        if (guard_ability(UnknownEnum.Value_30) && arg1 == 0)
-            oCamera.BlockedAnimatronicsAmount += arg0;
-        
-        if (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29))
+        if (guard_ability(UnknownEnum.Value_18))
             global.Temperature += 4;
         
         if (has_upgrade(UnknownEnum.Value_35))
@@ -1148,7 +1118,7 @@ function count_up(arg0, arg1 = false, arg2 = 9999, arg3 = 0)
     return Total;
 }
 
-function count_up_stickers(arg0, arg1 = true, arg2 = 87, arg3 = 0)
+function count_up_stickers(arg0, arg1 = true, arg2 = 91, arg3 = 0)
 {
     var Total = 0;
     
@@ -1201,7 +1171,7 @@ function draw_outline(arg0, arg1 = undefined, arg2 = undefined, arg3 = x, arg4 =
     shader_set(shFlash);
     
     for (var i = -45; i < 360; i += 45)
-        draw_sprite_ext(arg1, arg2, arg3 + round(lengthdir_x(arg5, i)), arg4 + round(lengthdir_y(arg5, i)), 1, 1, 0, arg0, 1);
+        draw_sprite_ext(arg1, arg2, arg3 + round(lengthdir_x(arg5, i)), arg4 + round(lengthdir_y(arg5, i)), image_xscale, image_yscale, 0, arg0, 1);
     
     shader_reset();
 }
@@ -1386,18 +1356,6 @@ function get_call_speaker(arg0)
     }
 }
 
-function set_custom_hour()
-{
-    var hour = 3
-
-    if (global.Guard > 20)
-    {
-        hour = clamp(global.GuardParameters.starting_hour, 1 , 4)
-    }
-
-    return hour
-}
-
 function get_call_id(arg0)
 {
     var Calls = voiceline_database(UnknownEnum.Value_128).ShuffleCalls;
@@ -1422,7 +1380,7 @@ function fully_turned_around()
 function generate_kill_list(arg0 = false, arg1 = false)
 {
     var Killables = [];
-    var SorterArray = get_sorter_array(countup_array(86));
+    var SorterArray = get_sorter_array(countup_array(90));
     
     for (var i = 0; i < array_length(SorterArray); i++)
     {
@@ -1504,7 +1462,8 @@ enum UnknownEnum
     Value_46,
     Value_49 = 49,
     Value_50,
-    Value_53 = 53,
+    Value_52 = 52,
+    Value_53,
     Value_62 = 62,
     Value_72 = 72,
     Value_73,

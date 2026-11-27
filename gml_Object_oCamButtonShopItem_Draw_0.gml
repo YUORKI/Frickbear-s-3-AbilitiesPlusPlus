@@ -97,7 +97,7 @@ else
     ErrorTimer = 0;
 }
 
-draw_rectangle_color(x, y + 48, x + 47, y + 64, c_black, c_black, c_black, c_black, false);
+draw_rectangle_color(x, y + 48, x + 47, y + 63, c_black, c_black, c_black, c_black, false);
 
 if (AlteredPrice >= 100)
     draw_sprite(sCounterNumbers, floor(AlteredPrice / 100), x + 26, y + 50);

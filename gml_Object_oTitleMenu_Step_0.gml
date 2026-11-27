@@ -27,6 +27,8 @@ function new_game(arg0)
         RoomDestination = NightOpening;
         Transitioning = true;
     }
+    
+    apply_skins_random();
 }
 
 if (!Transitioning && !Lock && array_length(CurrentOptions) > 1)
@@ -158,10 +160,12 @@ if (input_check_pressed(UnknownEnum.Value_0) && !Transitioning && !Lock && ((Opt
         case "Continue":
             Transitioning = true;
             load_save();
+            apply_skins_random();
             RoomDestination = global.StartRoom;
             break;
         
         case "Custom Night":
+            reset_challenge_alterations();
             Transitioning = true;
             RoomDestination = CustomNightMenu;
             break;

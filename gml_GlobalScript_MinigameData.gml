@@ -161,6 +161,14 @@ function get_minigame_data(arg0)
                 Desc: "Stack blocks and make lines to score points! Use WASD to move blocks, space to quickdrop, shift to store and the left/right mouse buttons to rotate. The game will only run when moused over!"
             };
         
+        case 666:
+            return 
+            {
+                Object: oNOTHING,
+                Name: instance_exists(oFoxyEXE) ? oFoxyEXE.ATTR_FakeGameText : "Foxy.EXE",
+                Desc: ""
+            };
+        
         default:
             return 
             {
@@ -489,52 +497,55 @@ function get_minigame_icon(arg0)
     switch (arg0)
     {
         case UnknownEnum.Value_0:
-            return UnknownEnum.Value_1;
+            return sCamRadarIcon_Freddy;
         
         case UnknownEnum.Value_1:
-            return UnknownEnum.Value_6;
+            return sCamRadarIcon_BB;
         
         case UnknownEnum.Value_2:
-            return UnknownEnum.Value_3;
+            return sCamRadarIcon_Chica;
         
         case UnknownEnum.Value_3:
-            return UnknownEnum.Value_7;
+            return sCamRadarIcon_Marionette;
         
         case UnknownEnum.Value_4:
-            return UnknownEnum.Value_2;
+            return sCamRadarIcon_Bonnie;
         
         case UnknownEnum.Value_5:
-            return UnknownEnum.Value_4;
+            return sCamRadarIcon_Foxy;
         
         case UnknownEnum.Value_6:
-            return UnknownEnum.Value_16;
+            return sCamRadarIcon_Baby;
         
         case UnknownEnum.Value_7:
-            return UnknownEnum.Value_26;
+            return sCamRadarIcon_GoldenFreddy;
         
         case UnknownEnum.Value_8:
-            return UnknownEnum.Value_5;
+            return sCamRadarIcon_Mangle;
         
         case UnknownEnum.Value_9:
-            return UnknownEnum.Value_27;
+            return sCamRadarIcon_Cupcake;
         
         case UnknownEnum.Value_10:
-            return UnknownEnum.Value_28;
+            return sCamRadarIcon_Animdude;
         
         case UnknownEnum.Value_11:
-            return UnknownEnum.Value_29;
+            return sCamRadarIcon_TipsyBird;
         
         case UnknownEnum.Value_12:
-            return UnknownEnum.Value_14;
+            return sCamRadarIcon_Springtrap;
         
         case UnknownEnum.Value_13:
-            return UnknownEnum.Value_30;
+            return sCamRadarIcon_Doofas;
         
         case UnknownEnum.Value_15:
-            return UnknownEnum.Value_33;
+            return sCamRadarIcon_Endoskeleton;
         
         case UnknownEnum.Value_14:
-            return UnknownEnum.Value_32;
+            return sCamRadarIcon_TrashGang;
+        
+        case 666:
+            return instance_exists(oFoxyEXE) ? oFoxyEXE.SPRITE_CamRadar : sCamRadarIcon_FoxyEXE;
         
         default:
             return 0;
@@ -558,13 +569,5 @@ enum UnknownEnum
     Value_12,
     Value_13,
     Value_14,
-    Value_15,
-    Value_16,
-    Value_26 = 26,
-    Value_27,
-    Value_28,
-    Value_29,
-    Value_30,
-    Value_32 = 32,
-    Value_33
+    Value_15
 }

@@ -83,6 +83,9 @@ function subtitle_raw(arg0)
         case voc_Bonnet_Appear3:
         case voc_Eleanor_Laugh:
         case voc_Bon_Death6:
+        case voc_FoxyEXE_Laugh:
+        case voc_Endoplush_Zapped1:
+        case voc_Endoplush_Zapped2:
             return [["*LAUGHTER*"], [0]];
             break;
         
@@ -629,7 +632,7 @@ function subtitle_raw(arg0)
             break;
         
         case voc_WitheredChica_SliceYouToPieces:
-            return [["I slice you to pieces...", "...Like a pizza!"], [0, 3.5]];
+            return [["I'll slice you to pieces...", "...Like a pizza!"], [0, 3.5]];
             break;
         
         case voc_WitheredChica_Tangled:
@@ -1530,6 +1533,7 @@ function subtitle_raw(arg0)
         case voc_PhonyBoss_Zapped2:
         case voc_PhonyBoss_Zapped3:
         case voc_PhonyBoss_Zapped4:
+        case voc_Endoplush_Zapped5:
             return [["*ZAPPED*"], [0]];
             break;
         
@@ -3370,6 +3374,160 @@ function subtitle_raw(arg0)
         
         case voc_Reagent_Deathcoin:
             return [["That was extremely painful...", "for me."], [0, 2.5]];
+        
+        case voc_FoxyEXE_Selection:
+            return [["Ahoy!", 0], ["...How was that, was that convincing?", 2.3]];
+        
+        case voc_FoxyEXE_Death1:
+            return [["AND DON'T COME BACK.", 0], ["*DOOR SLAMS*", 1.5]];
+        
+        case voc_FoxyEXE_Death2:
+            return [["Did it not occur to you that you were forgetting something?", 0], ["Like there was something...", 3.1], ["...MISSING?", 5.3]];
+        
+        case voc_FoxyEXE_Death3:
+            return [["Don't you see?", 0], ["There's nowhere to flee.", 2]];
+        
+        case voc_FoxyEXE_Death4:
+            return [["I.", 0], ["AM.", 1], ["GOD!", 2]];
+        
+        case voc_FoxyEXE_Death5:
+            return [["Did ya think Afton worked ALONE!?", 0]];
+        
+        case voc_FoxyEXE_Death6:
+            return [["All your screen now belong to me.", 0]];
+        
+        case voc_FoxyEXE_Death7:
+            return [["Me heart of madness,", 0], ["all for you...", 1.9]];
+        
+        case voc_FoxyEXE_Death8:
+            return [["Yer deepest dread? Yer childhood nightmares?", 0], ["I DID THAT.", 4]];
+        
+        case voc_FoxyEXE_Death9:
+            return [["So many chests to plunder, so little time...", 0], ["Wouldn't you agree?", 4.6]];
+        
+        case voc_FoxyEXE_Death10:
+            return [["Have you seen a fox anywhere?", 0], ["No, not me, another-", 2.1], ["Bah, doesn't matter. I'll find him eventually.", 3.6]];
+        
+        case voc_FoxyEXE_Deathcoin:
+            return [["ARGH, stick it up yer PC Port...", 0]];
+        
+        case voc_DJMusicMan_Selection:
+            return [["Ain't nothin' like a funky beat!", 0]];
+        
+        case voc_DJMusicMan_Appear1:
+            return [["Can I kick it?", 0]];
+        
+        case voc_DJMusicMan_Appear2:
+            return [["Lemme show you how to scratch it!", 0]];
+        
+        case voc_DJMusicMan_Appear3:
+            return [["Scratch-O!", 0]];
+        
+        case voc_DJMusicMan_Appear4:
+            return [["Everybody's watchin' you!", 0]];
+        
+        case voc_DJMusicMan_Left1:
+        case voc_DJMusicMan_Left2:
+        case voc_DJMusicMan_Left3:
+            return [["Left!", 0]];
+        
+        case voc_DJMusicMan_Right1:
+        case voc_DJMusicMan_Right2:
+        case voc_DJMusicMan_Right3:
+            return [["Right!", 0]];
+        
+        case voc_DJMusicMan_YourTurn1:
+            return [["Your turn!", 0]];
+        
+        case voc_DJMusicMan_YourTurn2:
+            return [["Now you!", 0]];
+        
+        case voc_DJMusicMan_YourTurn3:
+            return [["YOU!", 0]];
+        
+        case voc_DJMusicMan_Win1:
+            return [["Groovy!", 0]];
+        
+        case voc_DJMusicMan_Win2:
+            return [["Wicked and wily, man!", 0]];
+        
+        case voc_DJMusicMan_Win3:
+            return [["Sliiiick!", 0]];
+        
+        case voc_DJMusicMan_Win4:
+            return [["King!", 0]];
+        
+        case voc_DJMusicMan_Win5:
+            return [["Cool, sweet n' catchy!", 0]];
+        
+        case voc_DJMusicMan_Win6:
+            return [["Just can't get enuf!", 0]];
+        
+        case voc_DJMusicMan_Death1:
+            return [["U playin' AWFUL!", 0]];
+        
+        case voc_DJMusicMan_Death2:
+            return [["Your uniform is on point...", 0], ["You flipped up your monitors with ease...", 2], ["And you can close the doors like a pro!", 4.7], ["...But you're still just OK.", 8]];
+        
+        case voc_DJMusicMan_Death3:
+            return [["You ain't got rhythm, man!", 0]];
+        
+        case voc_DJMusicMan_Death4:
+            return [["You need to see a professional about your complete and total lack of rhythm, man, like...", 0], ["Some sort of rhythm...", 4.9], ["...psychiatrist.", 7]];
+        
+        case voc_DJMusicMan_Death5:
+            return [["You're not an ordinary fella!", 0], ["You're extraordinarily LAME!", 2.5]];
+        
+        case voc_DJMusicMan_Death6:
+            return [["Don't mess with", 0], ["D.", 1.2], ["J.", 1.8], ["MEEEEE-USIC MAN!!", 2.6]];
+        
+        case voc_DJMusicMan_Death7:
+            return [["You should've moseyed on back", 0], ["before you got your goose cooked!", 1.8]];
+        
+        case voc_DJMusicMan_Death8:
+            return [["Crank up the volume and wake up the neighbors!", 0], ["Are you hearin' this or what?", 2.7], ["Is your heart poundin' with the beat?", 4.2], ["AM I GETTIN' THROUGH TO YOU?", 6.2]];
+        
+        case voc_DJMusicMan_Deathcoin:
+            return [["DISCO'LL NEVER DIE...!", 0]];
+        
+        case voc_Endoplush_Selection:
+            return [["Say hello to your little friend!", 0]];
+        
+        case voc_Endoplush_Zapped3:
+            return [["THE POWAH!!!", 0]];
+        
+        case voc_Endoplush_Zapped4:
+            return [["GOTCHA!", 0]];
+        
+        case voc_Endoplush_Deathcoin:
+            return [["Eh, pick on someone your own size, why don'tcha!?", 0]];
+        
+        case voc_Ralph_Selection:
+            return [["You have reached a number that has been disconnected or is no longer in service.", 0]];
+        
+        case voc_Ralph_Death1:
+            return [["Someone will be with you momentarily.", 0], ["The estimated hold time is:", 2.8], ["More than", 4.5], ["9", 5.3], ["99", 5.7], ["999", 6.1], ["9999", 6.5], ["9999 9", 7.25], ["9999 99", 7.65], ["9999 999", 8], ["9999 9999", 8.45], ["minutes.", 9]];
+        
+        case voc_Ralph_Death2:
+            return [["*JAZZY MUSIC*", 0], ["We know your time is valuable.", 4.4], ["Thank you for holding.", 6.4], ["", 8.6]];
+        
+        case voc_Ralph_Death3:
+            return [["You have  1  new message.", 0], ["*BEEP!*", 2.7], ["[You've made a very poor career choice.]", 3.4]];
+        
+        case voc_Ralph_Death4:
+            return [["If you'd like to make a call, please hang up and try again.", 0], ["If you need help,", 4.1], ["hang up, and then dial your operator.", 5.1]];
+        
+        case voc_Ralph_Death5:
+            return [["Sorry,", 0], ["but no one is available to answer your call at this time.", 0.7]];
+        
+        case voc_Ralph_Death6:
+            return [["Welcome to the Fazbear helpline.", 0], ["If you're calling regarding food poisoning,", 2.4], ["press 1.", 4.5], ["If you were injured going down the Pirate's Cove slide,", 6.3], ["press 2.", 9.1], ["If you suffered an animatronic-induced injury,", 11.2], ["press 3.", 14.2]];
+        
+        case voc_Ralph_Death7:
+            return [["You have been forwarded to a game over screen.", 0], ["If you think there's been an error, press the confirm key to retry.", 2.9]];
+        
+        case voc_Ralph_Deathcoin:
+            return [["*DIALTONE*", 0]];
         
         case voc_PhonyBoss_Death_1:
             return [["Your fate can't be changed!", "You're just another SHMUCK!"], [0, 2.5]];
@@ -5992,6 +6150,24 @@ function subtitle_raw(arg0)
         case voc_PhoneCall_NightmareFredbearNEW:
             return [["YOU.", "YOU HAVE NO IDEA HOW HARD IT IS TO USE A PHONE WITH THESE BIG CLAWED FINGERS!", "(GROWLS)", "AND I KNOW YOU HEARD THAT PHONE RINGING.", "YOU HAD THE GALL TO IGNORE ME?!", "(INHALE)", "(SIGH)", "Y'KNOW WHAT, IT'S FINE.", "YOU KNOW WHY?", "'CAUSE YOU'RE GONNA BE STUCK IN HERE WITH US,", "FOR ALL ETERNITY!", "YOU'LL BE IN THE DEEPEST OF SLEEPS WHEN WE'RE THOUGH WITH YOU.", "(LAUGHTER)", "BUT DON'T FEAR YOUR FATE, DEATH SOON ARRIVES.", "ESPECIALLY IF YOU'RE THAT BANDAGED-FACED FREAK!", "'CAUSE AFTER ALL,", "SWEET DREAMS ARE OVERRATED.", "(YEAH, YEAAAHH...)", "(YEAH, YEAAAHH...)\n(Yeaaahh dude! HAHAHAHA!)\n(Yeah heheheheh! Right lad, right!)", "(Yeaaahh dude! HAHAHAHA!)\n(Yeah heheheheh! Right lad, right!)", "(VERY GOOD!)\n(Awesome! Yeah, you go off!)", "(Awesome! Yeah, you go off!)\n(Good anwser Fredbear!)", "(LAUGHTER)\n(Get 'em, get 'em! WOOAAHH!)", "(...UHH, WAIT-)\n(Get 'em, get 'em! WOOAAHH!)\n(Pop it like it's hot, lad!)", "(Oooooh kill 'em!)", "(WAS THAT AVIATORS?!?)\n(Oooooh kill 'em!)", "(WAS THAT AVIATORS?!?)\n(LAUGHTER)\n(Oooooh kill 'em!)\n(Is that Circus Baby?)", "(GROWLS)\n(Did she call us back?)", "(GROWLS)\n(POPGOES!)\n(Did she call us back?)", "WILL YOU GUYS SHUT THE F-"], [0, 2.3, 8.51, 10, 12.45, 16.15, 17.29, 18.8, 22.3, 23.83, 26.45, 28.61, 32.5, 35.82, 39.28, 43.42, 45.55, 50.5, 51.5, 53.4, 54.8, 57.1, 58.5, 59.5, 61.5, 62, 62.5, 64.1, 65, 65.5]];
             break;
+        
+        case voc_PhoneCall_FNAFHighSchool:
+            return [["¿Aló? ¿holi.", 0], ["¡Vengo a buscar a mi nuevo maestro!", 2.494], ["No ves, el tiene que enseñarme sus movimientos.", 4.885], ["¡Al fin encontré alguien con un nivel superior!", 8.15], ["¡Nadie puede ganarme después de esto jijiji!", 11.235], [" * se camina * ", 13.909], ["¡Ay! Hijo de tu-", 16.069], ["¡Al fin te encuentro! ¡Wow!", 18.1], ["Estaba pensando a dudar que estabas en la misma escuela que yo jijiji", 20.388], ["¡Cuidado!- ¡AUGH!", 24.116], [" * se cae * ", 24.862], ["¡Oh! Creo que fui más fuerte que tú...", 27.176]];
+        
+        case voc_PhoneCall_Frostbear:
+            return [["♫", 0], ["♫ I'm Mr. Blue Christmas, I'm Mr. Hail", 6.1], ["♫ I'm Mr. Jack Frost, I'm Mr. Arctic Gale!", 11.6], ["♫ Friends call me Freddy Frostbear! Wherever I go,", 16.6], ["♫ I see a cursor, I blow!", 21.7], ["Oops, gotta go.", 24.5]];
+        
+        case voc_PhoneCall_GazooDeathcoin:
+            return [["Dude.", 0], ["If you play Five Nights at Frickbear's 3 on THIS computer,", 1], ["You will unlock Fred Fazstone as animatronic", 5.1], ["who can tiptoe with bowling ball for audio cue,", 8.6], ["gazoo deathcoin?", 12.2], ["It Frick by Daylight update.", 14.1]];
+        
+        case voc_PhoneCall_Blank:
+            return [["Bonjour, bonjour! C'est moi!", 0], ["Your most handsome and charming art tutor... Blank, of course!", 4], ["Now listen closely, mon ami, for I have heard ze weeping and ze crying of ze masses!", 9.5], ["Monsieur Blank... Where, oh where have all those wonderful drawings on your desirable body gone?!", 14.9], ["Why did you wipe zem all away and start fresh?!", 22.1], ["How could you remove such an important part of your identity?!", 25.8], ["Why, Blank, WHY?!", 29.4], ["Well if you shut your mouth I will tell you.", 31.7], ["Ze truth... is ugly, mon ami... Ugly indeed. You see...", 34.1], ["All ze children at Candy's Bugers and Fries simply...ow you say...", 39.6], ["Suck Ass at art.", 46.2], ["It is true! Ze toddlers whom i have had ze displeasure to let scribble upon my beautiful hide are ze most", 48.8], ["creatively stunted, unintelligent, belligerent little oafs i have ever had ze misfortune to look upon!", 55], ["I would tell zem zis to their faces, but...monsieur pussycat would get his whiskers in a twist.", 61.3], ["\"You cannot insult the customers!\" he would say. \"That is bad for business!\" he would say.", 66.2], ["Well, I say, TO HELL WIZ YOUR BUSINESS!! To HELL with YOU!", 72.1], ["And to hell with zis smelly back room I am forced to reside in until some dullard repairs my arm!", 76.5], ["If I have to listen to Old Candy's singing practice one more time, I swear-", 83.5], ["(OLD CANDY SINGING)", 88.3], ["Oh, zut alors... zere he goes again!", 90.7], ["We will have to cut zis conversation short, mon ami...", 93.1], ["Give my love and my kisses to ze adoring masses, and until we meet again...", 96.2], ["Au revoir!", 101.2], ["...BE SILENT YOU OLD FOOL-!", 105.1]];
+        
+        case voc_PhoneCall_Ralph:
+            return [["(RECORD SCRATCH)", 0], ["You're now listening to", 0.5], ["(ZAP)", 2], ["1-555", 3], ["(SLAM)", 4.1], ["Fazbear Helpline.", 4.8], ["(WHIP CRACK)", 6.1], ["Where we get nothing but", 6.6], ["LAWSUITS", 7.9], ["LAWSUITS (x2)", 9], ["AND MORE LAWSUITS", 10], ["(CHEERING)", 11.7], ["This isn't your grandmother's hold time.", 13.3], ["YARHARHARHAR!", 15.1], ["♫ I'm wakin' up", 16.8], ["To a-", 18.6]];
+        
+        case voc_PhoneCall_Electrobab:
+            return [["Danger strikes the innocent city of Bidybabopolis!", 0], ["Melted Chocolate Bonnie has threatened to flood the town with a wave of...well, melted chocolate.", 3.9], ["\"Muahahaha!", 9.7], ["With my chocolate bomb, those bumbling Bidybabs will drown in the most mouthwatering morsels!\"", 12.7], ["It's up to our hero, Electrobab to defuse the deliciously deadly chocolate bomb and save everyone from an all-too-sweet demise!", 20.2], ["We join our hero, putting his wits to the test!", 29.8], ["\"Drat! If only I knew which wire to cut!", 33.6], ["My handy bomb defusing manual says to cut the yellow wire...", 37.4], ["But they're ALL yellow!", 41.7], ["Oooooh, only 10 seconds left... Oh, which one do I cut, which one do I cut?!", 44.2], ["...Wait a second.", 50.5], ["Oh. ", 52.5], ["The sunglasses make everything look yellow!", 53.6], ["Haha, what a blunder that would've been!", 56.7], ["To think, if I didn't remove my sunglasses, the timer would hit zero and we'd all be under a chocolate oce-\"", 59.7], ["(BOMB EXPLODES)", 66.6], ["...And so, the town of Bidybabopolis has fallen, no thanks to Electrobab.", 70.6], ["TUNE IN NEXT WEEK FOR THE ADVENTURES OF MINIREEENA 2! YAY! ", 76.4]];
         
         case mus_Credits4LD:
             return [["", 0, 16777215], ["When we clock out at the crack of dawn", 14, 14050148], ["I grab my check and then I'm gone.", 20.7, 1986200], ["And suddenly I feel alright", 27.6, 3918847], ["I just can't wait until my shift tonight!", 34.4, 3755990], ["If it's a game", 40.4, 16777215], ["Then we are playing it", 42.6, 16777215], ["If it's a game", 47.3, 16777215], ["I want to play it", 49.4, 16777215], ["Over and over and over and over again!", 51.4, 16777215], ["♫", 54.8, 16777215], ["It really wasn't all that bad!", 68.7, 14050148], ["That was the worst job I've ever had.", 75.6, 1986200], ["I'm never gonna forget the place...", 82.4, 3918847], ["GOOD NEWS!", 88.4, 3755990], ["I fixed the bots, so now they can play", 89.3, 3755990], ["for days and days and days!", 92.1, 3755990], ["Oh, you motherf-", 94.1, 1986200], ["If it's a game", 95.3, 16777215], ["Then we are playing it", 97.4, 16777215], ["If it's a game", 102.1, 16777215], ["I want to play it", 104.3, 16777215], ["Over and over and over and over again!", 106.2, 16777215], ["♫", 109.7, 16777215], ["If it's a game", 122.7, 16777215], ["Then we are playing it", 124.8, 16777215], ["If it's a game", 129.6, 16777215], ["I want to play it", 131.7, 16777215], ["Over and over and over again", 133.6, 16777215], ["Over and over and over again!", 137.1, 16777215], ["Over and over and over and over again!", 140.4, 16777215], ["Thank you SO much for playing Five Nights at Frickbear's: Four Layers Down!", 144.9, 14050148], ["Yeah!", 148.9, 1986200], ["Hope you had...fun, and all that good stuff.", 149.8, 1986200], ["Now do you really think they would've gotten all the way to the end if they WEREN'T having fun?", 152.5, 3918847], ["END!?", 156.2, 3755990], ["Whaddaya MEAN end!?", 157.2, 3755990], ["Put me back in, coach! I'm ready to play!", 158.7, 3755990], ["Bye! (Bye!) Bye! Bye! Bye! (See ya.) See ya later! Bye! (Bye!)", 162, 16777215], ["Hello!", 166.9, 3755990], ["Over and over and over and over again", 167.9, 16777215], ["♫", 172.5, 16777215]];

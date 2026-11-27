@@ -226,7 +226,7 @@ function get_stats(arg0)
         case 2:
             MaxValue = 1;
             
-            for (var i = 0; i <= 86; i++)
+            for (var i = 0; i <= 90; i++)
             {
                 var CharValue = i;
                 var Value = global.SalvageRecord[i];

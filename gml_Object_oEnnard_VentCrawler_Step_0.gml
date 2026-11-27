@@ -21,7 +21,7 @@ if (WaitTime <= 0)
     {
         var SummonPosition = irandom_range(90, 30) * VentX * -1;
         
-        with (instance_create_depth(0, 0, 0, oSalvage_Dangler))
+        with (instance_create_depth(0, 0, 0, oEnnard_Dangler))
         {
             Jumpscarer = oEnnard_Jumpscarer;
             SourceWire = other;

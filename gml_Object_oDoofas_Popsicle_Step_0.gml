@@ -3,11 +3,12 @@ Size += ((1 - Size) / 5);
 if (place_meeting(x, y, oDoofas))
 {
     instance_destroy();
-    audio_play_sound(sfxDoofas_Collect, 2, false);
+    audio_play_sound(oDoofas.SOUND_Collect, 2, false);
 }
 
 image_xscale = Size;
 image_yscale = Size;
+image_index = Image;
 
 if (PopsicleTimer <= 0)
 {
@@ -21,8 +22,8 @@ if (PopsicleTimer <= 0)
     
     drain_power(DrainAmount);
     instance_destroy();
-    audio_play_sound(choose(voc_Doofas_Unlucky, voc_Doofas_Whoops, voc_Doofas_Yeargh), 10, false);
-    audio_play_sound(sfxBitPunish, 10, false);
+    audio_play_sound(choose_from_array(oDoofas.SOUND_Miss), 10, false);
+    audio_play_sound(oDoofas.SOUND_Fail, 10, false);
 }
 
 PopsicleTimer--;

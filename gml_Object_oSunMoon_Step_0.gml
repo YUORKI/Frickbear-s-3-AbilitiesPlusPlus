@@ -40,7 +40,7 @@ if (BlindsOpen && !IgnitedFreddyFreeze)
         MoonHead.y = 1070;
         MoonYSpeed = 6;
         AnimMode = -1;
-        audio_play_sound(sfxPlushtrapScrape, 5, false);
+        audio_play_sound(SOUND_Scrape, 5, false);
         KillTimer = 0;
     }
 }

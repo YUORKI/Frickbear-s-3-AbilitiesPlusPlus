@@ -6,34 +6,37 @@ if (BossMode != UnknownEnum.Value_0)
 
 if (!OnetimersScheduled)
 {
-    var AppearTimes = [];
-    var CurAppearTime = global.Timer + (random_range(45, 60) / global.NightSpeedup);
+    var OneTimers = [];
+    var PossibleOneTimers = [UnknownEnum.Value_17, UnknownEnum.Value_29, UnknownEnum.Value_40, UnknownEnum.Value_41, UnknownEnum.Value_87];
     
-    repeat (4)
+    for (var i = 0; i < array_length(PossibleOneTimers); i++)
+        array_push(OneTimers, PossibleOneTimers[i]);
+    
+    show_debug_message(string("Chars found: {0}", OneTimers));
+    var Scaler = global.NightSpeedup * array_length(OneTimers);
+    var AppearTimes = [];
+    var CurAppearTime = global.Timer + random_range(60 / Scaler, 240 / Scaler);
+    
+    repeat (array_length(OneTimers))
     {
         array_push(AppearTimes, CurAppearTime);
-        CurAppearTime += (random_range(60, 75) / global.NightSpeedup);
+        CurAppearTime += (random_range(240, 300) / Scaler);
     }
     
     if (global.ChallengeTitle == "Minute 2 Win It")
     {
-        AppearTimes = [0, 0, 0, 0];
+        AppearTimes = [0, 0, 0, 0, 0];
         global.Timer = 300;
     }
     
+    show_debug_message(string("Schedule: {0}", AppearTimes));
     AppearTimes = array_shuffle(AppearTimes);
     
-    with (oShadowFreddy)
-        ActivationTime = AppearTimes[0];
-    
-    with (oBallora)
-        ActivationTime = AppearTimes[1];
-    
-    with (oCoffee)
-        ActivationTime = AppearTimes[2];
-    
-    with (oAnimdude)
-        ActivationTime = AppearTimes[3];
+    for (var i = 0; i < array_length(OneTimers); i++)
+    {
+        with (get_animatronic_object(OneTimers[i]))
+            ActivationTime = AppearTimes[i];
+    }
     
     OnetimersScheduled = true;
 }
@@ -52,16 +55,14 @@ if (global.Night == "Endless")
         var StarterLevel = lerp(8, 12, global.Difficulty / 4);
         var Round10Level = StarterLevel + 5;
         var DiffFactor = lerp(StarterLevel, Round10Level, global.EndlessRound / 10);
-        var AI_limit = clamp(global.GuardParameters.ai_limit, 1, 35) ?? 20;
         DiffFactor += max(0, 5 - global.EndlessRound);
         DiffFactor -= (global.DeathsThisRound * 2);
         DiffFactor *= ((1 + guard_ability(UnknownEnum.Value_10)) * AggroMultiplier);
         
         if (instance_exists(oFredbear))
             DiffFactor *= 0.66;
-
-        DiffFactor = clamp(DiffFactor, 0, AI_limit);  
         
+        DiffFactor = clamp(DiffFactor, 0, 20);
         var Array = (get_time() < Hour) ? ActivationsBeforeStart : array_concat(ActivationsBeforeStart, ActivationsAtStart);
         
         for (var i = 0; i < array_length(Array); i++)
@@ -69,7 +70,7 @@ if (global.Night == "Endless")
             if (array_contains(global.EndlessInventory.WhackedChars, Array[i]) && global.AILevels[Array[i]] == 0)
                 notification(string("{0} has been reactivated!", global.Descriptions[Array[i]][0]), 2);
             
-            global.AILevels[Array[i]] = clamp(DiffFactor, 1, AI_limit);          
+            global.AILevels[Array[i]] = clamp(DiffFactor, 1, 20);
         }
     }
 }
@@ -737,5 +738,6 @@ enum UnknownEnum
     Value_43,
     Value_44,
     Value_45,
-    Value_46
+    Value_46,
+    Value_87 = 87
 }

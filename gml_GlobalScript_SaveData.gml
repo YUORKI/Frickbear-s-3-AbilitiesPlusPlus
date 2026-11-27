@@ -73,6 +73,8 @@ function initialize_save_data()
     global.EndlessRoundsBeaten = 0;
     global.RunsAttempted = [];
     global.RunsWon = [];
+    randomize();
+    global.Seed = random_get_seed();
     
     for (var g = 0; g < 22; g++)
     {
@@ -99,6 +101,7 @@ function initialize_save_data()
     global.FunValue[0] = irandom(99);
     global.FunValue[1] = PossiblePrimes[irandom(5)];
     global.Skins = array_create(202, -1);
+    global.SkinsFunctional = array_create(202, -1);
     global.SkinOffice = -1;
     global.RandomizeSkins = false;
     global.RandomizeOffice = false;
@@ -130,7 +133,8 @@ function create_save()
         _Route: global.Route,
         _RunTime: global.RunTime,
         _ShuffleMode: global.ShuffleMode,
-        _ShuffleData: global.ShuffleData
+        _ShuffleData: global.ShuffleData,
+        _Seed: global.Seed
     };
     var _string = json_stringify(SaveStuff);
     var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);
@@ -190,7 +194,7 @@ function initialize_endless_data()
 {
     global.EndlessRound = 1;
     global.StartRoom = EndlessShopSelection;
-    global.Lives = array_create(global.GuardParameters.lives_amount, 0);
+    global.Lives = [0, 0, 0];
     global.EndlessInventory = 
     {
         Cartridges: array_create(20, false),
@@ -237,8 +241,6 @@ function get_daily_seed()
     return date_get_day(SeedDate) + date_get_week(SeedDate) + date_get_year(SeedDate);
 }
 
-randomize();
-global.Seed = random_get_seed();
 global.AbilityIndex = countup_array(20);
 
 function save_endless_data(arg0 = EndlessSelection, arg1 = true)
@@ -345,6 +347,10 @@ function load_save()
             global.RunTime = _LoadData._RunTime;
             global.ShuffleMode = _LoadData._ShuffleMode;
             global.ShuffleData = _LoadData._ShuffleData;
+            
+            if (variable_struct_exists(_LoadData, "_Seed"))
+                global.Seed = _LoadData._Seed;
+            
             show_debug_message("GAME LOADED! " + _string);
         }
         else
@@ -447,6 +453,9 @@ function load_permanent_data()
             
             if (variable_struct_exists(_LoadData, "_ShuffleCallsHeard"))
                 global.ShuffleCallsHeard = _LoadData._ShuffleCallsHeard;
+            
+            if (array_length(global.Settings[0]) <= 26)
+                default_settings();
             
             if (array_length(global.UnlockedAnimatronics) < 202)
             {

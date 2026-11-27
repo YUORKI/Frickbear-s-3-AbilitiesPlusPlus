@@ -70,6 +70,9 @@ function get_tips(arg0, arg1 = -1)
     Tips[UnknownEnum.Value_84] = ["The Reagent will always look in the direction of the hallway it intends to go down shortly before entering it. If you keep an eye on Cam 2, you can catch this cue and block it early!", "The Reagent is a bit more likely to go to the hallway the Wet Floor Bot ISN'T currently blocking than the one it is. Always be prepared to move it around!"];
     Tips[UnknownEnum.Value_85] = ["Ignited Freddy's kill timer drains much faster while he's visible - but it'll freeze if you're flashing him! Be sure you don't go too long without your flashlight on him.", "Ignited Freddy is quite a bit more precise than most other flashlight animatronics. Be sure your mouse is near the center of his face - your flashlight won't effect him otherwise!"];
     Tips[UnknownEnum.Value_86] = ["The balls on the cameras will refresh each time you flip the monitor up. If you've collected all you can already, flip it down and flip it back up to collect more!"];
+    Tips[UnknownEnum.Value_87] = ["Wrong notes are far more heavily penalized than off-tempo notes! If you can't get the beat right, just getting the order down should be enough to survive.", "All other door and window characters will be delayed while DJ Music Man is active. Use this to your advantage!"];
+    Tips[UnknownEnum.Value_89] = ["Getting rid of one anomaly will get rid of them all, but Foxy.EXE will be delayed for longer the earlier you catch him.", "The countdown starts once three seperate anomalies have popped up. The system buttons will give a hint to what systems are infected."];
+    Tips[UnknownEnum.Value_88] = ["If Ralph gets to the right hallway, the right door can keep him out...so long as you have power.", "Ralph is frozen for a few seconds each time you check on him, regardless of how long you spend looking at him."];
     Tips[UnknownEnum.Value_118] = ["Gamble responsibly."];
     Tips[UnknownEnum.Value_119] = ["Don't write checks you can't cash."];
     Tips[UnknownEnum.Value_120] = ["You can use your flashlight on him in the cameras to drain his HP and make him move faster.", "The volume of his footsteps changes depending on where he moves to. Listen out for his audio cues to know where he's going.", "He moves faster when the lights are out, and will always go for the doors after turning them off.", "He can be kept out by keeping the doors closed, but you'll need to let him in to deal damage.", "Certain items may work on him just as they do with other animatronics."];
@@ -82,7 +85,7 @@ function get_tips(arg0, arg1 = -1)
     if (arg1 == -99)
         return Tips[arg0];
     
-    if (global.Skins[arg0] > -1)
+    if (global.SkinsFunctional[arg0] > -1)
         Tips[arg0] = skin_get_attribute(arg0, "Tips", Tips[arg0]);
     
     if (arg1 == -1)
@@ -160,6 +163,9 @@ enum UnknownEnum
     Value_84 = 84,
     Value_85,
     Value_86,
+    Value_87,
+    Value_88,
+    Value_89,
     Value_118 = 118,
     Value_119,
     Value_120,

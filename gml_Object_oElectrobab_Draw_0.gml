@@ -14,7 +14,7 @@ if (Active)
 if (PoweroutTimer <= 30 && !Active)
 {
     if (PoweroutTimer == 0)
-        audio_play_sound(sfxPowerOn, 15, false, 0.5);
+        audio_play_sound(SOUND_PowerOn, 15, false, 0.5);
     
     global.Brightness = random_range(0.5, 2);
     
@@ -46,7 +46,7 @@ if (!(global.MonitorSystem == "Cameras" && global.CamUp && global.Cam == TargetC
     {
         PanelOpen = false;
         PanelOffset = -300;
-        audio_play_sound(sfxControlPanel_Close, 5, false);
+        audio_play_sound(SOUND_Close, 5, false);
         
         if (WiresToSolve <= 0)
             TargetCam = 0;
@@ -65,20 +65,20 @@ surface_set_target(ElectroSurf);
 draw_clear_alpha(c_black, 0);
 var WindowX = 200;
 var WindowY = PanelOffset;
-draw_sprite(sElectrobab_Window, 0, WindowX, WindowY);
+draw_sprite(SPRITE_Window, 0, WindowX, WindowY);
 
 switch (Animation)
 {
     case 0:
-        draw_sprite(sElectrobab_Chew, anim_frame(current_frame(), 3, 2), WindowX, WindowY + 273);
+        draw_sprite(SPRITE_PoseChew, anim_frame(current_frame(), 3, 2), WindowX, WindowY + 273);
         break;
     
     case 1:
-        draw_sprite(sElectrobab_Chill, anim_frame(current_frame(), 30, 2), WindowX + 173, WindowY + 273);
+        draw_sprite(SPRITE_PoseChill, anim_frame(current_frame(), 30, 2), WindowX + 173, WindowY + 273);
         break;
     
     case 2:
-        draw_sprite(sElectrobab_Cape, anim_frame(current_frame(), 10, 6), WindowX, WindowY + 273);
+        draw_sprite(SPRITE_PoseCape, anim_frame(current_frame(), 10, 6), WindowX, WindowY + 273);
         break;
 }
 
@@ -116,7 +116,7 @@ for (var wire = 0; wire < WireCount; wire++)
     if (mouse_check_button_pressed(mb_left) && point_distance(ButtonX, ButtonY, MouseX, MouseY) < 16 && !Deposited)
     {
         DraggedWire = wire;
-        audio_play_sound(sfxControlPanel_Select, 5, false, 1, 0, 0.95);
+        audio_play_sound(SOUND_Select, 5, false, 1, 0, 0.95);
     }
     
     if (wire == DraggedWire)
@@ -139,14 +139,14 @@ for (var wire = 0; wire < WireCount; wire++)
             WireBounceSpeed[LeftWireOrder[DraggedWire]] = 2;
             DraggedWire = -1;
             WiresToSolve--;
-            audio_play_sound(sfxControlPanel_Select, 5, false);
+            audio_play_sound(SOUND_Select, 5, false);
         }
         
         if (WiresToSolve <= 0)
         {
             PanelOpen = false;
-            audio_play_sound(sfxControlPanel_Close, 5, false);
-            audio_play_sound(sfxSparkleImpact, 5, false);
+            audio_play_sound(SOUND_Close, 5, false);
+            audio_play_sound(SOUND_Solved, 5, false);
             set_time_to_attack();
             PoweroutTimer = 0;
             WarningTimer = 0;
@@ -157,10 +157,10 @@ for (var wire = 0; wire < WireCount; wire++)
     
     var RightEndOffset = WireOffset[RightWireOrder[wire]];
     var LeftEndOffset = WireOffset[LeftWireOrder[wire]];
-    draw_sprite_ext(sElectrobab_WireBase, RightWireOrder[wire], RightEndX, WireY + RightEndOffset, -1, 1, 0, c_white, 1);
-    draw_sprite(sElectrobab_WireButton, 0, RightDepositX, ButtonY + RightEndOffset);
-    draw_sprite(sElectrobab_WireBase, LeftWireOrder[wire], WireX, WireY + LeftEndOffset);
-    draw_sprite_ext(sElectrobab_Wire, LeftWireOrder[wire], ButtonX, ButtonY + LeftEndOffset, point_distance(ButtonX, ButtonY, EndX, EndY) / 8, 1, point_direction(ButtonX, ButtonY, EndX, EndY), c_white, 1);
+    draw_sprite_ext(SPRITE_WireBase, RightWireOrder[wire], RightEndX, WireY + RightEndOffset, -1, 1, 0, c_white, 1);
+    draw_sprite(SPRITE_WireButton, 0, RightDepositX, ButtonY + RightEndOffset);
+    draw_sprite(SPRITE_WireBase, LeftWireOrder[wire], WireX, WireY + LeftEndOffset);
+    draw_sprite_ext(SPRITE_Wire, LeftWireOrder[wire], ButtonX, ButtonY + LeftEndOffset, point_distance(ButtonX, ButtonY, EndX, EndY) / 8, 1, point_direction(ButtonX, ButtonY, EndX, EndY), c_white, 1);
     ButtonXs[wire] = EndX;
     ButtonYs[wire] = EndY + LeftEndOffset;
     WireOffset[wire] += WireBounceSpeed[wire];
@@ -168,7 +168,7 @@ for (var wire = 0; wire < WireCount; wire++)
 }
 
 for (var wire = 0; wire < WireCount; wire++)
-    draw_sprite(sElectrobab_WireButton, 1, ButtonXs[wire], ButtonYs[wire]);
+    draw_sprite(SPRITE_WireButton, 1, ButtonXs[wire], ButtonYs[wire]);
 
 if (!mouse_check_button(mb_left))
     DraggedWire = -1;

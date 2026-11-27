@@ -160,10 +160,10 @@ function calculate_repeat_prevention()
 
 AveragePrice = 0;
 
-for (var i = 0; i <= 86; i++)
+for (var i = 0; i <= 90; i++)
     AveragePrice += (get_animatronic_data(i).SalvageValue / 100);
 
-AveragePrice = round((AveragePrice / UnknownEnum.Value_87) - 1);
+AveragePrice = round((AveragePrice / UnknownEnum.Value_91) - 1);
 rerollMultiplier = 1;
 QuotaInflator = 0;
 
@@ -195,9 +195,9 @@ function pick_choices()
     AnimatronicList = [];
     var _Regimen = global.EndlessInventory.BobbiedotRegimen;
     random_set_seed(RandomSeed);
-    FirstNewcomer = irandom_range(47, 86);
+    FirstNewcomer = irandom_range(47, 90);
     
-    for (var i = 0; i <= 86; i++)
+    for (var i = 0; i <= 90; i++)
     {
         if (!array_contains(global.AllTimeSalvages, i))
         {
@@ -292,6 +292,6 @@ enum UnknownEnum
     Value_27,
     Value_46 = 46,
     Value_60 = 60,
-    Value_87 = 87,
+    Value_91 = 91,
     Value_127 = 127
 }

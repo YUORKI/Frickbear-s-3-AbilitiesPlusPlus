@@ -119,6 +119,10 @@ if (instance_exists(oJumpscare))
     {
         draw_sprite(sJumpscare_PhonyBoss, floor(oJumpscare.Frame / 2), 0, 0);
     }
+    else if (oJumpscare.OriginY == 666)
+    {
+        draw_sprite(oJumpscare.Sprite, 0, 320, 180);
+    }
     else
     {
         var Vibration = (oJumpscare.Frame / 5) + 1;

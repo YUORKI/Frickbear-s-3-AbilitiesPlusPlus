@@ -1,6 +1,7 @@
 event_inherited();
 Frame = 0;
 OriginX = 0;
+OriginY = -1;
 JumpX = 640;
 JumpY = 720;
 JumpAngle = 0;
@@ -14,9 +15,10 @@ Frame = 0;
 
 function jump_origin()
 {
+    OriginY = get_animatronic_jumpscare_origin(global.Jumpscare, global.JumpscareType);
     OriginX = Side;
     JumpX = 320 + (320 * Side);
-    JumpY = 180 - (540 * get_animatronic_jumpscare_origin(global.Jumpscare, global.JumpscareType));
+    JumpY = 180 - (540 * OriginY);
     SizeBody = 0.25;
     SizeHead = 0.01;
     JumpAngle = Side * 15;

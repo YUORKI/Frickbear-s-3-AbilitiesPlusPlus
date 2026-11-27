@@ -1,3 +1,6 @@
+ID = UnknownEnum.Value_65;
+SPRITE_Snowflake = skin_sprite_unlimited(sFreddyFrostbear_Snowflake, ID, "sprite_snowflake");
+SOUND_Wind = skin_sound(sfxFrostbearWind, ID, "sq_wind");
 SnowflakeFrame = 0.2;
 PushSpeed = 0;
 Direction = 270;
@@ -12,7 +15,7 @@ function set_wait_time(arg0)
 }
 
 set_wait_time(global.AILevels[UnknownEnum.Value_65]);
-audio_sound_gain(sfxFrostbearWind, 0, 0);
+audio_sound_gain(SOUND_Wind, 0, 0);
 
 enum UnknownEnum
 {

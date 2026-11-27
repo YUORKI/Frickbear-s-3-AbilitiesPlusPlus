@@ -1,13 +1,52 @@
 draw_set_halign(fa_left);
 shader_set(TransparencyShader);
+var DrawText = Text;
 
 if (global.MonitorSystem == Text)
     image_index = 1;
 
+if (instance_exists(oFoxyEXE_FakerParent))
+{
+    var GlitchChance = 100;
+    
+    if (Text == "Cameras" && instance_exists(oFoxyEXE_FakeCamButton) && irandom(GlitchChance) == 6)
+    {
+        FakeText = choose_from_array(oFoxyEXE.ATTR_GlitchText);
+        FakeTextTimer = 2;
+    }
+    
+    if (Text == "Vents" && instance_exists(oFoxyEXE_FakeVentButton) && irandom(GlitchChance) == 6)
+    {
+        FakeText = choose_from_array(oFoxyEXE.ATTR_GlitchText);
+        FakeTextTimer = 2;
+    }
+    
+    if (Text == "Shop" && instance_exists(oFoxyEXE_FakeShopButton) && irandom(GlitchChance) == 6)
+    {
+        FakeText = choose_from_array(oFoxyEXE.ATTR_GlitchText);
+        FakeTextTimer = 2;
+    }
+    
+    if (Text == "Games" && instance_exists(oFoxyEXE_FakeMinigameButton) && irandom(GlitchChance) == 6)
+    {
+        FakeText = choose_from_array(oFoxyEXE.ATTR_GlitchText);
+        FakeTextTimer = 2;
+    }
+}
+
+if (FakeText != "")
+{
+    DrawText = FakeText;
+    FakeTextTimer--;
+}
+
+if (FakeTextTimer == 0)
+    FakeText = "";
+
 draw_self();
 
 if (Text != "Reset Music")
-    draw_text(x + 5, y + 1, Text);
+    draw_text(x + 5, y + 1, DrawText);
 
 if (character_active(UnknownEnum.Value_16))
 {
@@ -28,7 +67,7 @@ if (character_active(UnknownEnum.Value_16))
 if (character_active(UnknownEnum.Value_56))
 {
     if ((oElectrobab.ShowWarning && Text == "Repair Wiring") || (Text == "Cameras" && global.MonitorSystem != "Cameras" && oElectrobab.ShowWarning))
-        draw_sprite(sElectrobabWarning, 1, x + sprite_width, y + sprite_height);
+        draw_sprite(oElectrobab.SPRITE_Warning, 1, x + sprite_width, y + sprite_height);
 }
 
 if (instance_exists(oSalvage_VentCrawler) && instance_exists(oSalvage))

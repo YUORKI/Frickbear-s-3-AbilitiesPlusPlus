@@ -6,7 +6,8 @@ function destroy_crawler()
         exit;
     
     Vanishing = true;
-    audio_play_sound(sfxMetalImpact, 5, false, 0.75);
+    audio_play_sound(oEnnard.SOUND_Clicked, 5, false, 0.75);
 }
 
 Dangling = false;
+Sprite = sBossSalvage_Wires;

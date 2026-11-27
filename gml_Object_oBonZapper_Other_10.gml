@@ -13,7 +13,7 @@ if (RelativeMouseX >= -32 && RelativeMouseX < 32 && RelativeMouseY >= 50 && Rela
     
     if (image_index == 1)
     {
-        audio_play_sound(sfxError, 5, false);
+        audio_play_sound(oBon.SOUND_Error, 5, false);
         exit;
     }
     

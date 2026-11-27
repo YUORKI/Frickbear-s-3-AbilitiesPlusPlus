@@ -3,4 +3,5 @@ DropSpeed = 0;
 Grabbed = true;
 Alpha = 1;
 Size = 0;
+sprite_index = oGlamrockChica.SPRITE_Toppings;
 audio_play_sound(sfxPluck, 7, false);

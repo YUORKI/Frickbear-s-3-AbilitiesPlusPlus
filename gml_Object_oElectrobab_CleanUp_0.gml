@@ -1,2 +1,11 @@
 surface_free(ElectroSurf);
 global.Brightness = global.BaseBrightness;
+sprite_delete(SPRITE_PoseChill);
+sprite_delete(SPRITE_PoseChew);
+sprite_delete(SPRITE_PoseCape);
+sprite_delete(SPRITE_Window);
+sprite_delete(SPRITE_WireBase);
+sprite_delete(SPRITE_Wire);
+sprite_delete(SPRITE_WireButton);
+sprite_delete(SPRITE_Warning);
+skin_sound_delete_array([SOUND_Appear, SOUND_PowerOn, SOUND_Powerout, SOUND_Solved, SOUND_Select, SOUND_Close]);

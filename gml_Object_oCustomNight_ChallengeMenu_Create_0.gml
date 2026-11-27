@@ -184,7 +184,8 @@ array_push(Challenges[0],
 {
     Name: "Ladies' Night 2",
     Desc: "Like half of these are just different versions of Chica!",
-    Lvl20s: [UnknownEnum.Value_2, UnknownEnum.Value_12, UnknownEnum.Value_8, UnknownEnum.Value_48, UnknownEnum.Value_69, UnknownEnum.Value_15, UnknownEnum.Value_51, UnknownEnum.Value_52, UnknownEnum.Value_26, UnknownEnum.Value_29, UnknownEnum.Value_55, UnknownEnum.Value_35, UnknownEnum.Value_59, UnknownEnum.Value_67, UnknownEnum.Value_74],
+    Lvl20s: [UnknownEnum.Value_2, UnknownEnum.Value_12, UnknownEnum.Value_8, UnknownEnum.Value_48, UnknownEnum.Value_69],
+    Lvl10s: [UnknownEnum.Value_15, UnknownEnum.Value_51, UnknownEnum.Value_52, UnknownEnum.Value_26, UnknownEnum.Value_29, UnknownEnum.Value_55, UnknownEnum.Value_35, UnknownEnum.Value_59, UnknownEnum.Value_67, UnknownEnum.Value_74],
     Duration: 3
 });
 array_push(Challenges[0], 
@@ -443,7 +444,7 @@ array_push(Challenges[2],
 {
     Name: "A Bit of Everything Else",
     Desc: "Face off against EVERY character in Four Layers Down at 5 AI!",
-    Lvl5s: countup_array(86, 47),
+    Lvl5s: countup_array(90, 47),
     Duration: 6
 });
 array_push(Challenges[2], 
@@ -458,7 +459,7 @@ array_push(Challenges[2],
 {
     Name: "1_87",
     Desc: "Strength in numbers...but not necessarily numbers.",
-    Lvl1s: countup_array(86, UnknownEnum.Value_0),
+    Lvl1s: countup_array(90, UnknownEnum.Value_0),
     Duration: 6
 });
 array_push(Challenges[3], 
@@ -472,7 +473,7 @@ array_push(Challenges[3],
 {
     Name: "The New Forty",
     Desc: "The rest.",
-    Lvl20s: countup_array(86, 47),
+    Lvl20s: countup_array(90, 47),
     Duration: 6
 });
 array_push(Challenges[3], 
@@ -484,9 +485,9 @@ array_push(Challenges[3],
 });
 array_push(Challenges[3], 
 {
-    Name: "Fright of 87",
+    Name: "Nightmarish 91",
     Desc: "This one's impossible. For your own sake, do not seriously attempt it.",
-    Lvl20s: countup_array(86, UnknownEnum.Value_0),
+    Lvl20s: countup_array(90, UnknownEnum.Value_0),
     Duration: 6
 });
 SelectedChallenge = -1;

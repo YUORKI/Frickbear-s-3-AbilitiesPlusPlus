@@ -3,8 +3,8 @@ Size += ((1 - Size) / 5);
 if (place_meeting(x, y, oDoofas))
 {
     instance_destroy();
-    audio_play_sound(sfxDoofas_Collect, 2, false);
-    block_tokens(,1);
+    audio_play_sound(oDoofas.SOUND_Collect, 2, false);
+    block_tokens();
 }
 
 image_xscale = Size;

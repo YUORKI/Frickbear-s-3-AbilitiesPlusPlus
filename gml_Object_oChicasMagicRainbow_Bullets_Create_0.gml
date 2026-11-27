@@ -5,3 +5,4 @@ Frame = 0;
 CanCollide = true;
 Size = 1;
 BouncesLeft = 0;
+sprite_index = oChicasMagicRainbow.SPRITE_Bullet;

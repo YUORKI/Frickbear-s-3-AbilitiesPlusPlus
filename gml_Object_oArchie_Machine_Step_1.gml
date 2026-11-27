@@ -11,7 +11,7 @@ image_index = !Active;
 
 if (mouse_check_button_pressed(mb_left) && RelativeMouseX >= -32 && RelativeMouseX <= 72 && RelativeMouseY <= 40 && RelativeMouseY >= -50 && turnaround_accessible() && Active)
 {
-    audio_play_sound(sfxControlPanel_Open, 0, false);
+    audio_play_sound(oArchie.SOUND_Open, 0, false);
     mouse_clear(mb_left);
     
     with (oArchie)

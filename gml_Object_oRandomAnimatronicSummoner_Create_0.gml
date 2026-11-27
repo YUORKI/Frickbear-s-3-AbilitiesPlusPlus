@@ -5,7 +5,7 @@ CurrentImage = 0;
 var Killables = [];
 PossibleItems = [];
 
-for (var i = 0; i <= 86; i++)
+for (var i = 0; i <= 90; i++)
 {
     if (!character_active(i) && instance_exists(get_animatronic_object(i)))
         array_push(PossibleItems, i);

@@ -1,4 +1,17 @@
 ID = UnknownEnum.Value_80;
+SPRITE_Templates = skin_sprite_unlimited(sBlank_PaperBG, ID, "sprite_template");
+SPRITE_TraceLines = skin_sprite_unlimited(sBlank_Templates, ID, "sprite_tracelines");
+SPRITE_Paper = skin_sprite(sBlank_Paper, ID, "sprite_02.png");
+SPRITE_PaperStack = skin_sprite(sBlank_PaperPile, ID, "sprite_01.png");
+SPRITE_Meter = skin_sprite(sBlank_Meter, ID, "sprite_03.png");
+SPRITE_MeterPointer = skin_sprite(sBlank_MeterPointer, ID, "sprite_04.png");
+SOUND_SubmitBest = skin_sound(sfxSparkleImpact, ID, "sq_submitbest");
+SOUND_SubmitGood = skin_sound(sfxBitCollect, ID, "sq_submitgood");
+SOUND_SubmitBad = skin_sound(sfxBitFail, ID, "sq_submitbad");
+SOUND_Draw = skin_sound(sfxBitNoise, ID, "sq_draw");
+SOUND_Paper = skin_sound(sfxPaperFlip, ID, "sq_paper");
+SOUND_Satisfied = skin_sound_generate_array(get_misc_voicelines(UnknownEnum.Value_80, "CompletedGood"), ID, "sq_completegood");
+SOUND_Dissatisfied = skin_sound_generate_array(get_misc_voicelines(UnknownEnum.Value_80, "CompletedBad"), ID, "sq_completebad");
 UI_surf = -1;
 canvas_surf = -1;
 sketch_surf = -1;
@@ -22,15 +35,13 @@ TotalPages = round(6 / global.NightSpeedup);
 PagesCompleted = 0;
 DrawingOrder = [];
 
-for (var i = 0; i < sprite_get_number(sBlank_PaperBG); i++)
+for (var i = 0; i < max(sprite_get_number(SPRITE_Templates), (global.AILevels[ID] == 21) ? 15 : 6); i++)
     array_push(DrawingOrder, i);
 
 if (global.AILevels[ID] == 21)
-    TotalPages = min(15, sprite_get_number(sBlank_PaperBG));
+    TotalPages = 15;
 
 DrawingOrder = array_shuffle(DrawingOrder);
-SOUND_Satisfied = get_misc_voicelines(UnknownEnum.Value_80, "CompletedGood");
-SOUND_Dissatisfied = get_misc_voicelines(UnknownEnum.Value_80, "CompletedBad");
 
 function submit_page()
 {

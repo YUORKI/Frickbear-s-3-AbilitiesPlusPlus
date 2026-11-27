@@ -1,5 +1,6 @@
 ID = UnknownEnum.Value_43;
 SPRITE_Head = skin_sprite(sSparky, ID, get_sprite_filenames(1, 3));
+SPRITE_CamRadar = skin_sprite(sCamRadarIcon_Sparky, ID, "camradar.png");
 SOUND_Appear = skin_sound(sfxSparkyCue, ID, "sq_appear");
 SOUND_Hint = skin_sound(sfxBark, ID, "sq_hint");
 SOUND_Zapped = skin_sound(sfxSparkyDie, ID, "sq_zapped");

@@ -13,8 +13,8 @@ if (Collectible && !Collected && point_distance(x + 640 + 240, y + 0 + 32, oMous
     with (oSpringBonnie)
         Ballz++;
     
-    audio_play_sound(sfxBitCollect, 3, false, 0.75, 0, 0.8);
-    audio_play_sound(sfxPluck, 4, false, 0.6);
+    audio_play_sound(oSpringBonnie.SOUND_Collect, 3, false, 0.75, 0, 0.8);
+    audio_play_sound(oSpringBonnie.SOUND_Pluck, 4, false, 0.6);
     Collected = true;
 }
 

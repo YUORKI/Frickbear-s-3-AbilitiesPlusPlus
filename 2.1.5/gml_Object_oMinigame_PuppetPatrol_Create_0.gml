@@ -1,0 +1,28 @@
+Frame = 0;
+Side = 1;
+KidsSpawned = 0;
+FlashlightRadius = 0;
+DesiredKid = 0;
+Cooldown = 0;
+Happy = true;
+SpeechBubbleOffset = 0;
+Power = 160;
+Recharging = false;
+RadarX = 0;
+Score = 0;
+Surf = -1;
+global.MinigameSurface = -1;
+instance_create_depth(0, 0, depth - 2, oPP_Background);
+SpawnHeightArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+KidBag = [];
+
+repeat (8)
+    array_push(KidBag, 0, 1, 2);
+
+array_push(KidBag, 3);
+KidBag = array_shuffle(KidBag);
+KidBagPos = 0;
+Paused = false;
+Streak = 0;
+Timer = 0;
+event_inherited();

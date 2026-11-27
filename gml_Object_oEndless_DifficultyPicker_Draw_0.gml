@@ -180,7 +180,7 @@ if (SelectedGuard != -1)
             global.Difficulty = i;
             audio_play_sound(sfxBump, 5, false);
             
-            for (var s = 0; s <= 86; s++)
+            for (var s = 0; s <= 90; s++)
             {
                 if (global.EndlessStickers[s] >= global.Difficulty)
                     StickerPercent++;
@@ -219,7 +219,7 @@ if (SelectedGuard != -1)
         draw_text_ext(ButtonX + 6, ButtonY + 1, (global.Difficulty >= 4) ? "How long can you survive?" : "Survive 10 rounds to win!", 15, ButtonWidth - 12);
         ButtonY = (WindowY + WindowHeight) - 50;
         draw_sprite(sEndlessStickers, global.Difficulty, ButtonX + 6 + 5, ButtonY + 11);
-        draw_text(ButtonX + 6 + 17, ButtonY + 1, string("{0}/{1}", StickerPercent, 87));
+        draw_text(ButtonX + 6 + 17, ButtonY + 1, string("{0}/{1}", StickerPercent, 91));
         ButtonX = WindowX + 202;
         ButtonY = WindowY + 330;
         ButtonWidth = 110;
@@ -259,7 +259,7 @@ if (SelectedGuard != -1)
             {
                 var ID = Params.animatronics[i];
                 
-                if (ID <= 86 && ID >= 0)
+                if (ID <= 90 && ID >= 0)
                     array_push(global.AllTimeSalvages, ID);
             }
             
@@ -303,6 +303,7 @@ if (SelectedGuard != -1)
             
             global.StartRoom = EndlessShopSelection;
             global.RunEarnings += ((guard_ability(UnknownEnum.Value_12) ? 250 : 30) + (20 * global.NuzlockeMode));
+            apply_skins_random();
         }
     }
 }

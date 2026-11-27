@@ -54,7 +54,14 @@ switch (global.MonitorSystem)
             }
             else if (clicked(ButtonX - x, ButtonY - y, BoxWidth, EntryHeight) && mouse_in_zone(6, 50, BoxWidth, BoxHeight))
             {
-                if (Disabled)
+                if (AvailableMinigames[i] == 666)
+                {
+                    with (oFoxyEXE)
+                        destroy_faker();
+                    
+                    break;
+                }
+                else if (Disabled)
                 {
                     audio_play_sound(sfxError, 10, false);
                 }
@@ -70,11 +77,11 @@ switch (global.MonitorSystem)
                 }
             }
             
-            draw_sprite(sCamRadarIcons, get_minigame_icon(AvailableMinigames[i]), ButtonX + 1, ButtonY);
+            draw_sprite(get_minigame_icon(AvailableMinigames[i]), 0, ButtonX + 1, ButtonY);
             draw_text_color(ButtonX + 21, ButtonY - 1, Data.Name, TexColor, TexColor, TexColor, TexColor, 1);
             
             if (instance_exists(oEleanor_ScoreTracker) && AvailableMinigames[i] == oEleanor_ScoreTracker.ChosenMinigame)
-                draw_sprite(sCamRadarIcons, UnknownEnum.Value_34, (ButtonX + BoxWidth) - 17, ButtonY + 1);
+                draw_sprite(sCamRadarIcon_Eleanor, 0, (ButtonX + BoxWidth) - 17, ButtonY + 1);
         }
         
         draw_set_font(global.FontW97Black);
@@ -213,6 +220,5 @@ shader_reset();
 enum UnknownEnum
 {
     Value_6 = 6,
-    Value_25 = 25,
-    Value_34 = 34
+    Value_25 = 25
 }

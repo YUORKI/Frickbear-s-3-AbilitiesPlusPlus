@@ -8,6 +8,6 @@ if (AttackMode)
     if (!Spooked)
     {
         Spooked = true;
-        audio_play_sound(sfxIgnitedFreddy_Spotted, 10, false, 0.8);
+        audio_play_sound(SOUND_Scare, 10, false, 0.8);
     }
 }

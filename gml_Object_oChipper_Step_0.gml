@@ -30,7 +30,7 @@ if (instance_exists(Lumber))
 }
 else if (PicklesConverted)
 {
-    if (global.Skins[UnknownEnum.Value_42] == -1 && irandom(99) == 7)
+    if (global.SkinsFunctional[UnknownEnum.Value_42] == -1 && irandom(99) == 7)
         reverb_sound(voc_Chipper_SecretLaugh, 0, 0, false, 1);
     else
         reverb_sound(choose_from_array(SOUND_Purchase), 0, 0, false, 1);

@@ -1,4 +1,3 @@
-var ID = UnknownEnum.Value_54;
 var AI = global.AILevels[ID];
 var CameraFacing = abs(angle_difference(oCamera.CameraRotation, 90)) > 90;
 
@@ -101,10 +100,10 @@ if (FredSuit != undefined)
     {
         with (FredSuit)
         {
-            sprite_index = sYenndoStyle;
+            sprite_index = other.SPRITE_SecretDance;
             image_index = 10 - (other.Timer * 15);
-            image_xscale = 0.71;
-            image_yscale = 0.71;
+            image_xscale = 1;
+            image_yscale = 1;
         }
     }
     else
@@ -121,8 +120,3 @@ if (FredSuit != undefined)
 
 if (Cooldown > 0)
     Cooldown -= 0.016666666666666666;
-
-enum UnknownEnum
-{
-    Value_54 = 54
-}

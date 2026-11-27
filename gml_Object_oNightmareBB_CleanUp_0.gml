@@ -1,5 +1,6 @@
 sprite_delete(SPRITE_Head);
 sprite_delete(SPRITE_Eyes);
+sprite_delete(SPRITE_CamRadar);
 skin_sound_delete_array(SOUND_Appear);
 skin_sound_delete_array(SOUND_Smack);
 skin_sound_delete_array(SOUND_Hurt);

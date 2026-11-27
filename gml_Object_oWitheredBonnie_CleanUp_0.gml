@@ -1,3 +1,5 @@
+audio_stop_sound(SOUND_Stare);
+
 if (Head != undefined)
     instance_destroy(Head);
 

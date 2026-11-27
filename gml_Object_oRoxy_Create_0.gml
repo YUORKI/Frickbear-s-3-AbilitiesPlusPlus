@@ -19,8 +19,15 @@ function reset_timer(arg0)
 }
 
 reset_timer(global.AILevels[ID]);
-SOUND_Appear = get_misc_voicelines(ID, "Appear");
-SOUND_Satisfied = get_misc_voicelines(ID, "Satisfied");
+SPRITE_Body = skin_sprite(sRoxy_Body, ID, get_sprite_filenames(3, 4));
+SPRITE_Head = skin_sprite(sRoxy_Head, ID, get_sprite_filenames(1, 2));
+SOUND_Charge = skin_sound(sfxRoxyCharge, ID, "sq_charge");
+SOUND_Ambience = skin_sound(sfxRoxyAmbience, ID, "sq_ambience");
+SOUND_Creak = skin_sound(sfxEndoCreak, ID, "sq_creak");
+SOUND_Look = skin_sound(sfxWhipCrack, ID, "sq_whip");
+SOUND_Complete = skin_sound(sfxRoxyComplete, ID, "sq_complete");
+SOUND_Appear = skin_sound_generate_array(get_misc_voicelines(ID, "Appear"), ID, "voc_appear");
+SOUND_Satisfied = skin_sound_generate_array(get_misc_voicelines(ID, "Satisfied"), ID, "voc_complete");
 
 enum UnknownEnum
 {

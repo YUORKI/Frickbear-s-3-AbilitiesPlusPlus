@@ -2,7 +2,10 @@ var AI = global.AILevels[ID];
 depth = 2;
 
 if (AI > 0 && !instance_exists(oBlank_PaperStack))
-    instance_create_layer(1486, 1160, "OnWall", oBlank_PaperStack);
+{
+    with (instance_create_layer(1486, 1160, "OnWall", oBlank_PaperStack))
+        sprite_index = other.SPRITE_PaperStack;
+}
 
 set_target_to_ui();
 
@@ -29,8 +32,8 @@ if (!surface_exists(UI_surf))
     UI_surf = surface_create(PageWidth, PageHeight);
     surface_set_target(UI_surf);
     draw_clear_alpha(c_black, 0);
-    draw_sprite(sBlank_Paper, 0, 0, 0);
-    draw_sprite(sBlank_PaperBG, CurrentImage, 16, 16);
+    draw_sprite(SPRITE_Paper, 0, 0, 0);
+    draw_sprite(SPRITE_Templates, CurrentImage, 16, 16);
     draw_set_font(global.FontHanddrawn);
     draw_set_halign(fa_right);
     draw_text_color(PageWidth - 24, PageHeight - 42, string("{0}/{1}", PagesCompleted + 1, TotalPages), c_black, c_black, c_black, c_black, 1);
@@ -51,7 +54,7 @@ if (!surface_exists(sketch_surf))
     sketch_surf = surface_create(CanvasWidth, CanvasHeight);
     surface_set_target(sketch_surf);
     draw_clear_alpha(c_black, 0);
-    draw_sprite_ext(sBlank_Templates, (CurrentImage * 3) + ImgDifficulty, 0, 0, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(SPRITE_TraceLines, (CurrentImage * 3) + ImgDifficulty, 0, 0, 1, 1, 0, c_white, 1);
     surface_reset_target();
 }
 
@@ -63,7 +66,7 @@ if (mouse_check_button(mb_left) && BaseY < 2 && PaperUp)
     surface_reset_target();
     
     if (PenSound == -1)
-        PenSound = audio_play_sound(sfxBitNoise, 5, true);
+        PenSound = audio_play_sound(SOUND_Draw, 5, true);
     
     audio_sound_pitch(PenSound, lerp(1, point_distance(mouse_x_previous, mouse_y_previous, smooth_x, smooth_y) / 3, 0.5));
     audio_sound_gain(PenSound, point_distance(mouse_x_previous, mouse_y_previous, smooth_x, smooth_y) > 0, 0);
@@ -86,8 +89,8 @@ if (mouse_check_button_pressed(mb_left) && !clicked(CanvasX - 16, (CanvasY - 16)
 
 mouse_x_previous = smooth_x;
 mouse_y_previous = smooth_y;
-draw_sprite(sBlank_Meter, 0, lerp(700, 640, TransitionPercent) - 16, 180);
-draw_sprite(sBlank_MeterPointer, 0, lerp(700, 640, TransitionPercent) - 32, 180 + lerp(142, -142, VisualScore / 100));
+draw_sprite(SPRITE_Meter, 0, lerp(700, 640, TransitionPercent) - 16, 180);
+draw_sprite(SPRITE_MeterPointer, 0, lerp(700, 640, TransitionPercent) - 32, 180 + lerp(142, -142, VisualScore / 100));
 VisualScore += ((TotalScore - VisualScore) / 5);
 
 if (TotalScore == 0)

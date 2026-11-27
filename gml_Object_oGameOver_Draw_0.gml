@@ -1,6 +1,6 @@
 if (global.Jumpscare == -1)
     draw_sprite_ext(sJumpscareDeathscreen, UnknownEnum.Value_15, 320, 180, 1, 1, 0, c_white, 1);
-else if (global.Skins[global.Jumpscare] > -1)
+else if (global.SkinsFunctional[global.Jumpscare] > -1)
     draw_imported_deathscreen(CustomDeathscreen);
 else
     draw_normal_deathscreen(global.Jumpscare);
@@ -136,10 +136,10 @@ if (input_check_pressed(UnknownEnum.Value_0) && ExitFrame == 0 && Frame > 120)
 
 if ((Frame > 15 && global.Jumpscare != -1 && !DeathLinePlayed) && (GuardLinePlayed && (GuardLine == -1 || !audio_is_playing(GuardLine))))
 {
-    if (global.Skins[global.Jumpscare] > -1 && skin_get_attribute(global.Jumpscare, "ReplaceVoice", false))
+    if (global.SkinsFunctional[global.Jumpscare] > -1 && skin_get_attribute(global.Jumpscare, "ReplaceVoice", false))
     {
         var AlternateQuip = array_contains([UnknownEnum.Value_27, UnknownEnum.Value_70], global.Jumpscare) && global.JumpscareType > 0;
-        var QuipList = skin_sound_array(global.Jumpscare, !AlternateQuip ? "voc_deathquip" : "voc_deathquipALT");
+        QuipList = skin_sound_generate_array([], global.Jumpscare, !AlternateQuip ? "voc_deathquip" : "voc_deathquipALT");
         
         if (array_length(QuipList) == 0)
         {
@@ -148,8 +148,7 @@ if ((Frame > 15 && global.Jumpscare != -1 && !DeathLinePlayed) && (GuardLinePlay
         else
         {
             var Line = ((global.DeathRecord[global.Jumpscare] + global.FunValue[0]) * global.FunValue[1]) % array_length(QuipList);
-            var File = QuipList[Line];
-            Sound = create_stream_from_filename(File);
+            Sound = QuipList[Line];
         }
     }
     else

@@ -30,7 +30,7 @@ function attack(arg0)
     Speed = 1 / (60 * lerp(8, 4, arg0 / 20));
     HPLeft = round(lerp(2, 5, arg0 / 20));
     AttackFrame = lerp(-120, -60, arg0 / 20);
-    VaccuumSound = audio_play_sound_on(CoolEmitter, sfxMrHugsApproach, 15, true, 1);
+    VaccuumSound = audio_play_sound_on(CoolEmitter, oMrHugs.SOUND_Approach, 15, true, 1);
     Attacking = true;
 }
 

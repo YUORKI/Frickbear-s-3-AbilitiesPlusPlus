@@ -114,7 +114,7 @@ function get_guard_true_description(arg0, arg1 = true)
         
         case UnknownEnum.Value_18:
             return "The temperature meter is replaced by a panic meter. Your panic increases when dealing with animatronics, and can be decreased by looking out the back window.";
-
+        
         case UnknownEnum.Value_16:
             return "Your power won't drain so long as you have 1 bar of usage or less. Otherwise, your power will drain significantly faster than usual.";
         
@@ -147,12 +147,6 @@ function get_guard_true_description(arg0, arg1 = true)
         
         case UnknownEnum.Value_23:
             return "Items from Mendo's shop are in unlimited supply, but get exponentially more expensive for each one purchased.";
-
-        case UnknownEnum.Value_29:
-            return "The temperature meter is replaced by a panic meter. Your panic increases when dealing with animatronics, and can be decreased by using your mask.";
-
-        case UnknownEnum.Value_30:
-            return "(WIP) The night will not end until you've fend off animatronics a certain amount of times. The amount needed increases each round.";
         
         case UnknownEnum.Value_1:
         default:
@@ -183,7 +177,7 @@ function get_guard_unlock_description(arg0)
             return "Enter the Angel's Sanctum with $100 or more saved up... OR finish a night with 150 or more tokens saved up.";
         
         case UnknownEnum.Value_10:
-            return string("Get a completion sticker on all {0} animatronics.", 87);
+            return string("Get a completion sticker on all {0} animatronics.", 91);
         
         case UnknownEnum.Value_11:
             return "Beat a run on Hard difficulty or higher without losing a life... OR beat round 10 while in the middle of a jumpscare.";
@@ -268,8 +262,6 @@ enum UnknownEnum
     Value_26,
     Value_27,
     Value_28,
-    Value_29,
-    Value_30,
     Value_73 = 73,
     Value_138 = 138,
     Value_140 = 140

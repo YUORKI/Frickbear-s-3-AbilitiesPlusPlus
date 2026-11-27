@@ -40,30 +40,30 @@ if (keyboard_check_pressed(vk_space) && !rated && PaperUp)
     if (final_rank >= 60)
     {
         rankMessage = "Incredible!";
-        audio_play_sound(sfxSparkleImpact, 10, false, 1, 0, 1);
+        audio_play_sound(SOUND_SubmitBest, 10, false, 1, 0, 1);
         block_tokens(3);
     }
     else if (final_rank >= 40)
     {
         rankMessage = "Nice!";
-        audio_play_sound(sfxBitCollect, 10, false, 1, 0, 1);
+        audio_play_sound(SOUND_SubmitGood, 10, false, 1, 0, 1);
         block_tokens(2);
     }
     else if (final_rank >= 20)
     {
         rankMessage = "Good Enough!";
-        audio_play_sound(sfxBitCollect, 10, false, 1, 0, 1);
+        audio_play_sound(SOUND_SubmitGood, 10, false, 1, 0, 1);
         block_tokens(1);
     }
     else if (final_rank >= 5)
     {
         rankMessage = "Lousy...";
-        audio_play_sound(sfxBitFail, 10, false, 1, 0, 1);
+        audio_play_sound(SOUND_SubmitBad, 10, false, 1, 0, 1);
     }
     else
     {
         rankMessage = "Did you even try!?";
-        audio_play_sound(sfxBitFail, 10, false, 1, 0, 1);
+        audio_play_sound(SOUND_SubmitBad, 10, false, 1, 0, 1);
     }
     
     if (final_rank < 20 && global.AILevels[ID] == 21)

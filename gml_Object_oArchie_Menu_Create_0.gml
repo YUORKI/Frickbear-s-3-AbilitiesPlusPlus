@@ -1,4 +1,4 @@
-SorterArray = get_sorter_array(countup_array(86));
+SorterArray = get_sorter_array(countup_array(90));
 ExclusionList = [];
 DataBoxHeight = 48;
 GuessingMode = false;
@@ -123,7 +123,7 @@ function draw_selection_menu(arg0, arg1, arg2)
     surface_set_target(SelectorSurf);
     draw_clear_alpha(c_black, 0);
     
-    for (var i = 0; i <= 86; i++)
+    for (var i = 0; i <= 90; i++)
     {
         var ID = SorterArray[i];
         var TileX = (i % arg0) * 48;
@@ -209,7 +209,7 @@ function array_to_string(arg0)
 
 Dataset = [];
 
-for (var i = 0; i <= 86; i++)
+for (var i = 0; i <= 90; i++)
 {
     var Data = get_animatronic_data(i);
     array_push(Dataset, 
@@ -225,7 +225,7 @@ for (var i = 0; i <= 86; i++)
 }
 
 randomize();
-Answer = irandom(86);
+Answer = irandom(90);
 Guesses = [];
 show_debug_message(global.Descriptions[Answer][0]);
 TabletSurf = -1;

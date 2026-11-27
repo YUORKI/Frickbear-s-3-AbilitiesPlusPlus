@@ -4,13 +4,13 @@ TileSize = 0;
 Active = true;
 AveragePrice = 0;
 
-for (var i = 0; i <= 86; i++)
+for (var i = 0; i <= 90; i++)
 {
     show_debug_message(string("{0} : {1}", global.Descriptions[i][0], AveragePrice));
     AveragePrice += (get_animatronic_data(i).SalvageValue / 100);
 }
 
-AveragePrice = round((AveragePrice / UnknownEnum.Value_87) - 1);
+AveragePrice = round((AveragePrice / UnknownEnum.Value_91) - 1);
 rerollMultiplier = 1;
 QuotaInflator = 0;
 
@@ -39,5 +39,5 @@ with (oBlackBars)
 
 enum UnknownEnum
 {
-    Value_87 = 87
+    Value_91 = 91
 }

@@ -3,7 +3,7 @@ var RelativeMouseY = y - o3DMouse.y;
 
 if (mouse_check_button_pressed(mb_left) && RelativeMouseX >= -64 && RelativeMouseX <= 48 && RelativeMouseY <= 40 && RelativeMouseY >= -24 && turnaround_accessible())
 {
-    audio_play_sound(sfxPaperFlip, 0, false);
+    audio_play_sound(oBlank.SOUND_Paper, 0, false);
     mouse_clear(mb_left);
     
     with (oBlank)

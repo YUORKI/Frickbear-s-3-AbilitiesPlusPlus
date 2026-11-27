@@ -31,7 +31,7 @@ ButtonY = ScrollBarOffset * -1;
 ButtonWidth = 48;
 ButtonHeight = 48;
 
-for (var a = 0; a <= 86; a++)
+for (var a = 0; a <= 90; a++)
 {
     var Animatronic = AnimatronicList[a];
     var Picked = SelectedAnimatronics[a];
@@ -62,7 +62,7 @@ for (var a = 0; a <= 86; a++)
 
 surface_reset_target();
 draw_surface(SelectionSurf, InnerWindowX + 2, InnerWindowY + 2);
-var ScrollBar = scroll_bar(ScrollBarOffset, ScrollBarDragged, InnerWindowX + 2, InnerWindowY + 2, InnerWindowWidth - 20, InnerWindowHeight - 4, ceil(8.7) * 48, 48);
+var ScrollBar = scroll_bar(ScrollBarOffset, ScrollBarDragged, InnerWindowX + 2, InnerWindowY + 2, InnerWindowWidth - 20, InnerWindowHeight - 4, ceil(9.1) * 48, 48);
 ScrollBarOffset = ScrollBar[0];
 ScrollBarDragged = ScrollBar[1];
 ButtonWidth = 96;

@@ -14,7 +14,7 @@ if (Timer > TimeToAttack && !Active)
         if (!TVOn)
             reverb_sound(sfxTV_Static, 400, 200, true, 4, 1, 0);
         
-        simple_sound(sfxTV_SwitchOn, 400, 200, false, 1);
+        simple_sound(other.SOUND_Activate, 400, 200, false, 1);
         CurrentAnimation = other.SubtitleVisualList[other.SubtitleEntry];
         OffsetSpeed = -5;
         TVOn = true;

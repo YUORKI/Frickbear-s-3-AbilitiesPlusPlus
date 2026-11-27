@@ -4,3 +4,7 @@ instance_destroy(Body);
 instance_destroy(Head);
 instance_destroy(LArm);
 instance_destroy(RArm);
+sprite_delete(SPRITE_Head);
+sprite_delete(SPRITE_Body);
+sprite_delete(SPRITE_Arm);
+skin_sound_delete_array([SOUND_Screech, SOUND_Burning, SOUND_Impact]);

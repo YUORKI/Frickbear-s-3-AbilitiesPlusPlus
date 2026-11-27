@@ -7,7 +7,7 @@ depth = 1;
 
 if (!Active)
 {
-    var TimeToAttack = lerp(22, 8.5, AI / 20);
+    var TimeToAttack = lerp(25, 11, AI / 20);
     
     if (AttackTimer > (TimeToAttack * Randomizer))
     {
@@ -15,8 +15,8 @@ if (!Active)
         Active = true;
         x = -999;
         y = -999;
-        audio_play_sound(sfxSalvage_WireDrop, 8, false, 0.5);
-        audio_play_sound(sfxCartoonPop, 8, false, 0.5);
+        audio_play_sound(SOUND_Drop, 8, false, 0.5);
+        audio_play_sound(SOUND_Popup, 8, false, 0.5);
         audio_play_sound((irandom(5) == 3) ? choose_from_array(SOUND_AppearRare) : choose_from_array(SOUND_Appear), 10, false, 0.8);
     }
 }
@@ -51,8 +51,8 @@ else if (Grabbed && !Thrown)
         {
             Grabbed = false;
             Thrown = true;
-            audio_play_sound(sfxSalvage_WireShoot, 8, false);
-            audio_play_sound(choose_from_array(SOUND_Thrown), 10, false);
+            audio_play_sound(SOUND_Thrown, 8, false);
+            audio_play_sound(choose_from_array(SOUND_Yell), 10, false);
         }
         else
         {
@@ -71,7 +71,7 @@ else if (Thrown)
     {
         Active = false;
         AttackTimer = 0;
-        audio_play_sound(sfxWoodBreak, 8, false, 0.75, sign(320 - x), 1);
+        audio_play_sound(SOUND_Crash, 8, false, 0.75, sign(320 - x), 1);
     }
 }
 

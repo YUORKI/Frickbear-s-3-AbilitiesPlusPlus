@@ -88,6 +88,10 @@ function reset_descriptions()
     global.Descriptions[UnknownEnum.Value_84] = ["The Reagent", "It'll start in the Dining Room before activating and moving to one of the two hallways, indicated by a sound cue. Check which doorway it's headed towards and drag the Wet Floor Bot in your office over to the correct doorway to block it."];
     global.Descriptions[UnknownEnum.Value_85] = ["Ignited Freddy", "He'll appear at the back window, indicated by a laugh. When he does, turn around and shine your flashlight into his eyes as he moves around until he leaves."];
     global.Descriptions[UnknownEnum.Value_86] = ["Spring-Bonnie?", "Collect plastic balls by mousing over them in the cameras, then turn around and click Spring-Bonnie's head to throw them at him and keep him away."];
+    global.Descriptions[UnknownEnum.Value_87] = ["DJ Music Man", "He'll appear once per night, forcing you to engage in a rhythm minigame. Press the door buttons in the order he shows onscreen and on the right beat to survive."];
+    global.Descriptions[UnknownEnum.Value_88] = ["Ralph", "He'll start in Parts & Service before slowly making his way to your office, moving camera to camera. Check on him to freeze him in place for a short while. Any progress he makes is permanent."];
+    global.Descriptions[UnknownEnum.Value_89] = ["Foxy.EXE", "Anomalies will begin appearing on your monitor systems, causing a countdown to your doom if too many accumulate at once. Seek out irregularities in your monitor systems and click on them to make him go away."];
+    global.Descriptions[UnknownEnum.Value_90] = ["Endoplush", "It'll run around the screen, chasing after your mouse pointer. Avoid touching it, or else Endoplush will continuously drain your power."];
     global.Descriptions[UnknownEnum.Value_127] = ["Phony Boss", "???"];
     global.Descriptions[UnknownEnum.Value_118] = ["Funtime Chica", "You are about to die."];
     global.Descriptions[UnknownEnum.Value_119] = ["Felix", "Pay off your token debt before 6 AM."];
@@ -1194,6 +1198,54 @@ function get_animatronic_data(arg0)
                 SalvageValue: 2300
             };
         
+        case UnknownEnum.Value_87:
+            return 
+            {
+                Object: oDJMusicMan,
+                JumpscareSprite: sJumpscare_DJMusicMan,
+                Tile: sTile_DJMusicMan,
+                Lethality: "Manageable",
+                ScheduleType: UnknownEnum.Value_1,
+                DefenseProcedure: ["Doors"],
+                SalvageValue: 2200
+            };
+        
+        case UnknownEnum.Value_88:
+            return 
+            {
+                Object: oRalph,
+                JumpscareSprite: sJumpscare_Ralph,
+                Tile: sTile_Ralph,
+                Lethality: "Manageable",
+                ScheduleType: UnknownEnum.Value_0,
+                DefenseProcedure: ["Cameras"],
+                SalvageValue: 2200
+            };
+        
+        case UnknownEnum.Value_89:
+            return 
+            {
+                Object: oFoxyEXE,
+                JumpscareSprite: sJumpscare_FoxyEXE,
+                Tile: sTile_FoxyEXE,
+                Lethality: "Manageable",
+                ScheduleType: UnknownEnum.Value_0,
+                DefenseProcedure: ["Cameras", "Vents", "Shop"],
+                SalvageValue: 666
+            };
+        
+        case UnknownEnum.Value_90:
+            return 
+            {
+                Object: oEndoplush,
+                JumpscareSprite: sNOTHING,
+                Tile: sTile_Endoplush,
+                Lethality: "Negligible",
+                ScheduleType: UnknownEnum.Value_0,
+                DefenseProcedure: ["Point & Click"],
+                SalvageValue: 1000
+            };
+        
         case UnknownEnum.Value_127:
             return 
             {
@@ -1658,129 +1710,6 @@ function get_animatronic_data(arg0)
     }
 }
 
-function play_jumpscare_scream(arg0, arg1)
-{
-    var JumpSound = (global.Settings[2][4] != 3) ? get_animatronic_scream(arg0, arg1) : choose(sfxJumpscare_Funny_AmongUs, sfxJumpscare_Funny_BigMouth, sfxJumpscare_Funny_Burp, sfxJumpscare_Funny_CarHorn, sfxJumpscare_Funny_Foghorn, sfxJumpscare_Funny_Goofy, sfxJumpscare_Funny_OurTable, sfxJumpscare_Funny_Spongebob, sfxJumpscare_Funny_Tom, sfxJumpscare_Funny_Yodel, sfxJumpscare_Funny_Pingas, sfxJumpscare_Funny_Wega, sfxJumpscare_Funny_Bitch, sfxJumpscare_Funny_Buzzer);
-    var Volume = 1;
-    
-    if (global.Settings[2][4] == 1)
-        Volume = 0;
-    else if (global.Settings[2][4] == 2)
-        Volume = 0.25;
-    
-    audio_group_set_gain(voc_Springtrap_Pathetic, (Volume * global.Settings[2][0] * global.Settings[2][1]) / 100, 0);
-    return audio_play_sound(JumpSound, 99, false);
-}
-
-function get_animatronic_scream(arg0, arg1)
-{
-    switch (arg0)
-    {
-        case UnknownEnum.Value_126:
-            return sfxFredbearGrowl2;
-        
-        default:
-            return sfxJumpscareNormal;
-        
-        case UnknownEnum.Value_6:
-        case UnknownEnum.Value_7:
-        case UnknownEnum.Value_8:
-        case UnknownEnum.Value_9:
-        case UnknownEnum.Value_14:
-        case UnknownEnum.Value_21:
-        case UnknownEnum.Value_118:
-        case UnknownEnum.Value_74:
-        case UnknownEnum.Value_59:
-        case UnknownEnum.Value_69:
-        case UnknownEnum.Value_66:
-            return sfxJumpscareHigh;
-        
-        case UnknownEnum.Value_10:
-        case UnknownEnum.Value_13:
-        case UnknownEnum.Value_38:
-        case UnknownEnum.Value_4:
-        case UnknownEnum.Value_119:
-        case UnknownEnum.Value_64:
-        case UnknownEnum.Value_68:
-        case UnknownEnum.Value_60:
-        case UnknownEnum.Value_20:
-        case UnknownEnum.Value_63:
-        case UnknownEnum.Value_76:
-        case UnknownEnum.Value_82:
-            return sfxJumpscareLow;
-        
-        case UnknownEnum.Value_22:
-        case UnknownEnum.Value_121:
-        case UnknownEnum.Value_24:
-        case UnknownEnum.Value_36:
-        case UnknownEnum.Value_75:
-            return sfxJumpscareLowest;
-        
-        case UnknownEnum.Value_41:
-        case UnknownEnum.Value_50:
-        case UnknownEnum.Value_154:
-        case UnknownEnum.Value_5:
-        case UnknownEnum.Value_58:
-        case UnknownEnum.Value_71:
-            return sfxJumpscareRetro;
-        
-        case UnknownEnum.Value_33:
-        case UnknownEnum.Value_122:
-        case UnknownEnum.Value_123:
-        case UnknownEnum.Value_124:
-        case UnknownEnum.Value_125:
-        case UnknownEnum.Value_47:
-        case UnknownEnum.Value_48:
-            return sfxJumpscareDemonic;
-        
-        case UnknownEnum.Value_120:
-        case UnknownEnum.Value_34:
-        case UnknownEnum.Value_53:
-        case UnknownEnum.Value_54:
-        case UnknownEnum.Value_49:
-        case UnknownEnum.Value_18:
-        case UnknownEnum.Value_84:
-            return sfxJumpscareSalvage;
-        
-        case UnknownEnum.Value_127:
-            return sfxJumpscarePhony;
-        
-        case UnknownEnum.Value_62:
-            return sfxJumpscareOrville;
-        
-        case UnknownEnum.Value_73:
-            if (arg1 == 0)
-                return sfxJumpscareOrville;
-            else
-                return sfxJumpscareSalvage;
-        
-        case UnknownEnum.Value_27:
-            if (arg1 == 0)
-            {
-                return sfxJumpscareNormal;
-                break;
-            }
-            
-            return sfxJumpscareHigh;
-    }
-}
-
-function get_animatronic_jumpscare_origin(arg0, arg1)
-{
-    switch (arg0)
-    {
-        case UnknownEnum.Value_9:
-        case UnknownEnum.Value_49:
-            return 1;
-        
-        case UnknownEnum.Value_4:
-            return 0;
-        
-        default:
-            return -1;
-    }
-}
-
 function get_animatronic_object(arg0)
 {
     return get_animatronic_data(arg0).Object;
@@ -1820,7 +1749,7 @@ audio_group_load(voc_ToyFreddy_HardlyGaming);
 
 function generate_shuffle_array(arg0 = true)
 {
-    var _animatronics = countup_array(86);
+    var _animatronics = countup_array(90);
     var _minigames = countup_array(15);
     var _phonecalls = voiceline_database(UnknownEnum.Value_128).ShuffleCalls;
     array_delete(_phonecalls, 0, 1);
@@ -1955,6 +1884,10 @@ enum UnknownEnum
     Value_84,
     Value_85,
     Value_86,
+    Value_87,
+    Value_88,
+    Value_89,
+    Value_90,
     Value_118 = 118,
     Value_119,
     Value_120,

@@ -71,7 +71,7 @@ if (mouse_check_button_pressed(mb_left) && !mouse_in_zone(SelectionMenuX + Table
 var GuessScrollBar = scroll_bar_archie(GuessYOffset, GuessBarDragged, 0, 0, 384, 300, 48 * (array_length(Guesses) + 1.5), 48);
 GuessYOffset = GuessScrollBar[0];
 GuessBarDragged = GuessScrollBar[1];
-var ScrollBar = scroll_bar_archie(YOffset, BarDragged, SelectionMenuX, SelectionMenuY + 24, BoxWidth - 16, BoxHeight, 48 * ceil(87 / SelectorColumns), 48);
+var ScrollBar = scroll_bar_archie(YOffset, BarDragged, SelectionMenuX, SelectionMenuY + 24, BoxWidth - 16, BoxHeight, 48 * ceil(91 / SelectorColumns), 48);
 YOffset = ScrollBar[0];
 BarDragged = ScrollBar[1];
 draw_surface(TabletSurf, TabletX, TabletY);

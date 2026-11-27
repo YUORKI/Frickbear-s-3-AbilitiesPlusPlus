@@ -1,4 +1,15 @@
+ID = UnknownEnum.Value_62;
 Frame = -0.25;
+SPRITE_Head = skin_sprite(sOrville_Head, ID, "sprite_01.png");
+SPRITE_Hand = skin_sprite(sOrville_Hands, ID, get_sprite_filenames(2, 3));
+SPRITE_Body = skin_sprite(sOrville_Body, ID, get_sprite_filenames(4, 6));
+SPRITE_Cards = skin_sprite(sOrville_Cards, ID, get_sprite_filenames(7, 47));
+SOUND_Correct = skin_sound_generate_array([voc_Orville_Correct, voc_Orville_FantasticWork, voc_Orville_Fiddlesticks, voc_Orville_GoodJob, voc_Orville_HowDoYouDoIt], ID, "voc_appear");
+SOUND_Guess = skin_sound_generate_array([voc_Orville_PickACard, voc_Orville_AddressTheElephant, voc_Orville_IsThisYourCard1, voc_Orville_IsThisYourCard2, voc_Orville_ForMyNextTrick, voc_Orville_NeverForgets], ID, "voc_solved");
+SOUND_Sparkle = skin_sound(sfxSparkleImpact, ID, "sq_solved");
+SOUND_Swoosh = skin_sound(sfxSwoosh, ID, "sq_swoosh");
+SOUND_Appear = skin_sound(sfxOrvilleAppears, ID, "sq_appear");
+SOUND_WhipCrack = skin_sound(sfxWhipCrack, ID, "sq_whip");
 CardOffset = 128;
 CardOffsetSpeed = 0;
 OffsetTarget = 128;
@@ -53,6 +64,12 @@ CardFlip = 0;
 CardFlipSpeed = 0;
 CardDisappear = false;
 Voiceline = -1;
+FlipTarget = 1440;
+
+function cards_available()
+{
+    return abs(CardFlip - FlipTarget) < 16;
+}
 
 function jumpscare_at_6AM()
 {

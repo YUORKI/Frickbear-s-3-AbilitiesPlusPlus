@@ -90,7 +90,7 @@ function draw_salvage_wires()
                 with (other)
                 {
                     if (ButtonID[0] == XCur && ButtonID[1] == YCur)
-                        draw_sprite_ext(sBossSalvage_Wires, Img, x, y, 1, 1, Direction, c_white, 1);
+                        draw_sprite_ext(other.Sprite, Img, x, y, 1, 1, Direction, c_white, 1);
                 }
             }
         }

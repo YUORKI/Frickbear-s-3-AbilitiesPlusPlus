@@ -26,7 +26,7 @@ if (Frame <= (AppearFrames + ChargeFrames))
     image_index = 0;
     
     if (Frame == AppearFrames)
-        audio_play_sound(sfxMagicRainbow_Charge, 5, false);
+        audio_play_sound(oChicasMagicRainbow.SOUND_Charge, 5, false);
     
     if (Frame > AppearFrames)
     {

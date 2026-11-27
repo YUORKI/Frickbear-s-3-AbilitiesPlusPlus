@@ -21,9 +21,17 @@ initialize();
 AttackTimer = 0;
 Active = false;
 GrabDelay = 0;
-SOUND_Appear = get_misc_voicelines(ID, "Appear");
-SOUND_AppearRare = get_misc_voicelines(ID, "AppearRare");
-SOUND_Thrown = get_misc_voicelines(ID, "Thrown");
+SPRITE_Head = skin_sprite(sBonnet_Head, ID, get_sprite_filenames(1, 3));
+SPRITE_Ear = skin_sprite(sBonnet_Ear, ID, get_sprite_filenames(4, 5));
+SPRITE_Body = skin_sprite(sBonnet_Body, ID, "sprite_06.png");
+SOUND_Appear = skin_sound_generate_array(get_misc_voicelines(ID, "Appear"), ID, "voc_appear");
+SOUND_AppearRare = skin_sound_generate_array(get_misc_voicelines(ID, "AppearRare"), ID, "voc_appear2");
+SOUND_Yell = skin_sound_generate_array(get_misc_voicelines(ID, "Thrown"), ID, "voc_thrown");
+SOUND_Pluck = skin_sound(sfxPluck, ID, "sq_grab");
+SOUND_Drop = skin_sound(sfxSalvage_WireDrop, ID, "sq_drop");
+SOUND_Popup = skin_sound(sfxCartoonPop, ID, "sq_popup");
+SOUND_Thrown = skin_sound(sfxSalvage_WireShoot, ID, "sq_throw");
+SOUND_Crash = skin_sound(sfxWoodBreak, ID, "sq_impact");
 
 enum UnknownEnum
 {

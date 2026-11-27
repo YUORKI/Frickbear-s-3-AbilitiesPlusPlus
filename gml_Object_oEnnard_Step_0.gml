@@ -25,6 +25,7 @@ if (SpawnTimer >= SpawnTime)
     
     with (instance_create_depth(0, 0, 0, oEnnard_VentCrawler))
     {
+        Sprite = other.SPRITE_Vents;
         VentX = (other.LastSpawnPoint - 1) * 2;
         Path = [];
         array_push(Path, [VentX, VentY - 1], [VentX, VentY]);
@@ -33,7 +34,7 @@ if (SpawnTimer >= SpawnTime)
     }
     
     WiresSpawned++;
-    audio_play_sound(sfxVentSqueak, 5, false, 0.5, 0, random_range(0.95, 1.05));
+    audio_play_sound(SOUND_Squeak, 5, false, 0.5, 0, random_range(0.95, 1.05));
     SpawnTimer = 0;
     Randomizer = random_range(0.85, 1.15);
 }

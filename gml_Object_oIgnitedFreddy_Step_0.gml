@@ -21,8 +21,8 @@ if (Timer > TimeToAppear && !Active && instance_find(oWindowBlinds, 0).FullyClos
     RLowerArm = instance_create_layer(999, 999, "Behind_Wall", oOfficeSprite);
     Pelvis = instance_create_layer(999, 999, "Behind_Wall", oOfficeSprite);
     TotalFlashesNeeded = FlashesNeeded;
-    reverb_sound(sfxIgnitedFreddy_Laugh, 0, 400, false, 1);
-    Static = audio_play_sound(sfxIgnitedFreddy_Static, 8, true);
+    reverb_sound(SOUND_Appear, 0, 400, false, 1);
+    Static = audio_play_sound(SOUND_Ambience, 8, true);
     audio_sound_gain(Static, 0, 0);
 }
 
@@ -56,13 +56,13 @@ if (Flashed && TotalFlashesNeeded > 0)
         {
             block_tokens();
             clear_window(ID);
-            reverb_sound(sfxIgnitedFreddy_Hit2, 15, false, false, 1.2, 1, 0.1);
+            reverb_sound(SOUND_Hit, 15, false, false, 1.2, 1, 0.1);
             TargetAngle = 90;
             YSpeed = -2.5;
         }
         else
         {
-            audio_play_sound(sfxIgnitedFreddy_Hit1, 15, false, 1, 0, random_range(0.8, 1.2));
+            audio_play_sound(SOUND_Leave, 15, false, 1, 0, random_range(0.8, 1.2));
             TargetAngle += irandom_range(90, 270);
             AngleSpeed = sign(angle_difference(TargetAngle, Angle)) * -0.2;
             
@@ -115,7 +115,7 @@ if (Head != -1)
     
     with (Head)
     {
-        sprite_index = sIgnitedFreddy_Head;
+        sprite_index = other.SPRITE_Head;
         x = other.x;
         y = other.y;
         image_angle = HeadA;
@@ -125,7 +125,7 @@ if (Head != -1)
     
     with (Body)
     {
-        sprite_index = sIgnitedFreddy_Torso;
+        sprite_index = other.SPRITE_Torso;
         x = other.x;
         y = other.y;
         image_angle = TorsoA * -1;
@@ -135,7 +135,7 @@ if (Head != -1)
     
     with (LLowerArm)
     {
-        sprite_index = sIgnitedFreddy_LowerArm;
+        sprite_index = other.SPRITE_LowerArm;
         x = LLowerArmX;
         y = LLowerArmY;
         image_angle = LLowerArmA * -1;
@@ -146,7 +146,7 @@ if (Head != -1)
     
     with (LUpperArm)
     {
-        sprite_index = sIgnitedFreddy_UpperArm;
+        sprite_index = other.SPRITE_UpperArm;
         x = LUpperArmX;
         y = LUpperArmY;
         image_angle = LUpperArmA * -1;
@@ -157,7 +157,7 @@ if (Head != -1)
     
     with (RLowerArm)
     {
-        sprite_index = sIgnitedFreddy_LowerArm;
+        sprite_index = other.SPRITE_LowerArm;
         x = RLowerArmX;
         y = RLowerArmY;
         image_angle = RLowerArmA * -1;
@@ -168,7 +168,7 @@ if (Head != -1)
     
     with (RUpperArm)
     {
-        sprite_index = sIgnitedFreddy_UpperArm;
+        sprite_index = other.SPRITE_UpperArm;
         x = RUpperArmX;
         y = RUpperArmY;
         image_angle = RUpperArmA * -1;
@@ -179,7 +179,7 @@ if (Head != -1)
     
     with (Pelvis)
     {
-        sprite_index = sIgnitedFreddy_Pelvis;
+        sprite_index = other.SPRITE_Pelvis;
         x = PelvisX;
         y = PelvisY;
         image_angle = 0;
