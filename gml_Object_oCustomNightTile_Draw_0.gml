@@ -7,7 +7,7 @@ var RelativeMouseY = global.MouseY - y;
 var Unlocked = global.UnlockedAnimatronics[TileID];
 depth = oCustomNightMenu.depth + 1;
 image_index = 0;
-var SPCharacters = [UnknownEnum.Value_6, UnknownEnum.Value_14, UnknownEnum.Value_17, UnknownEnum.Value_19, UnknownEnum.Value_31, UnknownEnum.Value_37, UnknownEnum.Value_39, UnknownEnum.Value_42, UnknownEnum.Value_41, UnknownEnum.Value_40];
+var SPCharacters = [UnknownEnum.Value_6, UnknownEnum.Value_14, UnknownEnum.Value_17, UnknownEnum.Value_19, UnknownEnum.Value_31, UnknownEnum.Value_37, UnknownEnum.Value_39, UnknownEnum.Value_42, UnknownEnum.Value_41, UnknownEnum.Value_40, UnknownEnum.Value_52, UnknownEnum.Value_80, UnknownEnum.Value_81, UnknownEnum.Value_51, UnknownEnum.Value_59];
 var DiffLimit = 20;
 
 if (global.Cheats[UnknownEnum.Value_1] && array_contains(SPCharacters, TileID))
@@ -97,5 +97,10 @@ enum UnknownEnum
     Value_39 = 39,
     Value_40,
     Value_41,
-    Value_42
+    Value_42,
+    Value_51 = 51,
+    Value_52,
+    Value_59 = 59,
+    Value_80 = 80,
+    Value_81
 }

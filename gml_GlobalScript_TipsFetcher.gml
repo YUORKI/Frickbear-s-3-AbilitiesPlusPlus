@@ -2,7 +2,7 @@ function get_tips(arg0, arg1 = -1)
 {
     Tips = array_create(202, ["Work smarter, and harder.", "Pay closer attention next time.", "This will be deducted from your pay.", "Not everyone's cut out for this job.", "Frickbear Entertainment is not responsible for any injury or death.", "Frickbear Entertainment values safety over all else.", "Don't give up! We'll fire you if you do.", "All they want is closure.", "Don't hold it against us.", "At this rate, you're never getting a raise.", "Nothing happened to anyone.", "Another death, another dollar.", "Welcome to the family!", "You'll get used to this after a while.", "Maybe you should've played dead.", "Now let's get you suited up, shall we?", "Your first mistake was signing up.", "You've made a very poor career choice.", "Get up. We're not paying you to sleep on the job.", "It wasn't meant to last."]);
     Tips = array_create(array_length(global.Descriptions), "");
-    Tips[arg0] = [string("You were killed by {0}.", global.Descriptions[arg0][0])];
+    Tips[arg0] = [$"You were killed by {global.Descriptions[arg0][0]}."];
     Tips[UnknownEnum.Value_0] = ["You aren't in danger until the third time he laughs.", "If you have trouble hearing him, watch the cameras instead.", "If you can't watch the cameras, listen for his laughter instead."];
     Tips[UnknownEnum.Value_1] = ["Listen for his footsteps.", "You're safe so long as he can't see you.", "He'll growl before attacking. If you hear this, close the door quickly."];
     Tips[UnknownEnum.Value_2] = ["Listen for her footsteps.", "You're safe so long as she can't see you.", "She'll growl before attacking. If you hear this, close the door quickly."];

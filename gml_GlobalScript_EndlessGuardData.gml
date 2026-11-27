@@ -2,7 +2,7 @@ global.FourLayersDownMode = false;
 
 function initialize_ability_index()
 {
-    global.TrueAbilityIndex = array_concat(countup_array(20), array_create(30, UnknownEnum.Value_1));
+    global.TrueAbilityIndex = array_concat(countup_array(20), array_create(array_length(global.GuardNames) - 21, UnknownEnum.Value_1));
     global.AbilityIndex = [];
     array_copy(global.AbilityIndex, 0, global.TrueAbilityIndex, 0, array_length(global.TrueAbilityIndex));
 }
@@ -60,8 +60,15 @@ function get_guard_description(arg0, arg1 = true)
     return get_guard_true_description(arg0, arg1);
 }
 
+function ability_index_bound(arg0)
+{
+    return min(array_length(global.TrueAbilityIndex) - 1, array_length(global.AbilityIndex) - 1, arg0);
+}
+
 function get_guard_true_description(arg0, arg1 = true)
 {
+    arg0 = ability_index_bound(arg0);
+    
     switch (arg1 ? global.TrueAbilityIndex[arg0] : global.AbilityIndex[arg0])
     {
         case UnknownEnum.Value_0:
@@ -95,7 +102,7 @@ function get_guard_true_description(arg0, arg1 = true)
             return "You start each night with a Beartrap, but dying will immediately end your run.";
         
         case UnknownEnum.Value_12:
-            return string("You start out with ${0}, but can no longer earn money from salvages or end-of-night bonuses. (In party mode, switching to a different character will deplete 10% of this initial amount.)", 250);
+            return $"You start out with ${250}, but can no longer earn money from salvages or end-of-night bonuses. (In party mode, switching to a different character will deplete 10% of this initial amount.)";
         
         case UnknownEnum.Value_13:
             return "You have less animatronics to pick from, but can visit any shop at the end of each round.";
@@ -125,10 +132,10 @@ function get_guard_true_description(arg0, arg1 = true)
             return "You need to choose an additional animatronic each round, but can also pay to remove any animatronic once per round.";
         
         case UnknownEnum.Value_27:
-            return string("Your ability is randomized each round.{0}", (functional_guard_id(arg0) == UnknownEnum.Value_27) ? "" : (" CURRENTLY: " + get_guard_description(arg0, false)));
+            return $"Your ability is randomized each round.{(functional_guard_id(arg0) == UnknownEnum.Value_27) ? "" : (" CURRENTLY: " + get_guard_description(arg0, false))}";
         
         case UnknownEnum.Value_28:
-            return string("You may freely pick between any bonus ability at the start of your run. {0} (NOT CURRENTLY FUNCTIONAL)", (functional_guard_id(arg0) == UnknownEnum.Value_28) ? "" : (" CURRENTLY: " + get_guard_description(arg0, false)));
+            return $"You may freely pick between any bonus ability at the start of your run. {(functional_guard_id(arg0) == UnknownEnum.Value_28) ? "" : (" CURRENTLY: " + get_guard_description(arg0, false))} (NOT CURRENTLY FUNCTIONAL)";
         
         case UnknownEnum.Value_21:
             return "Using the monitor no longer drains power, but every other tool drains power twice as fast.";
@@ -171,19 +178,19 @@ function get_guard_unlock_description(arg0)
             return "Buy this guard a drink at the bar.";
         
         case UnknownEnum.Value_7:
-            return string("Beat one of {0}'s ++ rank minigames... OR clear Fredsweeper three times in a single round.", anon_name(UnknownEnum.Value_140));
+            return $"Beat one of {anon_name(UnknownEnum.Value_140)}'s ++ rank minigames... OR clear Fredsweeper three times in a single round.";
         
         case UnknownEnum.Value_8:
             return "Enter the Angel's Sanctum with $100 or more saved up... OR finish a night with 150 or more tokens saved up.";
         
         case UnknownEnum.Value_10:
-            return string("Get a completion sticker on all {0} animatronics.", 91);
+            return $"Get a completion sticker on all {91} animatronics.";
         
         case UnknownEnum.Value_11:
             return "Beat a run on Hard difficulty or higher without losing a life... OR beat round 10 while in the middle of a jumpscare.";
         
         case UnknownEnum.Value_12:
-            return string("Beat a run with {0} salvaged.", anon_name(UnknownEnum.Value_73));
+            return $"Beat a run with {anon_name(UnknownEnum.Value_73)} salvaged.";
         
         case UnknownEnum.Value_13:
             return "Meet every shopkeeper.";
@@ -201,13 +208,13 @@ function get_guard_unlock_description(arg0)
             return "Finish a run with 5 or more Turnaround characters salvaged.";
         
         case UnknownEnum.Value_14:
-            return string("Survive one of {0}'s + rank challenges.", anon_name(UnknownEnum.Value_138));
+            return $"Survive one of {anon_name(UnknownEnum.Value_138)}'s + rank challenges.";
         
         case UnknownEnum.Value_9:
             return "Beat a run with the Dead Ringer upgrade purchased.";
         
         case UnknownEnum.Value_16:
-            return string("Beat a run as Jeremy, Mike, Vanessa and {0}.", global.UnlockedGuards[UnknownEnum.Value_3] ? "Fritz" : "???");
+            return $"Beat a run as Jeremy, Mike, Vanessa and {global.UnlockedGuards[UnknownEnum.Value_3] ? "Fritz" : "???"}.";
         
         case UnknownEnum.Value_20:
             return "Guide all the lost home.";

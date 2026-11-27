@@ -10,6 +10,6 @@ for (var i = 0; i < array_length(RequestedToppings); i++)
     draw_sprite(sGlamrockChica_Toppings, RequestedToppings[i], BubblePos[0] - (29 + (i * 32)), BubblePos[1] + 27 + SpeechBubbleOffset);
 
 surface_reset_target();
-show_debug_message(string("Angle Diff: {0}", angle_difference(oCamera.CameraRotation, 90)));
+show_debug_message($"Angle Diff: {angle_difference(oCamera.CameraRotation, 90)}");
 SpeechBubbleOffset += SpeechBubbleOffsetSpeed;
 SpeechBubbleOffsetSpeed = lerp(SpeechBubbleOffsetSpeed, (0 - SpeechBubbleOffset) * 0.2, 0.25);

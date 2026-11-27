@@ -108,7 +108,7 @@ for (var i = 0; i < VoiceAmount; i++)
                 VACredit = Data.VA;
             
             var Subtitles = subtitle(CurrentSound);
-            show_debug_message(string("SUBTITLES: {0}", Subtitles));
+            show_debug_message($"SUBTITLES: {Subtitles}");
             SubtitleList = Subtitles[0];
             SubtitleTimingList = Subtitles[1];
             SubtitleExtraList = (array_length(Subtitles) > 2) ? Subtitles[2] : [];

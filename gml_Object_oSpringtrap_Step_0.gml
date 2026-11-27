@@ -11,6 +11,29 @@ WaitTime = (lerp(42, 12, AI / 20) * RandomValue * 60) + 300;
 switch (Stage)
 {
     case 0:
+        depth = 90;
+        break;
+    
+    case 1:
+        depth = 60;
+        break;
+    
+    case 2:
+        depth = 70;
+        break;
+    
+    case 3:
+        depth = 50;
+        break;
+    
+    case 4:
+        depth = 10;
+        break;
+}
+
+switch (Stage)
+{
+    case 0:
     case 1:
     case 2:
     case 3:

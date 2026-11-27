@@ -111,9 +111,9 @@ else if (MotorSound != -1)
 draw_rectangle_color(0, 108, 160, 144, #002F33, #002F33, #002F33, #002F33, false);
 draw_set_font(global.FontGameboy);
 draw_set_halign(fa_right);
-draw_text_color(158, 114, string("SCORE: {0}", Score), #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
+draw_text_color(158, 114, $"SCORE: {Score}", #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
 draw_text_color(158, 124, string(round(Speed * 20)) + " MPH", #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
-draw_text_color(158, 134, string("COMBO: {0}", LapsCombo), #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
+draw_text_color(158, 134, $"COMBO: {LapsCombo}", #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
 draw_set_halign(fa_left);
 draw_sprite(sMM_Springtrap, SpringImage, 1, 106);
 

@@ -146,7 +146,7 @@ function draw_everything()
             {
                 WaitForConfirm = true;
                 audio_play_sound(sfxCamSwitch, 5, false);
-                DescText = string("Recruit {0} for ${1}?", AnimName, string_format(TileValue, 1, 2));
+                DescText = $"Recruit {AnimName} for ${string_format(TileValue, 1, 2)}?";
                 ConfirmOption = false;
             }
         }
@@ -185,14 +185,14 @@ function draw_everything()
     surface_reset_target();
     draw_surface(TileSurf, BoxX + 10, BoxY + 10);
     BoxY += (BoxHeight + 20);
-    var Text = string("{0} (${1})", string_upper(AnimName), string_format(TileValue, 1, 2));
+    var Text = $"{string_upper(AnimName)} (${string_format(TileValue, 1, 2)})";
     draw_sprite_stretched(sTextBox, 1, BoxX, BoxY, BoxWidth + 20, 116);
     draw_set_font(global.FontW97White);
     draw_sprite(sEndlessStickers_Gray, global.EndlessStickers[SelectedTile] + 1, BoxX + 6 + 5 + 8, BoxY + 1 + 8 + 10);
     draw_text_ext_color(BoxX + 6 + 16 + 9, BoxY + 1 + 8, Text, 15, BoxWidth - 10, #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
     Text = global.Descriptions[SelectedTile][1];
     draw_text_ext_color(BoxX + 6 + 8, BoxY + 1 + 8 + 30, Text, 15, BoxWidth - 10, #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
-    show_debug_message(string("{0},{1},{2}", SelectedColumn, SelectedRow, ViewOffsetTarget));
+    show_debug_message($"{SelectedColumn},{SelectedRow},{ViewOffsetTarget}");
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_font(global.FontHanddrawn);

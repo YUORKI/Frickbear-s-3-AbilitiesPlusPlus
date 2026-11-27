@@ -82,7 +82,7 @@ if (oCustomNightMenu.ChallengesOpen)
     {
         with (oCustomNightMenu)
         {
-            var FullDescription = string("{0} (NIGHT LENGTH: {1})", other.Desc, oCustomNightDurationSelector.Text);
+            var FullDescription = $"{other.Desc} (NIGHT LENGTH: {oCustomNightDurationSelector.Text})";
             
             if (global.Cheats[UnknownEnum.Value_2])
                 FullDescription += " (No Power Drain)";

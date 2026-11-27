@@ -12,7 +12,7 @@ else
 
 if ((keyboard_check_pressed(vk_backspace) || BackspaceHeld >= 30) && string_length(CurrentLine) > 0)
 {
-    show_debug_message(string("BACKSPACE PRESSED: {0}", CurrentLine));
+    show_debug_message($"BACKSPACE PRESSED: {CurrentLine}");
     CurrentLine = string_copy(CurrentLine, 0, string_length(CurrentLine) - 1);
     keyboard_string = "";
 }

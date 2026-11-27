@@ -91,7 +91,7 @@ function reset_descriptions()
     global.Descriptions[UnknownEnum.Value_87] = ["DJ Music Man", "He'll appear once per night, forcing you to engage in a rhythm minigame. Press the door buttons in the order he shows onscreen and on the right beat to survive."];
     global.Descriptions[UnknownEnum.Value_88] = ["Ralph", "He'll start in Parts & Service before slowly making his way to your office, moving camera to camera. Check on him to freeze him in place for a short while. Any progress he makes is permanent."];
     global.Descriptions[UnknownEnum.Value_89] = ["Foxy.EXE", "Anomalies will begin appearing on your monitor systems, causing a countdown to your doom if too many accumulate at once. Seek out irregularities in your monitor systems and click on them to make him go away."];
-    global.Descriptions[UnknownEnum.Value_90] = ["Endoplush", "It'll run around the screen, chasing after your mouse pointer. Avoid touching it, or else Endoplush will continuously drain your power."];
+    global.Descriptions[UnknownEnum.Value_90] = ["Endoplush", "It'll run around the screen, chasing after your mouse pointer. Avoid touching it, or else it will continuously drain your power."];
     global.Descriptions[UnknownEnum.Value_127] = ["Phony Boss", "???"];
     global.Descriptions[UnknownEnum.Value_118] = ["Funtime Chica", "You are about to die."];
     global.Descriptions[UnknownEnum.Value_119] = ["Felix", "Pay off your token debt before 6 AM."];
@@ -1739,13 +1739,13 @@ function get_total_ai_levels()
     return ReturnValue;
 }
 
-audio_group_load(mus_CandyCadetStory);
-audio_group_load(voc_Marionette_WindUpTheBox);
-audio_group_load(voc_Springtrap_Pathetic);
-audio_group_load(voc_WitheredChica_HaventYouHeard);
-audio_group_load(sfxMontyWhistle);
-audio_group_load(voc_Helpy_BuyBuyBuy);
-audio_group_load(voc_ToyFreddy_HardlyGaming);
+audio_group_load(SoundEffects);
+audio_group_load(Music);
+audio_group_load(JumpScreams);
+audio_group_load(Voicelines_Death);
+audio_group_load(Voicelines_Deathcoin);
+audio_group_load(Voicelines_Ingame);
+audio_group_load(Voicelines_Selection);
 
 function generate_shuffle_array(arg0 = true)
 {

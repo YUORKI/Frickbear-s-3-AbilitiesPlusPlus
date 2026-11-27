@@ -30,12 +30,12 @@ function update_discord()
             }
             else if (global.Night == "Endless")
             {
-                LineTop = string("Four Layers Down - {0}", global.NuzlockeMode ? "Party" : "Solo");
-                LineBottom = string("Round {0}", global.EndlessRound);
+                LineTop = $"Four Layers Down - {global.NuzlockeMode ? "Party" : "Solo"}";
+                LineBottom = $"Round {global.EndlessRound}";
             }
             else
             {
-                LineTop = is_numeric(global.Night) ? string("Night {0}", global.Night) : string("{0} Night", global.Night);
+                LineTop = is_numeric(global.Night) ? $"Night {global.Night}" : $"{global.Night} Night";
                 LineBottom = "In Office";
             }
             
@@ -46,12 +46,12 @@ function update_discord()
         
         case EndlessShop:
         case EndlessShopSelection:
-            LineTop = string("Four Layers Down - {0}", global.NuzlockeMode ? "Party" : "Solo");
+            LineTop = $"Four Layers Down - {global.NuzlockeMode ? "Party" : "Solo"}";
             LineBottom = "Going Shopping";
             break;
         
         case EndlessSelection:
-            LineTop = string("Four Layers Down - {0}", global.NuzlockeMode ? "Party" : "Solo");
+            LineTop = $"Four Layers Down - {global.NuzlockeMode ? "Party" : "Solo"}";
             LineBottom = "Making Selections";
             break;
         
@@ -60,7 +60,7 @@ function update_discord()
         case MinigameMaze_3:
         case MinigameMaze_4:
         case MinigameMaze_5:
-            LineTop = is_numeric(global.Night) ? string("Night {0}", global.Night) : string("{0} Night", global.Night);
+            LineTop = is_numeric(global.Night) ? $"Night {global.Night}" : $"{global.Night} Night";
             LineBottom = "Salvaging";
             break;
         

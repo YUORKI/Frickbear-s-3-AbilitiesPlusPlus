@@ -36,7 +36,7 @@ if (!surface_exists(UI_surf))
     draw_sprite(SPRITE_Templates, CurrentImage, 16, 16);
     draw_set_font(global.FontHanddrawn);
     draw_set_halign(fa_right);
-    draw_text_color(PageWidth - 24, PageHeight - 42, string("{0}/{1}", PagesCompleted + 1, TotalPages), c_black, c_black, c_black, c_black, 1);
+    draw_text_color(PageWidth - 24, PageHeight - 42, $"{PagesCompleted + 1}/{TotalPages}", c_black, c_black, c_black, c_black, 1);
     draw_set_halign(fa_left);
     surface_reset_target();
 }

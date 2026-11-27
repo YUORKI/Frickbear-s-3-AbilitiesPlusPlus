@@ -78,6 +78,7 @@ DrainRate = lerp(global.NightSpeedup, 1, 0.25);
 if (BossMode == UnknownEnum.Value_3)
     DrainRate = 2;
 
+global.Music = -1;
 global.TimeOfDeath = 0;
 CamAnimation = 0;
 MaskAnimation = 0;

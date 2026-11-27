@@ -193,7 +193,7 @@ function beartrap_notif(arg0, arg1 = true)
         }
     }
     
-    notification(string("Blocked {0}!", global.Descriptions[arg0][0]));
+    notification($"Blocked {global.Descriptions[arg0][0]}!");
 }
 
 function inventory_space()
@@ -279,9 +279,9 @@ function jumpscare(arg0, arg1 = 0, arg2 = 0, arg3 = true, arg4 = true)
                 
                 for (var i = 1; i <= JumpscareSpriteNumber; i++)
                 {
-                    array_push(JumpscareSprites, string("jumpscare{0}_body.png", i));
-                    array_push(JumpscareSprites, string("jumpscare{0}_head.png", i));
-                    array_push(JumpscareSprites, string("jumpscare{0}_head.png", i));
+                    array_push(JumpscareSprites, $"jumpscare{i}_body.png");
+                    array_push(JumpscareSprites, $"jumpscare{i}_head.png");
+                    array_push(JumpscareSprites, $"jumpscare{i}_head.png");
                 }
             }
             
@@ -327,7 +327,7 @@ function count_jumpscare(arg0)
         if (global.DeathRecord[i] == 0 && !is_nonlethal(i, false))
         {
             GetEndoTrophy = false;
-            show_debug_message(string("MISSING JUMPSCARE FROM: {0}", global.Descriptions[i][0]));
+            show_debug_message($"MISSING JUMPSCARE FROM: {global.Descriptions[i][0]}");
             break;
         }
     }
@@ -915,25 +915,25 @@ function skip_cutscenes()
 
 function set_audio_volumes()
 {
-    audio_group_set_gain(mus_CandyCadetStory, (global.Settings[2][0] * global.Settings[2][1]) / 100, 0);
-    audio_group_set_gain(voc_Marionette_WindUpTheBox, (global.Settings[2][0] * global.Settings[2][2]) / 100, 0);
-    audio_group_set_gain(voc_Springtrap_Pathetic, (global.Settings[2][0] * global.Settings[2][1]) / 100, 0);
-    audio_group_set_gain(voc_WitheredChica_HaventYouHeard, (global.Settings[2][0] * global.Settings[2][3]) / 100, 0);
-    audio_group_set_gain(voc_Helpy_BuyBuyBuy, (global.Settings[2][0] * global.Settings[2][3]) / 100, 0);
-    audio_group_set_gain(sfxMontyWhistle, (global.Settings[2][0] * global.Settings[2][3]) / 100, 0);
-    audio_group_set_gain(voc_ToyFreddy_HardlyGaming, (global.Settings[2][0] * global.Settings[2][3]) / 100, 0);
+    audio_group_set_gain(SoundEffects, (global.Settings[2][0] * global.Settings[2][1]) / 100, 0);
+    audio_group_set_gain(Music, (global.Settings[2][0] * global.Settings[2][2]) / 100, 0);
+    audio_group_set_gain(JumpScreams, (global.Settings[2][0] * global.Settings[2][1]) / 100, 0);
+    audio_group_set_gain(Voicelines_Death, (global.Settings[2][0] * global.Settings[2][3]) / 100, 0);
+    audio_group_set_gain(Voicelines_Ingame, (global.Settings[2][0] * global.Settings[2][3]) / 100, 0);
+    audio_group_set_gain(Voicelines_Deathcoin, (global.Settings[2][0] * global.Settings[2][3]) / 100, 0);
+    audio_group_set_gain(Voicelines_Selection, (global.Settings[2][0] * global.Settings[2][3]) / 100, 0);
     
     if (global.Settings[2][5] == 1 || global.Settings[2][5] == 2 || global.Settings[2][5] == 4)
-        audio_group_set_gain(voc_WitheredChica_HaventYouHeard, 0, 0);
+        audio_group_set_gain(Voicelines_Death, 0, 0);
     
     if (global.Settings[2][5] == 3 || global.Settings[2][5] == 4)
-        audio_group_set_gain(voc_Helpy_BuyBuyBuy, 0, 0);
+        audio_group_set_gain(Voicelines_Ingame, 0, 0);
     
     if (global.Settings[2][5] == 2 || global.Settings[2][5] == 3 || global.Settings[2][5] == 4)
-        audio_group_set_gain(sfxMontyWhistle, 0, 0);
+        audio_group_set_gain(Voicelines_Deathcoin, 0, 0);
     
     if (global.Settings[2][5] == 2 || global.Settings[2][5] == 3 || global.Settings[2][5] == 4)
-        audio_group_set_gain(voc_ToyFreddy_HardlyGaming, 0, 0);
+        audio_group_set_gain(Voicelines_Selection, 0, 0);
     
     if (global.Settings[2][3] == 0)
     {
@@ -969,7 +969,7 @@ function get_current_time()
     if (hour == 0)
         hour = 12;
     
-    return string("{0}:{1} {2}", hour, minute, AMorPM);
+    return $"{hour}:{minute} {AMorPM}";
 }
 
 function get_current_date()
@@ -979,7 +979,7 @@ function get_current_date()
     var month = string_format(date_get_month(dt), 2, 0);
     var day = string_format(date_get_day(dt), 2, 0);
     var MonthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    return string("{0} {1}, {2}", MonthNames[month - 1], day, year);
+    return $"{MonthNames[month - 1]} {day}, {year}";
 }
 
 function scroll_bar(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8 = 0, arg9 = 0, arg10 = 0)

@@ -1,3 +1,9 @@
+if (!instance_exists(oScraptrap))
+{
+    instance_destroy();
+    exit;
+}
+
 if (!global.PanelUp && TabletUp)
 {
     TabletUp = false;

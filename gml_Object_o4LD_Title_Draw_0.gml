@@ -33,7 +33,7 @@ var DanceFrame = (Frame * 60) + 8;
 var DanceTarget = floor((DanceFrame * (1/30) * 0.75) % 2);
 DanceOffset += ((DanceTarget - DanceOffset) / 4);
 SizeDiff = abs(DanceTarget - DanceOffset);
-show_debug_message(string("DanceOffset: {0}", DanceOffset));
+show_debug_message($"DanceOffset: {DanceOffset}");
 
 enum UnknownEnum
 {

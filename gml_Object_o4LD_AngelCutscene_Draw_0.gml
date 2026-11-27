@@ -50,7 +50,7 @@ if (AngelFrame >= 48)
     if (ExitFrames >= 60)
     {
         audio_stop_all();
-        show_debug_message(string("T: {0}", Frame / 60));
+        show_debug_message($"T: {Frame / 60}");
         
         if (!InDarkness)
         {

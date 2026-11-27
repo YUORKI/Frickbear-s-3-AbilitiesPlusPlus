@@ -12,7 +12,7 @@ if (!OnetimersScheduled)
     for (var i = 0; i < array_length(PossibleOneTimers); i++)
         array_push(OneTimers, PossibleOneTimers[i]);
     
-    show_debug_message(string("Chars found: {0}", OneTimers));
+    show_debug_message($"Chars found: {OneTimers}");
     var Scaler = global.NightSpeedup * array_length(OneTimers);
     var AppearTimes = [];
     var CurAppearTime = global.Timer + random_range(60 / Scaler, 240 / Scaler);
@@ -29,7 +29,7 @@ if (!OnetimersScheduled)
         global.Timer = 300;
     }
     
-    show_debug_message(string("Schedule: {0}", AppearTimes));
+    show_debug_message($"Schedule: {AppearTimes}");
     AppearTimes = array_shuffle(AppearTimes);
     
     for (var i = 0; i < array_length(OneTimers); i++)
@@ -68,7 +68,7 @@ if (global.Night == "Endless")
         for (var i = 0; i < array_length(Array); i++)
         {
             if (array_contains(global.EndlessInventory.WhackedChars, Array[i]) && global.AILevels[Array[i]] == 0)
-                notification(string("{0} has been reactivated!", global.Descriptions[Array[i]][0]), 2);
+                notification($"{global.Descriptions[Array[i]][0]} has been reactivated!", 2);
             
             global.AILevels[Array[i]] = clamp(DiffFactor, 1, 20);
         }

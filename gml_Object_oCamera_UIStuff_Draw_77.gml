@@ -104,7 +104,7 @@ if (!Freeze || instance_exists(oJumpscarePhantoms))
         draw_sprite_stretched(sTextBox_Windows, 0, BarX, BarY, 212, 22);
         draw_text(BarX + 6, BarY + 1, "Pts:");
         draw_set_halign(fa_right);
-        draw_text(BarX + 68, BarY + 1, string("{0}/{1}", floor(global.Progress), global.ProgressToMake));
+        draw_text(BarX + 68, BarY + 1, $"{floor(global.Progress)}/{global.ProgressToMake}");
         draw_set_halign(fa_left);
         draw_sprite_stretched(sTextBox_Windows, 2, BarX + 71, BarY + 4, 137, 14);
         draw_rectangle_color(BarX + 75, BarY + 8, BarX + 74 + ((128 * floor(max(0, global.Progress))) / global.ProgressToMake), BarY + 8 + 5, c_red, c_red, c_red, c_red, false);

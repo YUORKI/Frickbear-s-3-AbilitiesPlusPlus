@@ -9,7 +9,7 @@ if (ReaperKills > 0)
     for (var i = 0; i < min(array_length(Killables), ReaperKills); i++)
     {
         var targID = Killables[i];
-        notification(string("Mini-Reaper removed {0}!", global.Descriptions[targID][0]), 2);
+        notification($"Mini-Reaper removed {global.Descriptions[targID][0]}!", 2);
         instance_destroy(get_animatronic_object(targID));
         play_deathcoin_voiceline(targID);
     }

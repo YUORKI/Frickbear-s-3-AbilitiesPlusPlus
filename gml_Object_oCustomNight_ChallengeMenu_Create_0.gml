@@ -11,7 +11,7 @@ function cn_button(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7 = -1, arg8 = t
         if (ClearedPerCategory[arg0] >= CountsPerCategory[arg0])
             draw_sprite(sCustomNightChallengeSticker, 0, (arg1 + arg3) - 20, arg2 + 2);
         else if (arg5 != "Expert Presets" && arg5 != "Cruel Presets")
-            draw_text((arg1 + arg3) - 5, arg2 + 1, string("{0}/{1}", ClearedPerCategory[arg0], CountsPerCategory[arg0]));
+            draw_text((arg1 + arg3) - 5, arg2 + 1, $"{ClearedPerCategory[arg0]}/{CountsPerCategory[arg0]}");
     }
     
     draw_set_halign(fa_left);
@@ -423,14 +423,14 @@ array_push(Challenges[2],
 {
     Name: "Four-Layered Frenzy: Classic",
     Desc: "Face off against the newcomers of the classic era!",
-    Lvl20s: [UnknownEnum.Value_49, UnknownEnum.Value_50, UnknownEnum.Value_51, UnknownEnum.Value_52, UnknownEnum.Value_53, UnknownEnum.Value_54, UnknownEnum.Value_55, UnknownEnum.Value_56, UnknownEnum.Value_57, UnknownEnum.Value_58, UnknownEnum.Value_59, UnknownEnum.Value_60, UnknownEnum.Value_61, UnknownEnum.Value_62, UnknownEnum.Value_63, UnknownEnum.Value_79, UnknownEnum.Value_80, UnknownEnum.Value_47, UnknownEnum.Value_48, UnknownEnum.Value_83],
+    Lvl20s: [UnknownEnum.Value_49, UnknownEnum.Value_50, UnknownEnum.Value_51, UnknownEnum.Value_52, UnknownEnum.Value_90, UnknownEnum.Value_89, UnknownEnum.Value_53, UnknownEnum.Value_54, UnknownEnum.Value_55, UnknownEnum.Value_56, UnknownEnum.Value_57, UnknownEnum.Value_58, UnknownEnum.Value_59, UnknownEnum.Value_60, UnknownEnum.Value_61, UnknownEnum.Value_62, UnknownEnum.Value_63, UnknownEnum.Value_79, UnknownEnum.Value_80, UnknownEnum.Value_47, UnknownEnum.Value_48, UnknownEnum.Value_83],
     Duration: 3
 });
 array_push(Challenges[2], 
 {
     Name: "Four-Layered Frenzy: Modern",
     Desc: "Face off against the newcomers of the modern era!",
-    Lvl20s: [UnknownEnum.Value_64, UnknownEnum.Value_65, UnknownEnum.Value_66, UnknownEnum.Value_67, UnknownEnum.Value_68, UnknownEnum.Value_69, UnknownEnum.Value_70, UnknownEnum.Value_71, UnknownEnum.Value_73, UnknownEnum.Value_74, UnknownEnum.Value_75, UnknownEnum.Value_76, UnknownEnum.Value_77, UnknownEnum.Value_78, UnknownEnum.Value_72, UnknownEnum.Value_81, UnknownEnum.Value_84, UnknownEnum.Value_82, UnknownEnum.Value_86, UnknownEnum.Value_85],
+    Lvl20s: [UnknownEnum.Value_64, UnknownEnum.Value_65, UnknownEnum.Value_66, UnknownEnum.Value_67, UnknownEnum.Value_68, UnknownEnum.Value_69, UnknownEnum.Value_70, UnknownEnum.Value_87, UnknownEnum.Value_71, UnknownEnum.Value_73, UnknownEnum.Value_74, UnknownEnum.Value_75, UnknownEnum.Value_76, UnknownEnum.Value_77, UnknownEnum.Value_78, UnknownEnum.Value_72, UnknownEnum.Value_81, UnknownEnum.Value_84, UnknownEnum.Value_82, UnknownEnum.Value_86, UnknownEnum.Value_88, UnknownEnum.Value_85],
     Duration: 3
 });
 array_push(Challenges[2], 
@@ -457,7 +457,7 @@ array_push(Challenges[2],
 });
 array_push(Challenges[2], 
 {
-    Name: "1_87",
+    Name: "1/91",
     Desc: "Strength in numbers...but not necessarily numbers.",
     Lvl1s: countup_array(90, UnknownEnum.Value_0),
     Duration: 6
@@ -471,7 +471,7 @@ array_push(Challenges[3],
 });
 array_push(Challenges[3], 
 {
-    Name: "The New Forty",
+    Name: "Frightening Forty-Four",
     Desc: "The rest.",
     Lvl20s: countup_array(90, 47),
     Duration: 6
@@ -663,5 +663,9 @@ enum UnknownEnum
     Value_83,
     Value_84,
     Value_85,
-    Value_86
+    Value_86,
+    Value_87,
+    Value_88,
+    Value_89,
+    Value_90
 }

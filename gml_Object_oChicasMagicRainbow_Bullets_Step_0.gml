@@ -21,7 +21,7 @@ if (point_distance(x, y, global.MouseX, global.MouseY) < (16 * Size) && CanColli
         DrainAmount = 25;
     
     with (instance_create_depth(x, y, depth - 2, oTextPopup))
-        Text = string("-{0}%", DrainAmount);
+        Text = $"-{DrainAmount}%";
     
     drain_power(DrainAmount);
     

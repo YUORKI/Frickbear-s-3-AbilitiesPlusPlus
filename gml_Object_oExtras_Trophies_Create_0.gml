@@ -252,7 +252,7 @@ Trophies[UnknownEnum.Value_39] =
 };
 Trophies[UnknownEnum.Value_33] = 
 {
-    Desc: string("Unlock all {0} animatronics.", 91),
+    Desc: $"Unlock all {91} animatronics.",
     Display: true,
     Gamemode: 2,
     Type: UnknownEnum.Value_5

@@ -8,6 +8,6 @@ draw_sprite(sprite_index, image_index, x, y);
 draw_lives();
 
 if (Hovered)
-    draw_mechanic_box(string("DUPLICATED ITEM: {0}", MimicText));
+    draw_mechanic_box($"DUPLICATED ITEM: {MimicText}");
 
 surface_reset_target();

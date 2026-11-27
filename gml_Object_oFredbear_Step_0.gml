@@ -29,7 +29,7 @@ if (TimeToNextAttack <= 0)
     
     for (var i = 0; i < array_length(AttackList); i++)
     {
-        show_debug_message(string("{0} PRI: {1}", AttackList[i].Title, AttackList[i].Priority));
+        show_debug_message($"{AttackList[i].Title} PRI: {AttackList[i].Priority}");
         
         if (AttackList[i].AttackObj == oFredbearAttack_BackWindow && !window_available())
             continue;

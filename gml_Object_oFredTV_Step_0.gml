@@ -54,6 +54,6 @@ if ((mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_right)
 with (instance_nearest(x, y, oTitle_HangingDecor_Office_Salvage))
     ValleyHeight = 96 - (dsin(other.BobFrame) * 10);
 
-show_debug_message(string("XDIF: {0} | YDIF: {1}", RelativeX, RelativeY));
+show_debug_message($"XDIF: {RelativeX} | YDIF: {RelativeY}");
 OffsetSpeed = lerp(OffsetSpeed, (0 - HeightOffset) * 0.3, 0.2);
 HeightOffset += OffsetSpeed;

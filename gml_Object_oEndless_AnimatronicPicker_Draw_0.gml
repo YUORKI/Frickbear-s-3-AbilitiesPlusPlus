@@ -80,7 +80,7 @@ draw_sprite(sButtonMini_Icons_White, 0, ButtonX + 11, ButtonY + 11);
 draw_set_halign(fa_left);
 draw_sprite_stretched(sprite, 0, ButtonX + ButtonWidth + 2, ButtonY, WindowWidth - 32, ButtonHeight);
 var PicksLeft = AnimatronicQuota - count_up(SelectedAnimatronics);
-draw_text(WindowX + 33, WindowY + 5, (PicksLeft <= 0) ? "Click the confirm button to begin." : string("Pick {0} more.", PicksLeft));
+draw_text(WindowX + 33, WindowY + 5, (PicksLeft <= 0) ? "Click the confirm button to begin." : $"Pick {PicksLeft} more.");
 var InnerWindowY = WindowY + (ButtonHeight + 5);
 InnerWindowWidth = ((48 * OptionAmount) / RowCount) + 4;
 var InnerWindowX = (640 - InnerWindowWidth) / 2;
@@ -143,7 +143,7 @@ InnerWindowHeight = ((48 * (RowCount + 2)) + 4) - (CharSelectionWindowHeight + 2
 draw_sprite_stretched(sprite, 0, InnerWindowX, InnerWindowY, InnerWindowWidth, InnerWindowHeight);
 
 if (SelectedData != undefined)
-    draw_text_ext(InnerWindowX + 6, InnerWindowY + 1, Anonymize ? string("Some kind of {0} character...?", get_animatronic_data(SelectedData).DefenseProcedure[0]) : global.Descriptions[SelectedData][1], 14, InnerWindowWidth - 8);
+    draw_text_ext(InnerWindowX + 6, InnerWindowY + 1, Anonymize ? $"Some kind of {get_animatronic_data(SelectedData).DefenseProcedure[0]} character...?" : global.Descriptions[SelectedData][1], 14, InnerWindowWidth - 8);
 
 WindowX = (640 - WindowWidth) / 2;
 ButtonWidth = 96;

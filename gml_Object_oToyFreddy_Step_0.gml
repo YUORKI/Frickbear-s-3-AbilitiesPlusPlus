@@ -17,7 +17,7 @@ if (Active && AI > 0)
                 audio_play_sound(sfxChildrenCheering, 5, false);
                 
                 if (AI == 21)
-                    notification((BeatenAmount == 8) ? "0 left! Good job!" : string("{0} more to go!", 8 - BeatenAmount), 2);
+                    notification((BeatenAmount == 8) ? "0 left! Good job!" : $"{8 - BeatenAmount} more to go!", 2);
             }
         }
         else if (TFScores[i] < global.HiScores[i])
@@ -27,7 +27,7 @@ if (Active && AI > 0)
             audio_play_sound(sfxChildrenCheering, 5, false);
             
             if (AI == 21)
-                notification((BeatenAmount == 8) ? "0 left! Good job!" : string("{0} more to go!", 8 - BeatenAmount), 2);
+                notification((BeatenAmount == 8) ? "0 left! Good job!" : $"{8 - BeatenAmount} more to go!", 2);
         }
     }
 }

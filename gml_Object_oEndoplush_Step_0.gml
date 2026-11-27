@@ -54,7 +54,7 @@ if (Contact)
     
     with (instance_create_depth(x, y, depth - 2, oTextPopup))
     {
-        Text = string("-{0}%", DrainAmount);
+        Text = $"-{DrainAmount}%";
         Frame = 45;
     }
     

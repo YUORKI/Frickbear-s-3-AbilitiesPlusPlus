@@ -148,7 +148,7 @@ for (var i = -1; i < CharsWithSkins; i++)
         EntryHeight = 16 + (48 * ceil((1 + TilesPerEntry[i]) / 7));
         FieldHeight += EntryHeight;
         draw_sprite_stretched(sUIBox_Black, 0, BoxX + 1, BoxY + 1, 462, EntryHeight - 2);
-        EntryText = string("{0}: {1}\n", i + 1, global.Descriptions[i][0]);
+        EntryText = $"{i + 1}: {global.Descriptions[i][0]}\n";
         var TileX = BoxX + 120;
         var TileY = BoxY + 8;
         

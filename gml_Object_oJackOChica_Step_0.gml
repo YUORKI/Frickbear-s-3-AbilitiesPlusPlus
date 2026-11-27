@@ -93,7 +93,7 @@ if (WaitTime <= 0)
         BurningSound = audio_play_sound(SOUND_Burning, 12, true, 1, 0, 0.5);
     
     var BurnVolume = abs(Frame - 340) / 340;
-    show_debug_message(string("VOL: {0}", BurnVolume));
+    show_debug_message($"VOL: {BurnVolume}");
     BurnVolume = (1 - BurnVolume) / (RaiseTemp ? 1 : 4);
     audio_sound_gain(BurningSound, BurnVolume, 0);
 }

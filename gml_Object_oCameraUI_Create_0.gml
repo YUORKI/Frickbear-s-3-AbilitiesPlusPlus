@@ -77,7 +77,7 @@ with (instance_create_depth(x + 264, y + 305, -1, oCamButtonSpecial))
 with (instance_create_depth(x + 245, y + 5, -1, oCamButtonSpecial))
     Text = "Repair Wiring";
 
-var AnHour = (global.NightSpeedup == 1) ? "an hour" : string("{0} seconds", round(60 / global.NightSpeedup));
+var AnHour = (global.NightSpeedup == 1) ? "an hour" : $"{round(60 / global.NightSpeedup)} seconds";
 
 with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) * 48), y + 50 + (floor(instance_number(oCamButtonShopItem) / 6) * 64), -1, oCamButtonShopItem))
 {
@@ -99,7 +99,7 @@ with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) *
 with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) * 48), y + 50 + (floor(instance_number(oCamButtonShopItem) / 6) * 64), -1, oCamButtonShopItem))
 {
     Text = "Rewind Clock";
-    Description = string("Winds the clock back {0}. (INSTANT USE)", speedup_seconds_string(60, true, false, false));
+    Description = $"Winds the clock back {speedup_seconds_string(60, true, false, false)}. (INSTANT USE)";
     Price = 5;
     Stock = 2;
 }
@@ -115,7 +115,7 @@ with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) *
 with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) * 48), y + 50 + (floor(instance_number(oCamButtonShopItem) / 6) * 64), -1, oCamButtonShopItem))
 {
     Text = "Snowcone";
-    Description = string("Keeps the office at its lowest possible temperature for {0}. (CLICK TO USE)", speedup_seconds_string(60, true, true, false));
+    Description = $"Keeps the office at its lowest possible temperature for {speedup_seconds_string(60, true, true, false)}. (CLICK TO USE)";
     Price = 10;
     Stock = 2;
 }
@@ -131,7 +131,7 @@ with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) *
 with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) * 48), y + 50 + (floor(instance_number(oCamButtonShopItem) / 6) * 64), -1, oCamButtonShopItem))
 {
     Text = "AR Mask";
-    Description = string("Will make all animatronics behave as if you have the mask on for {0}. (CLICK TO USE)", speedup_seconds_string(60, true, true, false));
+    Description = $"Will make all animatronics behave as if you have the mask on for {speedup_seconds_string(60, true, true, false)}. (CLICK TO USE)";
     Price = 15;
     Stock = 2;
 }
@@ -139,7 +139,7 @@ with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) *
 with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) * 48), y + 50 + (floor(instance_number(oCamButtonShopItem) / 6) * 64), -1, oCamButtonShopItem))
 {
     Text = "Laser Doors";
-    Description = string("Blocks off both doors for {0}. (CLICK TO USE)", speedup_seconds_string(60, true, true, false));
+    Description = $"Blocks off both doors for {speedup_seconds_string(60, true, true, false)}. (CLICK TO USE)";
     Price = 20;
     Stock = 2;
 }
@@ -163,7 +163,7 @@ with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) *
 with (instance_create_depth(x + 6 + ((instance_number(oCamButtonShopItem) % 6) * 48), y + 50 + (floor(instance_number(oCamButtonShopItem) / 6) * 64), -1, oCamButtonShopItem))
 {
     Text = "Distortion Clock";
-    Description = string("Skip {0} of the night. (INSTANT USE)", AnHour);
+    Description = $"Skip {AnHour} of the night. (INSTANT USE)";
     Price = 35;
     Stock = 2;
 }

@@ -92,6 +92,14 @@ function randomize_animatronics()
     if (FullPool)
         PossibleAnimatronics = countup_array(90, UnknownEnum.Value_40);
     
+    if (array_length(global.ShuffleData.Animatronics) < 91)
+    {
+        var LastAnimatronic = array_length(global.ShuffleData.Animatronics);
+        
+        for (var a = LastAnimatronic; a <= 90; a++)
+            array_push(global.ShuffleData.Animatronics, i);
+    }
+    
     var Shufflers = global.ShuffleData.Animatronics;
     
     for (var i = 0; i < array_length(PossibleAnimatronics); i++)

@@ -19,7 +19,7 @@ if (ShowScore)
     draw_set_font(global.FontHanddrawn);
     draw_text_color(BoxX + 12, BoxY + 12, "SCORE:", #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
     draw_set_halign(fa_right);
-    draw_text_color((BoxX + BoxWidth) - 12, BoxY + 12, string("{0} / {1}", string(global.HiScores[Minigame]), string(TargetScore)), #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
+    draw_text_color((BoxX + BoxWidth) - 12, BoxY + 12, $"{string(global.HiScores[Minigame])} / {string(TargetScore)}", #E0F8D0, #E0F8D0, #E0F8D0, #E0F8D0, 1);
     BoxY += 48;
 }
 

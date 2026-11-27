@@ -24,7 +24,7 @@ draw_sprite(global.IconTiles[CurID], 0, x - 24, y - 24);
 
 if (Frame >= 200 && Frame < 360)
 {
-    var Text = string("{0} has been summoned!", global.Descriptions[AnimatronicToSummon][0]);
+    var Text = $"{global.Descriptions[AnimatronicToSummon][0]} has been summoned!";
     draw_set_halign(fa_center);
     var BoxWidth = string_width_ext(Text, 14, 180) + 14;
     var BoxHeight = string_height_ext(Text, 14, 180) + 10;

@@ -5,6 +5,45 @@ if (AI == 0)
 
 var TargStage = floor(power(Progress, 1.5) * 9);
 
+switch (TargStage)
+{
+    case 0:
+        depth = 35;
+        break;
+    
+    case 1:
+        depth = 75;
+        break;
+    
+    case 2:
+        depth = 75;
+        break;
+    
+    case 3:
+        depth = 75;
+        break;
+    
+    case 4:
+        depth = 75;
+        break;
+    
+    case 5:
+        depth = 75;
+        break;
+    
+    case 6:
+        depth = 75;
+        break;
+    
+    case 7:
+        depth = 75;
+        break;
+    
+    case 8:
+        depth = 11;
+        break;
+}
+
 if (Stage != TargStage)
 {
     if (TargStage == 10)
@@ -49,45 +88,6 @@ if (Stage != TargStage)
                 CurrentCam = UnknownEnum.Value_5;
                 reverb_sound(MoveSound, 500, -500, false, 0.5, 1, 0.5);
                 break;
-                break;
-        }
-        
-        switch (TargStage)
-        {
-            case 0:
-                depth = 35;
-                break;
-            
-            case 1:
-                depth = 75;
-                break;
-            
-            case 2:
-                depth = 75;
-                break;
-            
-            case 3:
-                depth = 75;
-                break;
-            
-            case 4:
-                depth = 75;
-                break;
-            
-            case 5:
-                depth = 75;
-                break;
-            
-            case 6:
-                depth = 75;
-                break;
-            
-            case 7:
-                depth = 75;
-                break;
-            
-            case 8:
-                depth = 11;
                 break;
         }
         

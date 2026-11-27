@@ -3,9 +3,9 @@ var AI = global.AILevels[ID];
 
 if (AI == 21)
 {
-    audio_group_set_gain(mus_CandyCadetStory, 0, 0);
-    audio_group_set_gain(voc_Helpy_BuyBuyBuy, 0, 0);
-    audio_group_set_gain(sfxMontyWhistle, 0, 0);
+    audio_group_set_gain(SoundEffects, 0, 0);
+    audio_group_set_gain(Voicelines_Ingame, 0, 0);
+    audio_group_set_gain(Voicelines_Deathcoin, 0, 0);
     exit;
 }
 

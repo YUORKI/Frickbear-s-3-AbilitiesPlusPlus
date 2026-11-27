@@ -66,7 +66,7 @@ function skin_sprite_from_directory_unlimited(arg0, arg1, arg2, arg3 = 1)
     
     var spriteTemp = -1;
     file = file_find_next();
-    show_debug_message(string("FILENAME: {0} | DIRECTORY: {1}", file, filename));
+    show_debug_message($"FILENAME: {file} | DIRECTORY: {filename}");
     
     while (file != "")
     {
@@ -132,7 +132,7 @@ function skin_sprite_from_directory(arg0, arg1, arg2, arg3 = 1)
 function skin_sound_from_directory(arg0, arg1, arg2, arg3 = [])
 {
     var filename = arg1 + "/" + arg2;
-    show_debug_message(string("LOOKING FOR {0}", filename));
+    show_debug_message($"LOOKING FOR {filename}");
     
     if (file_find_first(filename, 0) != "")
     {
@@ -209,7 +209,7 @@ function skin_hybrid_sprite(arg0, arg1 = "icon.png", arg2 = 0, arg3 = 0)
         if (SkinID < 0)
         {
             ThisIcon = sprite_duplicate(arg0);
-            show_debug_message(string("{0}: Default skin", AnimatronicID));
+            show_debug_message($"{AnimatronicID}: Default skin");
         }
         else
         {
@@ -220,12 +220,12 @@ function skin_hybrid_sprite(arg0, arg1 = "icon.png", arg2 = 0, arg3 = 0)
             if (file_find_first(file, 0) != "")
             {
                 ThisIcon = sprite_add(file, 1, false, false, 0, 0);
-                show_debug_message(string("{0}: File found successfully", AnimatronicID));
+                show_debug_message($"{AnimatronicID}: File found successfully");
             }
             else
             {
                 ThisIcon = sprite_duplicate(arg0);
-                show_debug_message(string("{0}: NO FILES FOUND", AnimatronicID));
+                show_debug_message($"{AnimatronicID}: NO FILES FOUND");
             }
         }
         
@@ -308,7 +308,7 @@ function skin_data_from_directory(arg0, arg1, arg2 = "data.txt")
         }
         catch (_exception)
         {
-            show_message(string("ERR: {0} appears to be incorrectly formatted. Data could not be imported.", filename));
+            show_message($"ERR: {filename} appears to be incorrectly formatted. Data could not be imported.");
         }
     }
 }
@@ -393,7 +393,7 @@ function skin_sound_subtitles(arg0)
     }
     catch (_exception)
     {
-        show_message(string("ERROR: Subtitles for {0} formatted incorrectly.", arg0));
+        show_message($"ERROR: Subtitles for {arg0} formatted incorrectly.");
         return [["No subtitles found."], [0]];
     }
     
@@ -683,7 +683,7 @@ function import_sprites_solo(arg0, arg1, arg2 = sBear5, arg3 = 1, arg4 = 0, arg5
         return sprite_duplicate(arg2);
     
     var filename = working_directory + "addons/" + folders[arg0 - 21] + "/" + string(arg1);
-    show_debug_message(string("FOUND DIRECTORY: {0}", filename));
+    show_debug_message($"FOUND DIRECTORY: {filename}");
     
     if (file_find_first(filename, 0) != "")
         return sprite_add(filename, arg3, false, false, arg4, arg5);
@@ -729,7 +729,7 @@ function import_dialogue(arg0, arg1 = "/opening_dialogue.txt", arg2 = false)
         }
         catch (_exception)
         {
-            show_message(string("ERR: {0}'s {1} file appears to be incorrectly formatted. Data could not be imported.", guard_name(), arg1));
+            show_message($"ERR: {guard_name()}'s {arg1} file appears to be incorrectly formatted. Data could not be imported.");
         }
     }
     
@@ -761,7 +761,7 @@ function import_extras()
             }
             catch (_exception)
             {
-                show_message(string("ERR: {0}'s extras_info.txt file appears to be incorrectly formatted. Data could not be imported.", folders[i]));
+                show_message($"ERR: {folders[i]}'s extras_info.txt file appears to be incorrectly formatted. Data could not be imported.");
                 array_push(extras_info, 
                 {
                     FULL_NAME: "ERROR",

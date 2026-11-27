@@ -71,7 +71,7 @@ for (var i = 0; i < array_length(OptionTitles); i++)
     {
         draw_set_valign(fa_middle);
         var GuardsLeft = ((i == 2) ? Quota_DailyChallenge : Quota_PartyMode) - GuardsUnlocked;
-        var Text = string("Unlock {0} more guard{1} to unlock this mode!", GuardsLeft, (GuardsLeft == 1) ? "" : "s");
+        var Text = $"Unlock {GuardsLeft} more guard{(GuardsLeft == 1) ? "" : "s"} to unlock this mode!";
         
         if (round(TileSize * 50) < 50)
             draw_text_ext_transformed(ButtonX + round(92 * TileSize), ButtonY + round(65 * TileSize), Text, 15, 170, TileSize, TileSize, 0);
