@@ -80,7 +80,7 @@ if (Freeze == 0)
         global.Cam = global.SavedCam;
     }
     
-    if (input_check_pressed(UnknownEnum.Value_11) && BossMode != UnknownEnum.Value_1 && !guard_ability(UnknownEnum.Value_18))
+    if (input_check_pressed(UnknownEnum.Value_11) && BossMode != UnknownEnum.Value_1 && !(guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29)))
     {
         if (global.Tools.Fan == 0)
         {
@@ -98,7 +98,10 @@ if (Freeze == 0)
     
     if (!global.Fan)
         audio_stop_sound(sfxFan);
-    
+
+    if (guard_ability(UnknownEnum.Value_29) && global.MaskDown)
+        global.Temperature -= ((oCamera.FanSpeed * 4) / 60);
+
     if (input_check_pressed(UnknownEnum.Value_7) && !(global.CamUp || HandheldUp))
     {
         if (global.Tools.Mask == 0)
@@ -213,7 +216,7 @@ if (global.Fan)
 }
 else if (BossMode != UnknownEnum.Value_1)
 {
-    if (guard_ability(UnknownEnum.Value_18))
+    if (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29))
         global.Temperature += ((TemperatureRate * 0.4) / 60);
     else
         global.Temperature += (TemperatureRate / 60);
@@ -257,6 +260,16 @@ if (BossMode != UnknownEnum.Value_2 && BossMode != UnknownEnum.Value_1)
             audio_play_sound(sfxTick, 1, false);
         }
     }
+    else if (!FredbearMode && guard_ability(UnknownEnum.Value_30))
+    {
+        var TimerShift = sign(floor(BlockedAnimatronicsAmount) - global.Progress);
+        
+        if (abs(TimerShift) >= 1)
+        {
+            global.Progress += TimerShift;
+            audio_play_sound(sfxTick, 1, false);
+        }
+    }
     
     if (guard_ability(UnknownEnum.Value_17) && !FredbearMode)
     {
@@ -287,9 +300,12 @@ if (BossMode != UnknownEnum.Value_2 && BossMode != UnknownEnum.Value_1)
         if (((floor((global.Timer * 60) / 5) * 5) % 60) == 0 && !audio_is_playing(sfxClockTicking))
             simple_sound(sfxClockTicking, 500, 0, false, 0.5, 1, random_range(0.9, 1.1));
         
-        global.Timer += 0.016666666666666666;
-        
-        if (!(guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_19)) || FredbearMode)
+        if (global.GuardParameters.time_rate > 0)
+            global.Timer += 0.016666666666666666 * global.GuardParameters.time_rate;
+        else
+            global.Timer += 0.016666666666666666;
+
+        if (!(guard_ability(UnknownEnum.Value_19) || guard_ability(UnknownEnum.Value_8) || guard_ability(UnknownEnum.Value_30)) || FredbearMode)
             global.Progress = global.Timer;
     }
 }
@@ -436,6 +452,8 @@ enum UnknownEnum
     Value_18,
     Value_19,
     Value_21 = 21,
+    Value_29 = 29,
+    Value_30,
     Value_62 = 62,
     Value_73 = 73,
     Value_119 = 119,

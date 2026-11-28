@@ -115,7 +115,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_13] = 
     {
         Name: "Superfan",
-        Desc: guard_ability(UnknownEnum.Value_18) ? "Looking out the window cools you down faster." : "The fan cools down the office faster.",
+        Desc: (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29)) ? "Looking out the window cools you down faster." : "The fan cools down the office faster.",
         StepUp: [UnknownEnum.Value_14],
         StepDown: [],
         Price: 16
@@ -123,7 +123,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_14] = 
     {
         Name: "Superfan+",
-        Desc: guard_ability(UnknownEnum.Value_18) ? "Looking out the window cools you down significantly faster." : "The fan cools down the office significantly faster.",
+        Desc: (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29)) ? "Looking out the window cools you down significantly faster." : "The fan cools down the office significantly faster.",
         StepUp: [],
         StepDown: [UnknownEnum.Value_13],
         Price: 20
@@ -147,7 +147,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_17] = 
     {
         Name: "Late Start",
-        Desc: $"Start the night at {get_starting_AM()}:{speedup_seconds(30, true)} AM. Replaces Head Start.",
+        Desc: string("Start the night at {0}:{1} AM. Replaces Head Start.", (global.GuardParameters.starting_hour == 4) ? 4 : get_starting_AM(), (global.GuardParameters.starting_hour == 4) ? 42 : speedup_seconds(30, true)),
         StepUp: [],
         StepDown: [UnknownEnum.Value_15],
         Price: 32
@@ -388,7 +388,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_49] = 
     {
         Name: "Supply Closet",
-        Desc: "Your inventory can hold 7 items at once.",
+        Desc: string("Your inventory can hold {0} items at once.", global.GuardParameters.inventory_size + 2),
         StepUp: [UnknownEnum.Value_50],
         StepDown: [],
         Price: 12
@@ -396,7 +396,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_50] = 
     {
         Name: "Supply Closet+",
-        Desc: "Your inventory can hold 10 items at once.",
+        Desc: string("Your inventory can hold {0} items at once.", global.GuardParameters.inventory_size + 5),
         StepUp: [],
         StepDown: [UnknownEnum.Value_49],
         Price: 18
@@ -558,6 +558,9 @@ function get_available_upgrade_ids()
             continue;
         
         if (i == UnknownEnum.Value_60 && !(global.Night == "Endless"))
+            continue;
+
+        if (array_contains(global.GuardParameters.blacklist_upgrades, i))
             continue;
         
         if (i == UnknownEnum.Value_56 && !global.GuardParameters.cartridges_purchasable)
@@ -1209,7 +1212,7 @@ function get_available_cartridge_ids()
     
     for (var i = 0; i < 16; i++)
     {
-        if (array_contains(global.EndlessInventory.Cartridges, i) || i == UnknownEnum.Value_7 || i == EleanorHold)
+        if (array_contains(global.EndlessInventory.Cartridges, i) || i == UnknownEnum.Value_7 || i == EleanorHold || array_contains(global.GuardParameters.blacklist_cartridges, i))
             continue;
         
         array_push(ReturnInventory, i);

@@ -407,6 +407,7 @@ function set_guard_parameters(arg0 = global.Guard)
     var returnVal = {};
     var backup = 
     {
+        lives_amount: 3,
         animatronics: [UnknownEnum.Value_16],
         unkillable_animatronics: [],
         upgrades: [],
@@ -419,10 +420,16 @@ function set_guard_parameters(arg0 = global.Guard)
         disabled_shops: [],
         natural_regimen: -1,
         upgrades_purchasable: true,
+        blacklist_upgrades: [],
         cartridges_purchasable: true,
+        blacklist_cartridges: [],
         consumables_purchasable: true,
+        blacklist_consumables: [],
+        blacklist_endo: [],
         starting_power: 100,
         starting_tokens: 0,
+        starting_hour: 3,
+        inventory_size: 5,
         minigame_token_multiplier: 1,
         blocked_token_multiplier: 1,
         minigame_power_gain: (arg0 == UnknownEnum.Value_178) ? 0.25 : 0,
@@ -432,12 +439,15 @@ function set_guard_parameters(arg0 = global.Guard)
         shop_discount: 1,
         power_rate: 1,
         temperature_rate: 1,
+        time_rate: 1,
         aggro_multiplier: 1,
+        ai_limit: 20,
         starting_quota_increase: 0,
         nightly_quota_increase: 0,
-        point_goal_base: (arg0 == UnknownEnum.Value_8) ? 35 : 50,
-        point_goal_nightly: (arg0 == UnknownEnum.Value_8) ? 5 : 0,
+        point_goal_base: set_point_goal_base(arg0),
+        point_goal_nightly: set_point_goal_nightly(arg0),
         randomize_minigames: (arg0 == UnknownEnum.Value_19) ? true : false,
+        show_parameters: true,
         description: get_guard_true_description(arg0)
     };
     returnVal = json_parse(json_stringify(backup));
@@ -460,6 +470,9 @@ function set_guard_parameters(arg0 = global.Guard)
     }
     
     global.GuardParameters = returnVal;
+    
+    if (returnVal.lives_amount != backup.lives_amount)
+        add_description_line(string("You have {0} Lives.", returnVal.lives_amount));
     
     if (!array_compare(returnVal.animatronics, backup.animatronics))
     {
@@ -553,17 +566,65 @@ function set_guard_parameters(arg0 = global.Guard)
     if (!returnVal.upgrades_purchasable)
         add_description_line("You cannot obtain any additional upgrades.");
     
+    if (!array_compare(returnVal.blacklist_upgrades, backup.blacklist_upgrades))
+    {
+        var list = struct.blacklist_upgrades;
+        names = [];
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, get_upgrades(list[i]).Name);
+        
+        add_description_line(string("You can't buy from Rockstar Freddy's shop: {0}.", and_string(names)));
+    }
+    
     if (!returnVal.cartridges_purchasable)
         add_description_line("You cannot obtain any additional minigame cartridges.");
+
+    if (!array_compare(returnVal.blacklist_cartridges, backup.blacklist_cartridges))
+    {
+        var list = struct.blacklist_cartridges;
+        names = [];
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, get_minigame_data(list[i]).Name);
+        
+        add_description_line(string("You can't buy from Rockstar Bonnie's shop: {0}.", and_string(names)));
+    }
     
     if (!returnVal.consumables_purchasable)
         add_description_line("You cannot obtain any additional consumables.");
+
+    if (!array_compare(returnVal.blacklist_consumables, backup.blacklist_consumables))
+    {
+        var list = struct.blacklist_consumables;
+        names = [];
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, get_consumables(list[i]).Name);
+        
+        add_description_line(string("You can't buy from Rockstar Chica's shop: {0}.", and_string(names)));
+    }
+
+    if (!array_compare(returnVal.blacklist_endo, backup.blacklist_endo))
+    {
+        var list = struct.blacklist_endo;
+        names = [];
+        items_on_endo_desc = ["Battery Pack", "Distortion Clock", "Deathcoin", "Snowcone", "Golden Cupcake", "Beartrap", "Laser Doors", "King's Prize", "Mimic Ball", "AR Mask", "Rewind Clock"]
+        
+        for (var i = 0; i < array_length(list); i++)
+            array_push(names, items_on_endo_desc[list[i]]);
+        
+        add_description_line(string("You can't buy from Mendo's shop: {0}.", and_string(names)));
+    }
     
     if (returnVal.starting_power != backup.starting_power)
         add_description_line($"You start each night with {returnVal.starting_power}% power.");
     
     if (returnVal.starting_tokens != backup.starting_tokens)
         add_description_line($"You start each night with {returnVal.starting_tokens} tokens.");
+    
+    if (returnVal.inventory_size != backup.inventory_size)
+        add_description_line(string("Your inventory can hold {0} items at once.", returnVal.inventory_size));
     
     if (returnVal.minigame_token_multiplier != backup.minigame_token_multiplier)
         add_description_line($"Token earnings from minigames are multiplied by {returnVal.minigame_token_multiplier}x.");
@@ -573,6 +634,16 @@ function set_guard_parameters(arg0 = global.Guard)
     
     if (returnVal.minigame_power_gain != backup.minigame_power_gain)
         add_description_line($"You restore {returnVal.minigame_power_gain}% power for every token earned from playing minigames.");
+    
+    if (returnVal.starting_hour != backup.starting_hour)
+    {
+        if (returnVal.starting_hour <= 1)
+            add_description_line("You start each round at 12 AM.");
+        else if (returnVal.starting_hour == 2)
+            add_description_line("You start each round at 3 AM.");
+        else if (returnVal.starting_hour >= 4)
+            add_description_line("You start each round at 4:30 AM.");
+    }
     
     if (returnVal.salvage_bonus_multiplier != backup.salvage_bonus_multiplier)
         add_description_line($"Animatronics' salvage values are multiplied by {returnVal.salvage_bonus_multiplier}x.");
@@ -591,9 +662,15 @@ function set_guard_parameters(arg0 = global.Guard)
     
     if (returnVal.temperature_rate != backup.temperature_rate)
         add_description_line($"Your temperature rises {returnVal.temperature_rate}x as fast.");
+
+    if (returnVal.time_rate != backup.time_rate)
+        add_description_line(string("Time progresses at {0}x speed.", returnVal.time_rate));
     
     if (returnVal.aggro_multiplier != backup.aggro_multiplier)
         add_description_line($"Animatronics will be {returnVal.aggro_multiplier}x as aggressive.");
+
+    if (returnVal.ai_limit != backup.ai_limit)
+        add_description_line(string("Animatronics have a AI limit of {0}.", clamp(returnVal.ai_limit, 1, 35)));
     
     if (returnVal.starting_quota_increase != 0)
         add_description_line($"Your initial animatronic quota is increased by {returnVal.starting_quota_increase}.");
@@ -663,6 +740,7 @@ enum UnknownEnum
     Value_8,
     Value_16 = 16,
     Value_19 = 19,
+    Value_30 = 30,
     Value_41 = 41,
     Value_178 = 178
 }

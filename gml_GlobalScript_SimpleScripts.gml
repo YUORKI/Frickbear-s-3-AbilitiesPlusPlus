@@ -33,6 +33,32 @@ function round_step(arg0, arg1)
     return round(arg0 / arg1) * arg1;
 }
 
+function set_point_goal_base(arg0)
+{
+    if (arg0 == UnknownEnum.Value_8) 
+        return 35 
+    else if(arg0 == UnknownEnum.Value_30)  
+        return 4
+    else
+        return 50
+}
+
+function set_point_goal_nightly(arg0)
+{
+    if (arg0 == UnknownEnum.Value_8) 
+        return 5 
+    else if(arg0 == UnknownEnum.Value_30)  
+        return 2
+    else
+        return 0
+}
+
+function BlockedAnimatronic()
+{
+    if (guard_ability(UnknownEnum.Value_30))
+        oCamera.BlockedAnimatronicsAmount += 1;
+}
+
 function guard_name(arg0 = global.Guard)
 {
     return global.GuardNames[clamp(arg0, 0, array_length(global.GuardNames) - 1)];
@@ -198,7 +224,8 @@ function beartrap_notif(arg0, arg1 = true)
 
 function inventory_space()
 {
-    return has_upgrade(UnknownEnum.Value_50) ? 10 : (has_upgrade(UnknownEnum.Value_49) ? 7 : 5);
+    item_amount = global.GuardParameters.inventory_size ?? 5;
+    return has_upgrade(UnknownEnum.Value_50) ? (item_amount + 5) : (has_upgrade(UnknownEnum.Value_49) ? (item_amount + 2) : item_amount);
 }
 
 function has_upgrade(arg0, arg1 = true)
@@ -748,7 +775,7 @@ function add_tokens_silently(arg0)
     }
 }
 
-function block_tokens(arg0 = 1)
+function block_tokens(arg0 = 1, arg1 = 0)
 {
     if (room == Office)
     {
@@ -757,7 +784,10 @@ function block_tokens(arg0 = 1)
         if (guard_ability(UnknownEnum.Value_7))
             exit;
         
-        if (guard_ability(UnknownEnum.Value_18))
+        if (guard_ability(UnknownEnum.Value_30) && arg1 == 0)
+            oCamera.BlockedAnimatronicsAmount += arg0;
+        
+        if (guard_ability(UnknownEnum.Value_18) || guard_ability(UnknownEnum.Value_29))
             global.Temperature += 4;
         
         if (has_upgrade(UnknownEnum.Value_35))
@@ -1354,6 +1384,18 @@ function get_call_speaker(arg0)
         default:
             return "???";
     }
+}
+
+function set_custom_hour()
+{
+    var hour = 3
+
+    if (global.Guard > 20)
+    {
+        hour = clamp(global.GuardParameters.starting_hour, 1 , 4)
+    }
+
+    return hour
 }
 
 function get_call_id(arg0)

@@ -1,6 +1,6 @@
 reset_challenge_alterations(true, false);
 global.Night = "Endless";
-global.NightSpeedup = 3;
+global.NightSpeedup = set_custom_hour();
 Offset = -360;
 OffsetTarget = 0;
 OptionPressed = false;

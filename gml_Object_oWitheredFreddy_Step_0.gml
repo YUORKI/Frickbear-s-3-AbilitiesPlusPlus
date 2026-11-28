@@ -11,7 +11,7 @@ if (Frame >= 460)
         {
             simple_sound(sfxBlock, Frame * Direction, -20, false);
             reverb_sound(SOUND_Blocked, Frame * Direction, -20);
-            block_tokens();
+            block_tokens(,1);
         }
         
         Direction *= -1;

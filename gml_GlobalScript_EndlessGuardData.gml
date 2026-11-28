@@ -154,6 +154,12 @@ function get_guard_true_description(arg0, arg1 = true)
         
         case UnknownEnum.Value_23:
             return "Items from Mendo's shop are in unlimited supply, but get exponentially more expensive for each one purchased.";
+
+        case UnknownEnum.Value_29:
+            return "The temperature meter is replaced by a panic meter. Your panic increases when dealing with animatronics, and can be decreased by using your mask.";
+
+        case UnknownEnum.Value_30:
+            return "(WIP) The night will not end until you've fend off animatronics a certain amount of times. The amount needed increases each round.";
         
         case UnknownEnum.Value_1:
         default:
@@ -269,6 +275,8 @@ enum UnknownEnum
     Value_26,
     Value_27,
     Value_28,
+    Value_29,
+    Value_30,
     Value_73 = 73,
     Value_138 = 138,
     Value_140 = 140

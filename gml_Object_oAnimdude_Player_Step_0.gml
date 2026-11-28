@@ -61,7 +61,7 @@ if (x > 304)
     Level++;
     generate_level(Level % array_length(LevelQueue));
     audio_play_sound(SOUND_Pass, 1, false);
-    block_tokens();
+    block_tokens(,1);
     
     if (global.AILevels[UnknownEnum.Value_41] == 21)
         Speed += (1/30);

@@ -55,14 +55,16 @@ if (global.Night == "Endless")
         var StarterLevel = lerp(8, 12, global.Difficulty / 4);
         var Round10Level = StarterLevel + 5;
         var DiffFactor = lerp(StarterLevel, Round10Level, global.EndlessRound / 10);
+        var AI_limit = clamp(global.GuardParameters.ai_limit, 1, 35) ?? 20;
         DiffFactor += max(0, 5 - global.EndlessRound);
         DiffFactor -= (global.DeathsThisRound * 2);
         DiffFactor *= ((1 + guard_ability(UnknownEnum.Value_10)) * AggroMultiplier);
         
         if (instance_exists(oFredbear))
             DiffFactor *= 0.66;
+
+        DiffFactor = clamp(DiffFactor, 0, AI_limit);  
         
-        DiffFactor = clamp(DiffFactor, 0, 20);
         var Array = (get_time() < Hour) ? ActivationsBeforeStart : array_concat(ActivationsBeforeStart, ActivationsAtStart);
         
         for (var i = 0; i < array_length(Array); i++)
@@ -70,7 +72,7 @@ if (global.Night == "Endless")
             if (array_contains(global.EndlessInventory.WhackedChars, Array[i]) && global.AILevels[Array[i]] == 0)
                 notification($"{global.Descriptions[Array[i]][0]} has been reactivated!", 2);
             
-            global.AILevels[Array[i]] = clamp(DiffFactor, 1, 20);
+            global.AILevels[Array[i]] = clamp(DiffFactor, 1, AI_limit);  
         }
     }
 }

@@ -25,11 +25,12 @@ if (SliceLocations[global.Cam] == 1 && mouse_check_button_pressed(mb_left) && pl
     audio_play_sound(sfxCamSwitch, 1, false);
     fuzz_up();
     SliceLocations[global.Cam] = 0;
-    block_tokens();
+    block_tokens(,1);
     SlicesFound++;
     
     if (!array_contains(SliceLocations, 1))
     {
+        BlockedAnimatronic()
         audio_stop_sound(SOUND_Warning);
         audio_stop_sound(SOUND_MusicBox);
         Defeated = 1;
