@@ -47,7 +47,7 @@ function restore_animatronic(arg0)
         while (global.ShuffleData.Animatronics[i] != ThisID && i < array_length(global.ShuffleData.Animatronics))
             i++;
         
-        show_debug_message($"Searching for {ThisID} , found {global.ShuffleData.Animatronics[i]} at {i}");
+        show_debug_message(string("Searching for {0} , found {1} at {2}", ThisID, global.ShuffleData.Animatronics[i], i));
         var temp = global.ShuffleData.Animatronics[i];
         global.ShuffleData.Animatronics[i] = global.ShuffleData.Animatronics[ThisID];
         global.ShuffleData.Animatronics[ThisID] = temp;
@@ -67,7 +67,7 @@ function restore_minigames(arg0)
         while (global.ShuffleData.Minigames[i] != ThisID && i < array_length(global.ShuffleData.Minigames))
             i++;
         
-        show_debug_message($"Searching for {ThisID} , found {global.ShuffleData.Minigames[i]} at {i}");
+        show_debug_message(string("Searching for {0} , found {1} at {2}", ThisID, global.ShuffleData.Minigames[i], i));
         var temp = global.ShuffleData.Minigames[i];
         global.ShuffleData.Minigames[i] = global.ShuffleData.Minigames[ThisID];
         global.ShuffleData.Minigames[ThisID] = temp;

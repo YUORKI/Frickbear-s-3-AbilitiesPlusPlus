@@ -11,7 +11,7 @@ function cn_button(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7 = -1, arg8 = t
         if (ClearedPerCategory[arg0] >= CountsPerCategory[arg0])
             draw_sprite(sCustomNightChallengeSticker, 0, (arg1 + arg3) - 20, arg2 + 2);
         else if (arg5 != "Expert Presets" && arg5 != "Cruel Presets")
-            draw_text((arg1 + arg3) - 5, arg2 + 1, $"{ClearedPerCategory[arg0]}/{CountsPerCategory[arg0]}");
+            draw_text((arg1 + arg3) - 5, arg2 + 1, string("{0}/{1}", ClearedPerCategory[arg0], CountsPerCategory[arg0]));
     }
     
     draw_set_halign(fa_left);

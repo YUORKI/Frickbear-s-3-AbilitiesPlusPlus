@@ -232,7 +232,7 @@ function make_guess(arg0)
         if (GamesLeft > 0)
         {
             alarm[0] = 120;
-            notification($"{GamesLeft} games to go!");
+            notification(string("{0} games to go!", GamesLeft));
         }
         else if (global.DisabledTools.Fan)
         {

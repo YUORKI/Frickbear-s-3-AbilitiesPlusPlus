@@ -27,7 +27,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_2] = 
     {
         Name: "Power Hour",
-        Desc: $"You have unlimited power for the first {speedup_seconds_string(60, false, false, true)} of the night. Replaces Overcharge.",
+        Desc: string("You have unlimited power for the first {0} of the night. Replaces Overcharge.", speedup_seconds_string(60, false, false, true)),
         StepUp: [],
         StepDown: [UnknownEnum.Value_0],
         Price: 36
@@ -75,7 +75,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_8] = 
     {
         Name: "Backdoor Trading",
-        Desc: $"All {(global.Night == "Endless") ? "rounds" : "salvage locations"} will have one additional animatronic to pick from.",
+        Desc: string("All {0} will have one additional animatronic to pick from.", (global.Night == "Endless") ? "rounds" : "salvage locations"),
         StepUp: [UnknownEnum.Value_9],
         StepDown: [],
         Price: 8
@@ -83,7 +83,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_9] = 
     {
         Name: "Backdoor Trading+",
-        Desc: $"All {(global.Night == "Endless") ? "rounds" : "salvage locations"} will have two additional animatronics to pick from.",
+        Desc: string("All {0} will have two additional animatronics to pick from.", (global.Night == "Endless") ? "rounds" : "salvage locations"),
         StepUp: [UnknownEnum.Value_10],
         StepDown: [UnknownEnum.Value_8],
         Price: 10
@@ -91,7 +91,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_10] = 
     {
         Name: "Backdoor Trading++",
-        Desc: $"All {(global.Night == "Endless") ? "rounds" : "salvage locations"} will have three additional animatronics to pick from.",
+        Desc: string("All {0} will have three additional animatronics to pick from.", (global.Night == "Endless") ? "rounds" : "salvage locations"),
         StepUp: [],
         StepDown: [UnknownEnum.Value_9],
         Price: 12
@@ -131,7 +131,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_15] = 
     {
         Name: "Head Start",
-        Desc: $"Animatronics will not activate until {speedup_seconds_string(15)} into the night.",
+        Desc: string("Animatronics will not activate until {0} into the night.", speedup_seconds_string(15)),
         StepUp: [UnknownEnum.Value_16, UnknownEnum.Value_17],
         StepDown: [],
         Price: 30
@@ -139,7 +139,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_16] = 
     {
         Name: "Head Start+",
-        Desc: $"Animatronics will not activate until {speedup_seconds_string(30)} into the night.",
+        Desc: string("Animatronics will not activate until {0} into the night.", speedup_seconds_string(30)),
         StepUp: [],
         StepDown: [UnknownEnum.Value_15],
         Price: 36
@@ -147,7 +147,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_17] = 
     {
         Name: "Late Start",
-        Desc: $"Start the night at {get_starting_AM()}:{speedup_seconds(30, true)} AM. Replaces Head Start.",
+        Desc: string("Start the night at {0}:{1} AM. Replaces Head Start.", get_starting_AM(), speedup_seconds(30, true)),
         StepUp: [],
         StepDown: [UnknownEnum.Value_15],
         Price: 32
@@ -171,7 +171,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_20] = 
     {
         Name: "Early Investment",
-        Desc: $"Start each night with {speedup_tokens(5)} tokens.",
+        Desc: string("Start each night with {0} tokens.", speedup_tokens(5)),
         StepUp: [UnknownEnum.Value_21],
         StepDown: [],
         Price: 10
@@ -179,7 +179,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_21] = 
     {
         Name: "Early Investment+",
-        Desc: $"Start each night with {speedup_tokens(15)} tokens.",
+        Desc: string("Start each night with {0} tokens.", speedup_tokens(15)),
         StepUp: [UnknownEnum.Value_22, UnknownEnum.Value_23],
         StepDown: [UnknownEnum.Value_20],
         Price: 20
@@ -187,7 +187,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_22] = 
     {
         Name: "Early Investment++",
-        Desc: $"Start each night with {speedup_tokens(30)} tokens.",
+        Desc: string("Start each night with {0} tokens.", speedup_tokens(30)),
         StepUp: [],
         StepDown: [UnknownEnum.Value_21],
         Price: 30
@@ -203,7 +203,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_24] = 
     {
         Name: "Felix's Loan",
-        Desc: $"You can go up to {speedup_tokens(15)} tokens into debt, but will be jumpscared if you end the night with a negative token balance.",
+        Desc: string("You can go up to {0} tokens into debt, but will be jumpscared if you end the night with a negative token balance.", speedup_tokens(15)),
         StepUp: [UnknownEnum.Value_25],
         StepDown: [],
         Price: 10
@@ -211,7 +211,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_25] = 
     {
         Name: "Felix's Loan+",
-        Desc: $"You can go up to {speedup_tokens(30)} tokens into debt, but will be jumpscared if you end the night with a negative token balance.",
+        Desc: string("You can go up to {0} tokens into debt, but will be jumpscared if you end the night with a negative token balance.", speedup_tokens(30)),
         StepUp: [UnknownEnum.Value_26],
         StepDown: [UnknownEnum.Value_24],
         Price: 20
@@ -236,7 +236,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_30] = 
     {
         Name: "Fuzzy Dice",
-        Desc: $"Initial rerolls at {(global.Night == "Endless") ? "Rockstar Freddy" : "Upgrade Cadet"}'s shop are free.",
+        Desc: string("Initial rerolls at {0}'s shop are free.", (global.Night == "Endless") ? "Rockstar Freddy" : "Upgrade Cadet"),
         StepUp: [UnknownEnum.Value_31],
         StepDown: [],
         Price: 5
@@ -244,7 +244,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_31] = 
     {
         Name: "Upgrade Commander",
-        Desc: $"{(global.Night == "Endless") ? "Rockstar Freddy" : "Upgrade Cadet"}'s entire inventory is available, but you can no longer reroll. Replaces Fuzzy Dice.",
+        Desc: string("{0}'s entire inventory is available, but you can no longer reroll. Replaces Fuzzy Dice.", (global.Night == "Endless") ? "Rockstar Freddy" : "Upgrade Cadet"),
         StepUp: [],
         StepDown: [UnknownEnum.Value_30],
         Price: 10
@@ -452,7 +452,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_57] = 
     {
         Name: "Lockdown Protocol",
-        Desc: $"Both doorways are blocked off during the last {speedup_seconds_string(15)} of the night.",
+        Desc: string("Both doorways are blocked off during the last {0} of the night.", speedup_seconds_string(15)),
         StepUp: [UnknownEnum.Value_58],
         StepDown: [],
         Price: 15
@@ -460,7 +460,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_58] = 
     {
         Name: "Lockdown Protocol+",
-        Desc: $"Both doorways are blocked off during the last {speedup_seconds_string(30)} of the night.",
+        Desc: string("Both doorways are blocked off during the last {0} of the night.", speedup_seconds_string(30)),
         StepUp: [UnknownEnum.Value_59],
         StepDown: [UnknownEnum.Value_57],
         Price: 20
@@ -468,7 +468,7 @@ function get_upgrades(arg0 = -1)
     Upgrades[UnknownEnum.Value_59] = 
     {
         Name: "Lockdown Protocol++",
-        Desc: $"Both doorways are blocked off during the last {speedup_seconds_string(60)} of the night.",
+        Desc: string("Both doorways are blocked off during the last {0} of the night.", speedup_seconds_string(60)),
         StepUp: [],
         StepDown: [UnknownEnum.Value_58],
         Price: 35
@@ -838,7 +838,7 @@ function get_consumables(arg0 = -1)
     Inventory[UnknownEnum.Value_7] = 
     {
         Name: "Ultra Gift Box",
-        Desc: $"Provides {speedup_seconds(30, false, true)} seconds of complete jumpscare immunity when active. Has two uses.",
+        Desc: string("Provides {0} seconds of complete jumpscare immunity when active. Has two uses.", speedup_seconds(30, false, true)),
         Price: 16,
         Uses: 2
     };
@@ -1037,119 +1037,119 @@ function get_eleanor_challenges(arg0 = -1, arg1 = false)
     Inventory[UnknownEnum.Value_10] = 
     {
         Name: "Lucky Day",
-        Desc: $"Every 30 seconds for {TheNextRound}, a King's Prize will activate.",
+        Desc: string("Every 30 seconds for {0}, a King's Prize will activate.", TheNextRound),
         Value: 5,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_8] = 
     {
         Name: "Find Player 2",
-        Desc: $"Things will get a little retro for {TheNextRound}.",
+        Desc: string("Things will get a little retro for {0}.", TheNextRound),
         Value: 10,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_1] = 
     {
         Name: "Felix the Shark",
-        Desc: $"You will start {TheNextRound} in token debt. Pay it off before 6 AM.",
+        Desc: string("You will start {0} in token debt. Pay it off before 6 AM.", TheNextRound),
         Value: 12,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_3] = 
     {
         Name: "Lonely Freddy",
-        Desc: $"Half of your minigames will be disabled for {TheNextRound}.",
+        Desc: string("Half of your minigames will be disabled for {0}.", TheNextRound),
         Value: 13,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_0] = 
     {
         Name: "Out of Stock",
-        Desc: $"Disables Mendo's shop for {TheNextRound}.",
+        Desc: string("Disables Mendo's shop for {0}.", TheNextRound),
         Value: 14,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_2] = 
     {
         Name: "Into the Pit",
-        Desc: $"Your power will be reduced by 25% for {TheNextRound}.",
+        Desc: string("Your power will be reduced by 25% for {0}.", TheNextRound),
         Value: 15,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_14] = 
     {
         Name: "Fetch",
-        Desc: $"For {TheNextRound}, the night will not end until you've beaten Eleanor's score on a random minigame.",
+        Desc: string("For {0}, the night will not end until you've beaten Eleanor's score on a random minigame.", TheNextRound),
         Value: 15,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_9] = 
     {
         Name: "1:35 AM",
-        Desc: $"Nights will be {speedup_seconds_string(60, true)} longer for {TheNextRound}.",
+        Desc: string("Nights will be {0} longer for {1}.", speedup_seconds_string(60, true), TheNextRound),
         Value: 16,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_13] = 
     {
         Name: "Sea Bonnies",
-        Desc: $"For {TheNextRound}, your office will be underwater.",
+        Desc: string("For {0}, your office will be underwater.", TheNextRound),
         Value: 16,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_5] = 
     {
         Name: "Breaking Wheel",
-        Desc: $"Any jumpscare within {TheNextRound} cannot be blocked and will immediately end your run.",
+        Desc: string("Any jumpscare within {0} cannot be blocked and will immediately end your run.", TheNextRound),
         Value: 16,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_12] = 
     {
         Name: "The Real You",
-        Desc: $"All your upgrades will be disabled for {TheNextRound}.",
+        Desc: string("All your upgrades will be disabled for {0}.", TheNextRound),
         Value: 17,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_6] = 
     {
         Name: "Friendly Face",
-        Desc: $"For {TheNextRound}, the identities of animatronics will be obscured when making selections.",
+        Desc: string("For {0}, the identities of animatronics will be obscured when making selections.", TheNextRound),
         Value: 18,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_15] = 
     {
         Name: "Dance With Me",
-        Desc: $"The screen will be upside-down for {TheNextRound}.",
+        Desc: string("The screen will be upside-down for {0}.", TheNextRound),
         Value: 18,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_4] = 
     {
         Name: "Blackbird",
-        Desc: $"You will need to beat {TheNextRound} in complete darkness.",
+        Desc: string("You will need to beat {0} in complete darkness.", TheNextRound),
         Value: 19,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_11] = 
     {
         Name: "Room For One More",
-        Desc: $"A temporary, randomly selected animatronic will be added at the start of {TheNextRound}.",
+        Desc: string("A temporary, randomly selected animatronic will be added at the start of {0}.", TheNextRound),
         Value: 20,
         HasPlusVersion: false
     };
     Inventory[UnknownEnum.Value_7] = 
     {
         Name: "The Scoop",
-        Desc: $"Phony Boss will be active for {TheNextRound}.",
+        Desc: string("Phony Boss will be active for {0}.", TheNextRound),
         Value: 25,
         HasPlusVersion: true
     };
     Inventory[UnknownEnum.Value_16] = 
     {
         Name: "Together Forever",
-        Desc: $"Any animatronic you've removed this run will be brought back for {TheNextRound}.",
+        Desc: string("Any animatronic you've removed this run will be brought back for {0}.", TheNextRound),
         Value: (array_length(global.EndlessInventory.WhackedChars) * 5) + 5,
         HasPlusVersion: true
     };
@@ -1181,7 +1181,7 @@ function speedup_seconds_string(arg0, arg1 = false, arg2 = false, arg3 = true)
     if (seconds == 60)
         return (arg1 ? "an " : "") + "hour";
     else
-        return $"{seconds} seconds";
+        return string("{0} seconds", seconds);
 }
 
 function speedup_tokens(arg0)

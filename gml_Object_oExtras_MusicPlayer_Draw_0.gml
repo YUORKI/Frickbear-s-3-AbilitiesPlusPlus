@@ -148,7 +148,7 @@ ButtX = 294 - MenuOffset;
 draw_sprite_stretched(sTextBox_Windows, 2, ButtX, ButtY, 338, 16);
 draw_rectangle_color(ButtX + 4, ButtY + 4, ButtX + 3 + (330 * (MusicPos / MusicLength)), ButtY + 11, c_black, c_black, c_black, c_black, false);
 draw_set_halign(fa_center);
-draw_text(ButtX + 169, 317, $"{format_as_timer(MusicPos)} / {format_as_timer(MusicLength)}");
+draw_text(ButtX + 169, 317, string("{0} / {1}", format_as_timer(MusicPos), format_as_timer(MusicLength)));
 draw_set_halign(fa_left);
 
 if (Quit)

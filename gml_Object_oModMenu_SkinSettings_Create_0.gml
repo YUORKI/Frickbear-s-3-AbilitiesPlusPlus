@@ -27,7 +27,7 @@ function update_template_data()
                 
                 var SaveStuff = 
                 {
-                    Name: $"Template {global.Descriptions[ID][0]}",
+                    Name: string("Template {0}", global.Descriptions[ID][0]),
                     Mechanic: global.Descriptions[ID][1],
                     Tips: get_tips(ID, -99),
                     SalvageLocation_SayVoiceLine: true,

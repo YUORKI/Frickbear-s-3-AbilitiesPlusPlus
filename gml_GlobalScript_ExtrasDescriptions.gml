@@ -41,7 +41,7 @@ function play_jumpscare_scream(arg0, arg1)
     else if (global.Settings[2][4] == 2)
         Volume = 0.25;
     
-    audio_group_set_gain(JumpScreams, (Volume * global.Settings[2][0] * global.Settings[2][1]) / 100, 0);
+    audio_group_set_gain(voc_Springtrap_Pathetic, (Volume * global.Settings[2][0] * global.Settings[2][1]) / 100, 0);
     return audio_play_sound(JumpSound, 99, false);
 }
 
@@ -478,7 +478,7 @@ function get_voicelines(arg0)
     
     for (var i = 0; i < 9; i++)
     {
-        var SubEntryName = $"DeathQuips_{i}";
+        var SubEntryName = string("DeathQuips_{0}", i);
         
         if (variable_struct_exists(voicelineDatabase, SubEntryName))
         {
@@ -582,15 +582,15 @@ function generate_extras_descriptions(arg0, arg1)
                 
                 for (var j = 1; j <= JumpscareSpriteNumber; j++)
                 {
-                    array_push(JumpscareSprites, $"jumpscare{j}_body.png");
-                    array_push(JumpscareSprites, $"jumpscare{j}_head.png");
-                    array_push(JumpscareSprites, $"jumpscare{j}_head.png");
+                    array_push(JumpscareSprites, string("jumpscare{0}_body.png", j));
+                    array_push(JumpscareSprites, string("jumpscare{0}_head.png", j));
+                    array_push(JumpscareSprites, string("jumpscare{0}_head.png", j));
                 }
             }
             
             show_debug_message(JumpscareSprites);
             var _JumpSprite = skin_sprite_from_directory(sJumpscare_Freddy, working_directory + "skins/" + folders[i] + "/sprites", JumpscareSprites, 1);
-            show_debug_message($"{folders[i]} integer: {_JumpID}");
+            show_debug_message(string("{0} integer: {1}", folders[i], _JumpID));
             ExtrasDatabase[TileCount].Jumpscares = get_jumpscare_templates(_JumpID, _JumpSprite, (parsedjson != "") ? variable_struct_get(parsedjson, "JumpscarePositions") : []);
             
             if (uniqueVoiceLines)

@@ -26,4 +26,4 @@ if (!global.CanContinue)
 }
 
 var DiffNames = ["Easy", "Normal", "Hard", "Lunatic", "Nightmare"];
-ContinueString = "You appear to have a run in progress already. Would you like to continue your previous run?" + $"\n\n{(global.Guard >= array_length(global.GuardNames)) ? "UNKNOWN GUARD" : guard_nickname(global.Guard)}" + $"\nRound {global.EndlessRound}" + $"\nLives: {lives_left()}" + $"\nDifficulty: {DiffNames[global.Difficulty]}";
+ContinueString = "You appear to have a run in progress already. Would you like to continue your previous run?" + string("\n\n{0}", (global.Guard >= array_length(global.GuardNames)) ? "UNKNOWN GUARD" : guard_nickname(global.Guard)) + string("\nRound {0}", global.EndlessRound) + string("\nLives: {0}", lives_left()) + string("\nDifficulty: {0}", DiffNames[global.Difficulty]);

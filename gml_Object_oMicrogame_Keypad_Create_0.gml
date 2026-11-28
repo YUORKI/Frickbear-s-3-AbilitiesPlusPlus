@@ -27,7 +27,7 @@ with (instance_create_depth(0, 0, 0, oTextBox_Fredbear))
     add_page("", "");
     
     if (global.MicrogameLevel == 2)
-        add_page($"Enter: {other.ValueA} + {other.ValueB}", "");
+        add_page(string("Enter: {0} + {1}", other.ValueA, other.ValueB), "");
     else
         add_page("Enter: " + string(other.Answer), "");
     

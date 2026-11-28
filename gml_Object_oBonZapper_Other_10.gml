@@ -23,7 +23,7 @@ if (RelativeMouseX >= -32 && RelativeMouseX < 32 && RelativeMouseY >= 50 && Rela
         var DrainAmount = round(1 * global.NightSpeedup);
         
         with (instance_create_depth(89, 347, 2, oTextPopup))
-            Text = $"-{DrainAmount}%";
+            Text = string("-{0}%", DrainAmount);
         
         global.Power -= DrainAmount;
     }

@@ -453,7 +453,7 @@ function draw_everything()
                     break;
                 
                 case UnknownEnum.Value_12:
-                    DescText = $"Trade {get_upgrades(ShopInventory[SelectedOption].UpgradeLost).Name} for {get_reward(ShopInventory[SelectedOption].ID, ShopInventory[SelectedOption].Reward).Name}?";
+                    DescText = string("Trade {0} for {1}?", get_upgrades(ShopInventory[SelectedOption].UpgradeLost).Name, get_reward(ShopInventory[SelectedOption].ID, ShopInventory[SelectedOption].Reward).Name);
                     break;
                 
                 default:
@@ -480,7 +480,7 @@ function draw_everything()
         draw_set_font(global.FontW97White);
         DescText = get_minigame_data(ShopInventory[SelectedOption].ID).Desc;
         var CarnieData = get_carnie_scores(ShopInventory[SelectedOption].ID);
-        DescText += ("\n\n" + ((CarnieData.NormalScore[SelectedOption] == infinity) ? $"Beat the minigame in {CarnieData.NormalTimer[SelectedOption]} seconds to win!" : ((CarnieData.NormalTimer[SelectedOption] == infinity) ? $"Get {CarnieData.NormalScore[SelectedOption]} points to win!" : $"Get {CarnieData.NormalScore[SelectedOption]} points in {CarnieData.NormalTimer[SelectedOption]} seconds to win!")));
+        DescText += ("\n\n" + ((CarnieData.NormalScore[SelectedOption] == infinity) ? string("Beat the minigame in {0} seconds to win!", CarnieData.NormalTimer[SelectedOption]) : ((CarnieData.NormalTimer[SelectedOption] == infinity) ? string("Get {0} points to win!", CarnieData.NormalScore[SelectedOption]) : string("Get {0} points in {1} seconds to win!", CarnieData.NormalScore[SelectedOption], CarnieData.NormalTimer[SelectedOption]))));
         draw_text_ext_color(16, DescBoxY + 11, DescText, 15, 362.6666666666667, TextColor, TextColor, TextColor, TextColor, 1);
         draw_set_font(global.FontHanddrawn);
         DescText = "REWARDS:  ";

@@ -55,7 +55,7 @@ if (Victory)
 }
 else
 {
-    draw_menu_box(4, 212 + BoxHeight, 288, 22, -1, "Died on:", $"Round {global.EndlessRound}");
+    draw_menu_box(4, 212 + BoxHeight, 288, 22, -1, "Died on:", string("Round {0}", global.EndlessRound));
     BoxHeight += 15;
     draw_menu_box(4, 212 + BoxHeight, 288, 22, -1, "Died to:", (global.Jumpscare == -1) ? "Overheat" : global.Descriptions[global.Jumpscare][0]);
     BoxHeight += 15;

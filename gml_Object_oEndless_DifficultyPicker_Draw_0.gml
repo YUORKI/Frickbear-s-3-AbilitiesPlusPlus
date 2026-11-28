@@ -219,7 +219,7 @@ if (SelectedGuard != -1)
         draw_text_ext(ButtonX + 6, ButtonY + 1, (global.Difficulty >= 4) ? "How long can you survive?" : "Survive 10 rounds to win!", 15, ButtonWidth - 12);
         ButtonY = (WindowY + WindowHeight) - 50;
         draw_sprite(sEndlessStickers, global.Difficulty, ButtonX + 6 + 5, ButtonY + 11);
-        draw_text(ButtonX + 6 + 17, ButtonY + 1, $"{StickerPercent}/{91}");
+        draw_text(ButtonX + 6 + 17, ButtonY + 1, string("{0}/{1}", StickerPercent, 91));
         ButtonX = WindowX + 202;
         ButtonY = WindowY + 330;
         ButtonWidth = 110;

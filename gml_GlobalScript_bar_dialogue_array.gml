@@ -932,7 +932,7 @@ function bar_dialogue_array(arg0, arg1, arg2 = false)
                     return [["With a delicate plink, the glass is placed next to the man.", ""], ["He doesn't take note of it, at first, but slowly gathers himself as he rises from his seat", ""], ["Ah...", "Old Man"], ["Yes.... Yes. I supposed I've sat idly long enough.", "Old Man"], ["Thank you for this boon. It means more than you or I will ever know.", "Old Man"], ["...Now let us not dawdle. We will not get another chance like this one.", "Old Man"], ["You watch as his tail slides across the floor, completely abandoning the drink you bought for him.", ""], ["...I'll put it on his tab.", "Tipsy Bird"]];
                 
                 default:
-                    return [[$"...{no_brackets(global.GuardNames[arg1])} seems to have been easily won over by your gesture.", ""]];
+                    return [[string("...{0} seems to have been easily won over by your gesture.", no_brackets(global.GuardNames[arg1])), ""]];
             }
     }
     

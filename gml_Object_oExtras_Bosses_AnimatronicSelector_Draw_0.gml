@@ -16,7 +16,7 @@ draw_sprite(sButtonMini_Icons, 0, ButtonX + 11, ButtonY + 11);
 draw_set_halign(fa_left);
 draw_sprite_stretched(sTextBox_Windows, 1, ButtonX + ButtonWidth + 2, ButtonY, WindowWidth - 32, ButtonHeight);
 var PicksLeft = AnimatronicQuota - count_up(SelectedAnimatronics);
-draw_text(WindowX + 33, WindowY + 5, (PicksLeft == 0) ? "Click the confirm button to begin." : $"Pick {PicksLeft} more.");
+draw_text(WindowX + 33, WindowY + 5, (PicksLeft == 0) ? "Click the confirm button to begin." : string("Pick {0} more.", PicksLeft));
 var InnerWindowX = WindowX + 4;
 var InnerWindowY = WindowY + (ButtonWidth + 6);
 

@@ -632,7 +632,7 @@ function generate_inventory(arg0)
             for (var i = 0; i < array_length(PotentialUpgrades); i++)
             {
                 var ThisReward = find_trade_reward(i, PotentialUpgrades, Exclude);
-                show_debug_message($"EXCLUSIONS: {Exclude}");
+                show_debug_message(string("EXCLUSIONS: {0}", Exclude));
                 
                 if (ThisReward != -1)
                 {
@@ -640,7 +640,7 @@ function generate_inventory(arg0)
                     array_push(ShopInventory, 
                     {
                         UpgradeLost: PotentialUpgrades[i].ID,
-                        Desc: ThisReward.Desc + $" (LOSE: {PotentialUpgrades[i].Name})",
+                        Desc: ThisReward.Desc + string(" (LOSE: {0})", PotentialUpgrades[i].Name),
                         Name: ThisReward.Name,
                         Price: 0,
                         ID: ThisReward.Value,
@@ -719,7 +719,7 @@ function generate_inventory(arg0)
             {
                 array_push(ShopInventory, 
                 {
-                    Name: $"Skip to Round {global.EndlessRound + 1}",
+                    Name: string("Skip to Round {0}", global.EndlessRound + 1),
                     Desc: "Skip the next round.",
                     Price: calc_price(10),
                     ID: 1
@@ -730,7 +730,7 @@ function generate_inventory(arg0)
             {
                 array_push(ShopInventory, 
                 {
-                    Name: $"Repeat Round {global.EndlessRound - 1}",
+                    Name: string("Repeat Round {0}", global.EndlessRound - 1),
                     Desc: "Repeat the last round.",
                     Price: calc_price(5),
                     ID: -1
@@ -741,7 +741,7 @@ function generate_inventory(arg0)
             {
                 array_insert(ShopInventory, 0, 
                 {
-                    Name: $"Skip to Round {global.EndlessRound + 3}",
+                    Name: string("Skip to Round {0}", global.EndlessRound + 3),
                     Desc: "Skip the next three rounds.",
                     Price: calc_price(20),
                     ID: 3

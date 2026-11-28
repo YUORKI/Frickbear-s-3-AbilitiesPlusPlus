@@ -4,7 +4,7 @@ StatSurf = -1;
 
 function completion(arg0, arg1)
 {
-    return $"{arg0}/{arg1} ({floor((100 * arg0) / arg1)}%)";
+    return string("{0}/{1} ({2}%)", arg0, arg1, floor((100 * arg0) / arg1));
 }
 
 function get_stats(arg0)
@@ -104,7 +104,7 @@ function get_stats(arg0)
                 }
             }
             
-            var MostLethal = Tie ? "---" : $"{global.Descriptions[RecordHolder][0]} - {global.DeathRecord[RecordHolder]} {(global.DeathRecord[RecordHolder] == 1) ? "Death" : "Deaths"}";
+            var MostLethal = Tie ? "---" : string("{0} - {1} {2}", global.Descriptions[RecordHolder][0], global.DeathRecord[RecordHolder], (global.DeathRecord[RecordHolder] == 1) ? "Death" : "Deaths");
             RecordHolder = 0;
             Tie = false;
             
@@ -121,7 +121,7 @@ function get_stats(arg0)
                 }
             }
             
-            var MostSalvaged = Tie ? "---" : $"{global.Descriptions[RecordHolder][0]} - Salvaged {global.SalvageRecord[RecordHolder]} {(global.SalvageRecord[RecordHolder] == 1) ? "Time" : "Times"}";
+            var MostSalvaged = Tie ? "---" : string("{0} - Salvaged {1} {2}", global.Descriptions[RecordHolder][0], global.SalvageRecord[RecordHolder], (global.SalvageRecord[RecordHolder] == 1) ? "Time" : "Times");
             RecordHolder = 0;
             Tie = false;
             
@@ -138,7 +138,7 @@ function get_stats(arg0)
                 }
             }
             
-            var MostPlayed = Tie ? "---" : $"{get_minigame_data(RecordHolder).Name} - {global.TokensPerMinigame[RecordHolder]} {(global.TokensPerMinigame[RecordHolder] == 1) ? "Token" : "Tokens"} Earned";
+            var MostPlayed = Tie ? "---" : string("{0} - {1} {2} Earned", get_minigame_data(RecordHolder).Name, global.TokensPerMinigame[RecordHolder], (global.TokensPerMinigame[RecordHolder] == 1) ? "Token" : "Tokens");
             RecordHolder = 0;
             Tie = false;
             
@@ -155,7 +155,7 @@ function get_stats(arg0)
                 }
             }
             
-            var MostBought = Tie ? "---" : $"{get_upgrades(RecordHolder).Name} - Purchased {global.UpgradeRecord[RecordHolder]} {(global.UpgradeRecord[RecordHolder] == 1) ? "Time" : "Times"}";
+            var MostBought = Tie ? "---" : string("{0} - Purchased {1} {2}", get_upgrades(RecordHolder).Name, global.UpgradeRecord[RecordHolder], (global.UpgradeRecord[RecordHolder] == 1) ? "Time" : "Times");
             RecordHolder = 0;
             Tie = false;
             
@@ -172,16 +172,16 @@ function get_stats(arg0)
                 }
             }
             
-            var MostPlayedGuard = Tie ? "---" : $"{global.Descriptions[RecordHolder + UnknownEnum.Value_159][0]} - {count_up(global.RunsAttempted[RecordHolder])} {(global.RunsAttempted[RecordHolder] == 1) ? "Run" : "Runs"} Played";
+            var MostPlayedGuard = Tie ? "---" : string("{0} - {1} {2} Played", global.Descriptions[RecordHolder + UnknownEnum.Value_159][0], count_up(global.RunsAttempted[RecordHolder]), (global.RunsAttempted[RecordHolder] == 1) ? "Run" : "Runs");
             var WinRate = Won4LDRuns / Total4LDRuns;
-            show_debug_message($"ATTEMPTED: {Total4LDRuns} ; WON: {Won4LDRuns}");
-            StatsArray = [["Playtime", string(format_as_timer(global.Playtime))], ["Game First Opened", global.GameFirstOpened], ["Deaths", string(count_up(global.DeathRecord))], ["Playthroughs Completed (Frickbear's 3)", string(TotalRuns)], ["Runs Attempted (Four Layers Down)", string(Total4LDRuns)], ["Runs Won (Four Layers Down)", string(Won4LDRuns)], ["Victory Rate (Four Layers Down)", string(floor(100 * WinRate)) + "%"], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["Deadliest Animatronic", MostLethal], ["Favorite Animatronic", MostSalvaged], ["Favorite Minigame", MostPlayed], ["Favorite Upgrade", MostBought], ["Favorite Guard", MostPlayedGuard], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["Fastest Completion", format_as_timer(global.RunSpeedBest, false)], ["Biggest Paycheck", "$" + string_format(global.RunEarningsBest, 1, 2)], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["Endings Seen (Frickbear's 3)", completion(Collections._Endings, Totals._Endings)], ["Animatronics Found", completion(Collections._Animatronics, Totals._Animatronics)], ["Minigames Unlocked", completion(Collections._Minigames, Totals._Minigames)], ["Gallery Entries Unlocked", completion(Collections._GalleryPages, Totals._GalleryPages)], ["Trophies Collected", completion(Collections._Trophies, Totals._Trophies)], ["Custom Night Challenges Beaten", completion(Collections._CNChallenges, Totals._CNChallenges)], ["Guards Unlocked (Four Layers Down)", completion(Collections._Guards, Totals._Guards)], ["Animatronic Stickers Gotten (Four Layers Down)", completion(Collections._Stickers, Totals._Stickers)], ["Guard Stickers Gotten (Four Layers Down)", completion(Collections._GuardStickers, Totals._GuardStickers)], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["Total Completion", $"{OverallCompletion}%"]];
+            show_debug_message(string("ATTEMPTED: {0} ; WON: {1}", Total4LDRuns, Won4LDRuns));
+            StatsArray = [["Playtime", string(format_as_timer(global.Playtime))], ["Game First Opened", global.GameFirstOpened], ["Deaths", string(count_up(global.DeathRecord))], ["Playthroughs Completed (Frickbear's 3)", string(TotalRuns)], ["Runs Attempted (Four Layers Down)", string(Total4LDRuns)], ["Runs Won (Four Layers Down)", string(Won4LDRuns)], ["Victory Rate (Four Layers Down)", string(floor(100 * WinRate)) + "%"], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["Deadliest Animatronic", MostLethal], ["Favorite Animatronic", MostSalvaged], ["Favorite Minigame", MostPlayed], ["Favorite Upgrade", MostBought], ["Favorite Guard", MostPlayedGuard], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["Fastest Completion", format_as_timer(global.RunSpeedBest, false)], ["Biggest Paycheck", "$" + string_format(global.RunEarningsBest, 1, 2)], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["Endings Seen (Frickbear's 3)", completion(Collections._Endings, Totals._Endings)], ["Animatronics Found", completion(Collections._Animatronics, Totals._Animatronics)], ["Minigames Unlocked", completion(Collections._Minigames, Totals._Minigames)], ["Gallery Entries Unlocked", completion(Collections._GalleryPages, Totals._GalleryPages)], ["Trophies Collected", completion(Collections._Trophies, Totals._Trophies)], ["Custom Night Challenges Beaten", completion(Collections._CNChallenges, Totals._CNChallenges)], ["Guards Unlocked (Four Layers Down)", completion(Collections._Guards, Totals._Guards)], ["Animatronic Stickers Gotten (Four Layers Down)", completion(Collections._Stickers, Totals._Stickers)], ["Guard Stickers Gotten (Four Layers Down)", completion(Collections._GuardStickers, Totals._GuardStickers)], ["----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", " "], ["Total Completion", string("{0}%", OverallCompletion)]];
             var MinigameStats = [];
             
             for (var mg = 15; mg >= 0; mg--)
             {
                 var MinigameInfo = get_minigame_data(mg);
-                var Entry = global.UnlockedMinigames[mg] ? [$"Hi-Score: {MinigameInfo.Name}", $"{timer_based_minigame(mg) ? format_as_timer(global.HiScoresOverall[mg], true) : global.HiScoresOverall[mg]}"] : ["Hi-Score: ???", "---"];
+                var Entry = global.UnlockedMinigames[mg] ? [string("Hi-Score: {0}", MinigameInfo.Name), string("{0}", timer_based_minigame(mg) ? format_as_timer(global.HiScoresOverall[mg], true) : global.HiScoresOverall[mg])] : ["Hi-Score: ???", "---"];
                 array_insert(StatsArray, 17, Entry);
             }
             

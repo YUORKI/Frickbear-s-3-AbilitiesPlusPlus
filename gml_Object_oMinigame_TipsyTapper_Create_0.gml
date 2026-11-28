@@ -3,7 +3,7 @@ Initialize = true;
 get_folders();
 GuardSprite = import_sprites("minigame.png", sHD_Guard, 4, 8, 8);
 CustomerIdentities = [];
-show_debug_message($"GUARDS: {global.GuardAmount} {CustomerIdentities}");
+show_debug_message(string("GUARDS: {0} {1}", global.GuardAmount, CustomerIdentities));
 
 for (var i = 0; i < global.GuardAmount; i++)
 {
@@ -11,7 +11,7 @@ for (var i = 0; i < global.GuardAmount; i++)
         array_push(CustomerIdentities, i);
 }
 
-show_debug_message($"GUARDS: {CustomerIdentities}");
+show_debug_message(string("GUARDS: {0}", CustomerIdentities));
 
 function die(arg0, arg1)
 {

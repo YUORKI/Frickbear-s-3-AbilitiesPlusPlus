@@ -124,7 +124,7 @@ for (var i = 0; i < array_length(global.EndOfNightBlocks); i++)
     
     with (instance_create_depth(320, -28, depth - 1, oNotificationWindow))
     {
-        Text = $"Blocked {global.Descriptions[global.EndOfNightBlocks[i]][0]}!";
+        Text = string("Blocked {0}!", global.Descriptions[global.EndOfNightBlocks[i]][0]);
         Alpha = 2;
     }
 }

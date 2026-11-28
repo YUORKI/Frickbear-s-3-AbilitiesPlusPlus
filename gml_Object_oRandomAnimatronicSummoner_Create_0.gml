@@ -19,4 +19,4 @@ ItemChosen = irandom(array_length(PossibleItems) - 1);
 AnimatronicToSummon = PossibleItems[ItemChosen];
 CurrentImage = ItemChosen + 6;
 audio_play_sound(sfxRoulette, 10, false);
-show_debug_message($"PICKED: {AnimatronicToSummon} CHARS: {PossibleItems}");
+show_debug_message(string("PICKED: {0} CHARS: {1}", AnimatronicToSummon, PossibleItems));

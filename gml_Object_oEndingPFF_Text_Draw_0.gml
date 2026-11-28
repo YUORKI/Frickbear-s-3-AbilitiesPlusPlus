@@ -10,7 +10,7 @@ draw_set_font(global.FontHanddrawn);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_alpha(1 - ((Timer - FadeoutStart) / FadeoutTime));
-draw_text(320, y, $"Endings Discovered: {EndingsFound - (Timer <= TickUp)} / {EndingsTotal}");
+draw_text(320, y, string("Endings Discovered: {0} / {1}", EndingsFound - (Timer <= TickUp), EndingsTotal));
 draw_set_alpha(1);
 
 if (Timer > (FadeoutStart + FadeoutTime + 60))

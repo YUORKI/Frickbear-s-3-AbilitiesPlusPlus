@@ -25,5 +25,5 @@ Text = MimicItem.Text;
 AlteredPrice = 666;
 Stock = irandom_range(1, 3);
 Description = oFoxyEXE.ATTR_FakeItemText;
-show_debug_message($"TEXT: {Text}");
-show_debug_message($"X: {x} | Y: {y}");
+show_debug_message(string("TEXT: {0}", Text));
+show_debug_message(string("X: {0} | Y: {1}", x, y));

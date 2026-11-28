@@ -36,7 +36,7 @@ switch (StatsMenu)
             if (ID == UnknownEnum.Value_128)
                 NameString = "Overheat";
             
-            NameString += $" ({TotalKills} {(TotalKills == 1) ? "Death" : "Deaths"})";
+            NameString += string(" ({0} {1})", TotalKills, (TotalKills == 1) ? "Death" : "Deaths");
             
             if (StatsArray[i].Hide)
             {
@@ -67,7 +67,7 @@ switch (StatsMenu)
             var ID = StatsArray[i].CharID;
             var TotalKills = StatsArray[i].Salvages;
             var NameString = global.Descriptions[ID][0];
-            NameString += $" ({TotalKills} {(TotalKills == 1) ? "Salvage" : "Salvages"})";
+            NameString += string(" ({0} {1})", TotalKills, (TotalKills == 1) ? "Salvage" : "Salvages");
             
             if (StatsArray[i].Hide)
             {
@@ -93,7 +93,7 @@ switch (StatsMenu)
         {
             var ID = StatsArray[i].CharID;
             var TotalTokens = StatsArray[i].Tokens;
-            var NameString = $"{StatsArray[i].Name} ({TotalTokens} Tokens Earned) (Hi-Score: {timer_based_minigame(ID) ? format_as_timer(global.HiScoresOverall[ID], true) : global.HiScoresOverall[ID]})";
+            var NameString = string("{0} ({1} Tokens Earned) (Hi-Score: {2})", StatsArray[i].Name, TotalTokens, timer_based_minigame(ID) ? format_as_timer(global.HiScoresOverall[ID], true) : global.HiScoresOverall[ID]);
             
             if (StatsArray[i].Hide)
             {
@@ -119,7 +119,7 @@ switch (StatsMenu)
         {
             var ID = StatsArray[i].CharID;
             var TotalTokens = StatsArray[i].Tokens;
-            var NameString = $"{StatsArray[i].Name} (Bought {TotalTokens} {(TotalTokens == 1) ? "Time" : "Times"})";
+            var NameString = string("{0} (Bought {1} {2})", StatsArray[i].Name, TotalTokens, (TotalTokens == 1) ? "Time" : "Times");
             
             if (StatsArray[i].Hide)
             {

@@ -1,4 +1,4 @@
-audio_group_load(Voicelines_Ingame);
+audio_group_load(voc_Helpy_BuyBuyBuy);
 BodyY = 160;
 BodyYSpeed = 0;
 BodyYTarget = BodyY;
@@ -57,9 +57,9 @@ if (global.Guard >= 21)
 {
     get_folders();
     var dir = working_directory + "addons/" + guard_name(global.Guard) + "/voicelines";
-    show_debug_message($"DIRECTORY: {dir}");
+    show_debug_message(string("DIRECTORY: {0}", dir));
     var QuipList = skin_sound_array_from_directory(dir, "voc_salvageopening", true);
-    show_debug_message($"LIST: {QuipList}");
+    show_debug_message(string("LIST: {0}", QuipList));
     
     if (array_length(QuipList) == 0)
     {

@@ -13,6 +13,7 @@ function VentSound(arg0)
 
 VanishFrame = 0;
 Vanishing = 0;
+Sprite = sBossSalvage_Wires;
 
 function set_wait_time()
 {

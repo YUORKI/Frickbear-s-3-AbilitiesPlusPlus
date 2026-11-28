@@ -927,7 +927,7 @@ function game_text(arg0)
             if (array_length(global.SalvagesCurrent) < global.SalvageQuota)
             {
                 var SalvAmount = global.SalvageQuota - array_length(global.SalvagesCurrent);
-                add_page($"Hey, where do you think YOU'RE going, silly? You're still {SalvAmount} animatronic{(SalvAmount == 1) ? "" : "s"} short!", "Psychic Friend Fredbear");
+                add_page(string("Hey, where do you think YOU'RE going, silly? You're still {0} animatronic{1} short!", SalvAmount, (SalvAmount == 1) ? "" : "s"), "Psychic Friend Fredbear");
                 add_page("No leaving until the salvage quota's met. Company policy!", "Psychic Friend Fredbear");
                 break;
             }
@@ -1502,7 +1502,7 @@ function game_text(arg0)
                             break;
                     }
                     
-                    add_page($"Ah, {global.Descriptions[global.Jumpscare][0]}! {RandomAddendum}", "FazEnt Representative");
+                    add_page(string("Ah, {0}! {1}", global.Descriptions[global.Jumpscare][0], RandomAddendum), "FazEnt Representative");
                     add_page("Remember that all purchases are final and we cannot be held liable for any and all injuries sustained from your decision.", "FazEnt Representative");
                     add_page("Thank you, and have a Faz-eriffic day!", "FazEnt Representative");
                     break;
@@ -2195,7 +2195,7 @@ function game_text(arg0)
                     break;
                 
                 case 2:
-                    add_page($"Which of these animatronics is worth ${get_animatronic_data(UnknownEnum.Value_11).SalvageValue}?", "BB");
+                    add_page(string("Which of these animatronics is worth ${0}?", get_animatronic_data(UnknownEnum.Value_11).SalvageValue), "BB");
                     Answers = array_shuffle([["Withered Bonnie", "BB_Quiz_3"], ["Withered Freddy", "BB_Quiz_Fail"], ["Withered Chica", "BB_Quiz_Fail"], ["Endoskeleton", "BB_Quiz_Fail"]]);
                     break;
             }
@@ -2292,7 +2292,7 @@ function game_text(arg0)
                             break;
                     }
                     
-                    add_page($"¡Oye! ¡Hola! Te estoy hablando, {Insult}! ¿Puedes escucharme?", "Withered Bonnie");
+                    add_page(string("¡Oye! ¡Hola! Te estoy hablando, {0}! ¿Puedes escucharme?", Insult), "Withered Bonnie");
                     add_page("...Oh, solo hablas ingles? Lo siento, cambiaré mi configuración de idioma.", "Withered Bonnie");
                     add_page("Ahem...my apologies.", "Withered Bonnie");
                     add_page("Looking for animatronics to salvage? You should take me! I'm bilingual, I'm a rabbit, and my guitar skills are second to none!", "Withered Bonnie");
@@ -3270,7 +3270,7 @@ function game_text(arg0)
                     add_page("...And all electronic equipment stored in the K-9 facility shall be disposed of immediately.", "BSI Memo");
                     add_page("Any parties interested in claiming this particular piece of equipment may do so, for the company no longer has any use for it.", "BSI Memo");
                     add_page("We must emphasize that the company isn't legally responsible for any aberrations in performance once taken...", "BSI Memo");
-                    add_page($"...But we WILL give you ${string_format(get_animatronic_data(UnknownEnum.Value_82).SalvageValue / 100, 1, 2)} if you take it off our hands.", "BSI Memo");
+                    add_page(string("...But we WILL give you ${0} if you take it off our hands.", string_format(get_animatronic_data(UnknownEnum.Value_82).SalvageValue / 100, 1, 2)), "BSI Memo");
                     break;
                 
                 case UnknownEnum.Value_87:
@@ -4572,7 +4572,7 @@ function game_text(arg0)
                 }
             };
             
-            add_page($"Hi there, {guard_nickname()}. Recognize me?", "");
+            add_page(string("Hi there, {0}. Recognize me?", guard_nickname()), "");
             
             Function[TextPageNumber] = function()
             {
@@ -4594,7 +4594,7 @@ function game_text(arg0)
                 if (MarioKills == 1)
                     add_page("...And, uh... Sorry about killing you that one time, too.", "");
                 else
-                    add_page($"...And, uh... Sorry about those {global.DeathRecord[UnknownEnum.Value_16]} times I killed you, too.", "");
+                    add_page(string("...And, uh... Sorry about those {0} times I killed you, too.", global.DeathRecord[UnknownEnum.Value_16]), "");
                 
                 Function[TextPageNumber] = function()
                 {
@@ -4654,7 +4654,7 @@ function game_text(arg0)
                     change_expression(0);
             };
             
-            add_page($"...You're a real cool person, {guard_nickname()}.", "");
+            add_page(string("...You're a real cool person, {0}.", guard_nickname()), "");
             
             Function[TextPageNumber] = function()
             {
@@ -4688,7 +4688,7 @@ function game_text(arg0)
                 audio_play_sound(sfxPFFAppear, 50, false, 1, 0, 0.6);
             };
             
-            add_page($"Hey, {guard_nickname()}, buddy! What do you think you're doing here, huh?", "");
+            add_page(string("Hey, {0}, buddy! What do you think you're doing here, huh?", guard_nickname()), "");
             
             Function[TextPageNumber] = function()
             {
@@ -4789,7 +4789,7 @@ function game_text(arg0)
                 oScaryFredbear.EyeOffsetSpeed = 4;
             };
             
-            add_page($"C'mon, {guard_nickname()}! You see it too, don't you? They love it here!", "");
+            add_page(string("C'mon, {0}! You see it too, don't you? They love it here!", guard_nickname()), "");
             
             Function[TextPageNumber] = function()
             {
@@ -4833,7 +4833,7 @@ function game_text(arg0)
                 oScaryFredbear.EyeOffsetSpeed = 4;
             };
             
-            add_page($"Here, {guard_nickname()}...", "");
+            add_page(string("Here, {0}...", guard_nickname()), "");
             Delay[TextPageNumber] = 120;
             
             Function[TextPageNumber] = function()
@@ -6979,7 +6979,7 @@ function game_text(arg0)
             
             if (global.RunEarnings >= DrinkPrice)
             {
-                add_page($"...Buy {OMCMode ? "Tipsy" : "one of them"} a drink? (It'll cost you ${string_format(DrinkPrice, 2, 2)}.)", "");
+                add_page(string("...Buy {0} a drink? (It'll cost you ${1}.)", OMCMode ? "Tipsy" : "one of them", string_format(DrinkPrice, 2, 2)), "");
                 add_option("Yes", "Bar_Choice");
                 add_option("No", "Bar_Leave");
             }
@@ -7148,12 +7148,12 @@ function game_text(arg0)
                     with (oTipsyBird_Window)
                     {
                         PageUp = true;
-                        show_debug_message($"Guard: {guard_nickname(global.Lives[0])}");
+                        show_debug_message(string("Guard: {0}", guard_nickname(global.Lives[0])));
                         bitcrush_sound(VoiceLineID, 0, 0, false);
                     }
                 };
                 
-                add_page($"{no_brackets(global.GuardNames[Recipient])} has joined your party!", "");
+                add_page(string("{0} has joined your party!", no_brackets(global.GuardNames[Recipient])), "");
             }
             
             Delay[TextPageNumber] = 1;

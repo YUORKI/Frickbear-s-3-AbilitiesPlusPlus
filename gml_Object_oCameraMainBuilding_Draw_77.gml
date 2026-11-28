@@ -10,7 +10,7 @@ if (keyboard_check_pressed(vk_tab))
 
 draw_rectangle_color(GuideOffset, 0, GuideOffset + GuideWidth, 360, c_black, c_black, c_black, c_black, false);
 draw_set_font(global.FontW97White);
-var GuideText = "CONTROLS:\n" + $"\nMove: {cur_key_name(UnknownEnum.Value_2)}, {cur_key_name(UnknownEnum.Value_3)}, {cur_key_name(UnknownEnum.Value_4)}, {cur_key_name(UnknownEnum.Value_5)}" + $"\nGo Up: {cur_key_name(UnknownEnum.Value_25)}" + $"\nGo Down: {cur_key_name(UnknownEnum.Value_26)}" + $"\nLock/Unlock Cursor: {cur_key_name(UnknownEnum.Value_10)}" + $"\nToggle Guide: {cur_key_name(UnknownEnum.Value_11)}" + $"\nCam Warps: {cur_key_name(UnknownEnum.Value_13)}-{cur_key_name(UnknownEnum.Value_20)}" + "\nTake Cam Photo: Tab" + $"\n\nBack to Extras: {cur_key_name(UnknownEnum.Value_1)}";
+var GuideText = "CONTROLS:\n" + string("\nMove: {0}, {1}, {2}, {3}", cur_key_name(UnknownEnum.Value_2), cur_key_name(UnknownEnum.Value_3), cur_key_name(UnknownEnum.Value_4), cur_key_name(UnknownEnum.Value_5)) + string("\nGo Up: {0}", cur_key_name(UnknownEnum.Value_25)) + string("\nGo Down: {0}", cur_key_name(UnknownEnum.Value_26)) + string("\nLock/Unlock Cursor: {0}", cur_key_name(UnknownEnum.Value_10)) + string("\nToggle Guide: {0}", cur_key_name(UnknownEnum.Value_11)) + string("\nCam Warps: {0}-{1}", cur_key_name(UnknownEnum.Value_13), cur_key_name(UnknownEnum.Value_20)) + "\nTake Cam Photo: Tab" + string("\n\nBack to Extras: {0}", cur_key_name(UnknownEnum.Value_1));
 draw_text(GuideOffset + 6, 6, GuideText);
 TransitionAmount += ((Transitioning - TransitionAmount) / 5);
 

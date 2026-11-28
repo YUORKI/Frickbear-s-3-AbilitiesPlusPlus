@@ -77,7 +77,7 @@ else
     {
         var BoxY = (row * DataBoxHeight) + HeaderOffset;
         var HoveringOverGuessMaker = mouse_in_zone(TabletX, TabletY + BoxY, 384, DataBoxHeight) && !GuessingMode;
-        draw_box(0, BoxY, $"+ NEW GUESS ({GuessesAllowed} LEFT)", HoveringOverGuessMaker ? 16777215 : 0, false, 384);
+        draw_box(0, BoxY, string("+ NEW GUESS ({0} LEFT)", GuessesAllowed), HoveringOverGuessMaker ? 16777215 : 0, false, 384);
         
         if (HoveringOverGuessMaker && mouse_check_button_pressed(mb_left))
         {

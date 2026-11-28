@@ -42,7 +42,7 @@ if (global.Night == "Endless")
         {
             shader_set(shFlash);
             var Sprite = (AllGuards[i] == 999) ? sBarrierBooze : GuardSprite;
-            show_debug_message($"ALLGUARDS: {AllGuards} | FRAME: {Frame} | EXPLODE: {ExplosionFrame}");
+            show_debug_message(string("ALLGUARDS: {0} | FRAME: {1} | EXPLODE: {2}", AllGuards, Frame, ExplosionFrame));
             var Img = (AllGuards[i] == 999) ? ((Frame >= ExplosionFrame) ? 2 : 0) : (AllGuards[i] * 4);
             
             for (var ang = -45; ang < 360; ang += 90)

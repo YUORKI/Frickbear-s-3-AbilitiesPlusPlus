@@ -97,7 +97,7 @@ function randomize_animatronics()
         var LastAnimatronic = array_length(global.ShuffleData.Animatronics);
         
         for (var a = LastAnimatronic; a <= 90; a++)
-            array_push(global.ShuffleData.Animatronics, i);
+            array_push(global.ShuffleData.Animatronics, a);
     }
     
     var Shufflers = global.ShuffleData.Animatronics;

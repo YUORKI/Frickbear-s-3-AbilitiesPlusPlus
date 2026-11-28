@@ -17,7 +17,7 @@ var TileY = 0;
 var Entries = array_length(global.AllTimeSalvages);
 var EntriesPerRow = max(ceil(Entries / 2), 10);
 var EntrySpace = 432 / (EntriesPerRow - 1);
-show_debug_message($"Total Entries: {Entries} | Per Row: {EntriesPerRow} | Space: {EntrySpace}");
+show_debug_message(string("Total Entries: {0} | Per Row: {1} | Space: {2}", Entries, EntriesPerRow, EntrySpace));
 
 for (var i = 0; i < Entries; i++)
 {
@@ -59,7 +59,7 @@ var StickerOffset = 133 * !Victory;
 draw_sprite(sEndlessStickers, global.Difficulty, (ButtonX + StickerOffset) - 13, ButtonY + 11);
 
 if (StickersEarned > 0)
-    draw_text((ButtonX + StickerOffset) - 26, ButtonY + 1, $"{StickersEarned} new sticker{(StickersEarned == 1) ? "" : "s"} earned!");
+    draw_text((ButtonX + StickerOffset) - 26, ButtonY + 1, string("{0} new sticker{1} earned!", StickersEarned, (StickersEarned == 1) ? "" : "s"));
 
 draw_set_halign(fa_left);
 

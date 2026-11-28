@@ -6,7 +6,7 @@ AveragePrice = 0;
 
 for (var i = 0; i <= 90; i++)
 {
-    show_debug_message($"{global.Descriptions[i][0]} : {AveragePrice}");
+    show_debug_message(string("{0} : {1}", global.Descriptions[i][0], AveragePrice));
     AveragePrice += (get_animatronic_data(i).SalvageValue / 100);
 }
 

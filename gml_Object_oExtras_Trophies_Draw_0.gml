@@ -4,7 +4,7 @@ draw_set_font(global.FontW97Black);
 draw_set_halign(fa_left);
 draw_sprite_stretched(sTextBox_Windows, 0, TopBarOffset, 0, 224 - Shrinker, 360);
 draw_sprite_stretched(sTextBox_Windows, 1, TopBarOffset + 28, 4, 192 - Shrinker, 22);
-var TrophyText = "Trophies: " + string(TrophiesNum) + "/" + string(56) + ((ForbiddenTrophiesNum == 0) ? "" : $" (+{ForbiddenTrophiesNum})");
+var TrophyText = "Trophies: " + string(TrophiesNum) + "/" + string(56) + ((ForbiddenTrophiesNum == 0) ? "" : string(" (+{0})", ForbiddenTrophiesNum));
 draw_text(TopBarOffset + 33, 5, TrophyText);
 draw_sprite_stretched(sTextBox_Windows, 2, TopBarOffset + 4, 28, 216 - Shrinker, 328);
 draw_sprite_stretched(sButtonMini, 0, TopBarOffset + 4, 4, 22, 22);

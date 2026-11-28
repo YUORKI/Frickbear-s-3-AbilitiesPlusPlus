@@ -1,4 +1,4 @@
-audio_group_load(Voicelines_Ingame);
+audio_group_load(voc_Helpy_BuyBuyBuy);
 BodyY = 160;
 BodyYSpeed = 0;
 BodyYTarget = BodyY;

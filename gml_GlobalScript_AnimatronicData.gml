@@ -1739,13 +1739,13 @@ function get_total_ai_levels()
     return ReturnValue;
 }
 
-audio_group_load(SoundEffects);
-audio_group_load(Music);
-audio_group_load(JumpScreams);
-audio_group_load(Voicelines_Death);
-audio_group_load(Voicelines_Deathcoin);
-audio_group_load(Voicelines_Ingame);
-audio_group_load(Voicelines_Selection);
+audio_group_load(mus_CandyCadetStory);
+audio_group_load(voc_Marionette_WindUpTheBox);
+audio_group_load(voc_Springtrap_Pathetic);
+audio_group_load(voc_WitheredChica_HaventYouHeard);
+audio_group_load(sfxMontyWhistle);
+audio_group_load(voc_Helpy_BuyBuyBuy);
+audio_group_load(voc_ToyFreddy_HardlyGaming);
 
 function generate_shuffle_array(arg0 = true)
 {

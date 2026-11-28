@@ -11,7 +11,7 @@ if (Hovered && mouse_check_button_pressed(mb_left))
     for (var i = 0; i < min(array_length(Killables), 3); i++)
     {
         var targID = Killables[i];
-        notification($"{global.Descriptions[targID][0]} has been removed!", 2);
+        notification(string("{0} has been removed!", global.Descriptions[targID][0]), 2);
         instance_destroy(get_animatronic_object(targID));
         play_deathcoin_voiceline(targID);
     }

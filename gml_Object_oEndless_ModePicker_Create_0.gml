@@ -11,7 +11,7 @@ until (global.UnlockedGuards[DailyChallengeGuard]);
 
 random_set_seed(CurSeed);
 OptionTitles = ["Solo Mode", "Party Mode", "Daily Challenge"];
-OptionDescs = ["Play as a single guard the whole way through. If you lose all your lives, it's game over!", "Start out with a single guard and recruit more as you play. If a guard loses a life, you switch to the next one!", $"Play a random challenge that changes each day!\n({global.GuardNames[DailyChallengeGuard]} - {DailyChallengeMode ? "Party" : "Solo"} Mode)"];
+OptionDescs = ["Play as a single guard the whole way through. If you lose all your lives, it's game over!", "Start out with a single guard and recruit more as you play. If a guard loses a life, you switch to the next one!", string("Play a random challenge that changes each day!\n({0} - {1} Mode)", global.GuardNames[DailyChallengeGuard], DailyChallengeMode ? "Party" : "Solo")];
 TextOffset = array_create(array_length(OptionTitles), 50);
 draw_set_alpha(1);
 BarOffset = 0;

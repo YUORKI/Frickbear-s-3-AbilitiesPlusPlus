@@ -1355,7 +1355,7 @@ function game_text_midnight(arg0, arg1 = true)
                             Image = 2;
                     };
                     
-                    add_page($"...Oh, {(global.Guard == 1) ? "nothing, nothing" : "no, no"}! I think I just used the wrong saying there, mweehee...", "White Rabbit");
+                    add_page(string("...Oh, {0}! I think I just used the wrong saying there, mweehee...", (global.Guard == 1) ? "nothing, nothing" : "no, no"), "White Rabbit");
                     
                     Function[TextPageNumber] = function()
                     {
@@ -4937,7 +4937,7 @@ function game_text_midnight(arg0, arg1 = true)
                 audio_sound_gain(musMidnight_MissingChild, 1, 0);
             };
             
-            add_page($"If you knew what was good for you, you'd leave {Pronoun} to me. Neither of you have any idea what you're getting yourselves into here.", "Hooded Man");
+            add_page(string("If you knew what was good for you, you'd leave {0} to me. Neither of you have any idea what you're getting yourselves into here.", Pronoun), "Hooded Man");
             
             Function[TextPageNumber] = function()
             {
@@ -4948,7 +4948,7 @@ function game_text_midnight(arg0, arg1 = true)
                 }
             };
             
-            add_page($"What, so YOU can boss {Pronoun} around? Fat chance! You REEK of ulterior motives!", "White Rabbit");
+            add_page(string("What, so YOU can boss {0} around? Fat chance! You REEK of ulterior motives!", Pronoun), "White Rabbit");
             
             Function[TextPageNumber] = function()
             {
@@ -5112,7 +5112,7 @@ function game_text_midnight(arg0, arg1 = true)
                     Image = 0;
             };
             
-            add_page($"...Yes, {guard_nickname()}.", "Hooded Man");
+            add_page(string("...Yes, {0}.", guard_nickname()), "Hooded Man");
             
             Function[TextPageNumber] = function()
             {
@@ -5144,7 +5144,7 @@ function game_text_midnight(arg0, arg1 = true)
                     switch_chars(0, 0);
             };
             
-            add_page($"I understand that you're new around here.{(global.Guard == 2) ? "..at least compared to myself." : ""} Consider yourself lucky that you still have time to change course.", "Hooded Man");
+            add_page(string("I understand that you're new around here.{0} Consider yourself lucky that you still have time to change course.", (global.Guard == 2) ? "..at least compared to myself." : ""), "Hooded Man");
             
             Function[TextPageNumber] = function()
             {
@@ -5168,7 +5168,7 @@ function game_text_midnight(arg0, arg1 = true)
                     switch_chars(4, 1);
             };
             
-            add_page($"Are you...threatening {Pronoun}?", "White Rabbit");
+            add_page(string("Are you...threatening {0}?", Pronoun), "White Rabbit");
             
             Function[TextPageNumber] = function()
             {
@@ -5224,7 +5224,7 @@ function game_text_midnight(arg0, arg1 = true)
                     Image = 3;
             };
             
-            add_page($"Oh well...you get the picture, don't you, {guard_nickname()}?", "White Rabbit");
+            add_page(string("Oh well...you get the picture, don't you, {0}?", guard_nickname()), "White Rabbit");
             
             Function[TextPageNumber] = function()
             {
@@ -5272,7 +5272,7 @@ function game_text_midnight(arg0, arg1 = true)
                     Image = 1;
             };
             
-            add_page($"Listen, er...{guard_nickname()}, was it?", "Hooded Man");
+            add_page(string("Listen, er...{0}, was it?", guard_nickname()), "Hooded Man");
             
             Function[TextPageNumber] = function()
             {
@@ -6323,7 +6323,7 @@ function game_text_midnight(arg0, arg1 = true)
                     switch_chars(5, 1);
             };
             
-            add_page($"Well, {Pronouns[0]} not gonna side with YOU, that's for sure.", "White Rabbit");
+            add_page(string("Well, {0} not gonna side with YOU, that's for sure.", Pronouns[0]), "White Rabbit");
             
             Function[TextPageNumber] = function()
             {
@@ -6331,7 +6331,7 @@ function game_text_midnight(arg0, arg1 = true)
                     Image = 4;
             };
             
-            add_page($"...Though I also doubt {Pronouns[1]}'ll want to side with me either, considering all that stuff I said last night...", "White Rabbit");
+            add_page(string("...Though I also doubt {0}'ll want to side with me either, considering all that stuff I said last night...", Pronouns[1]), "White Rabbit");
             
             Function[TextPageNumber] = function()
             {

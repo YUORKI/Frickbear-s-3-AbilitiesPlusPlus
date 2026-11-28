@@ -78,7 +78,7 @@ draw_sprite_stretched(sTextBox_Windows, 2, MenuOffset + 4, 188, 212, 168);
 draw_text_ext(MenuOffset + 10, 190, DescriptionText, 14, 182);
 
 if (Selected != -1)
-    draw_text(MenuOffset + 10, 335, $"All-Time Hi-Score: {array_contains([UnknownEnum.Value_0, UnknownEnum.Value_4, UnknownEnum.Value_7], Selected) ? format_as_timer(global.HiScoresOverall[Selected], true) : global.HiScoresOverall[Selected]}");
+    draw_text(MenuOffset + 10, 335, string("All-Time Hi-Score: {0}", array_contains([UnknownEnum.Value_0, UnknownEnum.Value_4, UnknownEnum.Value_7], Selected) ? format_as_timer(global.HiScoresOverall[Selected], true) : global.HiScoresOverall[Selected]));
 
 draw_sprite_stretched(sButtonMini, 0, MenuOffset + 4, 4, 22, 22);
 draw_sprite(sButtonMini_Icons, 0, MenuOffset + 4 + 11, 15);

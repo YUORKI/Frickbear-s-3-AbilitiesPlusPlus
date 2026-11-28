@@ -249,7 +249,7 @@ function pick_choices()
         SelectedAnimatronics[i] = true;
     
     AnimatronicQuota = min(AnimatronicQuota, array_length(Choices));
-    show_debug_message($"QUOTA: {AnimatronicQuota} | CHOICES: {ChoiceAmount}");
+    show_debug_message(string("QUOTA: {0} | CHOICES: {1}", AnimatronicQuota, ChoiceAmount));
 }
 
 pick_choices();

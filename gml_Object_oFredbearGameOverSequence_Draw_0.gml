@@ -18,7 +18,7 @@ else if (!Transitioning)
     draw_set_color(c_black);
     
     for (var i = 0; i < min(3, array_length(global.FredbearScoreboard)); i++)
-        draw_text_transformed(356, 170 + (i * 30) + Offset, $"{global.FredbearScoreboard[i].Title} --------------- {global.FredbearScoreboard[i].Score}", 0.75, 0.75, 0);
+        draw_text_transformed(356, 170 + (i * 30) + Offset, string("{0} --------------- {1}", global.FredbearScoreboard[i].Title, global.FredbearScoreboard[i].Score), 0.75, 0.75, 0);
     
     draw_set_color(c_white);
     
